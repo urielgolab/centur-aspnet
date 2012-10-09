@@ -1,8 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Centur2", "..\..\WebSites\Centur2\", "{ED897113-A208-467B-996B-8673C6A24735}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Centur2", "..\..\WebSites\Centur2", "{ED897113-A208-467B-996B-8673C6A24735}"
 	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Svn"
+		SccAuxPath = "Svn"
+		SccLocalPath = "Svn"
+		SccProvider = "SubversionScc"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/Centur2"
 		Debug.AspNetCompiler.PhysicalPath = "..\..\WebSites\Centur2\"
@@ -21,9 +25,17 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Centur2", "..\..\WebSites\C
 		VWDPort = "62812"
 		DefaultWebSiteLanguage = "Visual Basic"
 	EndProjectSection
+	ProjectSection(SvnOrigin) = preProject
+		@Keys = Enlist
+		Enlist = Required
+	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CenturWebService", "..\..\WebSites\CenturWebService\", "{E49BC1C5-B0C1-4897-9BF2-C4AD4462B01C}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CenturWebService", "..\..\WebSites\CenturWebService", "{E49BC1C5-B0C1-4897-9BF2-C4AD4462B01C}"
 	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Svn"
+		SccAuxPath = "Svn"
+		SccLocalPath = "Svn"
+		SccProvider = "SubversionScc"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/CenturWebService"
 		Debug.AspNetCompiler.PhysicalPath = "..\..\WebSites\CenturWebService\"
@@ -42,8 +54,16 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CenturWebService", "..\..\W
 		VWDPort = "55460"
 		DefaultWebSiteLanguage = "Visual Basic"
 	EndProjectSection
+	ProjectSection(SvnOrigin) = preProject
+		@Keys = Enlist
+		Enlist = Required
+	EndProjectSection
 EndProject
 Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection

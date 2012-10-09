@@ -5,9 +5,8 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-        About
+        Bienvenidos a Centur
+        
+        Atte, Los Pibe'
     </h2>
-    <p>
-        Put content here.
-    </p>
 </asp:Content>

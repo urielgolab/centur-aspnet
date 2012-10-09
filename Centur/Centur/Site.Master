@@ -34,12 +34,12 @@
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
                     EnableViewState="False" IncludeStyleBlock="False" Orientation="Horizontal">
                     <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Inicio"/>
+                        <asp:MenuItem NavigateUrl="~/Home.aspx" Text="Inicio"/>
                         <asp:MenuItem NavigateUrl="~/MisGrupos.aspx" Text="Mis Grupos"/>
                         <asp:MenuItem NavigateUrl="~/MisTurnos.aspx" Text="Mis Turnos"/>
                         <asp:MenuItem NavigateUrl="~/MiCuenta.aspx" Text="Mi Cuenta"/>
-                        <asp:MenuItem NavigateUrl="~/Favoritos.aspx" Text="Favoritos"/>
                         <asp:MenuItem NavigateUrl="~/BuscarServicio.aspx" Text="Buscar Servicio"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
                    </Items>
                 </asp:Menu>
                 

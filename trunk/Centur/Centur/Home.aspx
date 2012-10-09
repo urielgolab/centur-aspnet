@@ -5,6 +5,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-        Welcome to ASP.NET!
+        <asp:TextBox runat="server" ID="nombre" />
+        <asp:Button Text="Saludar" runat="server" onclick="Saludar_Click"/>
     </h2>
 </asp:Content>

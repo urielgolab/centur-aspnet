@@ -22,6 +22,10 @@ Public Class Service1
 
     Function GetSum(ByVal nombre As String) As String Implements IService1.Saludar
         Return "Hola " + nombre
+
+
+
+
     End Function
 
 End Class

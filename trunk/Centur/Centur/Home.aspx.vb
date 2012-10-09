@@ -9,5 +9,7 @@ Public Class Home
         Dim Centursvc As New Service1Client()
         Me.nombre.Text = Centursvc.Saludar(name)
 
+
+
     End Sub
 End Class

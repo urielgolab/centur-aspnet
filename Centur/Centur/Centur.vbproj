@@ -299,6 +299,12 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CenturWebReference\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Services\Services.vbproj">
+      <Project>{4D088ABF-AEC6-490A-94E4-CAA5E304E564}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

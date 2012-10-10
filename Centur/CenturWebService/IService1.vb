@@ -2,11 +2,11 @@
 <ServiceContract()>
 Public Interface IService1
 
-    <OperationContract()>
-    Function GetData(ByVal value As Integer) As String
+    '<OperationContract()>
+    'Function GetData(ByVal value As Integer) As String
 
-    <OperationContract()>
-    Function GetDataUsingDataContract(ByVal composite As CompositeType) As CompositeType
+    '<OperationContract()>
+    'Function GetDataUsingDataContract(ByVal composite As CompositeType) As CompositeType
 
     <OperationContract()>
     Function Saludar(ByVal nombre As String) As String

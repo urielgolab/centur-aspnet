@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuscarServicioService.vb" />
-    <Compile Include="Class1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -105,6 +104,10 @@
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.vbproj">
       <Project>{1B3F0F2F-9352-4AE6-B5BA-E085878D04AE}</Project>
       <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.vbproj">
+      <Project>{A0D702FB-2433-430D-9DCD-D00D9FC94E3E}</Project>
+      <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

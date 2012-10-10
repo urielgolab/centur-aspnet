@@ -5,7 +5,7 @@ Public Class BuscarServicioService
 
     Dim oBuscarServicioDA As New DataAccessLayer.BuscarServicioDA()
 
-    Public Function BuscarServicio(ByVal nombre As String, ByVal categoria As String, ByVal zona As String) As ServicioList
+    Public Function BuscarServicio(ByVal nombre As String, ByVal categoria As String, ByVal zona As String, Optional ByVal CalledFromWS As Boolean = False) As ServicioList
         Dim ds As DataSet = oBuscarServicioDA.BuscarServicio(nombre, categoria, zona)
 
         Dim oServicioList As New ServicioList

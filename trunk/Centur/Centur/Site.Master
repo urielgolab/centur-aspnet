@@ -18,8 +18,6 @@
                 </h1>
             </div>
             <div class="loginDisplay">
-                <asp:Button ID="Button1" runat="server" Text="Buscar" />
-                <asp:TextBox ID="TextBox1" runat="server" style="margin-left: 0px"></asp:TextBox>
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
                         [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]

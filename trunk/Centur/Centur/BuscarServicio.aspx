@@ -21,8 +21,9 @@
     <div id="resultados"> Resultados:
     <asp:GridView runat="server" ID="gridResultados" AutoGenerateColumns="false" >
         <Columns>
-            <asp:HyperLinkField HeaderText="Nombre" DataTextField="Nombre" DataNavigateUrlFormatString="DetalleServicio.aspx?servicioID={0}" DataNavigateUrlFields="ID" />
-            <asp:BoundField DataField="Direccion" HeaderText="Direccion"  />
+            <asp:HyperLinkField DataTextField="Nombre" HeaderText="Nombre"  DataNavigateUrlFormatString="DetalleServicio.aspx?servicioID={0}" DataNavigateUrlFields="ID" />
+            <asp:BoundField DataField="Categoria" HeaderText="Categoria"  />
+            <asp:BoundField DataField="Zona" HeaderText="Zona"  />
         </Columns>
     </asp:GridView >
     

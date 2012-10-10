@@ -5,7 +5,7 @@ Public Class BuscarServicioService
 
     Dim oBuscarServicioDA As New DataAccessLayer.BuscarServicioDA()
 
-    Public Sub BuscarServicio(ByVal nombre As String, ByVal categoria As String, ByVal zona As String)
+    Public Function BuscarServicio(ByVal nombre As String, ByVal categoria As String, ByVal zona As String) As ServicioList
         Dim ds As DataSet = oBuscarServicioDA.BuscarServicio(nombre, categoria, zona)
 
         Dim oServicioList As New ServicioList
@@ -16,10 +16,13 @@ Public Class BuscarServicioService
             oServicio.Nombre = CStr(dr("Nombre"))
             oServicio.Categoria = CStr(dr("Categoria"))
             oServicio.Zona = CStr(dr("Zona"))
-            oServicio.Imagen = CType((dr("Imagen")), Image)
+            If Not IsDBNull(dr("Imagen")) Then
+                oServicio.Imagen = CType((dr("Imagen")), Image)
+            End If
             oServicioList.Add(oServicio)
         Next
 
-    End Sub
+        Return oServicioList
+    End Function
 
 End Class

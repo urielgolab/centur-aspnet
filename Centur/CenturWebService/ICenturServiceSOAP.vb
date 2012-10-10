@@ -1,6 +1,8 @@
-﻿' NOTE: You can use the "Rename" command on the context menu to change the interface name "IService1" in both code and config file together.
+﻿Imports System.IO
+
+' NOTE: You can use the "Rename" command on the context menu to change the interface name "IService1" in both code and config file together.
 <ServiceContract()>
-Public Interface IService1
+Public Interface ICenturServiceSOAP
 
     '<OperationContract()>
     'Function GetData(ByVal value As Integer) As String
@@ -9,9 +11,12 @@ Public Interface IService1
     'Function GetDataUsingDataContract(ByVal composite As CompositeType) As CompositeType
 
     <OperationContract()>
-    Function Saludar(ByVal nombre As String) As String
+    <WebGet(UriTemplate:="/BuscarServicio?zona={zona}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function BuscarServicio(ByVal zona As String) As String
 
-    ' TODO: Add your service operations here
+    <OperationContract()>
+    Function BuscarServicio2(ByVal zona As String) As String
+
 
 End Interface
 

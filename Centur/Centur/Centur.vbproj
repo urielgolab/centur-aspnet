@@ -99,14 +99,25 @@
     <Content Include="MiCuenta.aspx" />
     <Content Include="MisGrupos.aspx" />
     <Content Include="MisTurnos.aspx" />
-    <Content Include="ResultadosBusqueda.aspx" />
-    <None Include="Service References\CenturWebReference\Centur.CenturWebReference.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Service References\CenturServiceREST\CenturServiceREST.wsdl" />
+    <None Include="Service References\CenturServiceREST\CenturServiceREST.xsd">
+      <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CenturWebReference\Service1.disco" />
-    <None Include="Service References\CenturWebReference\configuration91.svcinfo" />
-    <None Include="Service References\CenturWebReference\configuration.svcinfo" />
-    <None Include="Service References\CenturWebReference\Reference.svcmap">
+    <None Include="Service References\CenturServiceREST\CenturServiceREST1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CenturServiceSOAP\CenturServiceSOAP.disco" />
+    <None Include="Service References\CenturServiceSOAP\CenturServiceSOAP.wsdl" />
+    <None Include="Service References\CenturServiceSOAP\configuration91.svcinfo" />
+    <None Include="Service References\CenturServiceSOAP\configuration.svcinfo" />
+    <None Include="Service References\CenturServiceSOAP\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\CenturServiceREST\CenturServiceREST.disco" />
+    <None Include="Service References\CenturServiceREST\configuration91.svcinfo" />
+    <None Include="Service References\CenturServiceREST\configuration.svcinfo" />
+    <None Include="Service References\CenturServiceREST\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
@@ -126,9 +137,10 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <None Include="Service References\CenturWebReference\Service12.xsd">
+    <None Include="Service References\CenturServiceSOAP\CenturServiceSOAP2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\CenturServiceSOAP\Service1.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.designer.vb">
@@ -237,14 +249,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ResultadosBusqueda.aspx.designer.vb">
-      <DependentUpon>ResultadosBusqueda.aspx</DependentUpon>
+    <Compile Include="Service References\CenturServiceREST\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="ResultadosBusqueda.aspx.vb">
-      <DependentUpon>ResultadosBusqueda.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="Service References\CenturWebReference\Reference.vb">
+    <Compile Include="Service References\CenturServiceSOAP\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -284,11 +294,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <Content Include="Site.Master" />
-    <None Include="Service References\CenturWebReference\Service1.wsdl" />
-    <None Include="Service References\CenturWebReference\Service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\CenturWebReference\Service11.xsd">
+    <None Include="Service References\CenturServiceSOAP\CenturServiceSOAP.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -299,9 +305,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\CenturWebReference\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.vbproj">
       <Project>{A0D702FB-2433-430D-9DCD-D00D9FC94E3E}</Project>
       <Name>Entities</Name>
@@ -310,6 +313,10 @@
       <Project>{4D088ABF-AEC6-490A-94E4-CAA5E304E564}</Project>
       <Name>Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CenturServiceREST\" />
+    <WCFMetadataStorage Include="Service References\CenturServiceSOAP\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -90,7 +90,8 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Service1.svc" />
+    <Content Include="CenturServiceREST.svc" />
+    <Content Include="CenturServiceSOAP.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -100,10 +101,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service1.svc.vb">
-      <DependentUpon>Service1.svc</DependentUpon>
+    <Compile Include="CenturServiceREST.svc.vb">
+      <DependentUpon>CenturServiceREST.svc</DependentUpon>
     </Compile>
-    <Compile Include="IService1.vb" />
+    <Compile Include="ICenturServiceREST.vb" />
+    <Compile Include="CenturServiceSOAP.svc.vb">
+      <DependentUpon>CenturServiceSOAP.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ICenturServiceSOAP.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -141,6 +146,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.vbproj">
+      <Project>{A0D702FB-2433-430D-9DCD-D00D9FC94E3E}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.vbproj">
+      <Project>{4D088ABF-AEC6-490A-94E4-CAA5E304E564}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

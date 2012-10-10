@@ -4,8 +4,9 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>
-        <asp:TextBox runat="server" ID="nombre" />
-        <asp:Button Text="Saludar" runat="server" onclick="Saludar_Click"/>
-    </h2>
+        <asp:TextBox runat="server" Width="200px" ID="soap" />
+        <asp:Button Text="Ejecutar Servicio SOAP" runat="server" onclick="EjecutarSOAP_Click"/>
+        <br />
+        <asp:TextBox runat="server" Width="200px" ID="rest" />
+        <asp:Button ID="Button1" Text="Ejecutar Servicio REST" runat="server" onclick="EjecutarREST_Click"/>
 </asp:Content>

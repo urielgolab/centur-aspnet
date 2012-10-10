@@ -110,6 +110,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
+    <Content Include="Shared DLLs\BaseClasses.dll" />
+    <Content Include="Shared DLLs\Microsoft.ApplicationBlocks.Data.dll" />
     <Content Include="Styles\Site.css" />
     <Content Include="Home.aspx" />
     <Content Include="Global.asax" />
@@ -300,6 +302,10 @@
     <WCFMetadataStorage Include="Service References\CenturWebReference\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.vbproj">
+      <Project>{A0D702FB-2433-430D-9DCD-D00D9FC94E3E}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services\Services.vbproj">
       <Project>{4D088ABF-AEC6-490A-94E4-CAA5E304E564}</Project>
       <Name>Services</Name>

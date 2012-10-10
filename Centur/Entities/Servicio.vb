@@ -1,4 +1,4 @@
-﻿Imports base
+﻿Imports BaseClasses
 Imports System.Net.Mime.MediaTypeNames
 
 Public Class Servicio
@@ -8,7 +8,7 @@ Public Class Servicio
     Private _nombre As String
     Private _descripcion As String
     Private _categoria As String
-    Private _zona As Integer
+    Private _zona As String
     Private _imagen As Image
 #End Region
 
@@ -58,10 +58,10 @@ Public Class Servicio
 
 End Class
 
-Public Class TqlList
-    Inherits BaseSolutionEntityList(Of TQL)
+Public Class ServicioList
+    Inherits BaseSolutionEntityList(Of Servicio)
 
-    Public Function BindToControl() As List(Of Entities.TQL)
-        Return MyBase.BindToControl
-    End Function
+    'Public Function BindToControl() As List(Of Entities.Servicio)
+    '    Return MyBase.BindToControl
+    'End Function
 End Class

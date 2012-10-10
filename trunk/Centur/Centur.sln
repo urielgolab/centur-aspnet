@@ -16,6 +16,12 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Presenter", "Presenter\Presenter.vbproj", "{76FFF42E-B4F7-42F6-8E56-8A63903C2781}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared DLLs", "Shared DLLs", "{1C84FB2F-91AB-41C1-A5ED-8EEA33C59779}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\..\MailerCode\FY2011-R11.3-AdminTool .NET3.5\BaseClasses\bin\Debug\BaseClasses.dll = ..\..\..\..\..\..\MailerCode\FY2011-R11.3-AdminTool .NET3.5\BaseClasses\bin\Debug\BaseClasses.dll
+		..\..\..\..\..\..\MailerCode\FY2011-R11.3-AdminTool .NET3.5\DATAACCESSLAYER\bin\Microsoft.ApplicationBlocks.Data.dll = ..\..\..\..\..\..\MailerCode\FY2011-R11.3-AdminTool .NET3.5\DATAACCESSLAYER\bin\Microsoft.ApplicationBlocks.Data.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True

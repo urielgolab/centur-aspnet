@@ -23,22 +23,22 @@ Partial Public Class DetalleServicio
     Protected WithEvents nombre As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''direccion control.
+    '''categoria control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents direccion As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents categoria As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''tel control.
+    '''zona control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tel As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents zona As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''imagen control.

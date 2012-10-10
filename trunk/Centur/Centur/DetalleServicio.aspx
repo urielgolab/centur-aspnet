@@ -14,14 +14,14 @@
         <asp:TextBox runat="server" ID="nombre" Enabled="false" />
         <br />
         <label id="Label1">
-            Direccion
+            Categoria
         </label>
-        <asp:TextBox runat="server" ID="direccion" Enabled="false" />
+        <asp:TextBox runat="server" ID="categoria" Enabled="false" />
         <br />
         <label id="Label2">
-            Telefono
+            Zona
         </label>
-        <asp:TextBox runat="server" ID="tel" Enabled="false" />
+        <asp:TextBox runat="server" ID="zona" Enabled="false" />
         <br />
         <br />
         <asp:Image runat="server" ID="imagen" />

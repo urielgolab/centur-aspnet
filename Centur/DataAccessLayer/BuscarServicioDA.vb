@@ -15,4 +15,11 @@ Public Class BuscarServicioDA
         Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.Text, cmdtext.ToString())
     End Function
 
+    Public Function VerDetalleServicio(ByVal ServicioID As String) As DataSet
+        Dim cmdtext As New System.Text.StringBuilder
+        cmdtext.AppendLine("SELECT * FROM Servicio")
+        cmdtext.AppendLine("WHERE ID=" & ServicioID)
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.Text, cmdtext.ToString())
+    End Function
+
 End Class

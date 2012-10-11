@@ -4,10 +4,9 @@
 <ServiceContract()>
 Public Interface ICenturServiceREST
 
-    '<WebGet()>
 
     <OperationContract()>
-    <WebGet(UriTemplate:="/BuscarServicio?zona={zona}", BodyStyle:=WebMessageBodyStyle.Bare, ResponseFormat:=WebMessageFormat.Json)> _
+    <WebGet(UriTemplate:="/BuscarServicio?zona={zona}", ResponseFormat:=WebMessageFormat.Json)> _
     Function BuscarServicio(ByVal zona As String) As String
 
 End Interface

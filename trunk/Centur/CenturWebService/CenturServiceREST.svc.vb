@@ -11,13 +11,19 @@ Public Class CenturServiceREST
 
    
     Public Function BuscarServicio(ByVal zona As String) As String Implements ICenturServiceREST.BuscarServicio
-
         Dim servicios As Entities.ServicioList = oBuscarServicioService.BuscarServicio("cancha", "deportes", "paternal", True)
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(servicios)
         Return strJSON
-        'Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+    Public Function BuscarServicio2(ByVal zona As String) As Stream Implements ICenturServiceREST.BuscarServicio2
+        Dim servicios As Entities.ServicioList = oBuscarServicioService.BuscarServicio("cancha", "deportes", "paternal", True)
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(servicios)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
     End Function
 
 End Class

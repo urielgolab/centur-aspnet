@@ -91,8 +91,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CenturServiceREST.svc" />
-    <Content Include="CenturServiceSOAP.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -105,10 +106,6 @@
       <DependentUpon>CenturServiceREST.svc</DependentUpon>
     </Compile>
     <Compile Include="ICenturServiceREST.vb" />
-    <Compile Include="CenturServiceSOAP.svc.vb">
-      <DependentUpon>CenturServiceSOAP.svc</DependentUpon>
-    </Compile>
-    <Compile Include="ICenturServiceSOAP.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

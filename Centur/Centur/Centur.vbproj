@@ -106,14 +106,6 @@
     <None Include="Service References\CenturServiceREST\CenturServiceREST1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CenturServiceSOAP\CenturServiceSOAP.disco" />
-    <None Include="Service References\CenturServiceSOAP\CenturServiceSOAP.wsdl" />
-    <None Include="Service References\CenturServiceSOAP\configuration91.svcinfo" />
-    <None Include="Service References\CenturServiceSOAP\configuration.svcinfo" />
-    <None Include="Service References\CenturServiceSOAP\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.vb</LastGenOutput>
-    </None>
     <None Include="Service References\CenturServiceREST\CenturServiceREST.disco" />
     <None Include="Service References\CenturServiceREST\configuration91.svcinfo" />
     <None Include="Service References\CenturServiceREST\configuration.svcinfo" />
@@ -137,10 +129,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <None Include="Service References\CenturServiceSOAP\CenturServiceSOAP2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\CenturServiceSOAP\Service1.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.designer.vb">
@@ -254,11 +242,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\CenturServiceSOAP\Reference.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.designer.vb">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
@@ -294,9 +277,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <Content Include="Site.Master" />
-    <None Include="Service References\CenturServiceSOAP\CenturServiceSOAP.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -316,7 +296,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CenturServiceREST\" />
-    <WCFMetadataStorage Include="Service References\CenturServiceSOAP\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

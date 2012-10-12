@@ -12,6 +12,7 @@ Public Class Home
     Protected Sub EjecutarREST_Click(ByVal sender As Object, ByVal e As EventArgs)
         Dim CenturRESTsvc As New CenturServiceRESTClient()
         Me.rest.Text = CenturRESTsvc.BuscarServicio("Flores")
+        'just testing
     End Sub
 
 End Class

@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false" CodeBehind="VerGrupo.aspx.vb" Inherits="Centur.VerGrupo" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false" CodeBehind="DetalleGrupo.aspx.vb" Inherits="Centur.VerGrupo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <h1> Ver grupo </h1>
+    <h1> Detalle grupo </h1>
     <p> 
         <asp:Label ID="Label1" runat="server" Text="Nombre"></asp:Label>
         <asp:TextBox ID="NombreGrupo" runat="server"></asp:TextBox> 

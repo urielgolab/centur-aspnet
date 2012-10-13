@@ -37,6 +37,8 @@
                         <asp:MenuItem NavigateUrl="~/MisTurnos.aspx" Text="Mis Turnos"/>
                         <asp:MenuItem NavigateUrl="~/MiCuenta.aspx" Text="Mi Cuenta"/>
                         <asp:MenuItem NavigateUrl="~/BuscarServicio.aspx" Text="Buscar Servicio"/>
+                        <asp:MenuItem NavigateUrl="~/Favoritos.aspx" Text="Favoritos"/>
+                        <asp:MenuItem NavigateUrl="~/VerEstadisticas.aspx" Text="Estadisticas"/>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
                    </Items>
                 </asp:Menu>

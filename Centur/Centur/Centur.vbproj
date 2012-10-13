@@ -95,7 +95,10 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="BuscarServicio.aspx" />
     <Content Include="CrearGrupo.aspx" />
+    <Content Include="CrearServicio.aspx" />
     <Content Include="DetalleServicio.aspx" />
+    <Content Include="Favoritos.aspx" />
+    <Content Include="Images\logo.png" />
     <Content Include="MiCuenta.aspx" />
     <Content Include="MisGrupos.aspx" />
     <Content Include="MisTurnos.aspx" />
@@ -113,6 +116,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
+    <Content Include="ModificarGrupo.aspx" />
+    <Content Include="ModificarServicio.aspx" />
     <Content Include="Shared DLLs\BaseClasses.dll" />
     <Content Include="Shared DLLs\Microsoft.ApplicationBlocks.Data.dll" />
     <Content Include="Styles\Site.css" />
@@ -121,7 +126,9 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="VerGrupo.aspx" />
+    <Content Include="DetalleGrupo.aspx" />
+    <Content Include="VerDatosPersonales.aspx" />
+    <Content Include="VerEstadisticas.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -180,6 +187,20 @@
       <DependentUpon>CrearGrupo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="CrearServicio.aspx.designer.vb">
+      <DependentUpon>CrearServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearServicio.aspx.vb">
+      <DependentUpon>CrearServicio.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Favoritos.aspx.designer.vb">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Favoritos.aspx.vb">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Home.aspx.vb">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,6 +239,20 @@
       <DependentUpon>MisTurnos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="ModificarGrupo.aspx.designer.vb">
+      <DependentUpon>ModificarGrupo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarGrupo.aspx.vb">
+      <DependentUpon>ModificarGrupo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ModificarServicio.aspx.designer.vb">
+      <DependentUpon>ModificarServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarServicio.aspx.vb">
+      <DependentUpon>ModificarServicio.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -249,11 +284,25 @@
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VerGrupo.aspx.designer.vb">
-      <DependentUpon>VerGrupo.aspx</DependentUpon>
+    <Compile Include="DetalleGrupo.aspx.designer.vb">
+      <DependentUpon>DetalleGrupo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VerGrupo.aspx.vb">
-      <DependentUpon>VerGrupo.aspx</DependentUpon>
+    <Compile Include="DetalleGrupo.aspx.vb">
+      <DependentUpon>DetalleGrupo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="VerDatosPersonales.aspx.designer.vb">
+      <DependentUpon>VerDatosPersonales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerDatosPersonales.aspx.vb">
+      <DependentUpon>VerDatosPersonales.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="VerEstadisticas.aspx.designer.vb">
+      <DependentUpon>VerEstadisticas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerEstadisticas.aspx.vb">
+      <DependentUpon>VerEstadisticas.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

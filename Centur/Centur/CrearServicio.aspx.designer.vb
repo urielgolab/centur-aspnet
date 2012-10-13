@@ -12,5 +12,5 @@ Option Explicit On
 
 
 
-Partial Public Class VerGrupo
+Partial Public Class CrearServicio
 End Class

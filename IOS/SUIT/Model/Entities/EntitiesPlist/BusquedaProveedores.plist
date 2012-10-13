@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Proveedores</key>
+	<array>
+		<dict>
+			<key>nombre</key>
+			<string>Buenos Aires Futbol</string>
+			<key>proveedorID</key>
+			<integer>1</integer>
+			<key>direccion</key>
+			<string>Juan agustin Garcia 2130</string>
+			<key>coordinate</key>
+			<true/>
+			<key>descripcion</key>
+			<string>Canchas de futbol techadas, con cesped sintetico e iluminadas</string>
+			<key>latitude</key>
+			<real>-34.604623</real>
+			<key>longitude</key>
+			<real>-58.44124</real>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>descripcion</key>
+			<string>FAFI Escuelita de futbol para diversas categorias. Torneos deFutbol Femenino Clases de Tango</string>
+			<key>nombre</key>
+			<string>Buenos Aires Sur</string>
+			<key>proveedorID</key>
+			<integer>1</integer>
+			<key>direccion</key>
+			<string>Cochabamba 3650</string>
+			<key>coordinate</key>
+			<true/>
+			<key>latitude</key>
+			<real>-34.604623</real>
+			<key>longitude</key>
+			<real>-58.44124</real>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>descripcion</key>
+			<string>Las instalaciones cuentan con Vestiario, Bar, Escuelita de futbol, Salon para cumpleaños, estacionamiento y organizacion de torneos</string>
+			<key>nombre</key>
+			<string>Futbol Madero</string>
+			<key>proveedorID</key>
+			<integer>1</integer>
+			<key>direccion</key>
+			<string>Elvira Rawson de Dellepiane 340</string>
+			<key>coordinate</key>
+			<true/>
+			<key>latitude</key>
+			<real>-34.604612</real>
+			<key>longitude</key>
+			<real>-58.4412</real>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>descripcion</key>
+			<string>Tenis Megatlon cuenta con 3 canchas de polo de ladrillo a pleno sol./nContamos con excelente iluminacion nocturna (8000 watts por cancha)./nConfortable vestuario con sauna, confiteria con plasmas y wifi,ambiente climatizado.</string>
+			<key>nombre</key>
+			<string>Tenis Megatlon</string>
+			<key>proveedorID</key>
+			<integer>1</integer>
+			<key>direccion</key>
+			<string>Juan agustin Garcia 2130</string>
+			<key>coordinate</key>
+			<true/>
+			<key>latitude</key>
+			<real>-34.604625</real>
+			<key>longitude</key>
+			<real>-58.44176</real>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>descripcion</key>
+			<string>Horario de lunes a viernes de 7:00 a 23:30 hs.</string>
+			<key>nombre</key>
+			<string>La Esquina del Tenis</string>
+			<key>proveedorID</key>
+			<integer>1</integer>
+			<key>direccion</key>
+			<string>Miñones 1720</string>
+			<key>coordinate</key>
+			<true/>
+			<key>latitude</key>
+			<real>-34.604686</real>
+			<key>longitude</key>
+			<real>-58.44148</real>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>descripcion</key>
+			<string>Horario de 8 a 24hs</string>
+			<key>nombre</key>
+			<string>Barrio Parque futbol</string>
+			<key>proveedorID</key>
+			<integer>1</integer>
+			<key>direccion</key>
+			<string>Ortiz de ocampo 3219</string>
+			<key>coordinate</key>
+			<true/>
+			<key>latitude</key>
+			<real>-34.604654</real>
+			<key>longitude</key>
+			<real>-58.44153</real>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>descripcion</key>
+			<string>Canchas de polvo de ladrillo cubierta y al aire libre.  /n www.tenisbuenosaires.com </string>
+			<key>nombre</key>
+			<string>Tennis Buenos Aires</string>
+			<key>proveedorID</key>
+			<integer>1</integer>
+			<key>direccion</key>
+			<string>Juan agustin Garcia 2130</string>
+			<key>coordinate</key>
+			<true/>
+			<key>latitude</key>
+			<real>-34.604613</real>
+			<key>longitude</key>
+			<real>-58.44143</real>
+			<key>imageURL</key>
+			<string></string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Uriel" Class="DC" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Perfil" Member="Perfils">
+    <Type Name="Perfil">
+      <Column Name="idPerfil" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="descrPerfil" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Zona" Member="Zonas">
+    <Type Name="Zona">
+      <Column Name="idZona" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="descrZona" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Servicio" Member="Servicios">
+    <Type Name="Servicio">
+      <Column Name="idServicio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="idCategoria" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idZona" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="idProveedor" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Observaciones" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Grillas" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Reglas" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="idUsuario" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Nombre" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="idPerfil" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

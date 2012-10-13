@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Datos">
+  <DataContextMoniker Name="/DC" />
+  <nestedChildShapes>
+    <classShape Id="bf3f60b6-0a29-4db4-8b1f-d1c147345798" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DC/Perfil" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2ea0e2f5-c022-430d-9c8c-231fdb62f2d9" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f5e72084-7dcd-48b7-bee4-b9ed8a64bea6" absoluteBounds="0.75, 2.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DC/Zona" />
+      <nestedChildShapes>
+        <elementListCompartment Id="303f0324-4a53-41ee-b3e9-006afb41f350" absoluteBounds="0.765, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="070d57eb-7561-4043-801e-b31ef7a37259" absoluteBounds="3.75, 0.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DC/Servicio" />
+      <nestedChildShapes>
+        <elementListCompartment Id="334afc45-78c6-4aa7-a5d5-4dcd4b3b7ce4" absoluteBounds="3.765, 1.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ffca2ed7-c8b7-46e5-8c23-b2de3f7aa4af" absoluteBounds="0.75, 4.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DC/Usuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c93a220-40a3-42a0-9da3-4f7032996c04" absoluteBounds="0.765, 5.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

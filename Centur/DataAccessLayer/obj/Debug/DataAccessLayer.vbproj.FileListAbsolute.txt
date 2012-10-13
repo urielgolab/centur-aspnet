@@ -1,0 +1,11 @@
+C:\Desarrollo\Centur\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Desarrollo\Centur\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Desarrollo\Centur\DataAccessLayer\bin\Debug\DataAccessLayer.xml
+C:\Desarrollo\Centur\DataAccessLayer\bin\Debug\Microsoft.ApplicationBlocks.Data.dll
+C:\Desarrollo\Centur\DataAccessLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\Desarrollo\Centur\DataAccessLayer\obj\Debug\DataAccessLayer.Resources.resources
+C:\Desarrollo\Centur\DataAccessLayer\obj\Debug\GenerateResource.read.1.tlog
+C:\Desarrollo\Centur\DataAccessLayer\obj\Debug\GenerateResource.write.1.tlog
+C:\Desarrollo\Centur\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Desarrollo\Centur\DataAccessLayer\obj\Debug\DataAccessLayer.xml
+C:\Desarrollo\Centur\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

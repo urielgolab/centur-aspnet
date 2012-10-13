@@ -1,0 +1,184 @@
+h1
+{
+	font-size:large;
+	font-family:Verdana;
+	color:Black;
+	text-decoration: underline;
+}
+
+a
+{
+  font-weight: bold;
+  text-decoration: underline;
+  color: Navy;
+}
+
+.linkNoUnderline a 
+{ 
+	text-decoration: none; 
+}
+
+body
+{
+    color: Black;
+    font-family: Verdana;
+    font-size: small;
+    margin-left:30px;
+}   
+
+.Button
+{
+    border: thin double #666666;
+    direction: ltr;
+    font-weight: bold;
+    text-align: center;
+    background-color: #ECECEC;
+    color: #000066;
+    cursor: hand;
+    text-decoration: underline;
+}
+
+.Label
+{
+  direction: ltr;
+  text-align: left;
+  color: Black;
+  display: inline;
+  overflow: visible;
+  position: static;
+  visibility: visible;
+  z-index: auto;
+}
+
+.Titulo
+{
+  font-size: 9 pt;
+  font-weight: bold;
+  color: Black;
+}
+
+.TextBox
+{
+    border: thin solid #C0C0C0;
+    font-weight: bold;
+    vertical-align: middle;
+    color: #000066;
+    background-color: #FFFFCC;
+    text-align: right;
+}
+
+.TextBox2
+{
+    border: thin solid #C0C0C0;
+    font-weight: bold;
+    vertical-align: middle;
+    color: #000066;
+    background-color: #FFFFCC;
+    text-align: left;
+}
+
+.Importante
+{
+  font-weight: bold;
+  direction: ltr;
+  vertical-align: middle;
+  word-spacing: normal;
+  color: Black;
+  background-color: #FFFF8A;
+
+  border-style: solid;
+  border-width: 1;
+  border-color: Red;
+
+  display: inline;
+
+  overflow: hidden;
+  position: static;
+  visibility: visible;
+  z-index: auto;
+}
+
+.CheckBox
+{
+  direction: ltr;
+  font-weight: bold;
+  text-indent: 5pt;
+  border-style: none;
+  display: inline;
+  position: static;
+  visibility: visible;
+  z-index: auto;
+}
+
+.Panel
+{
+    border: thin dotted #C0C0C0;
+    background-color: #FAFAFA;
+}
+
+.PanelLogin
+{
+    border: thin dotted #C0C0C0;
+    background-color: #EAEAEA;
+    width: 400px;
+    height: 95px;
+}
+
+
+.DropDownList
+{
+    border: thin solid #C0C0C0;
+    font-weight: bold;
+    direction: ltr;
+    vertical-align: middle;
+    word-spacing: normal;
+    color: #000066;
+    background-color: #FFFFCC;
+    display: inline;
+    overflow: auto;
+    position: static;
+    visibility: visible;
+    z-index: auto;
+    margin-left: 0px;
+	width: 400px;
+}
+
+.RadioButtonList
+{
+  font-weight: bold;
+}
+
+.ImageButton
+{
+  direction: ltr;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  vertical-align: middle;
+  margin: auto auto auto auto;
+  display: inline;
+  visibility: visible;
+  z-index: auto;
+}
+
+.Disable
+{
+    visibility:hidden;
+}
+
+.CollapsedPanel
+{
+	width: 850px;
+    height: 0px;
+    background-color: #CCCCFF;
+    overflow: hidden;
+}
+
+.CollapsedTitulo
+{
+	width: 850px;
+    height: 18px;
+    background-color: DarkSlateBlue;
+    font-weight: bold;
+}
+  

@@ -1,0 +1,12 @@
+D:\Desarrollo\Moebius\Datos\bin\Debug\Datos.dll.config
+D:\Desarrollo\Moebius\Datos\bin\Debug\Datos.dll
+D:\Desarrollo\Moebius\Datos\bin\Debug\Datos.pdb
+D:\Desarrollo\Moebius\Datos\obj\Debug\ResolveAssemblyReference.cache
+D:\Desarrollo\Moebius\Datos\obj\Debug\Datos.dll
+D:\Desarrollo\Moebius\Datos\obj\Debug\Datos.pdb
+C:\Desarrollo\Centur2\Datos\bin\Debug\Datos.dll.config
+C:\Desarrollo\Centur2\Datos\bin\Debug\Datos.dll
+C:\Desarrollo\Centur2\Datos\bin\Debug\Datos.pdb
+C:\Desarrollo\Centur2\Datos\obj\Debug\ResolveAssemblyReference.cache
+C:\Desarrollo\Centur2\Datos\obj\Debug\Datos.dll
+C:\Desarrollo\Centur2\Datos\obj\Debug\Datos.pdb

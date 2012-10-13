@@ -48,6 +48,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -334,6 +335,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{E0A75608-4CD7-4F0B-933D-3C6E02E20EEB}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.vbproj">
       <Project>{A0D702FB-2433-430D-9DCD-D00D9FC94E3E}</Project>
       <Name>Entities</Name>

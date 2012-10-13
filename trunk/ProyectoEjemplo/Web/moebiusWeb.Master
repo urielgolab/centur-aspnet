@@ -1,0 +1,72 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="moebiusWeb.master.cs" Inherits="Web.moebiusWeb" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Moebius</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+<link href="default.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="Imagenes/favicon.ico" />
+<script type="text/javascript" src="javaScript/doiMenu/doiMenuDOM.js"></script>
+<script type="text/javascript" src="javaScript/doiMenu/functions.js"></script>
+    <asp:Literal ID="menu"  runat="server"></asp:Literal>
+</head>
+<body>
+<form id="formMaster" runat="server">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td align="left">
+        <div>
+          <script language="JavaScript" type="text/JavaScript">
+              mm0.SetPosition('relative', 0, 0);
+              mm0.SetCorrection(0, 0);
+              mm0.SetCellSpacing(2);
+              mm0.SetItemDimension(50, 20);
+              mm0.SetShadow(true, '#B0B0B0', 6);
+              mm0._pop.SetCorrection(0, 0);
+              mm0._pop.SetItemDimension(150, 20);
+              mm0._pop.SetPaddings(1);
+              mm0._pop.SetBackground('whitesmoke', 'Imagenes/xp.gif', 'repeat-y', 'top left');
+              mm0._pop.SetSeparator(125, 'right', 'gray', '');
+              mm0._pop.SetExpandIcon(true, '', 6);
+              mm0._pop.SetFont('tahoma,verdana,arial', '8pt');
+              mm0._pop.SetBorder(1, 'gray', 'solid');
+              mm0._pop.SetShadow(true, '#B0B0B0', 6);
+              mm0._pop.SetDelay(500);
+              mm0.Build();
+            </script>
+        </div>
+      </td>
+      <td align="right">
+        <table><tr>
+            <td><asp:ImageButton ID="btnHome" runat="server" ImageUrl="~/Imagenes/home.gif"  ToolTip="Inicio"
+                    onclick="btnHome_Click" style="width: 14px" /></td>
+            <td><asp:ImageButton ID="btnLogout" runat="server" 
+                    ImageUrl="~/Imagenes/logout_icon.gif" ToolTip="Logout" onclick="btnLogout_Click" /></td>
+        </tr></table>
+        
+      </td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+    </tr>
+
+<tr>
+    <td colspan="2">
+    <div>
+        <h1 runat="server" id="lblPuerta" style="color:Red;text-decoration:none;"></h1>
+        <asp:ContentPlaceHolder ID="cphPrincipal" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </td>
+</tr>
+  </table>
+
+    <asp:ContentPlaceHolder ID="cphFooter" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</form>
+</body>
+</html>

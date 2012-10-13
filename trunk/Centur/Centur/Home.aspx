@@ -4,6 +4,6 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-       <asp:TextBox runat="server" Width="200px" ID="rest" />
-        <asp:Button ID="Button1" Text="Ejecutar Servicio REST" runat="server" onclick="EjecutarREST_Click"/>
+      <h1>Welcome to Centur</h1>
+      <img src="Images/logo.png" alt="centur" />
 </asp:Content>

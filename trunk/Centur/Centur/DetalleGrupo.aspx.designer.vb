@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class MisGrupos
+Partial Public Class VerGrupo
 
     '''<summary>
     '''Label1 control.
@@ -23,40 +23,13 @@ Partial Public Class MisGrupos
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''DropDownList1 control.
+    '''NombreGrupo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DropDownList1 As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''CrearGrupo control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents CrearGrupo As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''ModificarGrupo control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ModificarGrupo As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''EliminarGrupo control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents EliminarGrupo As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents NombreGrupo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Label2 control.
@@ -68,13 +41,31 @@ Partial Public Class MisGrupos
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''DropDownList2 control.
+    '''DescripGrupo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DropDownList2 As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents DescripGrupo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Label3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ListBox1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ListBox1 As Global.System.Web.UI.WebControls.ListBox
 
     '''<summary>
     '''LinkButton1 control.
@@ -93,13 +84,4 @@ Partial Public Class MisGrupos
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LinkButton2 As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''LinkButton3 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents LinkButton3 As Global.System.Web.UI.WebControls.LinkButton
 End Class

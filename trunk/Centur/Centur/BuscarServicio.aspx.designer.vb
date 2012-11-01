@@ -14,6 +14,24 @@ Option Explicit On
 Partial Public Class BuscarServicio
 
     '''<summary>
+    '''ArbolCategorias control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ArbolCategorias As Global.System.Web.UI.WebControls.TreeView
+
+    '''<summary>
+    '''ArbolZonas control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ArbolZonas As Global.System.Web.UI.WebControls.TreeView
+
+    '''<summary>
     '''nombre control.
     '''</summary>
     '''<remarks>
@@ -23,40 +41,22 @@ Partial Public Class BuscarServicio
     Protected WithEvents nombre As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''categoria control.
+    '''TextBox1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents categoria As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''zona control.
+    '''TextBox2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents zona As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''GridView1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''LinqDataSource1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents LinqDataSource1 As Global.System.Web.UI.WebControls.LinqDataSource
+    Protected WithEvents TextBox2 As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''buscar control.
@@ -65,7 +65,25 @@ Partial Public Class BuscarServicio
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents buscar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents buscar As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''reset control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents reset As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''resultados control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents resultados As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''gridResultados control.

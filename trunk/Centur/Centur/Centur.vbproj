@@ -179,7 +179,7 @@
     </Compile>
     <Compile Include="BuscarServicio.aspx.vb">
       <DependentUpon>BuscarServicio.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CrearGrupo.aspx.designer.vb">
       <DependentUpon>CrearGrupo.aspx</DependentUpon>

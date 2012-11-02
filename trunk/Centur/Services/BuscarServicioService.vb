@@ -22,24 +22,44 @@ Public Class BuscarServicioService
         Return oServicioList
     End Function
 
-    Public Function VerDetalleServicio(ByVal ServicioID As String) As Servicio
+
+    Public Function VerDetalleServicio(ByVal ServicioID As Integer) As Servicio
         Dim ds As DataSet = oBuscarServicioDA.VerDetalleServicio(ServicioID)
-        Dim dr As DataRow = ds.Tables(0).Rows(0)
+        'Dim dr As DataRow = ds.Tables(0).Rows(0)
 
         Dim oServicio As New Servicio
 
-        If ds.Tables(0).Rows.Count > 0 Then
-            oServicio.ID = CInt(dr("ID"))
-            oServicio.Nombre = CStr(dr("Nombre"))
-            oServicio.Categoria = CStr(dr("Categoria"))
-            oServicio.Zona = CStr(dr("Zona"))
-            If Not IsDBNull(dr("Imagen")) Then
-                oServicio.Imagen = CType((dr("Imagen")), Image)
-            End If
-        End If
+        'If ds.Tables(0).Rows.Count > 0 Then
+        '    oServicio.ID = CInt(dr("ID"))
+        '    oServicio.Nombre = CStr(dr("Nombre"))
+        '    oServicio.Categoria = CStr(dr("Categoria"))
+        '    oServicio.Zona = CStr(dr("Zona"))
+        '    If Not IsDBNull(dr("Imagen")) Then
+        '        oServicio.Imagen = CType((dr("Imagen")), Image)
+        '    End If
+        'End If
 
         Return oServicio
     End Function
+
+
+    Public Function VerTurnosServicioxDia(ByVal idServicio As Integer, ByVal fecha As Date) As TurnoList
+
+        Dim ds As DataSet = oBuscarServicioDA.VerTurnosServicioxDia(idServicio, fecha)
+
+        Dim oTurnoList As New TurnoList
+
+        For Each dr As DataRow In ds.Tables(0).Rows
+            Dim oTurno As New Turno
+
+            oTurnoList.Add(oTurno)
+        Next
+
+
+        Return oTurnoList
+    End Function
+
+
 
     Public Function BuscarCategorias() As DataTable
 

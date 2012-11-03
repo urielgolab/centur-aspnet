@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false"
+﻿<%@ Page Title="Buscar Servicio" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false"
     CodeBehind="BuscarServicio.aspx.vb" Inherits="Centur.BuscarServicio" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">

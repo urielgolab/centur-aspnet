@@ -176,49 +176,22 @@ Partial Public Class DetalleServicio
     Protected WithEvents VolveraBusqueda As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''PedirTurno control.
+    '''txtDatePicker control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents PedirTurno As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents txtDatePicker As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''DIVPedirTurno control.
+    '''VerHorarios control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DIVPedirTurno As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''CalendarTurnos control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents CalendarTurnos As Global.System.Web.UI.WebControls.Calendar
-
-    '''<summary>
-    '''ConfirmarFechaTurno control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ConfirmarFechaTurno As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''DIVSeleccionHorario control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents DIVSeleccionHorario As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents VerHorarios As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''HorariosxDia control.

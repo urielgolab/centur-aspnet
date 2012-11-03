@@ -9,7 +9,7 @@ Public Class DetalleServicio
     Dim MaxDate As Date = Date.Now.AddDays(7)
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        DivPedirTurno.Visible = False
+        'DivPedirTurno.Visible = False
         ServicioID = CInt(Request.QueryString("ServicioID"))
 
         Dim servicio As Entities.Servicio = oBuscarServicioService.VerDetalleServicio(ServicioID)
@@ -22,23 +22,8 @@ Public Class DetalleServicio
     End Sub
 
   
-    Protected Sub PedirTurno_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PedirTurno.Click
-        DivPedirTurno.Visible = True
-    End Sub
-
-    Private Sub CalendarTurnos_DayRender(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.DayRenderEventArgs) Handles CalendarTurnos.DayRender
-        If e.Day.Date < MinDate OrElse e.Day.Date > MaxDate Then
-            e.Day.IsSelectable = False
-        End If
-    End Sub
-
-    Private Sub ConfirmarFechaTurno_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ConfirmarFechaTurno.Click
-        DIVSeleccionHorario.Visible = True
-
-        Dim selectedDate As Date = CalendarTurnos.SelectedDate
+    Private Sub VerHorarios_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles VerHorarios.Click
+        Dim selectedDate As Date = CType(txtDatePicker.Text.ToString, Date)
         oBuscarServicioService.VerTurnosServicioxDia(ServicioID, selectedDate)
-
-
-
     End Sub
 End Class

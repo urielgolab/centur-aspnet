@@ -40,6 +40,8 @@
                         <asp:MenuItem NavigateUrl="~/Favoritos.aspx" Text="Favoritos"/>
                         <asp:MenuItem NavigateUrl="~/VerEstadisticas.aspx" Text="Estadisticas"/>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                        <asp:MenuItem NavigateUrl="~/Login.aspx" Text="Loguearse"/>
+                        <asp:MenuItem NavigateUrl="~/Registrer.aspx" Text="Registrarse"/>
                    </Items>
                 </asp:Menu>
                 

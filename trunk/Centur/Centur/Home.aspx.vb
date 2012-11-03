@@ -5,6 +5,6 @@ Public Class Home
     Dim oLoginService As New Services.LoginService()
 
     Private Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'Session("idUsuario") = 
+
     End Sub
 End Class

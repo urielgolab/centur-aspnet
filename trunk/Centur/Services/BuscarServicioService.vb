@@ -63,14 +63,34 @@ Public Class BuscarServicioService
 
 
 
-    Public Function BuscarCategorias(ByVal accion As String, Optional ByVal idCategoria As Integer = 0) As DataTable
+    Public Function BuscarCategorias(ByVal accion As String, Optional ByVal idCategoria As Integer = 0) As CategoriaList
         Dim ds As DataSet = oBuscarServicioDA.BuscarCategorias(accion, idCategoria)
-        Return ds.Tables(0)
+        Dim oCategoriaList As New CategoriaList
+
+        For Each dr As DataRow In ds.Tables(0).Rows
+            Dim oCategoria As New Categoria
+            oCategoria.IDCategoria = dr("idCategoria")
+            oCategoria.NombreCategoria = dr("descripcion")
+
+            oCategoriaList.Add(oCategoria)
+        Next
+
+        Return oCategoriaList
     End Function
 
-    Public Function BuscarZonas(ByVal accion As String, Optional ByVal idZona As Integer = 0) As DataTable
+    Public Function BuscarZonas(ByVal accion As String, Optional ByVal idZona As Integer = 0) As ZonaList
         Dim ds As DataSet = oBuscarServicioDA.BuscarZonas(accion, idZona)
-        Return ds.Tables(0)
+        Dim oZonaList As New ZonaList
+
+        For Each dr As DataRow In ds.Tables(0).Rows
+            Dim oZona As New Zona
+            oZona.IDZona = dr("idZona")
+            oZona.NombreZona = dr("descripcion")
+
+            oZonaList.Add(oZona)
+        Next
+
+        Return oZonaList
     End Function
 
 End Class

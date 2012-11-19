@@ -50,8 +50,8 @@
             <p>
                 <asp:Label ID="Label2" runat="server">Tipo de usuario:</asp:Label>
                 <asp:RadioButtonList ID="TipoUsuario" runat="server" >
-                    <asp:ListItem Text="Proveedor" Value="1" />
-                    <asp:ListItem Text="Cliente" Value="2" />
+                    <asp:ListItem Text="Proveedor" Value="P" />
+                    <asp:ListItem Text="Cliente" Value="C" />
                 </asp:RadioButtonList>
             </p>
         </fieldset>

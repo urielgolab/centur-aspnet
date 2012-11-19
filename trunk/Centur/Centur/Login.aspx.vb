@@ -4,19 +4,28 @@
     Dim oLoginService As New Services.LoginService()
 
     Protected Sub Entrar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Entrar.Click
-
-        'oLoginService.GetUserInfo(Me.NombreUsuario.Text)
-
-        'Comprobar si el username y pass son correctas.
         Dim usuarioValido As Boolean
-        If Me.NombreUsuario.Text.Length > 0 Then
-            usuarioValido = True
-        Else
+
+        If Me.NombreUsuario.Text = "" Or Me.Password.Text = "" Then
             usuarioValido = False
+        Else
+            Dim oUsuario As New Entities.Usuario
+            oUsuario = oLoginService.GetUserInfo(Me.NombreUsuario.Text)
+
+            If oUsuario.Contraseña Is Nothing Then
+                usuarioValido = False
+            Else
+                If Me.Password.Text = oUsuario.Contraseña Then
+                    usuarioValido = True
+                Else
+                    usuarioValido = False
+                End If
+            End If
         End If
 
         If usuarioValido Then
-            'Cargar todas las propiedades del usuario en variable de sesion / variable global.
+            ' Cargar todas las propiedades del usuario en variable de sesion / variable global.
+            ' Armar el menu de acuerdo a su perfil (cliente/proveedor)
             Response.Redirect("~/Home.aspx")
         Else
             'Mostrar mensaje de error.

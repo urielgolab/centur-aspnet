@@ -6,7 +6,7 @@ Public Class Registrer
 
     Private Sub Registrarse_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Registrarse.Click
 
-        Dim rolUsuario As Integer = CInt(TipoUsuario.SelectedValue)
+        Dim rolUsuario As String = CStr(TipoUsuario.SelectedValue)
 
         Dim RegistroExitoso As Boolean = oLoginService.RegistrarUsuario(Me.NombreUsuario.Text, Me.Password.Text, Me.Telefono.Text, rolUsuario)
 

@@ -3,6 +3,7 @@
 Public Class Turno
 
 #Region "Attributes"
+    Private _idTurno As Integer
     Private _horaInicio As String
     Private _horaFin As String
     Private _disponible As Boolean
@@ -10,6 +11,15 @@ Public Class Turno
 
 
 #Region "Properties"
+    Public Property idTurno() As Integer
+        Get
+            Return _idTurno
+        End Get
+        Set(ByVal value As Integer)
+            _idTurno = value
+        End Set
+    End Property
+
     Public Property horaInicio() As String
         Get
             Return _horaInicio

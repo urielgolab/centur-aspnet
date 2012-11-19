@@ -44,6 +44,18 @@ Public Class BuscarServicioService
     End Function
 
 
+    Public Function ReservarTurno(ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String) As Turno
+        Dim dr As DataRow = oBuscarServicioDA.ReservarTurno(TurnoHoraInicio, TurnoHoraFin).Tables(0).Rows(0)
+        Dim oTurno As New Turno
+
+        oTurno.idTurno = dr("idTurno")
+        'oTurno.horaInicio = dr("horaInicio")
+        'oTurno.horaFin = dr("horaFin")
+
+        Return oTurno
+    End Function
+
+
     Public Function VerTurnosServicioxDia(ByVal idServicio As Integer, ByVal fecha As Date) As TurnoList
         Dim ds As DataSet = oBuscarServicioDA.VerTurnosServicioxDia(idServicio, fecha)
 
@@ -60,8 +72,6 @@ Public Class BuscarServicioService
 
         Return oTurnoList
     End Function
-
-
 
     Public Function BuscarCategorias(ByVal accion As String, Optional ByVal idCategoria As Integer = 0) As CategoriaList
         Dim ds As DataSet = oBuscarServicioDA.BuscarCategorias(accion, idCategoria)

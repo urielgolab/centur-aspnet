@@ -52,48 +52,63 @@
     End Function
 
     Private Sub ArmarArbolCategorias()
-        Dim dt As DataTable = oBuscarServicioService.BuscarCategorias()
 
         ArbolCategorias.Nodes.Clear()
-        Dim RootNodes As DataRow() = dt.Select("ParentID=0")
+        Dim dt As DataTable = oBuscarServicioService.BuscarCategorias("R")
+        Dim RootNodes As DataRowCollection = dt.Rows
 
         For Each row As DataRow In RootNodes
             Dim node As New TreeNode
-            node.Value = row("ID")
-            node.Text = row("Nombre")
-            AddChildNodes(node, dt)
+            node.Value = row("idCategoria")
+            node.Text = row("descripcion")
+            AddChildNodesCategorias(node)
             ArbolCategorias.Nodes.Add(node)
         Next
     End Sub
 
-    Private Sub ArmarArbolZonas()
-        Dim dt As DataTable = oBuscarServicioService.BuscarZonas()
+    Private Sub AddChildNodesCategorias(ByRef ParentNode As TreeNode)
+        Dim dt As DataTable = oBuscarServicioService.BuscarCategorias("H", ParentNode.Value)
+        Dim ChildNodes As DataRowCollection = dt.Rows
 
+        For Each row As DataRow In ChildNodes
+            Dim node As New TreeNode
+            Dim ChildNode As New TreeNode
+            ChildNode.Value = row("idCategoria")
+            ChildNode.Text = row("descripcion")
+            AddChildNodesCategorias(ChildNode)
+            ParentNode.ChildNodes.Add(ChildNode)
+        Next
+    End Sub
+
+    Private Sub ArmarArbolZonas()
         ArbolZonas.Nodes.Clear()
-        Dim RootNodes As DataRow() = dt.Select("ParentID=0")
+        Dim dt As DataTable = oBuscarServicioService.BuscarZonas("R")
+        Dim RootNodes As DataRowCollection = dt.Rows
 
         For Each row As DataRow In RootNodes
             Dim node As New TreeNode
-            node.Value = row("ID")
-            node.Text = row("Nombre")
-            AddChildNodes(node, dt)
+            node.Value = row("idZona")
+            node.Text = row("descripcion")
+            AddChildNodesZonas(node)
             ArbolZonas.Nodes.Add(node)
         Next
     End Sub
 
-    Private Sub AddChildNodes(ByRef ParentNode As TreeNode, ByVal dt As DataTable)
-        Dim ChildNodes As DataRow() = dt.Select("ParentID=" + CStr(ParentNode.Value))
+    Private Sub AddChildNodesZonas(ByRef ParentNode As TreeNode)
+        Dim dt As DataTable = oBuscarServicioService.BuscarZonas("H", ParentNode.Value)
+        Dim ChildNodes As DataRowCollection = dt.Rows
 
-        For Each row As DataRow In dt.Rows
-            If row("ParentID") = ParentNode.Value Then
-                Dim ChildNode As New TreeNode
-                ChildNode.Value = row("ID")
-                ChildNode.Text = row("Nombre")
-                AddChildNodes(ChildNode, dt)
-                ParentNode.ChildNodes.Add(ChildNode)
-            End If
+        For Each row As DataRow In ChildNodes
+            Dim node As New TreeNode
+            Dim ChildNode As New TreeNode
+            ChildNode.Value = row("idZona")
+            ChildNode.Text = row("descripcion")
+            AddChildNodesZonas(ChildNode)
+            ParentNode.ChildNodes.Add(ChildNode)
         Next
     End Sub
+
+
 
 
 

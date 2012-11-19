@@ -14,7 +14,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#DIVPedirTurno').hide();
+//            $('#DIVPedirTurno').hide();
             $('#DIVVerHorarios').hide();
         });
      </script>
@@ -40,25 +40,25 @@
         Detalle Servicio
     </h1>
     <div>
-        <asp:Label ID="Label4" runat="server" Text="Nombre"></asp:Label>
+        <asp:Label ID="Label4" runat="server" Text="Nombre:"></asp:Label>
         <asp:Label ID="NombreServicio" runat="server"></asp:Label>
         <br />
-        <asp:Label ID="Label1" runat="server" Text="Descripcion"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Descripcion:"></asp:Label>
         <asp:Label ID="DescripcionServicio" runat="server"></asp:Label>
         <br />
-        <asp:Label ID="Label2" runat="server" Text="Categoria"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text="Categoria:"></asp:Label>
         <asp:Label ID="CategoriaServicio" runat="server"></asp:Label>
         <br />
-        <asp:Label ID="Label3" runat="server" Text="Zona"></asp:Label>
+        <asp:Label ID="Label3" runat="server" Text="Zona:"></asp:Label>
         <asp:Label ID="ZonaServicio" runat="server"></asp:Label>
         <br />
-        <asp:Label ID="Label5" runat="server" Text="Precio"></asp:Label>
+        <asp:Label ID="Label5" runat="server" Text="Precio:"></asp:Label>
         <asp:Label ID="PrecioServicio" runat="server"></asp:Label>
         <br />
-        <asp:Label ID="Label6" runat="server" Text="Proveedor"></asp:Label>
+        <asp:Label ID="Label6" runat="server" Text="Proveedor:"></asp:Label>
         <asp:Label ID="ProveedorServicio" runat="server"></asp:Label>
         <br />
-        <asp:Label ID="Label7" runat="server" Text="Direccion"></asp:Label>
+        <asp:Label ID="Label7" runat="server" Text="Direccion:"></asp:Label>
         <asp:Label ID="DireccionServicio" runat="server"></asp:Label>
         <br />
         <asp:Image runat="server" ID="ImagenServicio" />
@@ -75,10 +75,14 @@
     <div id="DIVPedirTurno" style="height: 300px;" >
         <asp:TextBox runat="server" ID="txtDatePicker"></asp:TextBox>
         <asp:LinkButton ID="VerHorarios" runat="server"> Ver Horarios </asp:LinkButton>
+<asp:GridView ID="HorariosxDia" runat="server">
+            </asp:GridView>
 
         <div id="DIVVerHorarios" >
-            <asp:ListView ID="HorariosxDia" runat="server">
+            <asp:ListView ID="HorariosxDia2" runat="server">
             </asp:ListView>
+            
+
         </div>
     </div>
 </asp:Content>

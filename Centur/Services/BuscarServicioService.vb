@@ -25,74 +25,52 @@ Public Class BuscarServicioService
 
     Public Function VerDetalleServicio(ByVal ServicioID As Integer) As Servicio
         Dim ds As DataSet = oBuscarServicioDA.VerDetalleServicio(ServicioID)
-        'Dim dr As DataRow = ds.Tables(0).Rows(0)
 
         Dim oServicio As New Servicio
 
-        'If ds.Tables(0).Rows.Count > 0 Then
-        '    oServicio.ID = CInt(dr("ID"))
-        '    oServicio.Nombre = CStr(dr("Nombre"))
-        '    oServicio.Categoria = CStr(dr("Categoria"))
-        '    oServicio.Zona = CStr(dr("Zona"))
-        '    If Not IsDBNull(dr("Imagen")) Then
-        '        oServicio.Imagen = CType((dr("Imagen")), Image)
-        '    End If
-        'End If
+        If ds.Tables(0).Rows.Count > 0 Then
+            Dim dr As DataRow = ds.Tables(0).Rows(0)
+
+            oServicio.ID = CInt(dr("idServicio"))
+            oServicio.Nombre = CStr(dr("Nombre"))
+            oServicio.Categoria = CStr(dr("Categoria"))
+            oServicio.Zona = CStr(dr("Zona"))
+            'If Not IsDBNull(dr("Foto")) Then
+            '    oServicio.Imagen = CType((dr("Imagen")), Image)
+            'End If
+        End If
 
         Return oServicio
     End Function
 
 
     Public Function VerTurnosServicioxDia(ByVal idServicio As Integer, ByVal fecha As Date) As TurnoList
-
         Dim ds As DataSet = oBuscarServicioDA.VerTurnosServicioxDia(idServicio, fecha)
 
         Dim oTurnoList As New TurnoList
 
         For Each dr As DataRow In ds.Tables(0).Rows
             Dim oTurno As New Turno
+            oTurno.horaInicio = dr("horaInicio")
+            oTurno.horaFin = dr("horaFin")
+            oTurno.Disponible = dr("Disponible")
 
             oTurnoList.Add(oTurno)
         Next
-
 
         Return oTurnoList
     End Function
 
 
 
-    Public Function BuscarCategorias() As DataTable
-
-        Dim dt As New DataTable
-        dt.Columns.Add("ID")
-        dt.Columns.Add("ParentID")
-        dt.Columns.Add("Nombre")
-
-        dt.Rows.Add(1, 0, "futbol")
-        dt.Rows.Add(4, 0, "tenis")
-        dt.Rows.Add(2, 1, "cesped")
-        dt.Rows.Add(3, 1, "cemento")
-        dt.Rows.Add(5, 4, "polvo")
-        dt.Rows.Add(6, 4, "cesped")
-        dt.Rows.Add(7, 4, "cemento")
-
-        Return dt
-
+    Public Function BuscarCategorias(ByVal accion As String, Optional ByVal idCategoria As Integer = 0) As DataTable
+        Dim ds As DataSet = oBuscarServicioDA.BuscarCategorias(accion, idCategoria)
+        Return ds.Tables(0)
     End Function
 
-    Public Function BuscarZonas() As DataTable
-        Dim dt As New DataTable
-        dt.Columns.Add("ID")
-        dt.Columns.Add("ParentID")
-        dt.Columns.Add("Nombre")
-
-        dt.Rows.Add(1, 0, "Buenos Aires")
-        dt.Rows.Add(2, 0, "Cordoba")
-        dt.Rows.Add(3, 1, "Flores")
-        dt.Rows.Add(4, 1, "Paternal")
-        dt.Rows.Add(5, 2, "Carlos Paz")
-
-        Return dt
+    Public Function BuscarZonas(ByVal accion As String, Optional ByVal idZona As Integer = 0) As DataTable
+        Dim ds As DataSet = oBuscarServicioDA.BuscarZonas(accion, idZona)
+        Return ds.Tables(0)
     End Function
 
 End Class

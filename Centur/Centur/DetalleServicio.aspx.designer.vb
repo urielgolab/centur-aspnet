@@ -200,5 +200,14 @@ Partial Public Class DetalleServicio
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents HorariosxDia As Global.System.Web.UI.WebControls.ListView
+    Protected WithEvents HorariosxDia As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''HorariosxDia2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents HorariosxDia2 As Global.System.Web.UI.WebControls.ListView
 End Class

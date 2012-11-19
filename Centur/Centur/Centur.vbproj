@@ -122,6 +122,7 @@
     <Content Include="ModificarGrupo.aspx" />
     <Content Include="ModificarServicio.aspx" />
     <Content Include="Registrer.aspx" />
+    <Content Include="ReservarTurno.aspx" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.9.1.custom.js" />
@@ -289,6 +290,13 @@
     </Compile>
     <Compile Include="Registrer.aspx.vb">
       <DependentUpon>Registrer.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ReservarTurno.aspx.designer.vb">
+      <DependentUpon>ReservarTurno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReservarTurno.aspx.vb">
+      <DependentUpon>ReservarTurno.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Service References\CenturServiceREST\Reference.vb">

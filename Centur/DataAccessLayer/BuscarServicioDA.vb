@@ -32,8 +32,12 @@ Public Class BuscarServicioDA
         Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "ObtenerGrillaTurnos_Trucha", params)
     End Function
 
-    Public Function ReservarServicio(ByVal idUsuario As Integer, ByVal idServicio As Integer) As DataSet
+    Public Function ReservarTurno(ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String) As DataSet
         'RESERVAR 1 TURNO PARA DICHO USUARIO
+
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@TurnoHoraInicio", TurnoHoraInicio), New SqlParameter("@TurnoHoraFin", TurnoHoraFin)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "ReservarTurno", params)
     End Function
 
     Public Function BuscarCategorias(ByVal accion As String, Optional ByVal idCategoria As Integer = 0) As DataSet

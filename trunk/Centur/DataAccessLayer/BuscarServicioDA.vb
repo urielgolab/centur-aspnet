@@ -40,18 +40,37 @@ Public Class BuscarServicioDA
         Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "ReservarTurno", params)
     End Function
 
-    Public Function BuscarCategorias(ByVal accion As String, Optional ByVal idCategoria As Integer = 0) As DataSet
+    Public Function BuscarCategorias(ByVal accion As String, ByRef Mensaje As String, ByRef Status As Boolean, Optional ByVal idCategoria As Integer = 0) As DataSet
+        Dim ParamStatus As New SqlParameter("@status", SqlDbType.Bit)
+        ParamStatus.Direction = ParameterDirection.Output
+        Dim ParamMensaje As New SqlParameter("@mensaje", SqlDbType.VarChar, 500)
+        ParamMensaje.Direction = ParameterDirection.Output
+
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@accion", accion), New SqlParameter("@idCategoria", idCategoria)}
-        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "BuscarCategoria", params)
+        Dim ds As DataSet = SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "BuscarCategoria", params)
+
+        Status = ParamStatus.Value
+        Mensaje = ParamMensaje.Value
+
+        Return ds
     End Function
 
 
-    Public Function BuscarZonas(ByVal accion As String, Optional ByVal idZona As Integer = 0) As DataSet
-        Dim cmdtext As New StringBuilder
+    Public Function BuscarZonas(ByVal accion As String, ByRef Mensaje As String, ByRef Status As Boolean, Optional ByVal idZona As Integer = 0) As DataSet
+        Dim ParamStatus As New SqlParameter("@status", SqlDbType.Bit)
+        ParamStatus.Direction = ParameterDirection.Output
+        Dim ParamMensaje As New SqlParameter("@mensaje", SqlDbType.VarChar, 500)
+        ParamMensaje.Direction = ParameterDirection.Output
+
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@accion", accion), New SqlParameter("@idZona", idZona)}
-        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "BuscarZona", params)
+        Dim ds As DataSet = SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "BuscarZona", params)
+
+        Status = ParamStatus.Value
+        Mensaje = ParamMensaje.Value
+
+        Return ds
     End Function
 
 End Class

@@ -5,8 +5,12 @@ Public Class LoginService
     Dim oLoginDA As New DataAccessLayer.LoginDA()
 
     Public Function GetUserInfo(ByVal nombreUsuario As String) As Usuario
+
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
         Dim oUsuario As New Usuario
-        Dim ds As DataSet = oLoginDA.GetUserInfo(nombreUsuario)
+        Dim ds As DataSet = oLoginDA.GetUserInfo(nombreUsuario, Mensaje, Status)
 
         If ds.Tables(0).Rows.Count > 0 Then
             Dim dr As DataRow = ds.Tables(0).Rows(0)
@@ -25,9 +29,12 @@ Public Class LoginService
 
     Public Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal Password As String, ByVal Telefono As String, ByVal rolUsuario As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String) As Boolean
 
-        Dim RegistroExitoso As Boolean = oLoginDA.RegistrarUsuario(NombreUsuario, Password, Telefono, rolUsuario, nombre, apellido, email)
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
 
-        If RegistroExitoso Then
+        Dim ds As DataSet = oLoginDA.RegistrarUsuario(NombreUsuario, Password, Telefono, rolUsuario, nombre, apellido, email, Mensaje, Status)
+
+        If Status Then
             Return True
         Else
             Return False

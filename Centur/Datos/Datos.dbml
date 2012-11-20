@@ -1,39 +1,259 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Uriel" Class="DC" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Table Name="dbo.Perfil" Member="Perfils">
-    <Type Name="Perfil">
-      <Column Name="idPerfil" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="descrPerfil" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+  <Table Name="dbo.Categoria" Member="Categorias">
+    <Type Name="Categoria">
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="raiz" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Categoria_Servicio" Member="Servicios" ThisKey="idCategoria" OtherKey="idCategoria" Type="Servicio" />
+      <Association Name="Categoria_SubCategoria" Member="SubCategorias" ThisKey="idCategoria" OtherKey="idCategoriaHijo" Type="SubCategoria" />
+      <Association Name="Categoria_SubCategoria1" Member="SubCategorias1" ThisKey="idCategoria" OtherKey="idCategoriaPadre" Type="SubCategoria" />
     </Type>
   </Table>
   <Table Name="dbo.Zona" Member="Zonas">
     <Type Name="Zona">
-      <Column Name="idZona" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="descrZona" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idZona" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="raiz" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Zona_Servicio" Member="Servicios" ThisKey="idZona" OtherKey="idZona" Type="Servicio" />
+      <Association Name="Zona_SubZona" Member="SubZonas" ThisKey="idZona" OtherKey="idZonaPadre" Type="SubZona" />
+      <Association Name="Zona_SubZona1" Member="SubZonas1" ThisKey="idZona" OtherKey="idZonaHijo" Type="SubZona" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Constantes" Member="Constantes">
+    <Type Name="Constante">
+      <Column Name="IdConstante" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idNombreConstante" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="valor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="NombreConstante_Constante" Member="NombreConstante" ThisKey="idNombreConstante" OtherKey="idNombreVariable" Type="NombreConstante" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Grilla" Member="Grillas">
+    <Type Name="Grilla">
+      <Column Name="idGrilla" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="vigenciaDesde" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="vigenciaHasta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Grilla_GrillaConfiguracionDia" Member="GrillaConfiguracionDias" ThisKey="idGrilla" OtherKey="idGrilla" Type="GrillaConfiguracionDia" />
+      <Association Name="Grilla_GrillaExepcion" Member="GrillaExepcions" ThisKey="idGrilla" OtherKey="idGrilla" Type="GrillaExepcion" />
+      <Association Name="Grilla_ServicioGrilla" Member="ServicioGrillas" ThisKey="idGrilla" OtherKey="idGrilla" Type="ServicioGrilla" />
+      <Association Name="Grilla_Turno" Member="Turnos" ThisKey="idGrilla" OtherKey="idGrilla" Type="Turno" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GrillaConfiguracionDia" Member="GrillaConfiguracionDias">
+    <Type Name="GrillaConfiguracionDia">
+      <Column Name="idConfiguracionDia" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idGrilla" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="GrillaConfiguracionDia_GrillaConfiguracionHoraria" Member="GrillaConfiguracionHorarias" ThisKey="idConfiguracionDia" OtherKey="idConfiguracionDia" Type="GrillaConfiguracionHoraria" />
+      <Association Name="Grilla_GrillaConfiguracionDia" Member="Grilla" ThisKey="idGrilla" OtherKey="idGrilla" Type="Grilla" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GrillaConfiguracionHoraria" Member="GrillaConfiguracionHorarias">
+    <Type Name="GrillaConfiguracionHoraria">
+      <Column Name="idConfiguracionHoraria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idConfiguracionDia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="horaInicio" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="horaFin" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="capacidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="duracion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="GrillaConfiguracionDia_GrillaConfiguracionHoraria" Member="GrillaConfiguracionDia" ThisKey="idConfiguracionDia" OtherKey="idConfiguracionDia" Type="GrillaConfiguracionDia" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GrillaExepcion" Member="GrillaExepcions">
+    <Type Name="GrillaExepcion">
+      <Column Name="idExepcion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idGrilla" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="horaInicio" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="horaFin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Grilla_GrillaExepcion" Member="Grilla" ThisKey="idGrilla" OtherKey="idGrilla" Type="Grilla" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Grupo" Member="Grupos">
+    <Type Name="Grupo">
+      <Column Name="IdGrupo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tipoGrupo" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Grupo_ServicioGrupo" Member="ServicioGrupos" ThisKey="IdGrupo" OtherKey="idGrupo" Type="ServicioGrupo" />
+      <Association Name="Grupo_UsuarioGrupo" Member="UsuarioGrupos" ThisKey="IdGrupo" OtherKey="idGupo" Type="UsuarioGrupo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NombreConstantes" Member="NombreConstantes">
+    <Type Name="NombreConstante">
+      <Column Name="idNombreVariable" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="NombreConstante_Constante" Member="Constantes" ThisKey="idNombreVariable" OtherKey="idNombreConstante" Type="Constante" />
     </Type>
   </Table>
   <Table Name="dbo.Servicio" Member="Servicios">
     <Type Name="Servicio">
-      <Column Name="idServicio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Descripcion" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="idCategoria" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="idZona" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="idProveedor" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Observaciones" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Grillas" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Reglas" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="idServicio" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idZona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idProveedor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="observaciones" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="privacidad" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tipoConfirmacion" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="envioRecordatorio" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sobreturno" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="diasFuturo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="diasAntes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="foto" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Servicio_ServicioFavorito" Member="ServicioFavoritos" ThisKey="idServicio" OtherKey="idServicio" Type="ServicioFavorito" />
+      <Association Name="Servicio_ServicioGrilla" Member="ServicioGrillas" ThisKey="idServicio" OtherKey="idServicio" Type="ServicioGrilla" />
+      <Association Name="Servicio_ServicioGrupo" Member="ServicioGrupos" ThisKey="idServicio" OtherKey="idServicio" Type="ServicioGrupo" />
+      <Association Name="Categoria_Servicio" Member="Categoria" ThisKey="idCategoria" OtherKey="idCategoria" Type="Categoria" IsForeignKey="true" />
+      <Association Name="Zona_Servicio" Member="Zona" ThisKey="idZona" OtherKey="idZona" Type="Zona" IsForeignKey="true" />
+      <Association Name="Usuario_Servicio" Member="Usuario" ThisKey="idProveedor" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ServicioFavoritos" Member="ServicioFavoritos">
+    <Type Name="ServicioFavorito">
+      <Column Name="idServicioFavorito" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idServicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Servicio_ServicioFavorito" Member="Servicio" ThisKey="idServicio" OtherKey="idServicio" Type="Servicio" IsForeignKey="true" />
+      <Association Name="Usuario_ServicioFavorito" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ServicioGrilla" Member="ServicioGrillas">
+    <Type Name="ServicioGrilla">
+      <Column Name="idServicioGrilla" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idGrilla" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idServicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Grilla_ServicioGrilla" Member="Grilla" ThisKey="idGrilla" OtherKey="idGrilla" Type="Grilla" IsForeignKey="true" />
+      <Association Name="Servicio_ServicioGrilla" Member="Servicio" ThisKey="idServicio" OtherKey="idServicio" Type="Servicio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ServicioGrupo" Member="ServicioGrupos">
+    <Type Name="ServicioGrupo">
+      <Column Name="idServicioGrupo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idServicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Grupo_ServicioGrupo" Member="Grupo" ThisKey="idGrupo" OtherKey="IdGrupo" Type="Grupo" IsForeignKey="true" />
+      <Association Name="Servicio_ServicioGrupo" Member="Servicio" ThisKey="idServicio" OtherKey="idServicio" Type="Servicio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SubCategoria" Member="SubCategorias">
+    <Type Name="SubCategoria">
+      <Column Name="idCategoriaHijo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idSubCategoria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idCategoriaPadre" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Categoria_SubCategoria" Member="Categoria" ThisKey="idCategoriaHijo" OtherKey="idCategoria" Type="Categoria" IsForeignKey="true" />
+      <Association Name="Categoria_SubCategoria1" Member="Categoria1" ThisKey="idCategoriaPadre" OtherKey="idCategoria" Type="Categoria" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SubZona" Member="SubZonas">
+    <Type Name="SubZona">
+      <Column Name="idSubZona" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idZonaPadre" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idZonaHijo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Zona_SubZona" Member="Zona" ThisKey="idZonaPadre" OtherKey="idZona" Type="Zona" IsForeignKey="true" />
+      <Association Name="Zona_SubZona1" Member="Zona1" ThisKey="idZonaHijo" OtherKey="idZona" Type="Zona" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Turno" Member="Turnos">
+    <Type Name="Turno">
+      <Column Name="idturno" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idGrilla" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="horaInicio" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="horaFin" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Association Name="Grilla_Turno" Member="Grilla" ThisKey="idGrilla" OtherKey="idGrilla" Type="Grilla" IsForeignKey="true" />
+      <Association Name="Usuario_Turno" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Usuario" Member="Usuarios">
     <Type Name="Usuario">
-      <Column Name="idUsuario" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Nombre" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Apellido" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Telefono" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="idPerfil" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tipoUsuario" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreUsuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Usuario_Servicio" Member="Servicios" ThisKey="idUsuario" OtherKey="idProveedor" Type="Servicio" />
+      <Association Name="Usuario_ServicioFavorito" Member="ServicioFavoritos" ThisKey="idUsuario" OtherKey="idUsuario" Type="ServicioFavorito" />
+      <Association Name="Usuario_Turno" Member="Turnos" ThisKey="idUsuario" OtherKey="idUsuario" Type="Turno" />
+      <Association Name="Usuario_UsuarioGrupo" Member="UsuarioGrupos" ThisKey="idUsuario" OtherKey="idUsuario" Type="UsuarioGrupo" />
     </Type>
   </Table>
+  <Table Name="dbo.UsuarioGrupo" Member="UsuarioGrupos">
+    <Type Name="UsuarioGrupo">
+      <Column Name="idUsuarioGrupo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idGupo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Grupo_UsuarioGrupo" Member="Grupo" ThisKey="idGupo" OtherKey="IdGrupo" Type="Grupo" IsForeignKey="true" />
+      <Association Name="Usuario_UsuarioGrupo" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.BuscarCategoria" Method="BuscarCategoria">
+    <Parameter Name="accion" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="idCategoria" Type="System.Int32" DbType="Int" />
+    <ElementType Name="BuscarCategoriaResult">
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.RegistrarUsuario" Method="RegistrarUsuario">
+    <Parameter Name="tipoUsuario" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="nombreUsuario" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="telefono" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="apellido" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BuscarServicio" Method="BuscarServicio">
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="categorias" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="zonas" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
+    <ElementType Name="BuscarServicioResult">
+      <Column Name="idServicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idZona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idProveedor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="observaciones" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="privacidad" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tipoConfirmacion" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="envioRecordatorio" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sobreturno" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="diasFuturo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="diasAntes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="foto" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Categoria" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Zona" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.BuscarZona" Method="BuscarZona">
+    <Parameter Name="accion" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="idZona" Type="System.Int32" DbType="Int" />
+    <ElementType Name="BuscarZonaResult">
+      <Column Name="idZona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ObtenerGrillaTurnos" Method="ObtenerGrillaTurnos">
+    <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fecha" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="grilla" Type="System.String" DbType="NVarChar(3999)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ObtenerGrillaTurnos_Trucha" Method="ObtenerGrillaTurnos_Trucha">
+    <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fecha" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="ObtenerGrillaTurnos_TruchaResult">
+      <Column Name="HoraInicio" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="HoraFin" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Disponible" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

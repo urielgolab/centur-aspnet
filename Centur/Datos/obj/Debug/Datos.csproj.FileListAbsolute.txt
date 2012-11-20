@@ -16,3 +16,9 @@ C:\Desarrollo\Centur\Datos\obj\Debug\Datos.pdb
 C:\Desarrollo\Centur\Datos\bin\Debug\Datos.dll.config
 C:\Desarrollo\Centur\Datos\bin\Debug\Datos.dll
 C:\Desarrollo\Centur\Datos\bin\Debug\Datos.pdb
+C:\Desarrollo\Centur\trunk\Centur\Datos\bin\Debug\Datos.dll.config
+C:\Desarrollo\Centur\trunk\Centur\Datos\bin\Debug\Datos.dll
+C:\Desarrollo\Centur\trunk\Centur\Datos\bin\Debug\Datos.pdb
+C:\Desarrollo\Centur\trunk\Centur\Datos\obj\Debug\ResolveAssemblyReference.cache
+C:\Desarrollo\Centur\trunk\Centur\Datos\obj\Debug\Datos.dll
+C:\Desarrollo\Centur\trunk\Centur\Datos\obj\Debug\Datos.pdb

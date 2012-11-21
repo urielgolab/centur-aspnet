@@ -73,8 +73,8 @@ Public Class BuscarServicioService
         Return oTurnoList
     End Function
 
-    Public Function BuscarCategorias(ByVal accion As String, ByRef Mensaje As String, ByRef Status As Boolean, Optional ByVal idCategoria As Integer = 0) As CategoriaList
-        Dim ds As DataSet = oBuscarServicioDA.BuscarCategorias(accion, Mensaje, Status, idCategoria)
+    Public Function BuscarCategorias(ByVal accion As String, Optional ByVal idCategoria As Integer = 0, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As CategoriaList
+        Dim ds As DataSet = oBuscarServicioDA.BuscarCategorias(accion, idCategoria, Mensaje, Status)
         Dim oCategoriaList As New CategoriaList
 
         For Each dr As DataRow In ds.Tables(0).Rows
@@ -88,8 +88,8 @@ Public Class BuscarServicioService
         Return oCategoriaList
     End Function
 
-    Public Function BuscarZonas(ByVal accion As String, ByRef Mensaje As String, ByRef Status As Boolean, Optional ByVal idZona As Integer = 0) As ZonaList
-        Dim ds As DataSet = oBuscarServicioDA.BuscarZonas(accion, Mensaje, Status, idZona)
+    Public Function BuscarZonas(ByVal accion As String, Optional ByVal idZona As Integer = 0, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As ZonaList
+        Dim ds As DataSet = oBuscarServicioDA.BuscarZonas(accion, idZona, Mensaje, Status)
         Dim oZonaList As New ZonaList
 
         For Each dr As DataRow In ds.Tables(0).Rows

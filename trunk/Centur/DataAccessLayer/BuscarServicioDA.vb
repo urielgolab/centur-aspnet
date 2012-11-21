@@ -40,7 +40,7 @@ Public Class BuscarServicioDA
         Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "ReservarTurno", params)
     End Function
 
-    Public Function BuscarCategorias(ByVal accion As String, ByRef Mensaje As String, ByRef Status As Boolean, Optional ByVal idCategoria As Integer = 0) As DataSet
+    Public Function BuscarCategorias(ByVal accion As String, Optional ByVal idCategoria As Integer = 0, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As DataSet
         Dim ParamStatus As New SqlParameter("@status", SqlDbType.Bit)
         ParamStatus.Direction = ParameterDirection.Output
         Dim ParamMensaje As New SqlParameter("@mensaje", SqlDbType.VarChar, 500)
@@ -57,7 +57,7 @@ Public Class BuscarServicioDA
     End Function
 
 
-    Public Function BuscarZonas(ByVal accion As String, ByRef Mensaje As String, ByRef Status As Boolean, Optional ByVal idZona As Integer = 0) As DataSet
+    Public Function BuscarZonas(ByVal accion As String, Optional ByVal idZona As Integer = 0, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As DataSet
         Dim ParamStatus As New SqlParameter("@status", SqlDbType.Bit)
         ParamStatus.Direction = ParameterDirection.Output
         Dim ParamMensaje As New SqlParameter("@mensaje", SqlDbType.VarChar, 500)

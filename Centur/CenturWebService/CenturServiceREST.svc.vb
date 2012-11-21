@@ -31,7 +31,7 @@ Public Class CenturServiceREST
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
-        Dim categorias As CategoriaList = oBuscarServicioService.BuscarCategorias(accion, Mensaje, Status, idCategoria)
+        Dim categorias As CategoriaList = oBuscarServicioService.BuscarCategorias(accion, idCategoria, Mensaje, Status)
 
         Dim result As New JSONResult
         result.Estado = Status
@@ -47,7 +47,7 @@ Public Class CenturServiceREST
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
-        Dim zonas As ZonaList = oBuscarServicioService.BuscarZonas(accion, Mensaje, Status, idZona)
+        Dim zonas As ZonaList = oBuscarServicioService.BuscarZonas(accion, idZona, Mensaje, Status)
 
         Dim result As New JSONResult
         result.Estado = Status

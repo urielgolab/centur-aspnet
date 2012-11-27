@@ -9,6 +9,13 @@ Public Class FavoritosService
         Return oFavoritosDA.AltaFavorito(idUsuario, idServicio, Mensaje, Status)
     End Function
 
+    Public Function BajaFavoritos(ByVal idUsuario As Integer, ByVal idServicio As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As Boolean
+
+        Return oFavoritosDA.bajaFavorito(idUsuario, idServicio, Mensaje, Status)
+
+    End Function
+
+
     Public Function esFavorito(ByVal idUsuario As Integer, ByVal idServicio As Integer) As Boolean
 
         Dim ds As DataSet = oFavoritosDA.esFavorito(idUsuario, idServicio)
@@ -19,5 +26,6 @@ Public Class FavoritosService
         End If
 
     End Function
+
 
 End Class

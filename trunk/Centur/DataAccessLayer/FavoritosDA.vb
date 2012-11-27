@@ -9,10 +9,18 @@ Public Class FavoritosDA
 
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario), New SqlParameter("@idServicio", idServicio)}
-
         SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "AltaFavorito", params)
 
         Return True 'cambiar mas adelante
+
+    End Function
+
+    Public Function bajaFavorito(ByVal idUsuario As Integer, ByVal idServicio As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As Boolean
+        Dim params() As SqlParameter
+
+        params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario), New SqlParameter("@idServicio", idServicio)}
+        SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "BajaFavorito", params)
+        Return True 'cambiar mas adelante tambien
 
     End Function
 

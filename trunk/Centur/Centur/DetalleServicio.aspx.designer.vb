@@ -140,6 +140,24 @@ Partial Public Class DetalleServicio
     Protected WithEvents DireccionServicio As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''Favoritos control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Favoritos As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''Mensaje control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Mensaje As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''ImagenServicio control.
     '''</summary>
     '''<remarks>

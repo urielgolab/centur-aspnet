@@ -16,6 +16,23 @@
                                      CssClass="failureNotification" ErrorMessage="User Name is required." ToolTip="User Name is required." 
                                      ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>--%>
             </p>
+
+            <p>
+                <asp:Label ID="Label3" runat="server">Nombre:</asp:Label>
+                <asp:TextBox ID="Nombre" runat="server" CssClass="textEntry"></asp:TextBox>
+                <%--<asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
+                                     CssClass="failureNotification" ErrorMessage="User Name is required." ToolTip="User Name is required." 
+                                     ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>--%>
+            </p>
+
+            <p>
+                <asp:Label ID="Label4" runat="server">Apellido:</asp:Label>
+                <asp:TextBox ID="Apellido" runat="server" CssClass="textEntry"></asp:TextBox>
+                <%--<asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
+                                     CssClass="failureNotification" ErrorMessage="User Name is required." ToolTip="User Name is required." 
+                                     ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>--%>
+            </p>
+
             <p>
                 <asp:Label ID="EmailLabel" runat="server">E-mail:</asp:Label>
                 <asp:TextBox ID="Email" runat="server" CssClass="textEntry"></asp:TextBox>

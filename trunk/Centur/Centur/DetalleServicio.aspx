@@ -13,7 +13,7 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function () {
-            //            $('#DIVPedirTurno').hide();
+            //$('#DIVPedirTurno').hide();
             $('#DIVVerHorarios').hide();
         });
     </script>
@@ -56,6 +56,8 @@
         <asp:Label ID="Label7" runat="server" Text="Direccion:"></asp:Label>
         <asp:Label ID="DireccionServicio" runat="server"></asp:Label>
         <br />
+        <asp:LinkButton ID="Favoritos" runat="server"> </asp:LinkButton>
+        <asp:Label ID="Mensaje" runat="server"></asp:Label>
         <asp:Image runat="server" ID="ImagenServicio" />
         <div id="GruposAsociadosServ">
             <asp:Label ID="Label8" runat="server" Text="Grupos"></asp:Label>
@@ -67,15 +69,15 @@
         <asp:LinkButton ID="VolveraBusqueda" PostBackUrl="~/BuscarServicio.aspx" runat="server"> Volver </asp:LinkButton>
         <a href="#" id="PedirTurno">Pedir Turno</a>
     </div>
-    <div id="DIVPedirTurno" style="height: 300px;">
+    <div id="DIVPedirTurno" style="height: 600px;">
         <asp:TextBox runat="server" ID="txtDatePicker"></asp:TextBox>
         <asp:LinkButton ID="VerHorarios" runat="server"> Ver Horarios </asp:LinkButton>
         <asp:GridView ID="HorariosxDia" runat="server" AutoGenerateColumns="false">
             <Columns>
                 <asp:CheckBoxField DataField="Disponible" HeaderText="Disponible" />
-                <asp:BoundField DataField="HoraInicio" HeaderText="Hora Inicio" />
-                <asp:BoundField DataField="HoraFin" HeaderText="Hora Fin" />
-                <asp:HyperLinkField Text="Reservar!" HeaderText="Accion" DataNavigateUrlFormatString="ReservarTurno.aspx?horaInicio={0}&horaFin={1}" DataNavigateUrlFields="HoraInicio, horaFin"  />
+                <asp:BoundField DataField="horaInicio" HeaderText="Hora Inicio" />
+                <asp:BoundField DataField="horaFin" HeaderText="Hora Fin" />
+                <asp:HyperLinkField Text="Reservar!" HeaderText="Accion" DataNavigateUrlFormatString="ReservarTurno.aspx?horaInicio={0}&horaFin={1}" DataNavigateUrlFields="horaInicio, horaFin"  />
             </Columns>
         </asp:GridView>
         <div id="DIVVerHorarios">

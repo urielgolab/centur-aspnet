@@ -5,5 +5,6 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
       <h1>Welcome to Centur</h1>
+      <h2 id="mensaje" runat="server"></h2>
       <img src="Images/logo.png" alt="centur" />
-</asp:Content>
+</asp:Content> 

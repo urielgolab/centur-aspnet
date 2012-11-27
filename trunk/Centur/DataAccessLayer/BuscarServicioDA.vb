@@ -14,13 +14,11 @@ Public Class BuscarServicioDA
         Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "BuscarServicio", params)
     End Function
 
-    Public Function VerDetalleServicio(ByVal ServicioID As Integer) As DataSet
-        Dim cmdtext As New StringBuilder
-        cmdtext.AppendLine("SELECT s.*, c.descripcion as 'Categoria', z.descripcion as 'Zona' FROM Servicio s")
-        cmdtext.AppendLine(" INNER JOIN Categoria c ON c.idCategoria=s.idCategoria ")
-        cmdtext.AppendLine(" INNER JOIN Zona z ON z.idZona=s.idZona ")
-        cmdtext.AppendLine(" WHERE s.IdServicio=" & ServicioID)
-        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.Text, cmdtext.ToString())
+    Public Function VerDetalleServicio(ByVal idServicio As Integer) As DataSet
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idServicio", idServicio)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "BuscarServicio", params)
+
     End Function
 
     Public Function VerTurnosServicioxDia(ByVal idServicio As Integer, ByVal fecha As Date) As DataSet
@@ -29,7 +27,7 @@ Public Class BuscarServicioDA
 
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@idServicio", idServicio), New SqlParameter("@fecha", fecha)}
-        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "ObtenerGrillaTurnos_Trucha", params)
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "ObtenerGrillaTurnos", params)
     End Function
 
     Public Function ReservarTurno(ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String) As DataSet

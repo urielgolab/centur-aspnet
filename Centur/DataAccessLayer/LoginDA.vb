@@ -16,7 +16,7 @@ Public Class LoginDA
     End Function
 
 
-    Public Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal Password As String, ByVal Telefono As String, ByVal rolUsuario As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String, ByRef Mensaje As String, ByRef Status As Boolean) As DataSet
+    Public Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal Password As String, ByVal Telefono As String, ByVal rolUsuario As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As DataSet
         'Registrar el usuario, primero chequear si el nombre de usuario ya existe, en dicho caso no registrarlo y devovler un mensaje (o flag) de error.
         'Caso contrario, registrarlo y devolver un mensaje (o flag) afirmativo
 
@@ -30,7 +30,9 @@ Public Class LoginDA
         Dim ds As DataSet = SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "RegistrarUsuario", params)
 
         Status = ParamStatus.Value
-        Mensaje = ParamMensaje.Value
+        If Status = True Then
+            Mensaje = ParamMensaje.Value
+        End If
 
         Return ds
     End Function

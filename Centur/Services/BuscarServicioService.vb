@@ -63,9 +63,9 @@ Public Class BuscarServicioService
 
         For Each dr As DataRow In ds.Tables(0).Rows
             Dim oTurno As New Turno
-            oTurno.horaInicio = dr("horaInicio")
-            oTurno.horaFin = dr("horaFin")
-            oTurno.Disponible = dr("Disponible")
+            oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
+            oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
+            oTurno.Disponible = dr("disponible")
 
             oTurnoList.Add(oTurno)
         Next

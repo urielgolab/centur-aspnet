@@ -1,6 +1,8 @@
 ﻿Public Class Login1
     Inherits System.Web.UI.Page
 
+    Public Shared idUsuarioGlobal As Integer
+
     Dim oLoginService As New Services.LoginService()
 
     Protected Sub Entrar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Entrar.Click
@@ -17,6 +19,8 @@
             Else
                 If Me.Password.Text = oUsuario.Contraseña Then
                     usuarioValido = True
+                    'SETEO IDUSUARIO
+                    idUsuarioGlobal = oUsuario.idUsuario
                 Else
                     usuarioValido = False
                 End If

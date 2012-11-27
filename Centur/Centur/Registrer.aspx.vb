@@ -5,19 +5,23 @@ Public Class Registrer
     Dim oLoginService As New Services.LoginService()
 
     Private Sub Registrarse_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Registrarse.Click
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
 
-        'Dim rolUsuario As String = CStr(TipoUsuario.SelectedValue)
+        Dim rolUsuario As String = CStr(TipoUsuario.SelectedValue)
 
-        'Dim RegistroExitoso As Boolean = oLoginService.RegistrarUsuario(Me.NombreUsuario.Text, Me.Password.Text, Me.Telefono.Text, rolUsuario)
+        Dim oUsuario As Entities.Usuario = oLoginService.RegistrarUsuario(Me.NombreUsuario.Text, Me.Password.Text, Me.Telefono.Text, rolUsuario, Me.Nombre.Text, Me.Apellido.Text, Me.Email.Text, Mensaje, Status)
 
-        'If RegistroExitoso Then
-        '    'Cargar todas las propiedades del usuario en variable de sesion / variable global.
-        '    'Mostrar mensaje de exito
-        '    Response.Redirect("~/Home.aspx")
-        'Else
-        '    'Mostrar mensaje de error.
-        '    ErrorMessage.Text = "El Nombre de Usuario elegido está actualmente en uso."
-        'End If
+        If Status = False Then
+            'Cargar todas las propiedades del usuario en variable de sesion / variable global.
+            'Mostrar mensaje de exito
+            Login1.idUsuarioGlobal = oUsuario.idUsuario
+
+            Response.Redirect("~/Home.aspx")
+        Else
+            'Mostrar mensaje de error.
+            ErrorMessage.Text = Mensaje
+        End If
 
 
     End Sub

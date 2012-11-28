@@ -25,7 +25,6 @@ Public Class BuscarServicioService
 
     Public Function VerDetalleServicio(ByVal ServicioID As Integer) As Servicio
         Dim ds As DataSet = oBuscarServicioDA.VerDetalleServicio(ServicioID)
-
         Dim oServicio As New Servicio
 
         If ds.Tables(0).Rows.Count > 0 Then
@@ -44,13 +43,16 @@ Public Class BuscarServicioService
     End Function
 
 
-    Public Function ReservarTurno(ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String) As Turno
-        Dim dr As DataRow = oBuscarServicioDA.ReservarTurno(TurnoHoraInicio, TurnoHoraFin).Tables(0).Rows(0)
+    Public Function ReservarTurno(ByVal idServicio As Integer, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal idUsuario As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As Turno
+        Dim ds As DataSet = oBuscarServicioDA.ReservarTurno(idServicio, TurnoHoraInicio, TurnoHoraFin, idUsuario, Mensaje, Status)
         Dim oTurno As New Turno
 
-        oTurno.idTurno = dr("idTurno")
-        'oTurno.horaInicio = dr("horaInicio")
-        'oTurno.horaFin = dr("horaFin")
+        If ds.Tables(0).Rows.Count > 0 Then
+            Dim dr As DataRow = ds.Tables(0).Rows(0)
+            oTurno.idTurno = dr("idTurno")
+            oTurno.horaInicio = dr("horaInicio")
+            oTurno.horaFin = dr("horaFin")
+        End If
 
         Return oTurno
     End Function

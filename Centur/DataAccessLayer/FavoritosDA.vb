@@ -24,6 +24,14 @@ Public Class FavoritosDA
 
     End Function
 
+    Public Function GetFavoritos(ByVal idUsuario As Integer) As DataSet
+
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GetFavoritos", params)
+
+    End Function
+
     Public Function esFavorito(ByVal idUsuario As Integer, ByVal idServicio As Integer) As DataSet
 
         Dim cmdtext As New StringBuilder

@@ -15,6 +15,23 @@ Public Class FavoritosService
 
     End Function
 
+    Public Function GetFavoritos(ByVal idUsuario As Integer) As ServicioList
+        Dim ds As DataSet = oFavoritosDA.GetFavoritos(idUsuario)
+        Dim oServicioList As New ServicioList
+
+        For Each dr As DataRow In ds.Tables(0).Rows
+            Dim oServicio As New Servicio
+            oServicio.ID = CInt(dr("IdServicio"))
+            oServicio.Nombre = CStr(dr("Nombre"))
+            oServicio.Categoria = CStr(dr("Categoria"))
+            oServicio.Zona = CStr(dr("Zona"))
+            oServicioList.Add(oServicio)
+        Next
+
+        Return oServicioList
+
+    End Function
+
 
     Public Function esFavorito(ByVal idUsuario As Integer, ByVal idServicio As Integer) As Boolean
 
@@ -26,6 +43,5 @@ Public Class FavoritosService
         End If
 
     End Function
-
 
 End Class

@@ -255,18 +255,32 @@ namespace Datos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AltaFavorito")]
+		public int AltaFavorito([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idServicio);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UsuarioEstaEnServicio")]
+		public ISingleResult<UsuarioEstaEnServicioResult> UsuarioEstaEnServicio([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idServicio, idUsuario);
+			return ((ISingleResult<UsuarioEstaEnServicioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BajaFavorito")]
+		public int BajaFavorito([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idServicio);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BuscarCategoria")]
 		public ISingleResult<BuscarCategoriaResult> BuscarCategoria([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(1)")] System.Nullable<char> accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idCategoria)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idCategoria);
 			return ((ISingleResult<BuscarCategoriaResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.RegistrarUsuario")]
-		public int RegistrarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string tipoUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombreUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string apellido)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tipoUsuario, nombreUsuario, password, email, telefono, nombre, apellido);
-			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BuscarServicio")]
@@ -283,12 +297,18 @@ namespace Datos
 			return ((ISingleResult<BuscarZonaResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ObtenerGrillaTurnos")]
-		public int ObtenerGrillaTurnos([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecha, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(3999)")] ref string grilla)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetFavoritos")]
+		public ISingleResult<GetFavoritosResult> GetFavoritos([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idServicio, fecha, grilla);
-			grilla = ((string)(result.GetParameterValue(2)));
-			return ((int)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario);
+			return ((ISingleResult<GetFavoritosResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ObtenerGrillaTurnos")]
+		public ISingleResult<ObtenerGrillaTurnosResult> ObtenerGrillaTurnos([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecha)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idServicio, fecha);
+			return ((ISingleResult<ObtenerGrillaTurnosResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ObtenerGrillaTurnos_Trucha")]
@@ -296,6 +316,24 @@ namespace Datos
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idServicio, fecha);
 			return ((ISingleResult<ObtenerGrillaTurnos_TruchaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.RegistrarUsuario")]
+		public ISingleResult<RegistrarUsuarioResult> RegistrarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string tipoUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombreUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string apellido, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tipoUsuario, nombreUsuario, password, email, telefono, nombre, apellido, mensaje, status);
+			mensaje = ((string)(result.GetParameterValue(7)));
+			status = ((System.Nullable<bool>)(result.GetParameterValue(8)));
+			return ((ISingleResult<RegistrarUsuarioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Test_MensajeError")]
+		public ISingleResult<Test_MensajeErrorResult> Test_MensajeError([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ServicioID", DbType="Int")] System.Nullable<int> servicioID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), servicioID, mensaje, status);
+			mensaje = ((string)(result.GetParameterValue(1)));
+			status = ((System.Nullable<bool>)(result.GetParameterValue(2)));
+			return ((ISingleResult<Test_MensajeErrorResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -2051,7 +2089,7 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grupo_UsuarioGrupo", Storage="_UsuarioGrupos", ThisKey="IdGrupo", OtherKey="idGupo")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grupo_UsuarioGrupo", Storage="_UsuarioGrupos", ThisKey="IdGrupo", OtherKey="idGrupo")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6, EmitDefaultValue=false)]
 		public EntitySet<UsuarioGrupo> UsuarioGrupos
 		{
@@ -3567,9 +3605,9 @@ namespace Datos
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private System.Nullable<int> _idCategoriaHijo;
-		
 		private int _idSubCategoria;
+		
+		private System.Nullable<int> _idCategoriaHijo;
 		
 		private System.Nullable<int> _idCategoriaPadre;
 		
@@ -3581,10 +3619,10 @@ namespace Datos
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidCategoriaHijoChanging(System.Nullable<int> value);
-    partial void OnidCategoriaHijoChanged();
     partial void OnidSubCategoriaChanging(int value);
     partial void OnidSubCategoriaChanged();
+    partial void OnidCategoriaHijoChanging(System.Nullable<int> value);
+    partial void OnidCategoriaHijoChanged();
     partial void OnidCategoriaPadreChanging(System.Nullable<int> value);
     partial void OnidCategoriaPadreChanged();
     #endregion
@@ -3594,8 +3632,29 @@ namespace Datos
 			this.Initialize();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCategoriaHijo", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idSubCategoria", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idSubCategoria
+		{
+			get
+			{
+				return this._idSubCategoria;
+			}
+			set
+			{
+				if ((this._idSubCategoria != value))
+				{
+					this.OnidSubCategoriaChanging(value);
+					this.SendPropertyChanging();
+					this._idSubCategoria = value;
+					this.SendPropertyChanged("idSubCategoria");
+					this.OnidSubCategoriaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCategoriaHijo", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
 		public System.Nullable<int> idCategoriaHijo
 		{
 			get
@@ -3615,27 +3674,6 @@ namespace Datos
 					this._idCategoriaHijo = value;
 					this.SendPropertyChanged("idCategoriaHijo");
 					this.OnidCategoriaHijoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idSubCategoria", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public int idSubCategoria
-		{
-			get
-			{
-				return this._idSubCategoria;
-			}
-			set
-			{
-				if ((this._idSubCategoria != value))
-				{
-					this.OnidSubCategoriaChanging(value);
-					this.SendPropertyChanging();
-					this._idSubCategoria = value;
-					this.SendPropertyChanged("idSubCategoria");
-					this.OnidSubCategoriaChanged();
 				}
 			}
 		}
@@ -4671,7 +4709,7 @@ namespace Datos
 		
 		private int _idUsuarioGrupo;
 		
-		private System.Nullable<int> _idGupo;
+		private System.Nullable<int> _idGrupo;
 		
 		private System.Nullable<int> _idUsuario;
 		
@@ -4685,8 +4723,8 @@ namespace Datos
     partial void OnCreated();
     partial void OnidUsuarioGrupoChanging(int value);
     partial void OnidUsuarioGrupoChanged();
-    partial void OnidGupoChanging(System.Nullable<int> value);
-    partial void OnidGupoChanged();
+    partial void OnidGrupoChanging(System.Nullable<int> value);
+    partial void OnidGrupoChanged();
     partial void OnidUsuarioChanging(System.Nullable<int> value);
     partial void OnidUsuarioChanged();
     #endregion
@@ -4717,27 +4755,27 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGupo", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> idGupo
+		public System.Nullable<int> idGrupo
 		{
 			get
 			{
-				return this._idGupo;
+				return this._idGrupo;
 			}
 			set
 			{
-				if ((this._idGupo != value))
+				if ((this._idGrupo != value))
 				{
 					if (this._Grupo.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnidGupoChanging(value);
+					this.OnidGrupoChanging(value);
 					this.SendPropertyChanging();
-					this._idGupo = value;
-					this.SendPropertyChanged("idGupo");
-					this.OnidGupoChanged();
+					this._idGrupo = value;
+					this.SendPropertyChanged("idGrupo");
+					this.OnidGrupoChanged();
 				}
 			}
 		}
@@ -4767,7 +4805,7 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grupo_UsuarioGrupo", Storage="_Grupo", ThisKey="idGupo", OtherKey="IdGrupo", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grupo_UsuarioGrupo", Storage="_Grupo", ThisKey="idGrupo", OtherKey="IdGrupo", IsForeignKey=true)]
 		public Grupo Grupo
 		{
 			get
@@ -4790,11 +4828,11 @@ namespace Datos
 					if ((value != null))
 					{
 						value.UsuarioGrupos.Add(this);
-						this._idGupo = value.IdGrupo;
+						this._idGrupo = value.IdGrupo;
 					}
 					else
 					{
-						this._idGupo = default(Nullable<int>);
+						this._idGrupo = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Grupo");
 				}
@@ -4867,6 +4905,34 @@ namespace Datos
 		public void OnDeserializing(StreamingContext context)
 		{
 			this.Initialize();
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class UsuarioEstaEnServicioResult
+	{
+		
+		private System.Nullable<int> _IdGrupo;
+		
+		public UsuarioEstaEnServicioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrupo", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public System.Nullable<int> IdGrupo
+		{
+			get
+			{
+				return this._IdGrupo;
+			}
+			set
+			{
+				if ((this._IdGrupo != value))
+				{
+					this._IdGrupo = value;
+				}
+			}
 		}
 	}
 	
@@ -5278,6 +5344,157 @@ namespace Datos
 	}
 	
 	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class GetFavoritosResult
+	{
+		
+		private int _idServicio;
+		
+		private string _Nombre;
+		
+		private string _Categoria;
+		
+		private string _Zona;
+		
+		public GetFavoritosResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idServicio", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idServicio
+		{
+			get
+			{
+				return this._idServicio;
+			}
+			set
+			{
+				if ((this._idServicio != value))
+				{
+					this._idServicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Categoria", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string Categoria
+		{
+			get
+			{
+				return this._Categoria;
+			}
+			set
+			{
+				if ((this._Categoria != value))
+				{
+					this._Categoria = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Zona", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public string Zona
+		{
+			get
+			{
+				return this._Zona;
+			}
+			set
+			{
+				if ((this._Zona != value))
+				{
+					this._Zona = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class ObtenerGrillaTurnosResult
+	{
+		
+		private System.Nullable<System.TimeSpan> _horaInicio;
+		
+		private System.Nullable<System.TimeSpan> _horaFin;
+		
+		private System.Nullable<bool> _disponible;
+		
+		public ObtenerGrillaTurnosResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaInicio", DbType="Time")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public System.Nullable<System.TimeSpan> horaInicio
+		{
+			get
+			{
+				return this._horaInicio;
+			}
+			set
+			{
+				if ((this._horaInicio != value))
+				{
+					this._horaInicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaFin", DbType="Time")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public System.Nullable<System.TimeSpan> horaFin
+		{
+			get
+			{
+				return this._horaFin;
+			}
+			set
+			{
+				if ((this._horaFin != value))
+				{
+					this._horaFin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_disponible", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<bool> disponible
+		{
+			get
+			{
+				return this._disponible;
+			}
+			set
+			{
+				if ((this._disponible != value))
+				{
+					this._disponible = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
 	public partial class ObtenerGrillaTurnos_TruchaResult
 	{
 		
@@ -5338,6 +5555,442 @@ namespace Datos
 				if ((this._Disponible != value))
 				{
 					this._Disponible = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class RegistrarUsuarioResult
+	{
+		
+		private int _idUsuario;
+		
+		private string _tipoUsuario;
+		
+		private string _nombreUsuario;
+		
+		private string _password;
+		
+		private string _email;
+		
+		private string _telefono;
+		
+		private string _nombre;
+		
+		private string _apellido;
+		
+		public RegistrarUsuarioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipoUsuario", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string tipoUsuario
+		{
+			get
+			{
+				return this._tipoUsuario;
+			}
+			set
+			{
+				if ((this._tipoUsuario != value))
+				{
+					this._tipoUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreUsuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string nombreUsuario
+		{
+			get
+			{
+				return this._nombreUsuario;
+			}
+			set
+			{
+				if ((this._nombreUsuario != value))
+				{
+					this._nombreUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this._password = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(100)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public string telefono
+		{
+			get
+			{
+				return this._telefono;
+			}
+			set
+			{
+				if ((this._telefono != value))
+				{
+					this._telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class Test_MensajeErrorResult
+	{
+		
+		private int _idServicio;
+		
+		private string _nombre;
+		
+		private string _descripcion;
+		
+		private int _idCategoria;
+		
+		private int _idZona;
+		
+		private int _idProveedor;
+		
+		private string _observaciones;
+		
+		private System.Nullable<bool> _privacidad;
+		
+		private string _tipoConfirmacion;
+		
+		private System.Nullable<bool> _envioRecordatorio;
+		
+		private System.Nullable<bool> _sobreturno;
+		
+		private System.Nullable<int> _diasFuturo;
+		
+		private int _diasAntes;
+		
+		private string _foto;
+		
+		public Test_MensajeErrorResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idServicio", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idServicio
+		{
+			get
+			{
+				return this._idServicio;
+			}
+			set
+			{
+				if ((this._idServicio != value))
+				{
+					this._idServicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(MAX)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCategoria", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public int idCategoria
+		{
+			get
+			{
+				return this._idCategoria;
+			}
+			set
+			{
+				if ((this._idCategoria != value))
+				{
+					this._idCategoria = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idZona", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public int idZona
+		{
+			get
+			{
+				return this._idZona;
+			}
+			set
+			{
+				if ((this._idZona != value))
+				{
+					this._idZona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProveedor", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public int idProveedor
+		{
+			get
+			{
+				return this._idProveedor;
+			}
+			set
+			{
+				if ((this._idProveedor != value))
+				{
+					this._idProveedor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_observaciones", DbType="VarChar(MAX)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public string observaciones
+		{
+			get
+			{
+				return this._observaciones;
+			}
+			set
+			{
+				if ((this._observaciones != value))
+				{
+					this._observaciones = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_privacidad", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public System.Nullable<bool> privacidad
+		{
+			get
+			{
+				return this._privacidad;
+			}
+			set
+			{
+				if ((this._privacidad != value))
+				{
+					this._privacidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipoConfirmacion", DbType="VarChar(1)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public string tipoConfirmacion
+		{
+			get
+			{
+				return this._tipoConfirmacion;
+			}
+			set
+			{
+				if ((this._tipoConfirmacion != value))
+				{
+					this._tipoConfirmacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_envioRecordatorio", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		public System.Nullable<bool> envioRecordatorio
+		{
+			get
+			{
+				return this._envioRecordatorio;
+			}
+			set
+			{
+				if ((this._envioRecordatorio != value))
+				{
+					this._envioRecordatorio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sobreturno", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+		public System.Nullable<bool> sobreturno
+		{
+			get
+			{
+				return this._sobreturno;
+			}
+			set
+			{
+				if ((this._sobreturno != value))
+				{
+					this._sobreturno = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diasFuturo", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+		public System.Nullable<int> diasFuturo
+		{
+			get
+			{
+				return this._diasFuturo;
+			}
+			set
+			{
+				if ((this._diasFuturo != value))
+				{
+					this._diasFuturo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diasAntes", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+		public int diasAntes
+		{
+			get
+			{
+				return this._diasAntes;
+			}
+			set
+			{
+				if ((this._diasAntes != value))
+				{
+					this._diasAntes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_foto", DbType="VarChar(MAX)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+		public string foto
+		{
+			get
+			{
+				return this._foto;
+			}
+			set
+			{
+				if ((this._foto != value))
+				{
+					this._foto = value;
 				}
 			}
 		}

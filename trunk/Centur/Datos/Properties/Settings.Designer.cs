@@ -177,7 +177,18 @@ namespace Datos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=server04.soflex.com.ar;Initial Catalog=Uriel;User ID=Uriel")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=server04.soflex.com.ar;Initial Catalog=Uriel;Persist Security Info=Tr" +
+            "ue;User ID=Uriel")]
+        public string UrielConnectionString1 {
+            get {
+                return ((string)(this["UrielConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=server04.soflex.com.ar;Initial Catalog=Uriel;User ID=UrielCentur")]
         public string UrielConnectionString {
             get {
                 return ((string)(this["UrielConnectionString"]));
@@ -187,11 +198,11 @@ namespace Datos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=server04.soflex.com.ar;Initial Catalog=Uriel;Persist Security Info=Tr" +
-            "ue;User ID=Uriel")]
-        public string UrielConnectionString1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=centur.ugserver.com.ar,109;Initial Catalog=Uriel;Persist Security Inf" +
+            "o=True;User ID=Uriel")]
+        public string UrielConnectionString2 {
             get {
-                return ((string)(this["UrielConnectionString1"]));
+                return ((string)(this["UrielConnectionString2"]));
             }
         }
     }

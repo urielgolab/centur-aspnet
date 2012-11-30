@@ -39,13 +39,4 @@ Partial Public Class CrearServicio
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lstCategoria As Global.System.Web.UI.WebControls.ListBox
-
-    '''<summary>
-    '''linqCategorias control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents linqCategorias As Global.System.Web.UI.WebControls.LinqDataSource
 End Class

@@ -75,7 +75,7 @@
       <Column Name="nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="descripcion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Association Name="Grupo_ServicioGrupo" Member="ServicioGrupos" ThisKey="IdGrupo" OtherKey="idGrupo" Type="ServicioGrupo" />
-      <Association Name="Grupo_UsuarioGrupo" Member="UsuarioGrupos" ThisKey="IdGrupo" OtherKey="idGupo" Type="UsuarioGrupo" />
+      <Association Name="Grupo_UsuarioGrupo" Member="UsuarioGrupos" ThisKey="IdGrupo" OtherKey="idGrupo" Type="UsuarioGrupo" />
     </Type>
   </Table>
   <Table Name="dbo.NombreConstantes" Member="NombreConstantes">
@@ -138,8 +138,8 @@
   </Table>
   <Table Name="dbo.SubCategoria" Member="SubCategorias">
     <Type Name="SubCategoria">
-      <Column Name="idCategoriaHijo" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="idSubCategoria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idCategoriaHijo" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="idCategoriaPadre" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Categoria_SubCategoria" Member="Categoria" ThisKey="idCategoriaHijo" OtherKey="idCategoria" Type="Categoria" IsForeignKey="true" />
       <Association Name="Categoria_SubCategoria1" Member="Categoria1" ThisKey="idCategoriaPadre" OtherKey="idCategoria" Type="Categoria" IsForeignKey="true" />
@@ -185,12 +185,29 @@
   <Table Name="dbo.UsuarioGrupo" Member="UsuarioGrupos">
     <Type Name="UsuarioGrupo">
       <Column Name="idUsuarioGrupo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idGupo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idGrupo" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="idUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Grupo_UsuarioGrupo" Member="Grupo" ThisKey="idGupo" OtherKey="IdGrupo" Type="Grupo" IsForeignKey="true" />
+      <Association Name="Grupo_UsuarioGrupo" Member="Grupo" ThisKey="idGrupo" OtherKey="IdGrupo" Type="Grupo" IsForeignKey="true" />
       <Association Name="Usuario_UsuarioGrupo" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
     </Type>
   </Table>
+  <Function Name="dbo.AltaFavorito" Method="AltaFavorito">
+    <Parameter Name="idUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UsuarioEstaEnServicio" Method="UsuarioEstaEnServicio">
+    <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idUsuario" Type="System.Int32" DbType="Int" />
+    <ElementType Name="UsuarioEstaEnServicioResult">
+      <Column Name="IdGrupo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.BajaFavorito" Method="BajaFavorito">
+    <Parameter Name="idUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.BuscarCategoria" Method="BuscarCategoria">
     <Parameter Name="accion" Type="System.Char" DbType="Char(1)" />
     <Parameter Name="idCategoria" Type="System.Int32" DbType="Int" />
@@ -198,16 +215,6 @@
       <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.RegistrarUsuario" Method="RegistrarUsuario">
-    <Parameter Name="tipoUsuario" Type="System.String" DbType="VarChar(1)" />
-    <Parameter Name="nombreUsuario" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="email" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="telefono" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="apellido" Type="System.String" DbType="VarChar(50)" />
-    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.BuscarServicio" Method="BuscarServicio">
     <Parameter Name="nombre" Type="System.String" DbType="VarChar(250)" />
@@ -241,11 +248,23 @@
       <Column Name="descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.GetFavoritos" Method="GetFavoritos">
+    <Parameter Name="idUsuario" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetFavoritosResult">
+      <Column Name="idServicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Categoria" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Zona" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.ObtenerGrillaTurnos" Method="ObtenerGrillaTurnos">
     <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
     <Parameter Name="fecha" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="grilla" Type="System.String" DbType="NVarChar(3999)" Direction="InOut" />
-    <Return Type="System.Int32" />
+    <ElementType Name="ObtenerGrillaTurnosResult">
+      <Column Name="horaInicio" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="horaFin" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="disponible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
   </Function>
   <Function Name="dbo.ObtenerGrillaTurnos_Trucha" Method="ObtenerGrillaTurnos_Trucha">
     <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
@@ -254,6 +273,48 @@
       <Column Name="HoraInicio" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="HoraFin" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="Disponible" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.RegistrarUsuario" Method="RegistrarUsuario">
+    <Parameter Name="tipoUsuario" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="nombreUsuario" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="telefono" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="apellido" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="mensaje" Type="System.String" DbType="VarChar(500)" Direction="InOut" />
+    <Parameter Name="status" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <ElementType Name="RegistrarUsuarioResult">
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tipoUsuario" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreUsuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Test_MensajeError" Method="Test_MensajeError">
+    <Parameter Name="ServicioID" Parameter="servicioID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="mensaje" Type="System.String" DbType="VarChar(500)" Direction="InOut" />
+    <Parameter Name="status" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <ElementType Name="Test_MensajeErrorResult">
+      <Column Name="idServicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idZona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idProveedor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="observaciones" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="privacidad" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tipoConfirmacion" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="envioRecordatorio" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sobreturno" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="diasFuturo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="diasAntes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="foto" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

@@ -123,6 +123,7 @@
     <Content Include="ModificarServicio.aspx" />
     <Content Include="Registrer.aspx" />
     <Content Include="ReservarTurno.aspx" />
+    <Content Include="Scripts\addressPicker.js" />
     <Content Include="Scripts\commonFunctions.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

@@ -208,14 +208,6 @@
     <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.BuscarCategoria" Method="BuscarCategoria">
-    <Parameter Name="accion" Type="System.Char" DbType="Char(1)" />
-    <Parameter Name="idCategoria" Type="System.Int32" DbType="Int" />
-    <ElementType Name="BuscarCategoriaResult">
-      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.BuscarServicio" Method="BuscarServicio">
     <Parameter Name="nombre" Type="System.String" DbType="VarChar(250)" />
     <Parameter Name="categorias" Type="System.String" DbType="VarChar(1000)" />
@@ -315,6 +307,15 @@
       <Column Name="diasFuturo" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="diasAntes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="foto" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.BuscarCategoria" Method="BuscarCategoria">
+    <Parameter Name="accion" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="idCategoria" Type="System.Int32" DbType="Int" />
+    <ElementType Name="BuscarCategoriaResult">
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TieneHijos" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

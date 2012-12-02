@@ -25,9 +25,13 @@ Public Class CrearServicio
 
     <System.Web.Services.WebMethod(BufferResponse:=False)> _
     <ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
-    Public Function getCategorias(ByVal idCategoria As Integer) As DataTable
+    Public Shared Function getCategorias(ByVal idCategoria As Integer?) As BuscarCategoriaResult
         Dim dc As New DC()
 
-        Return dc.BuscarCategoria(IIf(idCategoria > 0, "H", "R"), idCategoria)
+        For Each var In dc.BuscarCategoria(If(idCategoria Is Nothing, "R", "H"), idCategoria)
+            Console.WriteLine(var.descripcion)
+        Next
+
+        Return dc.BuscarCategoria(CType(IIf(idCategoria Is Nothing, "R", "H"), Char), idCategoria)
     End Function
 End Class

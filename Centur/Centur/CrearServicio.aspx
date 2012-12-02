@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="Agregar servicio" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="CrearServicio.aspx.vb" Inherits="Centur.CrearServicio" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">   
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server"> 
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="Scripts/addressPicker.js"></script>
+      
     <script>
     $(function() {
         $("#tabs").tabs();
@@ -23,7 +26,8 @@
         });
 
         $(function () {
-            var jsonData = $ID("lstCategoria").val();
+            var jsonData = new Object();
+            jsonData.idCategoria = $ID("lstCategoria").val();
             $.ajax({
                 url: "CrearServicio.aspx/getCategorias",
                 type: "POST",
@@ -31,19 +35,28 @@
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success:
-                function(resultado){
+                function (resultado) {
                     $.each(resultado.d, function (index, item) {
                         $ID("lstCategoria").get(0).options[$ID("lstCategoria").get(0).options.length] = new Option(item.text, item.value);
                     })
                 }
-                /*
-                function (resultado) {
-                for (var i in resultado) { 
-                "<option value='" + resultado[i].Value + "'>" + resultado[i].text + "</option>";
-                } 
-                }
-                */
             });
+        });
+
+        $(function () {
+            var addresspicker = $("#addresspicker").addresspicker();
+            var addresspickerMap = $("#addresspicker_map").addresspicker({
+                elements: {
+                    map: "#map",
+                    lat: "#lat",
+                    lng: "#lng",
+                    locality: '#locality',
+                    country: '#country'
+                }
+            });
+            var gmarker = addresspickerMap.addresspicker("marker");
+            gmarker.setVisible(true);
+            addresspickerMap.addresspicker("updatePosition");
         });
     </script>
 
@@ -165,13 +178,14 @@
         <br />
 
         <button id="tabPage1">Continuar</button>
+        <br />
     </div>
 	<div id="describe-el-servicio">
         <p class="ch-form-hint">* Datos obligatorios</p>
 	    <div class="ch-form-row ch-form-required sell-title">
 		    <label for="title">T&iacute;tulo: <em>*</em></label> 
 		
-		    <input type="text" value="" id="title" name="title.title" required="required" size="70" placeholder="Ej.: Nokia N9 16 MB Nuevo y con garant&iacute;a." title="Usa palabras clave para que encuentren f&aacute;cilmente tu producto."/>
+		    <input type="text" value="" id="title" name="title.title" required="required" size="70" placeholder="Ej.: Wimbledon Tenis Club con Estacionamiento, Buffet y 6 canchas." title="Usa palabras clave para que encuentren f&aacute;cilmente tu servicio."/>
 		
 		    <span class="ch-form-hint">Restan <span id="display">60</span> caracteres.</span>
 		</div>
@@ -185,6 +199,16 @@
                 <p class="ch-form-hint"><span id="imgAmount">1</span> foto disponible</p>
                 <a type="button" id="addImgs" rel="prevent-not-needed" class="ch-btn-skin ch-btn-small trigger">Agregar fotos</a> 
         </div>
+        <br />
+    	<div class='input'>
+	        <label>Dirección : </label> <input id="addresspicker_map" placeholder="Ej.: Av. Corrientes 571, Buenos Aires" size="50px" />   <br/>
+			<label>Locality: </label> <input id="locality" disabled="disabled"> <br/>
+			<label>Country:  </label> <input id="country" disabled="disabled"> <br/>
+			<label>Lat:      </label> <input id="lat" disabled="disabled"> <br/>
+			<label>Lng:      </label> <input id="lng" disabled="disabled"> <br/>
+        </div>
+        <div id="map"></div>
+
         <br />
         <div class="ui-widget">
 	        <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">

@@ -276,13 +276,6 @@ namespace Datos
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BuscarCategoria")]
-		public ISingleResult<BuscarCategoriaResult> BuscarCategoria([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(1)")] System.Nullable<char> accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idCategoria)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idCategoria);
-			return ((ISingleResult<BuscarCategoriaResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BuscarServicio")]
 		public ISingleResult<BuscarServicioResult> BuscarServicio([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1000)")] string categorias, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1000)")] string zonas, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio)
 		{
@@ -334,6 +327,13 @@ namespace Datos
 			mensaje = ((string)(result.GetParameterValue(1)));
 			status = ((System.Nullable<bool>)(result.GetParameterValue(2)));
 			return ((ISingleResult<Test_MensajeErrorResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BuscarCategoria")]
+		public ISingleResult<BuscarCategoriaResult> BuscarCategoria([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(1)")] System.Nullable<char> accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idCategoria)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idCategoria);
+			return ((ISingleResult<BuscarCategoriaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4937,53 +4937,6 @@ namespace Datos
 	}
 	
 	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class BuscarCategoriaResult
-	{
-		
-		private int _idCategoria;
-		
-		private string _descripcion;
-		
-		public BuscarCategoriaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCategoria", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int idCategoria
-		{
-			get
-			{
-				return this._idCategoria;
-			}
-			set
-			{
-				if ((this._idCategoria != value))
-				{
-					this._idCategoria = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string descripcion
-		{
-			get
-			{
-				return this._descripcion;
-			}
-			set
-			{
-				if ((this._descripcion != value))
-				{
-					this._descripcion = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Runtime.Serialization.DataContractAttribute()]
 	public partial class BuscarServicioResult
 	{
 		
@@ -5991,6 +5944,72 @@ namespace Datos
 				if ((this._foto != value))
 				{
 					this._foto = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class BuscarCategoriaResult
+	{
+		
+		private int _idCategoria;
+		
+		private string _descripcion;
+		
+		private System.Nullable<int> _TieneHijos;
+		
+		public BuscarCategoriaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCategoria", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idCategoria
+		{
+			get
+			{
+				return this._idCategoria;
+			}
+			set
+			{
+				if ((this._idCategoria != value))
+				{
+					this._idCategoria = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieneHijos", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<int> TieneHijos
+		{
+			get
+			{
+				return this._TieneHijos;
+			}
+			set
+			{
+				if ((this._TieneHijos != value))
+				{
+					this._TieneHijos = value;
 				}
 			}
 		}

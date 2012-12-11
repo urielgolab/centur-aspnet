@@ -14,20 +14,20 @@ Option Explicit On
 Partial Public Class Favoritos
 
     '''<summary>
-    '''ObjectDataSource1 control.
+    '''GridResultadosFavoritos control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ObjectDataSource1 As Global.System.Web.UI.WebControls.ObjectDataSource
+    Protected WithEvents GridResultadosFavoritos As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''GridView1 control.
+    '''Label1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
 End Class

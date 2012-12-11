@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="BuscarServicioDA.vb" />
     <Compile Include="FavoritosDA.vb" />
+    <Compile Include="GruposDA.vb" />
     <Compile Include="LoginDA.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

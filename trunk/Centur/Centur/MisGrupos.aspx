@@ -7,17 +7,11 @@
 <div id="propios">
 <h2>Grupos Propios</h2>
     <div><asp:Label ID="Label1" runat="server" Text="Seleccionar grupo"></asp:Label>
-        <asp:DropDownList ID="DropDownList1" runat="server" 
-            DataSourceID="ObjectDataSource1" DataTextField="Nombre" DataValueField="ID">
+        <asp:DropDownList ID="DropDownListGruposPropios" runat="server" DataTextField="Nombre" DataValueField="ID">
+            
             <asp:ListItem Value="none">Seleccione grupo...</asp:ListItem>
             <asp:ListItem Value="Edificio">Edificio</asp:ListItem>
         </asp:DropDownList>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
-            SelectMethod="GetGruposPropios" TypeName="Services.GruposService">
-            <SelectParameters>
-                <asp:Parameter DefaultValue="1" Name="idUsuario" Type="Int32" />
-            </SelectParameters>
-        </asp:ObjectDataSource>
         <asp:Button ID="Button1" runat="server" Text="Button" />
         <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
         <br />

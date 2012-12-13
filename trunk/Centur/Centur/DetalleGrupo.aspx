@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false" CodeBehind="DetalleGrupo.aspx.vb" Inherits="Centur.VerGrupo" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false" CodeBehind="DetalleGrupo.aspx.vb" Inherits="Centur.DetalleGrupo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
@@ -18,6 +18,7 @@
             <asp:ListItem>Guido</asp:ListItem>
             <asp:ListItem>Manu</asp:ListItem>
         </asp:ListBox>
+        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         <br />
 
     </p>

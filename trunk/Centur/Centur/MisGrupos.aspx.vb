@@ -24,4 +24,8 @@ Public Class MisGrupos
             End If
         End If
     End Sub
+
+    Protected Sub LinkButton4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton4.Click
+        Response.Redirect("~/DetalleGrupo.aspx?id=" & DropDownListGruposPropios.text)
+    End Sub
 End Class

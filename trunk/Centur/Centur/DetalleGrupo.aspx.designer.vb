@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class VerGrupo
+Partial Public Class DetalleGrupo
 
     '''<summary>
     '''Label1 control.
@@ -66,6 +66,15 @@ Partial Public Class VerGrupo
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ListBox1 As Global.System.Web.UI.WebControls.ListBox
+
+    '''<summary>
+    '''Label4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''LinkButton1 control.

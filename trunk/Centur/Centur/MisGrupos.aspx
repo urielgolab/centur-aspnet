@@ -13,6 +13,7 @@
             <asp:ListItem Value="Edificio">Edificio</asp:ListItem>
         </asp:DropDownList>
         <asp:Button ID="Button1" runat="server" Text="Button" />
+        <asp:LinkButton ID="LinkButton4" runat="server">Ver Detalle...</asp:LinkButton>
         <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
         <br />
     </div>

@@ -13,4 +13,12 @@ Public Class GruposDA
 
     End Function
 
+    Function GetDetalleGrupo(ByVal GrupoId As Integer) As DataSet
+
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idGrupo", GrupoId)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GetDetalleGrupo", params)
+
+    End Function
+
 End Class

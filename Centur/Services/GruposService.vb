@@ -22,4 +22,21 @@ Public Class GruposService
 
     End Function
 
+    Public Function GetDetalleGrupo(ByVal GrupoId As Integer) As Grupo
+        Dim ds As DataSet = oGruposDA.GetDetalleGrupo(GrupoId)
+        Dim ogrupo As New Grupo
+
+        If ds.Tables(0).Rows.Count > 0 Then
+            Dim dr As DataRow = ds.Tables(0).Rows(0)
+
+            ogrupo.ID = CInt(dr("IdGrupo"))
+            ogrupo.Tipo = CChar(dr("tipoGrupo"))
+            ogrupo.Nombre = CStr(dr("nombre"))
+            ogrupo.Descripcion = CStr(dr("descripcion"))
+            Return ogrupo
+        End If
+        Return Nothing 'ver excepcion cuando no retorna nada, caso improbable pero bue...
+
+    End Function
+
 End Class

@@ -12,7 +12,6 @@ Public Class DetalleGrupo
         NombreGrupo.Text = oGrupo.Nombre
         DescripGrupo.Text = oGrupo.Descripcion
         'falta miembros implementar pablo
-        Label4.Text = Request.QueryString("id")
 
     End Sub
 

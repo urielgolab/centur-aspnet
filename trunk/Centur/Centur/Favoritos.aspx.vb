@@ -10,6 +10,10 @@ Public Class Favoritos
 
         Dim oServicioList As New ServicioList
 
+        If Login1.idUsuarioGlobal.Equals(0) Then
+            Response.Redirect("~/Login.aspx")
+        End If
+
         oServicioList = oBuscarFavoritosService.GetFavoritos(Login1.idUsuarioGlobal)
         If oServicioList.Count > 0 Then
             GridResultadosFavoritos.DataSource = oServicioList

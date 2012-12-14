@@ -18,7 +18,6 @@
             <asp:ListItem>Guido</asp:ListItem>
             <asp:ListItem>Manu</asp:ListItem>
         </asp:ListBox>
-        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         <br />
 
     </p>

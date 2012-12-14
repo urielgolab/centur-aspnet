@@ -68,15 +68,6 @@ Partial Public Class DetalleGrupo
     Protected WithEvents ListBox1 As Global.System.Web.UI.WebControls.ListBox
 
     '''<summary>
-    '''Label4 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''LinkButton1 control.
     '''</summary>
     '''<remarks>

@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Site
+Partial Public Class Site1
 
     '''<summary>
     '''Head1 control.

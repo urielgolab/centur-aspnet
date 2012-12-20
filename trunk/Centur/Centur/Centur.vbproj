@@ -99,6 +99,7 @@
     <Content Include="CrearGrupo.aspx" />
     <Content Include="CrearServicio.aspx" />
     <Content Include="DetalleServicio.aspx" />
+    <Content Include="ErrorPage.aspx" />
     <Content Include="Favoritos.aspx" />
     <Content Include="Images\logo.png" />
     <Content Include="Login.aspx" />
@@ -202,6 +203,13 @@
     </Compile>
     <Compile Include="CrearServicio.aspx.vb">
       <DependentUpon>CrearServicio.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.vb">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.vb">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Favoritos.aspx.designer.vb">

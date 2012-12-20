@@ -9,10 +9,13 @@
 
         Dim TurnoHoraInicio As String = CStr(Request.QueryString("horaInicio"))
         Dim TurnoHoraFin As String = CStr(Request.QueryString("horaFin"))
-        Dim oTurno As Entities.Turno = oBuscarServicioService.ReservarTurno(DetalleServicio.idServicio, TurnoHoraInicio, TurnoHoraFin, Login1.idUsuarioGlobal, Mensaje, Status)
+        Dim TurnoFecha As Date = CDate(CStr(Request.QueryString("fecha")))
+        Dim ServicioID As Integer = CInt(Request.QueryString("servicioID"))
+        Dim oTurno As Entities.Turno = oBuscarServicioService.ReservarTurno(ServicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, CType(Session("Usuario"), Entities.Usuario).idUsuario, Mensaje, Status)
 
 
         TurnoStatus.InnerText = "Reservado!! De " + oTurno.horaInicio + " a " + oTurno.horaFin
+
 
     End Sub
 

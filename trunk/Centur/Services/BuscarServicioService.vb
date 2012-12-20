@@ -43,8 +43,8 @@ Public Class BuscarServicioService
     End Function
 
 
-    Public Function ReservarTurno(ByVal idServicio As Integer, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal idUsuario As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As Turno
-        Dim ds As DataSet = oBuscarServicioDA.ReservarTurno(idServicio, TurnoHoraInicio, TurnoHoraFin, idUsuario, Mensaje, Status)
+    Public Function ReservarTurno(ByVal idServicio As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal idUsuario As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As Turno
+        Dim ds As DataSet = oBuscarServicioDA.ReservarTurno(idServicio, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, idUsuario, Mensaje, Status)
         Dim oTurno As New Turno
 
         If ds.Tables(0).Rows.Count > 0 Then
@@ -68,6 +68,8 @@ Public Class BuscarServicioService
             oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
             oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
             oTurno.Disponible = dr("disponible")
+            oTurno.Fecha = CStr(dr("fecha"))
+            oTurno.ServicioID = CInt(dr("servicioID"))
 
             oTurnoList.Add(oTurno)
         Next

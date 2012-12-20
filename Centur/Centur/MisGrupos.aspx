@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <h1>Grupos</h1>
-<div id="propios">
+<div id="propios" Runat="Server">
 <h2>Grupos Propios</h2>
     <div><asp:Label ID="Label1" runat="server" Text="Seleccionar grupo"></asp:Label>
         <asp:DropDownList ID="DropDownListGruposPropios" runat="server" DataTextField="Nombre" DataValueField="ID">

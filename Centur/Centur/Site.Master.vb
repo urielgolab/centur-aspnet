@@ -15,9 +15,9 @@
     Public Sub ArmarMenu(ByVal TipoUsuario As String)
         If TipoUsuario = "" Then
             'Antes de loguearse
-            NavigationMenu.Items.Add(New MenuItem("Login", "Login", "", "Login.aspx"))
+            NavigationMenu.Items.Add(New MenuItem("Iniciar Sesión", "Iniciar Sesión", "", "Login.aspx"))
             NavigationMenu.Items.Add(New MenuItem("Registrarse", "Registrarse", "", "Registrer.aspx"))
-            NavigationMenu.Items.Add(New MenuItem("Buscar Servicio", "Buscar Servicio", "", "BuscarServicio.aspx"))
+            'NavigationMenu.Items.Add(New MenuItem("Buscar Servicio", "Buscar Servicio", "", "BuscarServicio.aspx"))
         Else
             'Proveedor y Cliente
             NavigationMenu.Items.Add(New MenuItem("Inicio", "Inicio", "", "Home.aspx"))

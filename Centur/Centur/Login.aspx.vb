@@ -7,11 +7,11 @@
 
     Protected Sub Entrar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Entrar.Click
         Dim usuarioValido As Boolean
+        Dim oUsuario As New Entities.Usuario
 
         If Me.NombreUsuario.Text = "" Or Me.Password.Text = "" Then
             usuarioValido = False
         Else
-            Dim oUsuario As New Entities.Usuario
             oUsuario = oLoginService.GetUserInfo(Me.NombreUsuario.Text)
 
             If oUsuario.Contraseña Is Nothing Then
@@ -19,8 +19,6 @@
             Else
                 If Me.Password.Text = oUsuario.Contraseña Then
                     usuarioValido = True
-                    'SETEO IDUSUARIO
-                    idUsuarioGlobal = oUsuario.idUsuario
                 Else
                     usuarioValido = False
                 End If
@@ -28,9 +26,9 @@
         End If
 
         If usuarioValido Then
-            ' Cargar todas las propiedades del usuario en variable de sesion / variable global.
-            ' Armar el menu de acuerdo a su perfil (cliente/proveedor)
-            Response.Redirect("~/Home.aspx")
+            Session("Usuario") = oUsuario
+
+            Response.Redirect("Home.aspx")
         Else
             'Mostrar mensaje de error.
             ErrorMessage.Text = "El nombre de usuario y/o contraseña son inválidos."

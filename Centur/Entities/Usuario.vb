@@ -7,7 +7,6 @@ Public Class Usuario
     Private _nombreUsuario As String
     Private _nombre As String
     Private _apellido As String
-    Private _rolUsuario As String
     Private _contraseña As String
     Private _tipoUsuario As String
 #End Region

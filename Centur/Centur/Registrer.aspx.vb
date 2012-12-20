@@ -13,9 +13,8 @@ Public Class Registrer
         Dim oUsuario As Entities.Usuario = oLoginService.RegistrarUsuario(Me.NombreUsuario.Text, Me.Password.Text, Me.Telefono.Text, rolUsuario, Me.Nombre.Text, Me.Apellido.Text, Me.Email.Text, Mensaje, Status)
 
         If Status = False Then
-            'Cargar todas las propiedades del usuario en variable de sesion / variable global.
+            Session("Usuario") = oUsuario
             'Mostrar mensaje de exito
-            Login1.idUsuarioGlobal = oUsuario.idUsuario
 
             Response.Redirect("~/Home.aspx")
         Else

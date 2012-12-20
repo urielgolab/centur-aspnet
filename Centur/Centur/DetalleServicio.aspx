@@ -6,12 +6,12 @@
     <script src="Scripts/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-    <script type="text/javascript">
+    <script type="text/javascript"> 
         $(function () {
-            $("#MainContent_txtDatePicker").datepicker();
+            $("#MainContent_txtDatePicker").datepicker({ dateFormat: 'dd/mm/yy', minDate: <%=servicio.MinOffset%>, maxDate: <%=servicio.MaxOffset%> });
         });
     </script>
-    <script type="text/javascript">
+    <script type="text/javascript"> 
         $(document).ready(function () {
             //$('#DIVPedirTurno').hide();
             $('#DIVVerHorarios').hide();
@@ -77,7 +77,7 @@
                 <asp:CheckBoxField DataField="Disponible" HeaderText="Disponible" />
                 <asp:BoundField DataField="horaInicio" HeaderText="Hora Inicio" />
                 <asp:BoundField DataField="horaFin" HeaderText="Hora Fin" />
-                <asp:HyperLinkField Text="Reservar!" HeaderText="Accion" DataNavigateUrlFormatString="ReservarTurno.aspx?horaInicio={0}&horaFin={1}" DataNavigateUrlFields="horaInicio, horaFin"  />
+                <asp:HyperLinkField Text="Reservar!" HeaderText="Accion"  DataNavigateUrlFormatString="ReservarTurno.aspx?horaInicio={0}&horaFin={1}&fecha={2}&servicioID={3}"  DataNavigateUrlFields="horaInicio, horaFin, fecha, servicioID" />
             </Columns>
         </asp:GridView>
         <div id="DIVVerHorarios">

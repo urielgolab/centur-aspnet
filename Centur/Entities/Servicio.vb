@@ -10,6 +10,8 @@ Public Class Servicio
     Private _categoria As String
     Private _zona As String
     Private _imagen As Image
+    Private _minOffset As Integer
+    Private _maxOffset As Integer
 #End Region
 
 #Region "Properties"
@@ -52,6 +54,24 @@ Public Class Servicio
         End Get
         Set(ByVal value As Image)
             _imagen = value
+        End Set
+    End Property
+
+    Public Property MinOffset() As Integer
+        Get
+            Return 3
+        End Get
+        Set(ByVal value As Integer)
+            _minOffset = value
+        End Set
+    End Property
+
+    Public Property MaxOffset() As Integer
+        Get
+            Return 5 + MinOffset - 1
+        End Get
+        Set(ByVal value As Integer)
+            _maxOffset = value
         End Set
     End Property
 #End Region

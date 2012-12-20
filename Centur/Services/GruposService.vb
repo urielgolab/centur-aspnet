@@ -39,4 +39,12 @@ Public Class GruposService
 
     End Function
 
+    Public Sub UpdateGrupo(ByVal oGrupo As Grupo)
+        oGruposDA.UpdateGrupo(oGrupo.ID, oGrupo.Nombre, oGrupo.Descripcion)
+    End Sub
+
+    Sub DeleteGrupo(ByVal id As Integer)
+        oGruposDA.DeleteGrupo(id)
+    End Sub
+
 End Class

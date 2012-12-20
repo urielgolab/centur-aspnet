@@ -38,6 +38,28 @@ Public Interface ICenturServiceREST
 <WebGet(UriTemplate:="/RegistrarUsuario?nombreUsuario={nombreUsuario}&password={password}&telefono={telefono}&rolUsuario={rolUsuario}&nombre={nombre}&apellido={apellido}&email={email}", ResponseFormat:=WebMessageFormat.Json)> _
     Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal password As String, ByVal telefono As String, ByVal rolUsuario As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String) As Stream
 
+#Region "Favoritos"
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/AltaFavoritos?servicioID={servicioID}&usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function AltaFavoritos(ByVal servicioID As Integer, ByVal usuarioID As Integer) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/BajaFavoritos?servicioID={servicioID}&usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function BajaFavoritos(ByVal servicioID As Integer, ByVal usuarioID As Integer) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/VerFavoritos?usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function VerFavoritos(ByVal usuarioID As Integer) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/EsFavorito?servicioID={servicioID}&usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function EsFavorito(ByVal servicioID As Integer, ByVal usuarioID As Integer) As Stream
+
+#End Region
+
+
+
     <OperationContract()>
 <WebGet(UriTemplate:="/Test?fecha={fecha}&hora={hora}&numero={numero}", ResponseFormat:=WebMessageFormat.Json)> _
     Function Test(ByVal fecha As Date, ByVal hora As String, ByVal numero As Integer) As Stream

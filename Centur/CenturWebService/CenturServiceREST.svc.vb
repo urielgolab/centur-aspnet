@@ -10,6 +10,7 @@ Public Class CenturServiceREST
 
     Dim oBuscarServicioService As New Services.BuscarServicioService()
     Dim oLoginService As New Services.LoginService
+    Dim oFavoritosService As New Services.FavoritosService
 
    
     Public Function BuscarServicio(ByVal zona As String) As Stream Implements ICenturServiceREST.BuscarServicio
@@ -142,6 +143,78 @@ Public Class CenturServiceREST
         Dim strJSON As String = js.Serialize(result)
         Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
     End Function
+
+
+
+#Region "Favoritos"
+
+    Public Function VerFavoritos(ByVal usuarioID As Integer) As Stream Implements ICenturServiceREST.VerFavoritos
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        Dim servicios As ServicioList = oFavoritosService.GetFavoritos(usuarioID)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        result.Body = servicios
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+
+    Public Function AltaFavoritos(ByVal servicioID As Integer, ByVal usuarioID As Integer) As Stream Implements ICenturServiceREST.AltaFavoritos
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        Dim exito As Boolean = oFavoritosService.AltaFavoritos(usuarioID, servicioID, Mensaje, Status)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        'result.Body = Nothing
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+
+    Public Function BajaFavoritos(ByVal servicioID As Integer, ByVal usuarioID As Integer) As Stream Implements ICenturServiceREST.BajaFavoritos
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        Dim exito As Boolean = oFavoritosService.BajaFavoritos(usuarioID, servicioID, Mensaje, Status)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        'result.Body = Nothing
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+    Public Function EsFavorito(ByVal servicioID As Integer, ByVal usuarioID As Integer) As Stream Implements ICenturServiceREST.EsFavorito
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        'Dim YaEsFavorito As Boolean = oFavoritosService.esFavorito(usuarioID, servicioID)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        result.Body = oFavoritosService.esFavorito(usuarioID, servicioID)
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+#End Region
 
 
     Public Function Test(ByVal fecha As Date, ByVal hora As String, ByVal numero As Integer) As Stream Implements ICenturServiceREST.Test

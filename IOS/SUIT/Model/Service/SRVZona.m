@@ -19,13 +19,39 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVZona);
     if (zonas) {
         return;
     }
+//    
+//    NSString *pathStr = [[NSBundle mainBundle]bundlePath];
+//    NSString *finalPath = [pathStr stringByAppendingPathComponent:@"Zona.plist"];
+//    NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:finalPath];
+//    
+//    zonas = [NSArray arrayWhitZonasForm:[dict objectForKey:@"Zonas"]];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_GETZONAS_OK object:nil];
     
-    NSString *pathStr = [[NSBundle mainBundle]bundlePath];
-    NSString *finalPath = [pathStr stringByAppendingPathComponent:@"Zona.plist"];
-    NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:finalPath];
     
-    zonas = [NSArray arrayWhitZonasForm:[dict objectForKey:@"Zonas"]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_GETZONAS_OK object:nil];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
+    //[params setObject:@"JSON" forKey:@"format"];
+    [params setObject:@"r" forKey:@"accion"];
+    //[params setObject:@1 forKey:@"idZona"];
+                                   
+    NSString* url = [NSString stringWithFormat:@"%@", SERVICE_BASE_URL ];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"BuscarZonas" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        zonas = [NSArray arrayWhitZonasForm:[JSON objectForKey:@"Body"]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_GETZONAS_OK object:nil];
+        NSLog(@"%@",JSON);
+        
+        
+        
+    }
+    failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                                                            NSLog(@"%@",error);
+                                                                                        }];
+    
+    [operation start];
     
 }
 

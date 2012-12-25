@@ -33,6 +33,7 @@
 -(void)setCategoria:(Categoria *)aCategoria{
     categoria = aCategoria;    
     self.textLabel.text = categoria.nombre;
+    self.textLabel.textAlignment = UITextAlignmentCenter;
     accesoryButton.hidden = ![categoria hasSubCategories];
 }
 

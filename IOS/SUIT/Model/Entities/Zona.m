@@ -16,9 +16,9 @@
 -(Zona*)initWhitDictionary:(NSDictionary*)dict{
     
     if (self = [super init]) {
-        nombre = [dict objectForKey:@"nombre"];
-        zonaID = [dict objectForKey:@"zonaID"];
-        subZonas = [NSArray arrayWhitZonasForm: [dict objectForKey:@"subZonas"]];
+        nombre = [dict objectForKey:@"NombreZona"];
+        zonaID = [dict objectForKey:@"IDZona"];
+        //subZonas = [NSArray arrayWhitZonasForm: [dict objectForKey:@"subZonas"]];
     }
     return self;
     

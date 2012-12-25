@@ -11,14 +11,18 @@
 
 @implementation Servicio
 
-@synthesize categoriaid,descripcion,direccion,foto,_id,nombre,observacion,proveedorid, coordinate, isCoordinated;
+@synthesize categoriaid,descripcion,direccion,foto,_id,nombre,observacion,proveedorid, coordinate, isCoordinated,Imagen,MaxOffset,MinOffset;
 
 -(Servicio*)initWhitDictionary:(NSDictionary*)dict{
     if (self = [super init]) {
+        _id = [dict objectForKey:@"Categoria"];
+        categoriaid = [dict objectForKey:@"ID"];
+        Imagen = [dict objectForKey:@"Imagen"];
+        MaxOffset = [dict objectForKey:@"MaxOffset"];
+        MinOffset = [dict objectForKey:@"MinOffset"];
+        nombre = [dict objectForKey:@"Nombre"];
         
-        categoriaid = [[dict objectForKey:@"categoria"]objectForKey:@"id"];
         descripcion = [dict objectForKey:@"descripcion"];
-        nombre = [dict objectForKey:@"nombre"];
         direccion = [dict objectForKey:@"direccion"];
         foto = [dict objectForKey:@"foto"] ;
         observacion = [dict objectForKey:@"observacion"];

@@ -20,20 +20,21 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVBusqueda);
                        delegate: (NSObject<SearchDelegate>*) delegate {
     
     
-    NSString* url = @"http://192.168.0.11:8080/CenTur/servicios/";
+    
+    NSString* url = [NSString stringWithFormat:@"%@", SERVICE_BASE_URL ];
     
     
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[search searchParams]];
     [params setObject:@"JSON" forKey:@"format"];
     
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
-    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"buscar" parameters:params];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"BuscarServicio" parameters:params];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         NSLog(@"%@",JSON);
         ServiciosResult *result = [[ServiciosResult alloc]init];
-        result.servicios = [NSArray arrayWhitServiciosForm: JSON];
+        result.servicios = [NSArray arrayWhitServiciosForm: [JSON objectForKey:@"Body" ]];
         [delegate searchDidFinishedOK:result forSearch:search];
 
         

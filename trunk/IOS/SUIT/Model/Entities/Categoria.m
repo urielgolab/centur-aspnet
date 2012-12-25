@@ -17,9 +17,9 @@
 -(Categoria*)initWhitDictionary:(NSDictionary*)dict{
     
     if (self = [super init]) {
-        nombre = [dict objectForKey:@"nombre"];
-        categoriaID = [dict objectForKey:@"categoriaID"];
-        subCategorias = [NSArray arrayWhitCategoriesForm: [dict objectForKey:@"subCategorias"]];
+        nombre = [dict objectForKey:@"NombreCategoria"];
+        categoriaID = [dict objectForKey:@"IDCategoria"];
+        //subCategorias = [NSArray arrayWhitCategoriesForm: [dict objectForKey:@"subCategorias"]];
     }
     return self;
     

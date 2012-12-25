@@ -11,7 +11,7 @@
 #import "Categoria.h"
 
 @interface Servicio : NSObject<MKAnnotation>{
-    NSNumber* categoriaid;
+    NSString* categoriaid;
     NSString* descripcion;
     NSString* direccion;
     NSString* foto;
@@ -25,7 +25,12 @@
 }
 
 
-@property(nonatomic) NSNumber* categoriaid;
+@property(nonatomic) NSNumber* MaxOffset;
+@property(nonatomic) NSNumber* MinOffset;
+
+@property(nonatomic) NSString* Imagen;
+
+@property(nonatomic) NSString* categoriaid;
 @property(nonatomic) NSString* descripcion;
 @property(nonatomic) NSString* direccion;
 @property(nonatomic) NSString* foto;

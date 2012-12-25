@@ -17,14 +17,29 @@
 CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVProfile);
 
 -(void)loginUserName:(NSString*)usuarioString withPassword:(NSString*)password{
-    for (Usuario* usuario in usuarios) {
-        if ([usuario.nombre isEqualToString:usuarioString]) {
-            self.currentUser= usuario;
-            [[NSNotificationCenter defaultCenter]postNotificationName:SERVICE_LOGIN_OK object:nil userInfo:nil];
-            return;
-        }
+    
+    
+    NSString* url = [NSString stringWithFormat:@"%@", SERVICE_BASE_URL ];
+    
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
+    [params setObject:usuarioString forKey:@"nombreUsuario"];
+    
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"DetalleUsuario" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        self.currentUser = [[Usuario alloc]initWhitDictionary:[JSON objectForKey:@"Body"]];
+         [[NSNotificationCenter defaultCenter]postNotificationName:SERVICE_LOGIN_OK object:nil userInfo:nil];
+        NSLog(@"%@",JSON);
     }
-    [[NSNotificationCenter defaultCenter]postNotificationName:SERVICE_LOGIN_FAILED object:nil userInfo:nil];
+    failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        NSLog(@"%@",error);
+        [[NSNotificationCenter defaultCenter]postNotificationName:SERVICE_LOGIN_FAILED object:nil userInfo:nil];
+
+    }];
+    
+    [operation start];
 }
 
 -(SRVProfile*)init{
@@ -32,10 +47,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVProfile);
     self = [super init];
     
     if (self) {
-        NSString *pathStr = [[NSBundle mainBundle]bundlePath];
-        NSString *finalPath = [pathStr stringByAppendingPathComponent:@"Usuarios.plist"];
-        NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:finalPath];
-        usuarios = [NSArray arrayWhitUsuariosForm:[dict objectForKey:@"Usuarios"]];
+        
     }
     
     return self;

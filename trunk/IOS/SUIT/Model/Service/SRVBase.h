@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "CWLSynthesizeSingleton.h"
+#import "NSArray+Tools.h"
+#import "BTHttpClient.h"
+#import "AFJSONRequestOperation.h"
+
+#define SERVICE_BASE_URL @"http://centur.ugserver.com.ar/Uriel/CenturServiceREST.svc"
 
 #define SERVICE_GETCATEGORIES_OK @"getcategoriesOK"
 #define SERVICE_GETSUBCATEGORIES_OK @"getsubcategoriesOK"

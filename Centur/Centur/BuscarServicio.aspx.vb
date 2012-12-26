@@ -7,13 +7,33 @@
         Dim categoriasSeleccionadas As String = VerNodosSeleccionados(ArbolCategorias)
         Dim zonasSeleccionadas As String = VerNodosSeleccionados(ArbolZonas)
 
-        gridResultados.DataSource = oBuscarServicioService.BuscarServicio(Me.nombre.Text, categoriasSeleccionadas, zonasSeleccionadas)
+        Dim precioDesdeDbl As Double
+        Dim precioHastaDbl As Double
+
+        If Me.precioDesde.Text = "" Then
+            precioDesdeDbl = 0
+        Else
+            precioDesdeDbl = CType(Me.precioDesde.Text, Double)
+        End If
+
+        If Me.precioHasta.Text = "" Then
+            precioHastaDbl = 0
+        Else
+            precioHastaDbl = CType(Me.precioHasta.Text, Double)
+        End If
+
+        gridResultados.DataSource = oBuscarServicioService.BuscarServicio(Me.nombre.Text, categoriasSeleccionadas, zonasSeleccionadas, precioDesdeDbl, precioHastaDbl)
         gridResultados.DataBind()
         resultados.Visible = True
     End Sub
 
     Private Sub reset_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Reset.Click
         resultados.Visible = False
+        DeseleccionarNodos(ArbolCategorias.Nodes)
+        DeseleccionarNodos(ArbolZonas.Nodes)
+        Me.nombre.Text = ""
+        Me.precioDesde.Text = ""
+        Me.precioHasta.Text = ""
     End Sub
 
     Private Sub BuscarServicio_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -25,6 +45,14 @@
 
     End Sub
 
+    Private Sub DeseleccionarNodos(ByVal nodes As TreeNodeCollection)
+        For Each node As TreeNode In nodes
+            If node.ChildNodes.Count > 0 Then
+                DeseleccionarNodos(node.ChildNodes)
+            End If
+            node.Checked = False
+        Next
+    End Sub
 
     Private Function VerNodosSeleccionados(ByVal arbol As TreeView) As String
         Dim nodosSeleccionados As String = ""

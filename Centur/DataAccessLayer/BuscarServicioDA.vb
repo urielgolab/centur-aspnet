@@ -7,9 +7,9 @@ Public Class BuscarServicioDA
     Dim CmdText As String
 
 
-    Public Function BuscarServicio(ByVal nombre As String, ByVal categorias As String, ByVal zonas As String) As DataSet
+    Public Function BuscarServicio(ByVal nombre As String, ByVal categorias As String, ByVal zonas As String, ByVal precioDesde As Double, ByVal precioHasta As Double) As DataSet
         Dim params() As SqlParameter
-        params = New SqlParameter() {New SqlParameter("@nombre", nombre), New SqlParameter("@categorias", categorias), New SqlParameter("@zonas", zonas)}
+        params = New SqlParameter() {New SqlParameter("@nombre", nombre), New SqlParameter("@categorias", categorias), New SqlParameter("@zonas", zonas), New SqlParameter("@precioDesde", precioDesde), New SqlParameter("@precioHasta", precioHasta)}
 
         Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "BuscarServicio", params)
     End Function
@@ -18,6 +18,13 @@ Public Class BuscarServicioDA
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@idServicio", idServicio)}
         Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "BuscarServicio", params)
+
+    End Function
+
+    Public Function VerGruposAsociadosAServicio(ByVal idServicio As Integer) As DataSet
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@ServicioID", idServicio)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "VerGruposAsociadosAServicio_TEMPORAL", params)
 
     End Function
 

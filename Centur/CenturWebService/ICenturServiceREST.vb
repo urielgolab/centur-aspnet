@@ -7,8 +7,8 @@ Public Interface ICenturServiceREST
 
 
     <OperationContract()>
-   <WebGet(UriTemplate:="/BuscarServicio?zona={zona}", ResponseFormat:=WebMessageFormat.Json)> _
-    Function BuscarServicio(ByVal zona As String) As Stream
+   <WebGet(UriTemplate:="/BuscarServicio?nombre={nombre}&categorias={categorias}&zonas={zonas}&precioDesde={precioDesde}&precioHasta={precioHasta}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function BuscarServicio(Optional ByVal nombre As String = "", Optional ByVal categorias As String = "", Optional ByVal zonas As String = "", Optional ByVal precioDesde As Double = 0, Optional ByVal precioHasta As Double = 0) As Stream
 
     <OperationContract()>
    <WebGet(UriTemplate:="/BuscarCategorias?accion={accion}&idCategoria={idCategoria}", ResponseFormat:=WebMessageFormat.Json)> _
@@ -57,8 +57,6 @@ Public Interface ICenturServiceREST
     Function EsFavorito(ByVal servicioID As Integer, ByVal usuarioID As Integer) As Stream
 
 #End Region
-
-
 
     <OperationContract()>
 <WebGet(UriTemplate:="/Test?fecha={fecha}&hora={hora}&numero={numero}", ResponseFormat:=WebMessageFormat.Json)> _

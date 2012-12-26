@@ -288,3 +288,171 @@ div.accountInfo
     text-align: right;
     padding-right: 10px;
 }
+
+.border
+{
+    border-style:solid;
+    border-color:Red; 
+    border-width:1px;
+    padding:10px;
+}
+
+.arbol
+{
+    border-style:solid;
+    border-color:Red; 
+    border-width:1px;
+    padding:10px;
+}
+
+div.arboles
+{
+    width: 250px;
+    float:left;
+    margin-bottom:50px;
+}
+
+div.filtrosBusqueda
+{
+    float:left;
+    margin-left:50px;
+    width:500px;    
+    
+}
+
+.links
+{
+    font-size:large;
+    font-family:Book Antiqua;
+    margin: 25px;
+}
+
+p.busqueda
+{
+    font-size: 1.5em;
+    font-weight:bolder;
+    color:Blue;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+label.filtrosBusqueda
+{
+    font-size:small;
+    font-weight:bolder;
+    color: #666666;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+    width:100px;
+    margin-right:0px;
+}
+
+TextBoxFiltrosBusqueda
+{
+    font-size:small;
+    font-weight:bolder;
+    color: red;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+    
+}
+
+
+
+.grillaResultados
+{
+    width:100%
+}
+
+
+p.tituloPrincipal
+{
+    font-size:xx-large;
+    color: black;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 300;
+    margin-top:0px;
+    
+}
+
+
+#MainContent_nombre
+{
+    margin-left: 32px;
+    width:250px;
+}
+
+#MainContent_precioDesde
+{
+    margin-left: 8px;
+    width:50px;
+}
+
+#MainContent_precioHasta
+{
+    margin-left: 5px;
+    width:50px;
+}
+
+#MainContent_reset
+{
+    margin-left:30px;
+}
+
+.labelDetalleServicio
+{
+    font-size:small;
+    font-weight:bolder;
+    color: #666666;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+    width:100px;
+    margin-right:0px;
+}
+
+.labelDetalleInfo
+{
+    font-size:small;
+    font-weight:bolder;
+    color: #666666;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+    width:100px;
+    margin-right:0px;
+    color:Red;
+}
+
+div.detalleServicio
+{
+    float:left;
+    width:350px;    
+    
+}
+
+div.imagenServicio
+{
+    float:left;
+    margin-left:50px;
+    width:300px;    
+    
+}
+
+#DIVPedirTurno
+{
+    float:left;
+    margin-left:50px;
+    width:400px;    
+    
+}

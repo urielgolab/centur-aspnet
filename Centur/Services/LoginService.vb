@@ -19,7 +19,7 @@ Public Class LoginService
             oUsuario.Nombre = dr("nombre")
             oUsuario.Apellido = dr("apellido")
             oUsuario.NombreUsuario = dr("nombreUsuario")
-            oUsuario.Contraseña = dr("password")
+            oUsuario.Password = dr("password")
         End If
 
         Return oUsuario
@@ -31,18 +31,18 @@ Public Class LoginService
         Dim oUsuario As New Usuario
         Dim ds As DataSet = oLoginDA.RegistrarUsuario(NombreUsuario, Password, Telefono, rolUsuario, nombre, apellido, email, Mensaje, Status)
 
-        If ds.Tables(0).Rows.Count > 0 Then
+        If ds.Tables.Count > 0 Then
             Dim dr As DataRow = ds.Tables(0).Rows(0)
             oUsuario.idUsuario = dr("idUsuario")
             oUsuario.TipoUsuario = dr("tipoUsuario")
             oUsuario.Nombre = dr("nombre")
             oUsuario.Apellido = dr("apellido")
             oUsuario.NombreUsuario = dr("nombreUsuario")
-            oUsuario.Contraseña = dr("password")
+            oUsuario.Password = dr("password")
         End If
 
 
-        Return oUsuario
+            Return oUsuario
     End Function
 
 

@@ -14,10 +14,10 @@
         Else
             oUsuario = oLoginService.GetUserInfo(Me.NombreUsuario.Text)
 
-            If oUsuario.Contraseña Is Nothing Then
+            If oUsuario.Password Is Nothing Then
                 usuarioValido = False
             Else
-                If Me.Password.Text = oUsuario.Contraseña Then
+                If Me.Password.Text = oUsuario.Password Then
                     usuarioValido = True
                 Else
                     usuarioValido = False

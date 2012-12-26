@@ -5,6 +5,7 @@ Public Class Zona
 #Region "Attributes"
     Private _idZona As Integer
     Private _nombre As String
+    Private _tieneHijos As Boolean
 #End Region
 
 
@@ -27,6 +28,16 @@ Public Class Zona
             _nombre = value
         End Set
     End Property
+
+    Public Property TieneHijos() As Boolean
+        Get
+            Return _tieneHijos
+        End Get
+        Set(ByVal value As Boolean)
+            _tieneHijos = value
+        End Set
+    End Property
+
 #End Region
 
 End Class

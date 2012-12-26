@@ -5,6 +5,7 @@ Public Class Categoria
 #Region "Attributes"
     Private _idCategoria As Integer
     Private _nombre As String
+    Private _tieneHijos As Boolean
 #End Region
 
 
@@ -25,6 +26,15 @@ Public Class Categoria
         End Get
         Set(ByVal value As String)
             _nombre = value
+        End Set
+    End Property
+
+    Public Property TieneHijos() As Boolean
+        Get
+            Return _tieneHijos
+        End Get
+        Set(ByVal value As Boolean)
+            _tieneHijos = value
         End Set
     End Property
 #End Region

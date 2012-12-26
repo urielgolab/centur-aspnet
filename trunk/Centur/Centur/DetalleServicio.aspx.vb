@@ -6,7 +6,7 @@ Public Class DetalleServicio
     Dim oFavoritosService As New Services.FavoritosService()
 
     'Public idServicio As Integer
-    Protected servicio As Entities.Servicio
+    Public servicio As Entities.Servicio
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'If Session("Usuario") Is Nothing Then
@@ -20,8 +20,11 @@ Public Class DetalleServicio
         Me.NombreServicio.Text = servicio.Nombre
         Me.CategoriaServicio.Text = servicio.Categoria
         Me.ZonaServicio.Text = servicio.Zona
-
         Me.ImagenServicio.ImageUrl = "http://t3.gstatic.com/images?q=tbn:ANd9GcQ4zKwAP4L3k0GOQfqa-D9P85q0lfUHAdJD2vbbti-Efo7bsTru"
+
+        GruposAsociados.DataSource = oBuscarServicioService.VerGruposAsociadosAServicio(CInt(Request.QueryString("ServicioID")))
+        GruposAsociados.DataBind()
+
 
         If oFavoritosService.esFavorito(CType(Session("Usuario"), Entities.Usuario).idUsuario, servicio.ID) Then
             Me.Favoritos.Text = "Quitar de Favoritos"

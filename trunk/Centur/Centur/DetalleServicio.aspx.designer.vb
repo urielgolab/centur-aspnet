@@ -140,15 +140,6 @@ Partial Public Class DetalleServicio
     Protected WithEvents DireccionServicio As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Favoritos control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Favoritos As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
     '''Mensaje control.
     '''</summary>
     '''<remarks>
@@ -156,6 +147,15 @@ Partial Public Class DetalleServicio
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Mensaje As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''GruposAsociados control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GruposAsociados As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''ImagenServicio control.
@@ -167,22 +167,13 @@ Partial Public Class DetalleServicio
     Protected WithEvents ImagenServicio As Global.System.Web.UI.WebControls.Image
 
     '''<summary>
-    '''Label8 control.
+    '''Favoritos control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label8 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''GruposAsociados control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents GruposAsociados As Global.System.Web.UI.WebControls.ListView
+    Protected WithEvents Favoritos As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''VolveraBusqueda control.

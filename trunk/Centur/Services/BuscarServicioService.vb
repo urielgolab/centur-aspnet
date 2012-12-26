@@ -5,8 +5,8 @@ Public Class BuscarServicioService
 
     Dim oBuscarServicioDA As New DataAccessLayer.BuscarServicioDA()
 
-    Public Function BuscarServicio(ByVal nombre As String, ByVal categorias As String, ByVal zonas As String, Optional ByVal CalledFromWS As Boolean = False) As ServicioList
-        Dim ds As DataSet = oBuscarServicioDA.BuscarServicio(nombre, categorias, zonas)
+    Public Function BuscarServicio(ByVal nombre As String, ByVal categorias As String, ByVal zonas As String, ByVal precioDesde As Double, ByVal precioHasta As Double) As ServicioList
+        Dim ds As DataSet = oBuscarServicioDA.BuscarServicio(nombre, categorias, zonas, precioDesde, precioHasta)
 
         Dim oServicioList As New ServicioList
 
@@ -16,7 +16,18 @@ Public Class BuscarServicioService
             oServicio.Nombre = CStr(dr("Nombre"))
             oServicio.Categoria = CStr(dr("Categoria"))
             oServicio.Zona = CStr(dr("Zona"))
-            oServicioList.Add(oServicio)
+            oServicio.Precio = CType(dr("precio"), Double)
+            oServicio.MinOffset = CInt(dr("diasAntes"))
+            oServicio.MaxOffset = CInt(dr("diasFuturo"))
+            'oServicio.Direccion = CStr(dr("Observaciones"))
+            '    oServicio.Observaciones = CStr(dr("Observaciones"))
+            '    oServicio.IDProveedor = CInt(dr("IDProveedor"))
+            '    oServicio.Privacidad = CBool(dr("Privacidad"))
+            '    oServicio.Sobreturno = CBool(dr("Sobreturno"))
+            '    oServicio.EnvioRecordatorio = CBool(dr("EnvioRecordatorio"))
+            '    oServicio.TipoConfirmacion = CStr(dr("TipoConfirmacion"))
+
+                oServicioList.Add(oServicio)
         Next
 
         Return oServicioList
@@ -40,6 +51,23 @@ Public Class BuscarServicioService
         End If
 
         Return oServicio
+    End Function
+
+    Public Function VerGruposAsociadosAServicio(ByVal ServicioID As Integer) As GrupoList
+        Dim ds As DataSet = oBuscarServicioDA.VerGruposAsociadosAServicio(ServicioID)
+        Dim oGrupoList As New GrupoList
+
+        For Each dr As DataRow In ds.Tables(0).Rows
+            Dim oGrupo As New Grupo
+
+            oGrupo.ID = CInt(dr("idGrupo"))
+            oGrupo.Nombre = CStr(dr("Nombre"))
+            oGrupo.Descripcion = CStr(dr("descripcion"))
+
+            oGrupoList.Add(oGrupo)
+        Next
+
+        Return oGrupoList
     End Function
 
 
@@ -83,8 +111,9 @@ Public Class BuscarServicioService
 
         For Each dr As DataRow In ds.Tables(0).Rows
             Dim oCategoria As New Categoria
-            oCategoria.IDCategoria = dr("idCategoria")
-            oCategoria.NombreCategoria = dr("descripcion")
+            oCategoria.IDCategoria = CInt(dr("idCategoria"))
+            oCategoria.NombreCategoria = CStr(dr("descripcion"))
+            oCategoria.TieneHijos = CBool(dr("TieneHijos"))
 
             oCategoriaList.Add(oCategoria)
         Next
@@ -98,8 +127,9 @@ Public Class BuscarServicioService
 
         For Each dr As DataRow In ds.Tables(0).Rows
             Dim oZona As New Zona
-            oZona.IDZona = dr("idZona")
-            oZona.NombreZona = dr("descripcion")
+            oZona.IDZona = CInt(dr("idZona"))
+            oZona.NombreZona = CStr(dr("descripcion"))
+            oZona.TieneHijos = CBool(dr("TieneHijos"))
 
             oZonaList.Add(oZona)
         Next

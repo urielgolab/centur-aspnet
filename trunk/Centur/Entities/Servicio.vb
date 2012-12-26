@@ -12,6 +12,15 @@ Public Class Servicio
     Private _imagen As Image
     Private _minOffset As Integer
     Private _maxOffset As Integer
+    Private _precio As Double
+    Private _direccion As String
+    Private _observaciones As String
+    Private _idProveedor As Integer
+    Private _privacidad As Boolean
+    Private _envioRecordatorio As Boolean
+    Private _sobreturno As Boolean
+    Private _tipoConfirmacion As String
+
 #End Region
 
 #Region "Properties"
@@ -59,7 +68,7 @@ Public Class Servicio
 
     Public Property MinOffset() As Integer
         Get
-            Return 3
+            Return _minOffset
         End Get
         Set(ByVal value As Integer)
             _minOffset = value
@@ -68,12 +77,85 @@ Public Class Servicio
 
     Public Property MaxOffset() As Integer
         Get
-            Return 5 + MinOffset - 1
+            Return _maxOffset + _minOffset - 1
         End Get
         Set(ByVal value As Integer)
             _maxOffset = value
         End Set
     End Property
+
+    Public Property Precio() As Integer
+        Get
+            Return _precio
+        End Get
+        Set(ByVal value As Integer)
+            _precio = value
+        End Set
+    End Property
+
+    Public Property Direccion() As String
+        Get
+            Return _direccion
+        End Get
+        Set(ByVal value As String)
+            _direccion = value
+        End Set
+    End Property
+
+    Public Property Observaciones() As String
+        Get
+            Return _observaciones
+        End Get
+        Set(ByVal value As String)
+            _observaciones = value
+        End Set
+    End Property
+
+    Public Property IDProveedor() As Integer
+        Get
+            Return _idProveedor
+        End Get
+        Set(ByVal value As Integer)
+            _idProveedor = value
+        End Set
+    End Property
+
+    Public Property Privacidad() As Boolean
+        Get
+            Return _privacidad
+        End Get
+        Set(ByVal value As Boolean)
+            _privacidad = value
+        End Set
+    End Property
+
+    Public Property EnvioRecordatorio() As Boolean
+        Get
+            Return _envioRecordatorio
+        End Get
+        Set(ByVal value As Boolean)
+            _envioRecordatorio = value
+        End Set
+    End Property
+
+    Public Property Sobreturno() As Boolean
+        Get
+            Return _sobreturno
+        End Get
+        Set(ByVal value As Boolean)
+            _sobreturno = value
+        End Set
+    End Property
+
+    Public Property TipoConfirmacion() As String
+        Get
+            Return _tipoConfirmacion
+        End Get
+        Set(ByVal value As String)
+            _tipoConfirmacion = value
+        End Set
+    End Property
+
 #End Region
 
 End Class

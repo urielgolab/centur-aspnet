@@ -7,7 +7,7 @@ Public Class Usuario
     Private _nombreUsuario As String
     Private _nombre As String
     Private _apellido As String
-    Private _contraseña As String
+    Private _password As String
     Private _tipoUsuario As String
 #End Region
 
@@ -48,12 +48,12 @@ Public Class Usuario
         End Set
     End Property
 
-    Public Property Contraseña() As String
+    Public Property Password() As String
         Get
-            Return _contraseña
+            Return _password
         End Get
         Set(ByVal value As String)
-            _contraseña = value
+            _password = value
         End Set
     End Property
 

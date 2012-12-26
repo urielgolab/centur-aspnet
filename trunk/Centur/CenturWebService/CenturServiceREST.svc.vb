@@ -13,11 +13,11 @@ Public Class CenturServiceREST
     Dim oFavoritosService As New Services.FavoritosService
 
    
-    Public Function BuscarServicio(ByVal zona As String) As Stream Implements ICenturServiceREST.BuscarServicio
+    Public Function BuscarServicio(Optional ByVal nombre As String = "", Optional ByVal categorias As String = "", Optional ByVal zonas As String = "", Optional ByVal precioDesde As Double = 0, Optional ByVal precioHasta As Double = 0) As Stream Implements ICenturServiceREST.BuscarServicio
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
-        Dim servicios As ServicioList = oBuscarServicioService.BuscarServicio("", "", "2", True)
+        Dim servicios As ServicioList = oBuscarServicioService.BuscarServicio(nombre, categorias, zonas, precioDesde, precioHasta)
 
         Dim result As New JSONResult
         result.Estado = Status

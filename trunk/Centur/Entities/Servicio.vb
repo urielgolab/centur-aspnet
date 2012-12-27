@@ -20,7 +20,9 @@ Public Class Servicio
     Private _envioRecordatorio As Boolean
     Private _sobreturno As Boolean
     Private _tipoConfirmacion As String
-
+    Private _telefono As String
+    Private _email As String
+    Private _nombreUsuarioProveedor As String
 #End Region
 
 #Region "Properties"
@@ -30,6 +32,15 @@ Public Class Servicio
         End Get
         Set(ByVal value As Integer)
             _id = value
+        End Set
+    End Property
+
+    Public Property Descripcion() As String
+        Get
+            Return _descripcion
+        End Get
+        Set(ByVal value As String)
+            _descripcion = value
         End Set
     End Property
 
@@ -153,6 +164,33 @@ Public Class Servicio
         End Get
         Set(ByVal value As String)
             _tipoConfirmacion = value
+        End Set
+    End Property
+
+    Public Property Telefono() As String
+        Get
+            Return _telefono
+        End Get
+        Set(ByVal value As String)
+            _telefono = value
+        End Set
+    End Property
+
+    Public Property Email() As String
+        Get
+            Return _email
+        End Get
+        Set(ByVal value As String)
+            _email = value
+        End Set
+    End Property
+
+    Public Property NombreUsuarioProveedor() As String
+        Get
+            Return _nombreUsuarioProveedor
+        End Get
+        Set(ByVal value As String)
+            _nombreUsuarioProveedor = value
         End Set
     End Property
 

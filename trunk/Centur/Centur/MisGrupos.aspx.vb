@@ -38,4 +38,11 @@ Public Class MisGrupos
 
     End Sub
 
+    Protected Sub CrearGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CrearGrupo.Click
+        Response.Redirect("~/CrearGrupo.aspx")
+    End Sub
+
+    Protected Sub EliminarGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EliminarGrupo.Click
+        oGruposService.DeleteGrupo(DropDownListGruposPropios.Text)
+    End Sub
 End Class

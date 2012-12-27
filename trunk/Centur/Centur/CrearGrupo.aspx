@@ -11,6 +11,11 @@
         <asp:TextBox ID="DescripGrupo" runat="server"></asp:TextBox>
        <br />
                
+    <br />
     <asp:LinkButton ID="LinkButton1" runat="server">Crear</asp:LinkButton>
+    <br />
+    <br />
+    <asp:Label ID="Success" runat="server" Text="Grupo creado exitosamente" 
+        Visible="False"></asp:Label>
 </asp:Content>
 

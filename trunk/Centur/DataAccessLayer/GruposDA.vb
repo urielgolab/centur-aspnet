@@ -31,9 +31,15 @@ Public Class GruposDA
     End Sub
 
     Sub DeleteGrupo(ByVal id As Integer)
-        'Dim params() As SqlParameter
-        'params = New SqlParameter() {New SqlParameter("@idGrupo", GrupoId)}
-        'SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "DeleteGrupo", params)
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idGrupo", id)}
+        SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "DeleteGrupo", params)
+    End Sub
+
+    Sub AltaGrupo(ByVal nombreGrupo As String, ByVal DescripGrupo As String, ByVal idProveedor As Integer)
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@tipoGrupo", "U"), New SqlParameter("@nombre", nombreGrupo), New SqlParameter("@descripcion", DescripGrupo), New SqlParameter("@idProveedor", idProveedor), New SqlParameter("@mensaje", "NULL"), New SqlParameter("@status", "")}
+        SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoRegistrar", params)
     End Sub
 
 End Class

@@ -14,7 +14,7 @@ Public Class DetalleGrupo
         DescripGrupo.Text = oGrupo.Descripcion
 
         ListBox1.DataSource = oGrupo.MiembrosList
-        ListBox1.DataTextField = "idUsuario"
+        ListBox1.DataTextField = "NombreUsuario"
         ListBox1.DataValueField = "idUsuario"
         ListBox1.DataBind()
 
@@ -22,17 +22,5 @@ Public Class DetalleGrupo
 
     End Sub
 
-    Protected Sub LinkButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton1.Click
-
-        oGrupo.ID = CInt(Request.QueryString("id"))
-        oGrupo.Nombre = NombreGrupo.Text
-        oGrupo.Descripcion = DescripGrupo.Text
-
-        oGruposService.UpdateGrupo(oGrupo)
-
-    End Sub
-
-    Protected Sub LinkButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton2.Click
-        oGruposService.DeleteGrupo(CInt(Request.QueryString("id")))
-    End Sub
+   
 End Class

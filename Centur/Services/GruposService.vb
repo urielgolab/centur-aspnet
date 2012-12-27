@@ -38,7 +38,7 @@ Public Class GruposService
             For Each dr As DataRow In ds.Tables(1).Rows
                 Dim oUsuario As New Usuario
                 oUsuario.idUsuario = CInt(dr("idUsuario"))
-                'oUsuario.Nombre = CStr(dr("nombre"))
+                oUsuario.NombreUsuario = CStr(dr("nombreUsuario"))
                 ogrupo.MiembrosList.Add(oUsuario)
             Next
         End If
@@ -52,6 +52,10 @@ Public Class GruposService
 
     Sub DeleteGrupo(ByVal id As Integer)
         oGruposDA.DeleteGrupo(id)
+    End Sub
+
+    Sub AltaGrupo(ByVal nombreGrupo As String, ByVal DescripGrupo As String, ByVal idProveedor As Integer)
+        oGruposDA.AltaGrupo(nombreGrupo, DescripGrupo, idProveedor)
     End Sub
 
 End Class

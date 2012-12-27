@@ -64,6 +64,19 @@
         <asp:Label CssClass="labelDetalle" ID="Label7" runat="server" Text="Direccion:"></asp:Label>
         <asp:Label CssClass="labelDetalleInfo" ID="DireccionServicio" runat="server"></asp:Label>
         </p>
+
+                <p>
+        <asp:Label CssClass="labelDetalle" ID="Label8" runat="server" Text="Telefono:"></asp:Label>
+        <asp:Label CssClass="labelDetalleInfo" ID="TelefonoServicio" runat="server"></asp:Label>
+        </p>
+                <p>
+        <asp:Label CssClass="labelDetalle" ID="Label10" runat="server" Text="Email:"></asp:Label>
+        <asp:Label CssClass="labelDetalleInfo" ID="EmailServicio" runat="server"></asp:Label>
+        </p>
+                <p>
+        <asp:Label CssClass="labelDetalle" ID="Label12" runat="server" Text="Observaciones:"></asp:Label>
+        <asp:Label CssClass="labelDetalleInfo" ID="ObservacionesServicio" runat="server"></asp:Label>
+        </p>
         
         <asp:Label ID="Mensaje" runat="server"></asp:Label>
 
@@ -103,23 +116,23 @@
     <asp:Image runat="server" ID="ImagenServicio" />
     </div>
 
-   <div class="filtrosBusqueda links">   
+   <div class="linksDetalleServicio">   
    <asp:LinkButton ID="Favoritos" runat="server"> </asp:LinkButton>
         <asp:LinkButton ID="VolveraBusqueda" PostBackUrl="~/BuscarServicio.aspx" runat="server"> Volver </asp:LinkButton>
-        <a href="#" id="PedirTurno">Pedir Turno</a>
+        <a href="#" class="MarginLeft30" id="PedirTurno">Pedir Turno</a>
     </div>
 
             <div id="DIVPedirTurno">
-        <asp:TextBox runat="server" ID="txtDatePicker"></asp:TextBox>
-        <asp:LinkButton ID="VerHorarios" runat="server"> Ver Horarios </asp:LinkButton>
-        <asp:GridView ID="HorariosxDia" runat="server" AutoGenerateColumns="False" 
+        <asp:TextBox CssClass="txtDatePicker" runat="server" ID="txtDatePicker"></asp:TextBox>
+        <asp:LinkButton CssClass="MarginLeft30" ID="VerHorarios" runat="server"> Ver Horarios </asp:LinkButton>
+        <asp:GridView CssClass="GrillaTurnosDisponibles" ID="HorariosxDia" runat="server" AutoGenerateColumns="False" 
                     CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:CheckBoxField DataField="Disponible" HeaderText="Disponible" />
-                <asp:BoundField DataField="horaInicio" HeaderText="Hora Inicio" />
-                <asp:BoundField DataField="horaFin" HeaderText="Hora Fin" />
-                <asp:HyperLinkField Text="Reservar!" HeaderText="Accion"  DataNavigateUrlFormatString="ReservarTurno.aspx?horaInicio={0}&horaFin={1}&fecha={2}&servicioID={3}"  DataNavigateUrlFields="horaInicio, horaFin, fecha, servicioID" />
+                <%--<asp:CheckBoxField DataField="Disponible" HeaderText="Disponible" />--%>
+                <asp:BoundField DataField="horaInicio" HeaderText="Hora Inicio" HeaderStyle-HorizontalAlign="Left" />
+                <asp:BoundField DataField="horaFin" HeaderText="Hora Fin" HeaderStyle-HorizontalAlign="Left" />
+                <asp:HyperLinkField Text="Reservar Turno" HeaderText="Accion" HeaderStyle-HorizontalAlign="Left" DataNavigateUrlFormatString="ReservarTurno.aspx?horaInicio={0}&horaFin={1}&fecha={2}&servicioID={3}"  DataNavigateUrlFields="horaInicio, horaFin, fecha, servicioID" />
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

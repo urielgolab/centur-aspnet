@@ -12,6 +12,12 @@ Public Class DetalleGrupo
         oGrupo = oGruposService.GetDetalleGrupo(CInt(Request.QueryString("id")))
         NombreGrupo.Text = oGrupo.Nombre
         DescripGrupo.Text = oGrupo.Descripcion
+
+        ListBox1.DataSource = oGrupo.MiembrosList
+        ListBox1.DataTextField = "idUsuario"
+        ListBox1.DataValueField = "idUsuario"
+        ListBox1.DataBind()
+
         'falta miembros implementar pablo
 
     End Sub

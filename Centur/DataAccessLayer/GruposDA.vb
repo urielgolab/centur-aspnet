@@ -9,16 +9,16 @@ Public Class GruposDA
     Public Function GetGruposPropios(ByVal idUsuario As Integer) As DataSet
 
         Dim params() As SqlParameter
-        params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario)}
-        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GetGruposPropios", params)
+        params = New SqlParameter() {New SqlParameter("@idProveedor", idUsuario), New SqlParameter("@mensaje", "NULL"), New SqlParameter("@status", "")}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoBuscarPor", params)
 
     End Function
 
-    Function GetDetalleGrupo(ByVal GrupoId As Integer) As DataSet
+    Function GetDetalleGrupo(ByVal GrupoId As Integer, ByVal Accion As Char) As DataSet
 
         Dim params() As SqlParameter
-        params = New SqlParameter() {New SqlParameter("@idGrupo", GrupoId)}
-        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GetDetalleGrupo", params)
+        params = New SqlParameter() {New SqlParameter("@accion", Accion), New SqlParameter("@idGrupo", GrupoId)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoObtenerDetalle", params)
 
     End Function
 

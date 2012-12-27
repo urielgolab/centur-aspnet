@@ -5,7 +5,6 @@ Public Class GruposService
 
     Public Function GetGruposPropios(ByVal idUsuario As Integer) As GrupoList
 
-        'Falta if para saber si es proveedor
         Dim ds As DataSet = oGruposDA.GetGruposPropios(idUsuario)
         Dim oGrupoList As New GrupoList
 
@@ -23,7 +22,7 @@ Public Class GruposService
     End Function
 
     Public Function GetDetalleGrupo(ByVal GrupoId As Integer) As Grupo
-        Dim ds As DataSet = oGruposDA.GetDetalleGrupo(GrupoId)
+        Dim ds As DataSet = oGruposDA.GetDetalleGrupo(GrupoId, "U")
         Dim ogrupo As New Grupo
 
         If ds.Tables(0).Rows.Count > 0 Then
@@ -33,9 +32,17 @@ Public Class GruposService
             ogrupo.Tipo = CChar(dr("tipoGrupo"))
             ogrupo.Nombre = CStr(dr("nombre"))
             ogrupo.Descripcion = CStr(dr("descripcion"))
-            Return ogrupo
         End If
-        Return Nothing 'ver excepcion cuando no retorna nada, caso improbable pero bue...
+
+        If ds.Tables(1).Rows.Count > 0 Then
+            For Each dr As DataRow In ds.Tables(1).Rows
+                Dim oUsuario As New Usuario
+                oUsuario.idUsuario = CInt(dr("idUsuario"))
+                'oUsuario.Nombre = CStr(dr("nombre"))
+                ogrupo.MiembrosList.Add(oUsuario)
+            Next
+        End If
+        Return ogrupo 'ver excepcion cuando no retorna nada, caso improbable pero bue...
 
     End Function
 

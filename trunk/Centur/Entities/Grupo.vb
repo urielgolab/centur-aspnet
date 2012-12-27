@@ -8,6 +8,7 @@ Public Class Grupo
     Private _tipo As Char
     Private _nombre As String
     Private _descripcion As String
+    Private _miembrosList As List(Of Usuario)
 #End Region
 
 #Region "Properties"
@@ -45,7 +46,22 @@ Public Class Grupo
             _descripcion = value
         End Set
     End Property
+
+    Public Property MiembrosList() As List(Of Usuario)
+        Get
+            Return _miembrosList
+        End Get
+
+        Set(ByVal value As List(Of Usuario))
+            _miembrosList = value
+        End Set
+    End Property
+
 #End Region
+
+    Public Sub New()
+        _miembrosList = New List(Of Usuario)
+    End Sub
 
 End Class
 

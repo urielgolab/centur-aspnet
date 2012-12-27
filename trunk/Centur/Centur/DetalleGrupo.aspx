@@ -14,9 +14,7 @@
         <asp:Label ID="Label3" runat="server" Text="Miembros"></asp:Label>
         <br />
         <asp:ListBox ID="ListBox1" runat="server">
-            <asp:ListItem>Maxi</asp:ListItem>
-            <asp:ListItem>Guido</asp:ListItem>
-            <asp:ListItem>Manu</asp:ListItem>
+            
         </asp:ListBox>
         <br />
 

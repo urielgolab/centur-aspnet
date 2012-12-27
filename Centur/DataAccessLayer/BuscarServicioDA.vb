@@ -45,7 +45,7 @@ Public Class BuscarServicioDA
 
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@idServicio", idServicio), New SqlParameter("@fecha", TurnoFecha), New SqlParameter("@horaInicio", TurnoHoraInicio), New SqlParameter("@horaFin", TurnoHoraFin), New SqlParameter("@idUsuario", idUsuario)}
-        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "ReservarTurno", params)
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "RegistrarTurno", params)
     End Function
 
     Public Function BuscarCategorias(ByVal accion As String, Optional ByVal idCategoria As Integer = 0, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As DataSet

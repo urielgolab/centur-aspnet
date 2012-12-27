@@ -233,6 +233,19 @@ Public Class CenturServiceREST
         Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
     End Function
 
+    Public Function Test2(Optional ByVal doble As Double = 0) As Stream Implements ICenturServiceREST.Test2
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        result.Body = doble
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
 
 
 End Class

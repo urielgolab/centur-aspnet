@@ -17,17 +17,8 @@ Public Class BuscarServicioService
             oServicio.Categoria = CStr(dr("Categoria"))
             oServicio.Zona = CStr(dr("Zona"))
             oServicio.Precio = CType(dr("precio"), Double)
-            oServicio.MinOffset = CInt(dr("diasAntes"))
-            oServicio.MaxOffset = CInt(dr("diasFuturo"))
-            'oServicio.Direccion = CStr(dr("Observaciones"))
-            '    oServicio.Observaciones = CStr(dr("Observaciones"))
-            '    oServicio.IDProveedor = CInt(dr("IDProveedor"))
-            '    oServicio.Privacidad = CBool(dr("Privacidad"))
-            '    oServicio.Sobreturno = CBool(dr("Sobreturno"))
-            '    oServicio.EnvioRecordatorio = CBool(dr("EnvioRecordatorio"))
-            '    oServicio.TipoConfirmacion = CStr(dr("TipoConfirmacion"))
 
-                oServicioList.Add(oServicio)
+            oServicioList.Add(oServicio)
         Next
 
         Return oServicioList
@@ -45,6 +36,38 @@ Public Class BuscarServicioService
             oServicio.Nombre = CStr(dr("Nombre"))
             oServicio.Categoria = CStr(dr("Categoria"))
             oServicio.Zona = CStr(dr("Zona"))
+            oServicio.Descripcion = CStr(dr("Descripcion"))
+            If Not IsDBNull(dr("direccion")) Then
+                oServicio.Direccion = CStr(dr("direccion"))
+            End If
+            If Not IsDBNull(dr("Observaciones")) Then
+                oServicio.Observaciones = CStr(dr("Observaciones"))
+            End If
+            If Not IsDBNull(dr("IDProveedor")) Then
+                oServicio.IDProveedor = CInt(dr("IDProveedor"))
+            End If
+            If Not IsDBNull(dr("Privacidad")) Then
+                oServicio.Privacidad = CBool(dr("Privacidad"))
+            End If
+            If Not IsDBNull(dr("Sobreturno")) Then
+                oServicio.Sobreturno = CBool(dr("Sobreturno"))
+            End If
+            If Not IsDBNull(dr("EnvioRecordatorio")) Then
+                oServicio.EnvioRecordatorio = CBool(dr("EnvioRecordatorio"))
+            End If
+            If Not IsDBNull(dr("TipoConfirmacion")) Then
+                oServicio.TipoConfirmacion = CStr(dr("TipoConfirmacion"))
+            End If
+            oServicio.Telefono = CStr(dr("Telefono"))
+            oServicio.Email = CStr(dr("Email"))
+            oServicio.NombreUsuarioProveedor = CStr(dr("NombreUsuario"))
+            If Not IsDBNull(dr("TipoConfirmacion")) Then
+                oServicio.Precio = CType(dr("precio"), Double)
+            Else
+                oServicio.Precio = 0
+            End If
+            oServicio.MinOffset = CInt(dr("diasAntes"))
+            oServicio.MaxOffset = CInt(dr("diasFuturo"))
             'If Not IsDBNull(dr("Foto")) Then
             '    oServicio.Imagen = CType((dr("Imagen")), Image)
             'End If
@@ -92,14 +115,17 @@ Public Class BuscarServicioService
         Dim oTurnoList As New TurnoList
 
         For Each dr As DataRow In ds.Tables(0).Rows
-            Dim oTurno As New Turno
-            oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
-            oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
-            oTurno.Disponible = dr("disponible")
-            oTurno.Fecha = CStr(dr("fecha"))
-            oTurno.ServicioID = CInt(dr("servicioID"))
+            If dr("disponible") Then
+                Dim oTurno As New Turno
+                oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
+                oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
+                oTurno.Disponible = dr("disponible")
+                oTurno.Fecha = CStr(dr("fecha"))
+                oTurno.ServicioID = CInt(dr("servicioID"))
 
-            oTurnoList.Add(oTurno)
+                oTurnoList.Add(oTurno)
+            End If
+
         Next
 
         Return oTurnoList

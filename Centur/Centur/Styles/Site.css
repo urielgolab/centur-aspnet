@@ -452,7 +452,44 @@ div.imagenServicio
 #DIVPedirTurno
 {
     float:left;
-    margin-left:50px;
-    width:400px;    
+    margin-bottom:50px;
+    margin-top:15px;
+    width:400px;
+}
+
+div.linksDetalleServicio
+{
+    float:left;
+    width:350px;  
+    margin-right:400px;
+    margin-top:25px;
+    margin-bottom:20px;
+    font-size:large;
+    font-family:Book Antiqua;
+}
+
+.GrillaTurnosDisponibles
+{
+    margin-top:25px;
+    width:350px;
+}
+
+.MarginLeft30
+{
+    margin-left:30px;
+}
+
+.txtDatePicker
+{
+    font-size:small;
+    font-weight:bolder;
+    color: red;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+    width:100px;
+    padding-left:auto;
+    padding-right:auto;
     
 }

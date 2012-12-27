@@ -19,7 +19,15 @@ Public Class DetalleServicio
 
         Me.NombreServicio.Text = servicio.Nombre
         Me.CategoriaServicio.Text = servicio.Categoria
+        Me.DescripcionServicio.Text = servicio.Descripcion
         Me.ZonaServicio.Text = servicio.Zona
+        Me.DescripcionServicio.Text = servicio.Descripcion
+        Me.PrecioServicio.Text = servicio.Precio
+        Me.DireccionServicio.Text = servicio.Direccion
+        Me.ProveedorServicio.Text = servicio.NombreUsuarioProveedor
+        Me.EmailServicio.Text = servicio.Email
+        Me.ObservacionesServicio.Text = servicio.Observaciones
+        Me.TelefonoServicio.Text = servicio.Telefono
         Me.ImagenServicio.ImageUrl = "http://t3.gstatic.com/images?q=tbn:ANd9GcQ4zKwAP4L3k0GOQfqa-D9P85q0lfUHAdJD2vbbti-Efo7bsTru"
 
         GruposAsociados.DataSource = oBuscarServicioService.VerGruposAsociadosAServicio(CInt(Request.QueryString("ServicioID")))

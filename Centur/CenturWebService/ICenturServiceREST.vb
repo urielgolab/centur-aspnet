@@ -62,4 +62,8 @@ Public Interface ICenturServiceREST
 <WebGet(UriTemplate:="/Test?fecha={fecha}&hora={hora}&numero={numero}", ResponseFormat:=WebMessageFormat.Json)> _
     Function Test(ByVal fecha As Date, ByVal hora As String, ByVal numero As Integer) As Stream
 
+    <OperationContract()>
+<WebGet(UriTemplate:="/Test2?doble={doble}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function Test2(Optional ByVal doble As Double = 0) As Stream
+
 End Interface

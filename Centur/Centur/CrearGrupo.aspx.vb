@@ -11,7 +11,7 @@ Partial Class CrearGrupo
             Return
         End If
 
-        oGruposService.AltaGrupo(NombreGrupo.Text, DescripGrupo.Text, CType(Session("Usuario"), Entities.Usuario).idUsuario)
+        oGruposService.RegistrarGrupo(NombreGrupo.Text, DescripGrupo.Text, CType(Session("Usuario"), Entities.Usuario).idUsuario)
 
         Success.Visible = True
         Response.AddHeader("REFRESH", "5;URL=MisGrupos.aspx")

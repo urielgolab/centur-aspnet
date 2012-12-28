@@ -7,6 +7,10 @@
     <p> 
         <asp:Label ID="Label1" runat="server" Text="Nombre"></asp:Label>
         <asp:TextBox ID="NombreGrupo" runat="server"></asp:TextBox> 
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <asp:LinkButton ID="Adherir" runat="server" Visible="False">Unite!</asp:LinkButton>
         <br />
          <asp:Label ID="Label2" runat="server" Text="Descripcion"></asp:Label>
         <asp:TextBox ID="DescripGrupo" runat="server"></asp:TextBox>

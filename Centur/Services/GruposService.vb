@@ -54,8 +54,21 @@ Public Class GruposService
         oGruposDA.DeleteGrupo(id)
     End Sub
 
-    Sub AltaGrupo(ByVal nombreGrupo As String, ByVal DescripGrupo As String, ByVal idProveedor As Integer)
-        oGruposDA.AltaGrupo(nombreGrupo, DescripGrupo, idProveedor)
+    Sub RegistrarGrupo(ByVal nombreGrupo As String, ByVal DescripGrupo As String, ByVal idProveedor As Integer)
+        oGruposDA.RegistrarGrupo(nombreGrupo, DescripGrupo, idProveedor)
+    End Sub
+
+    Function PuedeAdherir(ByVal idUsuario As Integer, ByVal idGrupo As Integer) As Boolean
+        Dim ds As DataSet = oGruposDA.PuedeAdherir(idUsuario, idGrupo)
+
+        Return ds.Tables(0).Rows.Count = 0
+
+    End Function
+
+    Sub AltaAGrupoPendienteAprobacion(ByVal idUsuario As Integer, ByVal idGrupo As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
+
+        oGruposDA.AsociarUsuarioAGrupo(idUsuario, idGrupo, "P", Mensaje, Status)
+
     End Sub
 
 End Class

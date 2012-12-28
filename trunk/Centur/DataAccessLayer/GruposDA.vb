@@ -36,10 +36,31 @@ Public Class GruposDA
         SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "DeleteGrupo", params)
     End Sub
 
-    Sub AltaGrupo(ByVal nombreGrupo As String, ByVal DescripGrupo As String, ByVal idProveedor As Integer)
+    Sub RegistrarGrupo(ByVal nombreGrupo As String, ByVal DescripGrupo As String, ByVal idProveedor As Integer)
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@tipoGrupo", "U"), New SqlParameter("@nombre", nombreGrupo), New SqlParameter("@descripcion", DescripGrupo), New SqlParameter("@idProveedor", idProveedor), New SqlParameter("@mensaje", "NULL"), New SqlParameter("@status", "")}
         SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoRegistrar", params)
+    End Sub
+
+    Function PuedeAdherir(ByVal idUsuario As Integer, ByVal idGrupo As Integer) As DataSet
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario), New SqlParameter("@idGrupo", idGrupo)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoPuedeAdherir", params)
+    End Function
+
+    Sub AsociarUsuarioAGrupo(ByVal idUsuario As Integer, ByVal idGrupo As Integer, ByVal accion As String, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
+        Dim ParamStatus As New SqlParameter("@status", SqlDbType.Bit)
+        ParamStatus.Direction = ParameterDirection.Output
+        Dim ParamMensaje As New SqlParameter("@mensaje", SqlDbType.VarChar, 500)
+        ParamMensaje.Direction = ParameterDirection.Output
+
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@accion", accion), New SqlParameter("@idGrupo", idGrupo), New SqlParameter("@idUsuario", idUsuario), New SqlParameter("@mensaje", Mensaje), New SqlParameter("@status", Status)}
+        SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoAsociarUsuario", params)
+
+        Status = ParamStatus.Value
+        Mensaje = ParamMensaje.Value
+
     End Sub
 
 End Class

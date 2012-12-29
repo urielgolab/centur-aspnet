@@ -6,12 +6,21 @@ Imports System.Text
 Public Class GruposDA
     Private _dbConnectionString As String = CType(Configuration.ConfigurationSettings.AppSettings("CenturConnStr"), String)
 
-    Public Function GetGruposPropios(ByVal idUsuario As Integer) As DataSet
+    Public Function GetGruposPropios(ByVal idUsuario As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As DataSet
+
+        Dim ParamStatus As New SqlParameter("@status", SqlDbType.Bit)
+        ParamStatus.Direction = ParameterDirection.Output
+        Dim ParamMensaje As New SqlParameter("@mensaje", SqlDbType.VarChar, 500)
+        ParamMensaje.Direction = ParameterDirection.Output
 
         Dim params() As SqlParameter
-        params = New SqlParameter() {New SqlParameter("@idProveedor", idUsuario), New SqlParameter("@mensaje", "NULL"), New SqlParameter("@status", "")}
-        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoBuscarPor", params)
+        params = New SqlParameter() {New SqlParameter("@idProveedor", idUsuario), New SqlParameter("@mensaje", Mensaje), New SqlParameter("@status", Status)}
+        Dim ds As DataSet = SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoBuscarPor", params)
 
+        Status = ParamStatus.Value
+        Mensaje = ParamMensaje.Value
+
+        Return ds
     End Function
 
     Function GetDetalleGrupo(ByVal GrupoId As Integer, ByVal Accion As Char) As DataSet
@@ -36,10 +45,20 @@ Public Class GruposDA
         SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "DeleteGrupo", params)
     End Sub
 
-    Sub RegistrarGrupo(ByVal nombreGrupo As String, ByVal DescripGrupo As String, ByVal idProveedor As Integer)
+    Sub RegistrarGrupo(ByVal nombreGrupo As String, ByVal DescripGrupo As String, ByVal idProveedor As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
+
+        Dim ParamStatus As New SqlParameter("@status", SqlDbType.Bit)
+        ParamStatus.Direction = ParameterDirection.Output
+        Dim ParamMensaje As New SqlParameter("@mensaje", SqlDbType.VarChar, 500)
+        ParamMensaje.Direction = ParameterDirection.Output
+
         Dim params() As SqlParameter
-        params = New SqlParameter() {New SqlParameter("@tipoGrupo", "U"), New SqlParameter("@nombre", nombreGrupo), New SqlParameter("@descripcion", DescripGrupo), New SqlParameter("@idProveedor", idProveedor), New SqlParameter("@mensaje", "NULL"), New SqlParameter("@status", "")}
+        params = New SqlParameter() {New SqlParameter("@tipoGrupo", "U"), New SqlParameter("@nombre", nombreGrupo), New SqlParameter("@descripcion", DescripGrupo), New SqlParameter("@idProveedor", idProveedor), New SqlParameter("@mensaje", Mensaje), New SqlParameter("@status", Status)}
         SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoRegistrar", params)
+
+        Status = ParamStatus.Value
+        Mensaje = ParamMensaje.Value
+
     End Sub
 
     Function PuedeAdherir(ByVal idUsuario As Integer, ByVal idGrupo As Integer) As DataSet

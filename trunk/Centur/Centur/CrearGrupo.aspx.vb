@@ -6,12 +6,16 @@ Partial Class CrearGrupo
     Dim oGruposService As New Services.GruposService()
 
     Protected Sub LinkButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton1.Click
+
+        Dim mensaje As String = ""
+        Dim status As Boolean
+
         If NombreGrupo.Text = String.Empty Or DescripGrupo.Text = String.Empty Then
             MsgBox("Los campos solicitados no han sido completados en su totalidad", MsgBoxStyle.Critical, "Error")
             Return
         End If
 
-        oGruposService.RegistrarGrupo(NombreGrupo.Text, DescripGrupo.Text, CType(Session("Usuario"), Entities.Usuario).idUsuario)
+        oGruposService.RegistrarGrupo(NombreGrupo.Text, DescripGrupo.Text, CType(Session("Usuario"), Entities.Usuario).idUsuario, mensaje, status)
 
         Success.Visible = True
         Response.AddHeader("REFRESH", "5;URL=MisGrupos.aspx")

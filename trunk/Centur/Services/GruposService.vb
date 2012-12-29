@@ -3,9 +3,9 @@
 Public Class GruposService
     Dim oGruposDA As New DataAccessLayer.GruposDA
 
-    Public Function GetGruposPropios(ByVal idUsuario As Integer) As GrupoList
+    Public Function GetGruposPropios(ByVal idUsuario As Integer, Optional ByRef mensaje As String = "", Optional ByRef status As Boolean = False) As GrupoList
 
-        Dim ds As DataSet = oGruposDA.GetGruposPropios(idUsuario)
+        Dim ds As DataSet = oGruposDA.GetGruposPropios(idUsuario, mensaje, status)
         Dim oGrupoList As New GrupoList
 
         For Each dr As DataRow In ds.Tables(0).Rows
@@ -54,8 +54,8 @@ Public Class GruposService
         oGruposDA.DeleteGrupo(id)
     End Sub
 
-    Sub RegistrarGrupo(ByVal nombreGrupo As String, ByVal DescripGrupo As String, ByVal idProveedor As Integer)
-        oGruposDA.RegistrarGrupo(nombreGrupo, DescripGrupo, idProveedor)
+    Sub RegistrarGrupo(ByVal nombreGrupo As String, ByVal DescripGrupo As String, ByVal idProveedor As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
+        oGruposDA.RegistrarGrupo(nombreGrupo, DescripGrupo, idProveedor, Mensaje, Status)
     End Sub
 
     Function PuedeAdherir(ByVal idUsuario As Integer, ByVal idGrupo As Integer) As Boolean

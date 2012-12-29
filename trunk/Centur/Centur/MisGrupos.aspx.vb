@@ -24,9 +24,11 @@ Public Class MisGrupos
 
     Private Sub GetGruposPropios()
 
+        Dim mensaje As String = ""
+        Dim status As Boolean
         Dim oGrupoList As New GrupoList
 
-        oGrupoList = oGruposService.GetGruposPropios(CType(Session("Usuario"), Entities.Usuario).idUsuario)
+        oGrupoList = oGruposService.GetGruposPropios(CType(Session("Usuario"), Entities.Usuario).idUsuario, mensaje, status)
         If oGrupoList.Count > 0 Then
             If Not (Page.IsPostBack) Then
                 DropDownListGruposPropios.DataSource = oGrupoList

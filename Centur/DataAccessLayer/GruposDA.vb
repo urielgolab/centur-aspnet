@@ -6,7 +6,7 @@ Imports System.Text
 Public Class GruposDA
     Private _dbConnectionString As String = CType(Configuration.ConfigurationSettings.AppSettings("CenturConnStr"), String)
 
-    Public Function GetGruposPropios(ByVal idUsuario As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As DataSet
+    Public Function GetGrupos(ByVal id As Integer, ByVal accion As Char, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As DataSet
 
         Dim ParamStatus As New SqlParameter("@status", SqlDbType.Bit)
         ParamStatus.Direction = ParameterDirection.Output
@@ -14,7 +14,12 @@ Public Class GruposDA
         ParamMensaje.Direction = ParameterDirection.Output
 
         Dim params() As SqlParameter
-        params = New SqlParameter() {New SqlParameter("@idProveedor", idUsuario), New SqlParameter("@mensaje", Mensaje), New SqlParameter("@status", Status)}
+        If accion = "P" Then
+            params = New SqlParameter() {New SqlParameter("@idProveedor", id), New SqlParameter("@mensaje", Mensaje), New SqlParameter("@status", Status)}
+        Else
+            params = New SqlParameter() {New SqlParameter("@idUsuario", id), New SqlParameter("@mensaje", Mensaje), New SqlParameter("@status", Status)}
+        End If
+
         Dim ds As DataSet = SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoBuscarPor", params)
 
         Status = ParamStatus.Value

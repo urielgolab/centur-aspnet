@@ -3,9 +3,9 @@
 Public Class GruposService
     Dim oGruposDA As New DataAccessLayer.GruposDA
 
-    Public Function GetGruposPropios(ByVal idUsuario As Integer, Optional ByRef mensaje As String = "", Optional ByRef status As Boolean = False) As GrupoList
+    Public Function GetGrupos(ByVal idUsuario As Integer, ByVal accion As Char, Optional ByRef mensaje As String = "", Optional ByRef status As Boolean = False) As GrupoList
 
-        Dim ds As DataSet = oGruposDA.GetGruposPropios(idUsuario, mensaje, status)
+        Dim ds As DataSet = oGruposDA.GetGrupos(idUsuario, accion, mensaje, status)
         Dim oGrupoList As New GrupoList
 
         For Each dr As DataRow In ds.Tables(0).Rows

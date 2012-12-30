@@ -8,9 +8,7 @@
 <h2>Grupos Propios</h2>
     <div><asp:Label ID="Label1" runat="server" Text="Seleccionar grupo"></asp:Label>
         <asp:DropDownList ID="DropDownListGruposPropios" runat="server" DataTextField="Nombre" DataValueField="ID">
-            
-            <asp:ListItem Value="none">Seleccione grupo...</asp:ListItem>
-            <asp:ListItem Value="Edificio">Edificio</asp:ListItem>
+            <asp:ListItem Value="none">No posee grupos</asp:ListItem>
         </asp:DropDownList>
         <asp:LinkButton ID="LinkButton4" runat="server">Ver Detalle...</asp:LinkButton>
         <br />
@@ -25,9 +23,8 @@
 <div id="adheridos">
 <h2>Grupos adheridos</h2>
     <div><asp:Label ID="Label2" runat="server" Text="Seleccionar grupo"></asp:Label>
-        <asp:DropDownList ID="DropDownList2" runat="server">
-            <asp:ListItem Value="none">Seleccione grupo...</asp:ListItem>
-            <asp:ListItem Value="Edificio">Edificio</asp:ListItem>
+        <asp:DropDownList ID="DropDownListGruposAdheridos" runat="server">
+            <asp:ListItem Value="none">No tiene grupos adheridos</asp:ListItem>
         </asp:DropDownList>
     </div>
     <div>

@@ -86,13 +86,13 @@ Partial Public Class MisGrupos
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''DropDownList2 control.
+    '''DropDownListGruposAdheridos control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DropDownList2 As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents DropDownListGruposAdheridos As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''LinkButton1 control.

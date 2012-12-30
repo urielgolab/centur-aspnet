@@ -16,6 +16,8 @@ Public Class MisGrupos
         Else
             propios.Visible = False
         End If
+
+        Me.GetGruposAdheridos()
     End Sub
 
     Protected Sub LinkButton4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton4.Click
@@ -28,13 +30,31 @@ Public Class MisGrupos
         Dim status As Boolean
         Dim oGrupoList As New GrupoList
 
-        oGrupoList = oGruposService.GetGruposPropios(CType(Session("Usuario"), Entities.Usuario).idUsuario, mensaje, status)
+        oGrupoList = oGruposService.GetGrupos(CType(Session("Usuario"), Entities.Usuario).idUsuario, "P", mensaje, status)
         If oGrupoList.Count > 0 Then
             If Not (Page.IsPostBack) Then
                 DropDownListGruposPropios.DataSource = oGrupoList
                 DropDownListGruposPropios.DataTextField = "Nombre"
                 DropDownListGruposPropios.DataValueField = "ID"
                 DropDownListGruposPropios.DataBind()
+            End If
+        End If
+
+    End Sub
+
+    Private Sub GetGruposAdheridos()
+
+        Dim mensaje As String = ""
+        Dim status As Boolean
+        Dim oGrupoList As New GrupoList
+
+        oGrupoList = oGruposService.GetGrupos(CType(Session("Usuario"), Entities.Usuario).idUsuario, "A", mensaje, status)
+        If oGrupoList.Count > 0 Then
+            If Not (Page.IsPostBack) Then
+                DropDownListGruposAdheridos.DataSource = oGrupoList
+                DropDownListGruposAdheridos.DataTextField = "Nombre"
+                DropDownListGruposAdheridos.DataValueField = "ID"
+                DropDownListGruposAdheridos.DataBind()
             End If
         End If
 
@@ -47,4 +67,5 @@ Public Class MisGrupos
     Protected Sub EliminarGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EliminarGrupo.Click
         oGruposService.DeleteGrupo(DropDownListGruposPropios.Text)
     End Sub
+
 End Class

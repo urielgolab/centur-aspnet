@@ -59,6 +59,15 @@ Partial Public Class DetalleGrupo
     Protected WithEvents DescripGrupo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''miembros control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents miembros As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''Label3 control.
     '''</summary>
     '''<remarks>
@@ -68,13 +77,13 @@ Partial Public Class DetalleGrupo
     Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ListBox1 control.
+    '''ListBoxMiembros control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ListBox1 As Global.System.Web.UI.WebControls.ListBox
+    Protected WithEvents ListBoxMiembros As Global.System.Web.UI.WebControls.ListBox
 
     '''<summary>
     '''LinkButton1 control.

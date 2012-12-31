@@ -101,6 +101,7 @@
     <Content Include="DetalleServicio.aspx" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="Favoritos.aspx" />
+    <Content Include="GrupoPendientes.aspx" />
     <Content Include="Images\logo.png" />
     <Content Include="Login.aspx" />
     <Content Include="MiCuenta.aspx" />
@@ -218,6 +219,13 @@
     <Compile Include="Favoritos.aspx.vb">
       <DependentUpon>Favoritos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GrupoPendientes.aspx.designer.vb">
+      <DependentUpon>GrupoPendientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GrupoPendientes.aspx.vb">
+      <DependentUpon>GrupoPendientes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Home.aspx.vb">
       <DependentUpon>Home.aspx</DependentUpon>

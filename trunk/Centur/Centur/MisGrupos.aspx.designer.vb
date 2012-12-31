@@ -59,22 +59,13 @@ Partial Public Class MisGrupos
     Protected WithEvents CrearGrupo As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''ModificarGrupo control.
+    '''LinkButton6 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ModificarGrupo As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''EliminarGrupo control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents EliminarGrupo As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents LinkButton6 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''Label2 control.

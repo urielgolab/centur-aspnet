@@ -15,8 +15,7 @@
     </div>
     <div>
         <asp:LinkButton ID="CrearGrupo" runat="server" PostBackUrl="~/CrearGrupo.aspx">Crear grupo</asp:LinkButton>
-         <asp:LinkButton ID="ModificarGrupo" runat="server" PostBackUrl="DetalleGrupo.aspx">Modificar grupo</asp:LinkButton>
-          <asp:LinkButton ID="EliminarGrupo" runat="server">Eliminar grupo</asp:LinkButton>
+         <asp:LinkButton ID="LinkButton6" runat="server">Solicitudes pendientes</asp:LinkButton>
     </div>
 </div>
 

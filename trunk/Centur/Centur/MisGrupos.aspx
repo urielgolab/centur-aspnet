@@ -26,6 +26,7 @@
         <asp:DropDownList ID="DropDownListGruposAdheridos" runat="server">
             <asp:ListItem Value="none">No tiene grupos adheridos</asp:ListItem>
         </asp:DropDownList>
+        <asp:LinkButton ID="LinkButton5" runat="server">Ver Detalle...</asp:LinkButton>
     </div>
     <div>
         <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/CrearGrupo.aspx">Crear grupo</asp:LinkButton>

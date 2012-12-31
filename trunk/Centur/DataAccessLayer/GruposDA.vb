@@ -87,4 +87,10 @@ Public Class GruposDA
 
     End Sub
 
+    Function esDueño(ByVal idUsuario As Integer, ByVal idGrupo As Integer) As DataSet
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario), New SqlParameter("@idGrupo", idGrupo)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoEsDueño", params)
+    End Function
+
 End Class

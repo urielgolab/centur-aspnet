@@ -71,4 +71,10 @@ Public Class GruposService
 
     End Sub
 
+    Function esDueño(ByVal idUsuario As Integer, ByVal idGrupo As Integer) As Boolean
+        Dim ds As DataSet = oGruposDA.esDueño(idUsuario, idGrupo)
+        Return ds.Tables(0).Rows.Count > 0
+
+    End Function
+
 End Class

@@ -8,23 +8,28 @@ Public Class DetalleGrupo
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
+        Dim idGrupo As Integer = CInt(Request.QueryString("id"))
+
         If Session("Usuario") Is Nothing Then
             Response.Redirect("~/Login.aspx")
         End If
 
-        If (oGruposService.PuedeAdherir(CType(Session("Usuario"), Entities.Usuario).idUsuario, CInt(Request.QueryString("id")))) Then
+        If (oGruposService.PuedeAdherir(CType(Session("Usuario"), Entities.Usuario).idUsuario, idGrupo)) Then
             Adherir.Visible = True
         End If
 
-        oGrupo = oGruposService.GetDetalleGrupo(CInt(Request.QueryString("id")))
+        oGrupo = oGruposService.GetDetalleGrupo(idGrupo)
         NombreGrupo.Text = oGrupo.Nombre
         DescripGrupo.Text = oGrupo.Descripcion
 
-        ListBox1.DataSource = oGrupo.MiembrosList
-        ListBox1.DataTextField = "NombreUsuario"
-        ListBox1.DataValueField = "idUsuario"
-        ListBox1.DataBind()
+        If oGruposService.esDueño(CType(Session("Usuario"), Entities.Usuario).idUsuario, idGrupo) Then
 
+            miembros.Visible = True
+            ListBoxMiembros.DataSource = oGrupo.MiembrosList
+            ListBoxMiembros.DataTextField = "NombreUsuario"
+            ListBoxMiembros.DataValueField = "idUsuario"
+            ListBoxMiembros.DataBind()
+        End If
         'falta miembros implementar pablo
 
     End Sub

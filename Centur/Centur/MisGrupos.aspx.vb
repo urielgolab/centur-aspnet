@@ -64,12 +64,11 @@ Public Class MisGrupos
         Response.Redirect("~/CrearGrupo.aspx")
     End Sub
 
-    Protected Sub EliminarGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EliminarGrupo.Click
-        oGruposService.DeleteGrupo(DropDownListGruposPropios.Text)
-    End Sub
-
     Protected Sub LinkButton5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton5.Click
         Response.Redirect("~/DetalleGrupo.aspx?id=" & DropDownListGruposAdheridos.Text)
     End Sub
 
+    Protected Sub LinkButton6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton6.Click
+        Response.Redirect("~/GrupoPendientes.aspx")
+    End Sub
 End Class

@@ -28,7 +28,7 @@ Public Class GruposDA
         Return ds
     End Function
 
-    Function GetDetalleGrupo(ByVal GrupoId As Integer, ByVal Accion As Char) As DataSet
+    Public Function GetDetalleGrupo(ByVal GrupoId As Integer, ByVal Accion As Char) As DataSet
 
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@accion", Accion), New SqlParameter("@idGrupo", GrupoId)}
@@ -44,13 +44,13 @@ Public Class GruposDA
 
     End Sub
 
-    Sub DeleteGrupo(ByVal id As Integer)
+    Public Sub DeleteGrupo(ByVal id As Integer)
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@idGrupo", id)}
         SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "DeleteGrupo", params)
     End Sub
 
-    Sub RegistrarGrupo(ByVal nombreGrupo As String, ByVal DescripGrupo As String, ByVal idProveedor As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
+    Public Sub RegistrarGrupo(ByVal nombreGrupo As String, ByVal DescripGrupo As String, ByVal idProveedor As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
 
         Dim ParamStatus As New SqlParameter("@status", SqlDbType.Bit)
         ParamStatus.Direction = ParameterDirection.Output
@@ -66,13 +66,13 @@ Public Class GruposDA
 
     End Sub
 
-    Function PuedeAdherir(ByVal idUsuario As Integer, ByVal idGrupo As Integer) As DataSet
+    Public Function PuedeAdherir(ByVal idUsuario As Integer, ByVal idGrupo As Integer) As DataSet
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario), New SqlParameter("@idGrupo", idGrupo)}
         Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoPuedeAdherir", params)
     End Function
 
-    Sub AsociarUsuarioAGrupo(ByVal idUsuario As Integer, ByVal idGrupo As Integer, ByVal accion As String, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
+    Public Sub AsociarUsuarioAGrupo(ByVal idUsuario As Integer, ByVal idGrupo As Integer, ByVal accion As String, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
         Dim ParamStatus As New SqlParameter("@status", SqlDbType.Bit)
         ParamStatus.Direction = ParameterDirection.Output
         Dim ParamMensaje As New SqlParameter("@mensaje", SqlDbType.VarChar, 500)
@@ -87,10 +87,18 @@ Public Class GruposDA
 
     End Sub
 
-    Function esDueño(ByVal idUsuario As Integer, ByVal idGrupo As Integer) As DataSet
+    Public Function esDueño(ByVal idUsuario As Integer, ByVal idGrupo As Integer) As DataSet
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario), New SqlParameter("@idGrupo", idGrupo)}
         Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoEsDueño", params)
+    End Function
+
+    Public Function ObtenerPendientes(ByVal idProveedor As Integer) As DataSet
+
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idProveedor", idProveedor)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoObtenerPendientes", params)
+
     End Function
 
 End Class

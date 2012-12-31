@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Categoria.vb" />
     <Compile Include="Grupo.vb" />
+    <Compile Include="GrupoPendientes.vb" />
     <Compile Include="JSONResult.vb" />
     <Compile Include="Zona.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

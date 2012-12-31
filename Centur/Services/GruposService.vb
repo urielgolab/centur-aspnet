@@ -77,4 +77,26 @@ Public Class GruposService
 
     End Function
 
+    Function ObtenerPendientes(ByRef idProveedor As Integer) As GrupoPendientesList
+
+        Dim ds As DataSet = oGruposDA.ObtenerPendientes(idProveedor)
+
+        Dim oGrupoPendientesList As New GrupoPendientesList
+
+        For Each dr As DataRow In ds.Tables(0).Rows
+            Dim oGrupoPendientes As New GrupoPendientes
+            oGrupoPendientes.IdGrupo = CInt(dr("IdGrupo"))
+            oGrupoPendientes.NombreGrupo = CStr(dr("nombreGrupo"))
+            oGrupoPendientes.IdUsuario = CInt(dr("idUsuario"))
+            oGrupoPendientes.NombreUsuario = CStr(dr("nombreUsuario"))
+            oGrupoPendientesList.Add(oGrupoPendientes)
+        Next
+
+        Return oGrupoPendientesList
+    End Function
+
+    Sub AltaAGrupo(ByVal idGrupo As Integer, ByVal idUsuario As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
+        oGruposDA.AsociarUsuarioAGrupo(idUsuario, idGrupo, "A", Mensaje, Status)
+    End Sub
+
 End Class

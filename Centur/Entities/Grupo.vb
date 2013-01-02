@@ -9,6 +9,7 @@ Public Class Grupo
     Private _nombre As String
     Private _descripcion As String
     Private _miembrosList As List(Of Usuario)
+    Private _usuarioEstaEnGrupo As Boolean
 #End Region
 
 #Region "Properties"
@@ -56,6 +57,16 @@ Public Class Grupo
             _miembrosList = value
         End Set
     End Property
+
+    Public Property usuarioEstaEnGrupo() As Boolean
+        Get
+            Return _usuarioEstaEnGrupo
+        End Get
+        Set(ByVal value As Boolean)
+            _usuarioEstaEnGrupo = value
+        End Set
+    End Property
+
 
 #End Region
 

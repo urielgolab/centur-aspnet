@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class GrupoPendientes
 
     '''<summary>
+    '''pendientes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pendientes As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''GridPendientes control.
     '''</summary>
     '''<remarks>
@@ -30,4 +39,22 @@ Partial Public Class GrupoPendientes
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents AceptarSel As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''RechazarSel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RechazarSel As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''noPendientes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents noPendientes As Global.System.Web.UI.WebControls.Label
 End Class

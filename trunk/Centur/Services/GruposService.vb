@@ -50,8 +50,8 @@ Public Class GruposService
         oGruposDA.UpdateGrupo(oGrupo.ID, oGrupo.Nombre, oGrupo.Descripcion)
     End Sub
 
-    Sub DeleteGrupo(ByVal id As Integer)
-        oGruposDA.DeleteGrupo(id)
+    Sub DeleteGrupo(ByVal idGrupo As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
+        oGruposDA.DeleteGrupo(idGrupo, Mensaje, Status)
     End Sub
 
     Sub RegistrarGrupo(ByVal nombreGrupo As String, ByVal DescripGrupo As String, ByVal idProveedor As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
@@ -97,6 +97,10 @@ Public Class GruposService
 
     Sub AltaAGrupo(ByVal idGrupo As Integer, ByVal idUsuario As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
         oGruposDA.AsociarUsuarioAGrupo(idUsuario, idGrupo, "A", Mensaje, Status)
+    End Sub
+
+    Sub BajaAGrupo(ByVal idGrupo As Integer, ByVal idUsuario As Integer, ByVal mensaje As String, ByVal status As Boolean)
+        oGruposDA.AsociarUsuarioAGrupo(idUsuario, idGrupo, "B", mensaje, status)
     End Sub
 
 End Class

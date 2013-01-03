@@ -9,7 +9,7 @@ Public Class FavoritosDA
 
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario), New SqlParameter("@idServicio", idServicio)}
-        SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "AltaFavorito", params)
+        SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "FavoritoAlta", params)
 
         Return True 'cambiar mas adelante
 
@@ -19,7 +19,7 @@ Public Class FavoritosDA
         Dim params() As SqlParameter
 
         params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario), New SqlParameter("@idServicio", idServicio)}
-        SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "BajaFavorito", params)
+        SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "FavoritoBaja", params)
         Return True 'cambiar mas adelante tambien
 
     End Function
@@ -28,7 +28,7 @@ Public Class FavoritosDA
 
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario)}
-        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GetFavoritos", params)
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "FavoritoObtener", params)
 
     End Function
 

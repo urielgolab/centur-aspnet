@@ -87,6 +87,7 @@ Public Class BuscarServicioService
             oGrupo.Nombre = CStr(dr("Nombre"))
             oGrupo.Descripcion = CStr(dr("descripcion"))
 
+
             oGrupoList.Add(oGrupo)
         Next
 

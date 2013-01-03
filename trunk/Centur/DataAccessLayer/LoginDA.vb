@@ -27,7 +27,7 @@ Public Class LoginDA
 
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@nombreUsuario", NombreUsuario), New SqlParameter("@tipoUsuario", rolUsuario), New SqlParameter("@password", Password), New SqlParameter("@nombre", nombre), New SqlParameter("@apellido", apellido), New SqlParameter("@email", email), New SqlParameter("@telefono", Telefono), ParamMensaje, ParamStatus}
-        Dim ds As DataSet = SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "RegistrarUsuario", params)
+        Dim ds As DataSet = SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "UsuarioRegistrar", params)
 
         Status = ParamStatus.Value
         If Status = True Then

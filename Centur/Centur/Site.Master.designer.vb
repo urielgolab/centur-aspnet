@@ -41,13 +41,13 @@ Partial Public Class Site1
     Protected WithEvents Form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''HeadLoginView control.
+    '''logout control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents HeadLoginView As Global.System.Web.UI.WebControls.LoginView
+    Protected WithEvents logout As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''NavigationMenu control.

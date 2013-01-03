@@ -68,13 +68,13 @@ Partial Public Class DetalleGrupo
     Protected WithEvents miembros As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''Label3 control.
+    '''LabelMiembros control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents LabelMiembros As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''ListBoxMiembros control.
@@ -86,20 +86,38 @@ Partial Public Class DetalleGrupo
     Protected WithEvents ListBoxMiembros As Global.System.Web.UI.WebControls.ListBox
 
     '''<summary>
-    '''LinkButton1 control.
+    '''comandosGrupo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LinkButton1 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents comandosGrupo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''LinkButton2 control.
+    '''editGrupo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LinkButton2 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents editGrupo As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''suprGrupo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents suprGrupo As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''LabelNoMiembros control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LabelNoMiembros As Global.System.Web.UI.WebControls.Label
 End Class

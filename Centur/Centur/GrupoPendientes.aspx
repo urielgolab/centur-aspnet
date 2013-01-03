@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <h1>Usuarios Pendientes de Aprobación</h1>
-    <p>
+    <div id="pendientes" Runat="Server">
         <asp:GridView ID="GridPendientes" runat="server" AutoGenerateColumns="False" DataKeyNames="IdGrupo,IdUsuario">
         <Columns>
             
@@ -17,7 +17,14 @@
             <asp:BoundField DataField="NombreUsuario" HeaderText="Nombre Usuario" SortExpression="NombreUsuario" />
         </Columns>
         </asp:GridView>
+   
         <asp:LinkButton ID="AceptarSel" runat="server">Aceptar seleccionados</asp:LinkButton>
-    </p>
+        <br />
+        <asp:LinkButton ID="RechazarSel" runat="server">Rechazar Seleccionados</asp:LinkButton>
+     </div>
+    <asp:Label ID="noPendientes" runat="server" Font-Size="Large" 
+        Text="Usted no tiene usuarios pendientes de aprobación" Visible="False"></asp:Label>
+    <br />
+    
 
 </asp:Content>

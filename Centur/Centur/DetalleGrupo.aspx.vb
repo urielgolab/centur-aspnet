@@ -23,12 +23,16 @@ Public Class DetalleGrupo
         DescripGrupo.Text = oGrupo.Descripcion
 
         If oGruposService.esDueño(CType(Session("Usuario"), Entities.Usuario).idUsuario, idGrupo) Then
-
-            miembros.Visible = True
-            ListBoxMiembros.DataSource = oGrupo.MiembrosList
-            ListBoxMiembros.DataTextField = "NombreUsuario"
-            ListBoxMiembros.DataValueField = "idUsuario"
-            ListBoxMiembros.DataBind()
+            comandosGrupo.Visible = True
+            If oGrupo.MiembrosList.Count = 0 Then
+                LabelNoMiembros.Visible = True
+            Else
+                miembros.Visible = True
+                ListBoxMiembros.DataSource = oGrupo.MiembrosList
+                ListBoxMiembros.DataTextField = "NombreUsuario"
+                ListBoxMiembros.DataValueField = "idUsuario"
+                ListBoxMiembros.DataBind()
+            End If
         End If
         'falta miembros implementar pablo
 
@@ -42,5 +46,13 @@ Public Class DetalleGrupo
         oGruposService.AltaAGrupoPendienteAprobacion(CType(Session("Usuario"), Entities.Usuario).idUsuario, CInt(Request.QueryString("id")), Mensaje, Status)
         Response.Redirect("~/DetalleGrupo.aspx?id=" & CInt(Request.QueryString("id")))
 
+    End Sub
+
+    Protected Sub suprGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles suprGrupo.Click
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        oGruposService.DeleteGrupo(CInt(Request.QueryString("id")), Mensaje, Status)
+        Response.Redirect("~/MisGrupos.aspx")
     End Sub
 End Class

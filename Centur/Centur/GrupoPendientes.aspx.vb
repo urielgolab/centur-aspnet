@@ -12,6 +12,9 @@ Public Class GrupoPendientes
             If oGrupoPendientesList.Count > 0 Then
                 GridPendientes.DataSource = oGrupoPendientesList
                 GridPendientes.DataBind()
+            Else
+                pendientes.Visible = False
+                noPendientes.Visible = True
             End If
         End If
     End Sub
@@ -36,6 +39,27 @@ Public Class GrupoPendientes
 
         Response.Redirect("~/GrupoPendientes.aspx")
 
+    End Sub
+
+    Protected Sub RechazarSel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles RechazarSel.Click
+
+        For Each row As GridViewRow In GridPendientes.Rows
+
+            Dim mensaje As String = ""
+            Dim status As Boolean
+
+            If CType(row.FindControl("CheckBox1"), CheckBox).Checked = True Then
+
+                Dim idGrupo As Integer = Convert.ToInt32(GridPendientes.DataKeys(row.RowIndex).Values("IdGrupo"))
+                Dim idUsuario As Integer = Convert.ToInt32(GridPendientes.DataKeys(row.RowIndex).Values("IdUsuario"))
+
+                oGruposService.BajaAGrupo(idGrupo, idUsuario, mensaje, status)
+
+            End If
+
+        Next row
+
+        Response.Redirect("~/GrupoPendientes.aspx")
     End Sub
 
 End Class

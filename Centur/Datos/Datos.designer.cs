@@ -255,11 +255,145 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AltaFavorito")]
-		public int AltaFavorito([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CategoriaBuscar")]
+		public ISingleResult<CategoriaBuscarResult> CategoriaBuscar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(1)")] System.Nullable<char> accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idCategoria)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idCategoria);
+			return ((ISingleResult<CategoriaBuscarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ZonaBuscar")]
+		public ISingleResult<ZonaBuscarResult> ZonaBuscar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(1)")] System.Nullable<char> accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idZona)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idZona);
+			return ((ISingleResult<ZonaBuscarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FavoritoAlta")]
+		public int FavoritoAlta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idServicio);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FavoritoBaja")]
+		public int FavoritoBaja([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idServicio);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FavoritoObtener")]
+		public ISingleResult<FavoritoObtenerResult> FavoritoObtener([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario);
+			return ((ISingleResult<FavoritoObtenerResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoAsociarServicio")]
+		public ISingleResult<GrupoAsociarServicioResult> GrupoAsociarServicio([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrupo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idGrupo, idServicio, mensaje, status);
+			mensaje = ((string)(result.GetParameterValue(3)));
+			status = ((System.Nullable<bool>)(result.GetParameterValue(4)));
+			return ((ISingleResult<GrupoAsociarServicioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoAsociarUsuario")]
+		public ISingleResult<GrupoAsociarUsuarioResult> GrupoAsociarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrupo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idGrupo, idUsuario, mensaje, status);
+			mensaje = ((string)(result.GetParameterValue(3)));
+			status = ((System.Nullable<bool>)(result.GetParameterValue(4)));
+			return ((ISingleResult<GrupoAsociarUsuarioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoBorrar")]
+		public int GrupoBorrar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrupo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idGrupo, mensaje, status);
+			mensaje = ((string)(result.GetParameterValue(1)));
+			status = ((System.Nullable<bool>)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoBuscarPor")]
+		public ISingleResult<GrupoBuscarPorResult> GrupoBuscarPor([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idProveedor)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idServicio, idProveedor);
+			return ((ISingleResult<GrupoBuscarPorResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoEsDueño")]
+		public ISingleResult<GrupoEsDueñoResult> GrupoEsDueño([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrupo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idGrupo);
+			return ((ISingleResult<GrupoEsDueñoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoObtenerDetalle")]
+		public ISingleResult<GrupoObtenerDetalleResult> GrupoObtenerDetalle([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrupo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idGrupo);
+			return ((ISingleResult<GrupoObtenerDetalleResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoObtenerPendientes")]
+		public ISingleResult<GrupoObtenerPendientesResult> GrupoObtenerPendientes([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idProveedor)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idProveedor);
+			return ((ISingleResult<GrupoObtenerPendientesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoPuedeAdherir")]
+		public ISingleResult<GrupoPuedeAdherirResult> GrupoPuedeAdherir([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrupo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idGrupo);
+			return ((ISingleResult<GrupoPuedeAdherirResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoRegistrar")]
+		public ISingleResult<GrupoRegistrarResult> GrupoRegistrar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string tipoGrupo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idProveedor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tipoGrupo, nombre, descripcion, idProveedor, mensaje, status);
+			mensaje = ((string)(result.GetParameterValue(4)));
+			status = ((System.Nullable<bool>)(result.GetParameterValue(5)));
+			return ((ISingleResult<GrupoRegistrarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ServicioBuscar")]
+		public ISingleResult<ServicioBuscarResult> ServicioBuscar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1000)")] string categorias, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1000)")] string zonas, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idProveedor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> precioDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> precioHasta)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombre, categorias, zonas, idServicio, idProveedor, precioDesde, precioHasta);
+			return ((ISingleResult<ServicioBuscarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ServicioObtenerGrillaPorDia")]
+		public ISingleResult<ServicioObtenerGrillaPorDiaResult> ServicioObtenerGrillaPorDia([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecha)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idServicio, fecha);
+			return ((ISingleResult<ServicioObtenerGrillaPorDiaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.TurnoAdministrar")]
+		public ISingleResult<TurnoAdministrarResult> TurnoAdministrar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idTurno)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idTurno);
+			return ((ISingleResult<TurnoAdministrarResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.TurnoObtener")]
+		public ISingleResult<TurnoObtenerResult> TurnoObtener([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string confirmado, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecha)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), confirmado, idServicio, idUsuario, fecha);
+			return ((ISingleResult<TurnoObtenerResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.TurnoRegistrar")]
+		public ISingleResult<TurnoRegistrarResult> TurnoRegistrar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecha, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Time")] System.Nullable<System.TimeSpan> horaInicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Time")] System.Nullable<System.TimeSpan> horaFin, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idServicio, fecha, horaInicio, horaFin, idUsuario);
+			return ((ISingleResult<TurnoRegistrarResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UsuarioEstaEnServicio")]
@@ -269,71 +403,13 @@ namespace Datos
 			return ((ISingleResult<UsuarioEstaEnServicioResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BajaFavorito")]
-		public int BajaFavorito([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idServicio);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BuscarServicio")]
-		public ISingleResult<BuscarServicioResult> BuscarServicio([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(250)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1000)")] string categorias, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1000)")] string zonas, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombre, categorias, zonas, idServicio);
-			return ((ISingleResult<BuscarServicioResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BuscarZona")]
-		public ISingleResult<BuscarZonaResult> BuscarZona([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(1)")] System.Nullable<char> accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idZona)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idZona);
-			return ((ISingleResult<BuscarZonaResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetFavoritos")]
-		public ISingleResult<GetFavoritosResult> GetFavoritos([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario);
-			return ((ISingleResult<GetFavoritosResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ObtenerGrillaTurnos")]
-		public ISingleResult<ObtenerGrillaTurnosResult> ObtenerGrillaTurnos([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecha)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idServicio, fecha);
-			return ((ISingleResult<ObtenerGrillaTurnosResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ObtenerGrillaTurnos_Trucha")]
-		public ISingleResult<ObtenerGrillaTurnos_TruchaResult> ObtenerGrillaTurnos_Trucha([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecha)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idServicio, fecha);
-			return ((ISingleResult<ObtenerGrillaTurnos_TruchaResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.RegistrarUsuario")]
-		public ISingleResult<RegistrarUsuarioResult> RegistrarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string tipoUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombreUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string apellido, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UsuarioRegistrar")]
+		public ISingleResult<UsuarioRegistrarResult> UsuarioRegistrar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string tipoUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombreUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nombre, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string apellido, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tipoUsuario, nombreUsuario, password, email, telefono, nombre, apellido, mensaje, status);
 			mensaje = ((string)(result.GetParameterValue(7)));
 			status = ((System.Nullable<bool>)(result.GetParameterValue(8)));
-			return ((ISingleResult<RegistrarUsuarioResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Test_MensajeError")]
-		public ISingleResult<Test_MensajeErrorResult> Test_MensajeError([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ServicioID", DbType="Int")] System.Nullable<int> servicioID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), servicioID, mensaje, status);
-			mensaje = ((string)(result.GetParameterValue(1)));
-			status = ((System.Nullable<bool>)(result.GetParameterValue(2)));
-			return ((ISingleResult<Test_MensajeErrorResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BuscarCategoria")]
-		public ISingleResult<BuscarCategoriaResult> BuscarCategoria([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(1)")] System.Nullable<char> accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idCategoria)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idCategoria);
-			return ((ISingleResult<BuscarCategoriaResult>)(result.ReturnValue));
+			return ((ISingleResult<UsuarioRegistrarResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4909,18 +4985,394 @@ namespace Datos
 	}
 	
 	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class UsuarioEstaEnServicioResult
+	public partial class CategoriaBuscarResult
 	{
 		
-		private System.Nullable<int> _IdGrupo;
+		private int _idCategoria;
 		
-		public UsuarioEstaEnServicioResult()
+		private string _descripcion;
+		
+		private System.Nullable<int> _TieneHijos;
+		
+		public CategoriaBuscarResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrupo", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCategoria", DbType="Int NOT NULL")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public System.Nullable<int> IdGrupo
+		public int idCategoria
+		{
+			get
+			{
+				return this._idCategoria;
+			}
+			set
+			{
+				if ((this._idCategoria != value))
+				{
+					this._idCategoria = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieneHijos", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<int> TieneHijos
+		{
+			get
+			{
+				return this._TieneHijos;
+			}
+			set
+			{
+				if ((this._TieneHijos != value))
+				{
+					this._TieneHijos = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class ZonaBuscarResult
+	{
+		
+		private int _idZona;
+		
+		private string _descripcion;
+		
+		private System.Nullable<int> _TieneHijos;
+		
+		public ZonaBuscarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idZona", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idZona
+		{
+			get
+			{
+				return this._idZona;
+			}
+			set
+			{
+				if ((this._idZona != value))
+				{
+					this._idZona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieneHijos", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<int> TieneHijos
+		{
+			get
+			{
+				return this._TieneHijos;
+			}
+			set
+			{
+				if ((this._TieneHijos != value))
+				{
+					this._TieneHijos = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class FavoritoObtenerResult
+	{
+		
+		private int _idServicio;
+		
+		private string _Nombre;
+		
+		private string _Categoria;
+		
+		private string _Zona;
+		
+		public FavoritoObtenerResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idServicio", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idServicio
+		{
+			get
+			{
+				return this._idServicio;
+			}
+			set
+			{
+				if ((this._idServicio != value))
+				{
+					this._idServicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Categoria", DbType="VarChar(8000)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string Categoria
+		{
+			get
+			{
+				return this._Categoria;
+			}
+			set
+			{
+				if ((this._Categoria != value))
+				{
+					this._Categoria = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Zona", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public string Zona
+		{
+			get
+			{
+				return this._Zona;
+			}
+			set
+			{
+				if ((this._Zona != value))
+				{
+					this._Zona = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class GrupoAsociarServicioResult
+	{
+		
+		private int _idServicioGrupo;
+		
+		private int _idServicio;
+		
+		private int _idGrupo;
+		
+		public GrupoAsociarServicioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idServicioGrupo", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idServicioGrupo
+		{
+			get
+			{
+				return this._idServicioGrupo;
+			}
+			set
+			{
+				if ((this._idServicioGrupo != value))
+				{
+					this._idServicioGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idServicio", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public int idServicio
+		{
+			get
+			{
+				return this._idServicio;
+			}
+			set
+			{
+				if ((this._idServicio != value))
+				{
+					this._idServicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					this._idGrupo = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class GrupoAsociarUsuarioResult
+	{
+		
+		private int _idUsuarioGrupo;
+		
+		private System.Nullable<int> _idGrupo;
+		
+		private System.Nullable<int> _idUsuario;
+		
+		private System.Nullable<bool> _confirmado;
+		
+		public GrupoAsociarUsuarioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuarioGrupo", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idUsuarioGrupo
+		{
+			get
+			{
+				return this._idUsuarioGrupo;
+			}
+			set
+			{
+				if ((this._idUsuarioGrupo != value))
+				{
+					this._idUsuarioGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public System.Nullable<int> idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					this._idGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<int> idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_confirmado", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public System.Nullable<bool> confirmado
+		{
+			get
+			{
+				return this._confirmado;
+			}
+			set
+			{
+				if ((this._confirmado != value))
+				{
+					this._confirmado = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class GrupoBuscarPorResult
+	{
+		
+		private int _IdGrupo;
+		
+		private string _tipoGrupo;
+		
+		private string _nombre;
+		
+		private string _descripcion;
+		
+		private System.Nullable<int> _idProveedor;
+		
+		public GrupoBuscarPorResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrupo", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int IdGrupo
 		{
 			get
 			{
@@ -4934,10 +5386,427 @@ namespace Datos
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipoGrupo", DbType="VarChar(1)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string tipoGrupo
+		{
+			get
+			{
+				return this._tipoGrupo;
+			}
+			set
+			{
+				if ((this._tipoGrupo != value))
+				{
+					this._tipoGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(MAX)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProveedor", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public System.Nullable<int> idProveedor
+		{
+			get
+			{
+				return this._idProveedor;
+			}
+			set
+			{
+				if ((this._idProveedor != value))
+				{
+					this._idProveedor = value;
+				}
+			}
+		}
 	}
 	
 	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class BuscarServicioResult
+	public partial class GrupoEsDueñoResult
+	{
+		
+		private int _Column1;
+		
+		public GrupoEsDueñoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class GrupoObtenerDetalleResult
+	{
+		
+		private int _IdGrupo;
+		
+		private string _tipoGrupo;
+		
+		private string _nombre;
+		
+		private string _descripcion;
+		
+		private System.Nullable<int> _idProveedor;
+		
+		public GrupoObtenerDetalleResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrupo", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int IdGrupo
+		{
+			get
+			{
+				return this._IdGrupo;
+			}
+			set
+			{
+				if ((this._IdGrupo != value))
+				{
+					this._IdGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipoGrupo", DbType="VarChar(1)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string tipoGrupo
+		{
+			get
+			{
+				return this._tipoGrupo;
+			}
+			set
+			{
+				if ((this._tipoGrupo != value))
+				{
+					this._tipoGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(MAX)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProveedor", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public System.Nullable<int> idProveedor
+		{
+			get
+			{
+				return this._idProveedor;
+			}
+			set
+			{
+				if ((this._idProveedor != value))
+				{
+					this._idProveedor = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class GrupoObtenerPendientesResult
+	{
+		
+		private int _IdGrupo;
+		
+		private string _nombreGrupo;
+		
+		private int _idUsuario;
+		
+		private string _nombreUsuario;
+		
+		public GrupoObtenerPendientesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrupo", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int IdGrupo
+		{
+			get
+			{
+				return this._IdGrupo;
+			}
+			set
+			{
+				if ((this._IdGrupo != value))
+				{
+					this._IdGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreGrupo", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string nombreGrupo
+		{
+			get
+			{
+				return this._nombreGrupo;
+			}
+			set
+			{
+				if ((this._nombreGrupo != value))
+				{
+					this._nombreGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreUsuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public string nombreUsuario
+		{
+			get
+			{
+				return this._nombreUsuario;
+			}
+			set
+			{
+				if ((this._nombreUsuario != value))
+				{
+					this._nombreUsuario = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class GrupoPuedeAdherirResult
+	{
+		
+		private System.Nullable<int> _idUsuario;
+		
+		public GrupoPuedeAdherirResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public System.Nullable<int> idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class GrupoRegistrarResult
+	{
+		
+		private int _IdGrupo;
+		
+		private string _tipoGrupo;
+		
+		private string _nombre;
+		
+		private string _descripcion;
+		
+		private System.Nullable<int> _idProveedor;
+		
+		public GrupoRegistrarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrupo", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int IdGrupo
+		{
+			get
+			{
+				return this._IdGrupo;
+			}
+			set
+			{
+				if ((this._IdGrupo != value))
+				{
+					this._IdGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipoGrupo", DbType="VarChar(1)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string tipoGrupo
+		{
+			get
+			{
+				return this._tipoGrupo;
+			}
+			set
+			{
+				if ((this._tipoGrupo != value))
+				{
+					this._tipoGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(MAX)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProveedor", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public System.Nullable<int> idProveedor
+		{
+			get
+			{
+				return this._idProveedor;
+			}
+			set
+			{
+				if ((this._idProveedor != value))
+				{
+					this._idProveedor = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class ServicioBuscarResult
 	{
 		
 		private int _idServicio;
@@ -4968,11 +5837,21 @@ namespace Datos
 		
 		private string _foto;
 		
+		private System.Nullable<double> _precio;
+		
+		private string _direccion;
+		
 		private string _Categoria;
 		
 		private string _Zona;
 		
-		public BuscarServicioResult()
+		private string _telefono;
+		
+		private string _email;
+		
+		private string _nombreUsuario;
+		
+		public ServicioBuscarResult()
 		{
 		}
 		
@@ -5214,8 +6093,42 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Categoria", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio", DbType="Float")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
+		public System.Nullable<double> precio
+		{
+			get
+			{
+				return this._precio;
+			}
+			set
+			{
+				if ((this._precio != value))
+				{
+					this._precio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_direccion", DbType="VarChar(255)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+		public string direccion
+		{
+			get
+			{
+				return this._direccion;
+			}
+			set
+			{
+				if ((this._direccion != value))
+				{
+					this._direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Categoria", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=17)]
 		public string Categoria
 		{
 			get
@@ -5232,7 +6145,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Zona", DbType="VarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18)]
 		public string Zona
 		{
 			get
@@ -5247,68 +6160,347 @@ namespace Datos
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=19)]
+		public string telefono
+		{
+			get
+			{
+				return this._telefono;
+			}
+			set
+			{
+				if ((this._telefono != value))
+				{
+					this._telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(100)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=20)]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreUsuario", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=21)]
+		public string nombreUsuario
+		{
+			get
+			{
+				return this._nombreUsuario;
+			}
+			set
+			{
+				if ((this._nombreUsuario != value))
+				{
+					this._nombreUsuario = value;
+				}
+			}
+		}
 	}
 	
 	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class BuscarZonaResult
+	public partial class ServicioObtenerGrillaPorDiaResult
 	{
 		
-		private int _idZona;
+		private System.Nullable<int> _servicioID;
 		
-		private string _descripcion;
+		private System.Nullable<System.DateTime> _fecha;
 		
-		public BuscarZonaResult()
+		private System.Nullable<System.TimeSpan> _horaInicio;
+		
+		private System.Nullable<System.TimeSpan> _horaFin;
+		
+		private System.Nullable<bool> _disponible;
+		
+		public ServicioObtenerGrillaPorDiaResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idZona", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_servicioID", DbType="Int")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int idZona
+		public System.Nullable<int> servicioID
 		{
 			get
 			{
-				return this._idZona;
+				return this._servicioID;
 			}
 			set
 			{
-				if ((this._idZona != value))
+				if ((this._servicioID != value))
 				{
-					this._idZona = value;
+					this._servicioID = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha", DbType="Date")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string descripcion
+		public System.Nullable<System.DateTime> fecha
 		{
 			get
 			{
-				return this._descripcion;
+				return this._fecha;
 			}
 			set
 			{
-				if ((this._descripcion != value))
+				if ((this._fecha != value))
 				{
-					this._descripcion = value;
+					this._fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaInicio", DbType="Time")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<System.TimeSpan> horaInicio
+		{
+			get
+			{
+				return this._horaInicio;
+			}
+			set
+			{
+				if ((this._horaInicio != value))
+				{
+					this._horaInicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaFin", DbType="Time")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public System.Nullable<System.TimeSpan> horaFin
+		{
+			get
+			{
+				return this._horaFin;
+			}
+			set
+			{
+				if ((this._horaFin != value))
+				{
+					this._horaFin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_disponible", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public System.Nullable<bool> disponible
+		{
+			get
+			{
+				return this._disponible;
+			}
+			set
+			{
+				if ((this._disponible != value))
+				{
+					this._disponible = value;
 				}
 			}
 		}
 	}
 	
 	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class GetFavoritosResult
+	public partial class TurnoAdministrarResult
+	{
+		
+		private int _idturno;
+		
+		private int _idGrilla;
+		
+		private int _idUsuario;
+		
+		private System.DateTime _fecha;
+		
+		private System.TimeSpan _horaInicio;
+		
+		private System.TimeSpan _horaFin;
+		
+		private System.Nullable<bool> _confirmado;
+		
+		private System.Nullable<double> _precio;
+		
+		public TurnoAdministrarResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idturno", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idturno
+		{
+			get
+			{
+				return this._idturno;
+			}
+			set
+			{
+				if ((this._idturno != value))
+				{
+					this._idturno = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrilla", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public int idGrilla
+		{
+			get
+			{
+				return this._idGrilla;
+			}
+			set
+			{
+				if ((this._idGrilla != value))
+				{
+					this._idGrilla = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha", DbType="Date NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public System.DateTime fecha
+		{
+			get
+			{
+				return this._fecha;
+			}
+			set
+			{
+				if ((this._fecha != value))
+				{
+					this._fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaInicio", DbType="Time NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public System.TimeSpan horaInicio
+		{
+			get
+			{
+				return this._horaInicio;
+			}
+			set
+			{
+				if ((this._horaInicio != value))
+				{
+					this._horaInicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaFin", DbType="Time NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public System.TimeSpan horaFin
+		{
+			get
+			{
+				return this._horaFin;
+			}
+			set
+			{
+				if ((this._horaFin != value))
+				{
+					this._horaFin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_confirmado", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public System.Nullable<bool> confirmado
+		{
+			get
+			{
+				return this._confirmado;
+			}
+			set
+			{
+				if ((this._confirmado != value))
+				{
+					this._confirmado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio", DbType="Float")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public System.Nullable<double> precio
+		{
+			get
+			{
+				return this._precio;
+			}
+			set
+			{
+				if ((this._precio != value))
+				{
+					this._precio = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class TurnoObtenerResult
 	{
 		
 		private int _idServicio;
 		
-		private string _Nombre;
+		private int _idturno;
 		
-		private string _Categoria;
+		private int _idGrilla;
 		
-		private string _Zona;
+		private int _idUsuario;
 		
-		public GetFavoritosResult()
+		private System.DateTime _fecha;
+		
+		private System.TimeSpan _horaInicio;
+		
+		private System.TimeSpan _horaFin;
+		
+		private System.Nullable<bool> _confirmado;
+		
+		private System.Nullable<double> _precio;
+		
+		public TurnoObtenerResult()
 		{
 		}
 		
@@ -5329,75 +6521,77 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idturno", DbType="Int NOT NULL")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string Nombre
+		public int idturno
 		{
 			get
 			{
-				return this._Nombre;
+				return this._idturno;
 			}
 			set
 			{
-				if ((this._Nombre != value))
+				if ((this._idturno != value))
 				{
-					this._Nombre = value;
+					this._idturno = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Categoria", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrilla", DbType="Int NOT NULL")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public string Categoria
+		public int idGrilla
 		{
 			get
 			{
-				return this._Categoria;
+				return this._idGrilla;
 			}
 			set
 			{
-				if ((this._Categoria != value))
+				if ((this._idGrilla != value))
 				{
-					this._Categoria = value;
+					this._idGrilla = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Zona", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public string Zona
+		public int idUsuario
 		{
 			get
 			{
-				return this._Zona;
+				return this._idUsuario;
 			}
 			set
 			{
-				if ((this._Zona != value))
+				if ((this._idUsuario != value))
 				{
-					this._Zona = value;
+					this._idUsuario = value;
 				}
 			}
 		}
-	}
-	
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class ObtenerGrillaTurnosResult
-	{
 		
-		private System.Nullable<System.TimeSpan> _horaInicio;
-		
-		private System.Nullable<System.TimeSpan> _horaFin;
-		
-		private System.Nullable<bool> _disponible;
-		
-		public ObtenerGrillaTurnosResult()
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha", DbType="Date NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public System.DateTime fecha
 		{
+			get
+			{
+				return this._fecha;
+			}
+			set
+			{
+				if ((this._fecha != value))
+				{
+					this._fecha = value;
+				}
+			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaInicio", DbType="Time")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public System.Nullable<System.TimeSpan> horaInicio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaInicio", DbType="Time NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public System.TimeSpan horaInicio
 		{
 			get
 			{
@@ -5412,9 +6606,9 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaFin", DbType="Time")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<System.TimeSpan> horaFin
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaFin", DbType="Time NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public System.TimeSpan horaFin
 		{
 			get
 			{
@@ -5429,92 +6623,232 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_disponible", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<bool> disponible
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_confirmado", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public System.Nullable<bool> confirmado
 		{
 			get
 			{
-				return this._disponible;
+				return this._confirmado;
 			}
 			set
 			{
-				if ((this._disponible != value))
+				if ((this._confirmado != value))
 				{
-					this._disponible = value;
+					this._confirmado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio", DbType="Float")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public System.Nullable<double> precio
+		{
+			get
+			{
+				return this._precio;
+			}
+			set
+			{
+				if ((this._precio != value))
+				{
+					this._precio = value;
 				}
 			}
 		}
 	}
 	
 	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class ObtenerGrillaTurnos_TruchaResult
+	public partial class TurnoRegistrarResult
 	{
 		
-		private string _HoraInicio;
+		private int _idturno;
 		
-		private string _HoraFin;
+		private int _idGrilla;
 		
-		private int _Disponible;
+		private int _idUsuario;
 		
-		public ObtenerGrillaTurnos_TruchaResult()
+		private System.DateTime _fecha;
+		
+		private System.TimeSpan _horaInicio;
+		
+		private System.TimeSpan _horaFin;
+		
+		private System.Nullable<bool> _confirmado;
+		
+		private System.Nullable<double> _precio;
+		
+		public TurnoRegistrarResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraInicio", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idturno", DbType="Int NOT NULL")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public string HoraInicio
+		public int idturno
 		{
 			get
 			{
-				return this._HoraInicio;
+				return this._idturno;
 			}
 			set
 			{
-				if ((this._HoraInicio != value))
+				if ((this._idturno != value))
 				{
-					this._HoraInicio = value;
+					this._idturno = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoraFin", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrilla", DbType="Int NOT NULL")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string HoraFin
+		public int idGrilla
 		{
 			get
 			{
-				return this._HoraFin;
+				return this._idGrilla;
 			}
 			set
 			{
-				if ((this._HoraFin != value))
+				if ((this._idGrilla != value))
 				{
-					this._HoraFin = value;
+					this._idGrilla = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Disponible", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public int Disponible
+		public int idUsuario
 		{
 			get
 			{
-				return this._Disponible;
+				return this._idUsuario;
 			}
 			set
 			{
-				if ((this._Disponible != value))
+				if ((this._idUsuario != value))
 				{
-					this._Disponible = value;
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha", DbType="Date NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public System.DateTime fecha
+		{
+			get
+			{
+				return this._fecha;
+			}
+			set
+			{
+				if ((this._fecha != value))
+				{
+					this._fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaInicio", DbType="Time NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public System.TimeSpan horaInicio
+		{
+			get
+			{
+				return this._horaInicio;
+			}
+			set
+			{
+				if ((this._horaInicio != value))
+				{
+					this._horaInicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaFin", DbType="Time NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public System.TimeSpan horaFin
+		{
+			get
+			{
+				return this._horaFin;
+			}
+			set
+			{
+				if ((this._horaFin != value))
+				{
+					this._horaFin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_confirmado", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public System.Nullable<bool> confirmado
+		{
+			get
+			{
+				return this._confirmado;
+			}
+			set
+			{
+				if ((this._confirmado != value))
+				{
+					this._confirmado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio", DbType="Float")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public System.Nullable<double> precio
+		{
+			get
+			{
+				return this._precio;
+			}
+			set
+			{
+				if ((this._precio != value))
+				{
+					this._precio = value;
 				}
 			}
 		}
 	}
 	
 	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class RegistrarUsuarioResult
+	public partial class UsuarioEstaEnServicioResult
+	{
+		
+		private System.Nullable<int> _IdGrupo;
+		
+		public UsuarioEstaEnServicioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrupo", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public System.Nullable<int> IdGrupo
+		{
+			get
+			{
+				return this._IdGrupo;
+			}
+			set
+			{
+				if ((this._IdGrupo != value))
+				{
+					this._IdGrupo = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class UsuarioRegistrarResult
 	{
 		
 		private int _idUsuario;
@@ -5533,7 +6867,7 @@ namespace Datos
 		
 		private string _apellido;
 		
-		public RegistrarUsuarioResult()
+		public UsuarioRegistrarResult()
 		{
 		}
 		
@@ -5669,347 +7003,6 @@ namespace Datos
 				if ((this._apellido != value))
 				{
 					this._apellido = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Test_MensajeErrorResult
-	{
-		
-		private int _idServicio;
-		
-		private string _nombre;
-		
-		private string _descripcion;
-		
-		private int _idCategoria;
-		
-		private int _idZona;
-		
-		private int _idProveedor;
-		
-		private string _observaciones;
-		
-		private System.Nullable<bool> _privacidad;
-		
-		private string _tipoConfirmacion;
-		
-		private System.Nullable<bool> _envioRecordatorio;
-		
-		private System.Nullable<bool> _sobreturno;
-		
-		private System.Nullable<int> _diasFuturo;
-		
-		private int _diasAntes;
-		
-		private string _foto;
-		
-		public Test_MensajeErrorResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idServicio", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int idServicio
-		{
-			get
-			{
-				return this._idServicio;
-			}
-			set
-			{
-				if ((this._idServicio != value))
-				{
-					this._idServicio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this._nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public string descripcion
-		{
-			get
-			{
-				return this._descripcion;
-			}
-			set
-			{
-				if ((this._descripcion != value))
-				{
-					this._descripcion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCategoria", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public int idCategoria
-		{
-			get
-			{
-				return this._idCategoria;
-			}
-			set
-			{
-				if ((this._idCategoria != value))
-				{
-					this._idCategoria = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idZona", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public int idZona
-		{
-			get
-			{
-				return this._idZona;
-			}
-			set
-			{
-				if ((this._idZona != value))
-				{
-					this._idZona = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProveedor", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public int idProveedor
-		{
-			get
-			{
-				return this._idProveedor;
-			}
-			set
-			{
-				if ((this._idProveedor != value))
-				{
-					this._idProveedor = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_observaciones", DbType="VarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public string observaciones
-		{
-			get
-			{
-				return this._observaciones;
-			}
-			set
-			{
-				if ((this._observaciones != value))
-				{
-					this._observaciones = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_privacidad", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-		public System.Nullable<bool> privacidad
-		{
-			get
-			{
-				return this._privacidad;
-			}
-			set
-			{
-				if ((this._privacidad != value))
-				{
-					this._privacidad = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipoConfirmacion", DbType="VarChar(1)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-		public string tipoConfirmacion
-		{
-			get
-			{
-				return this._tipoConfirmacion;
-			}
-			set
-			{
-				if ((this._tipoConfirmacion != value))
-				{
-					this._tipoConfirmacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_envioRecordatorio", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
-		public System.Nullable<bool> envioRecordatorio
-		{
-			get
-			{
-				return this._envioRecordatorio;
-			}
-			set
-			{
-				if ((this._envioRecordatorio != value))
-				{
-					this._envioRecordatorio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sobreturno", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
-		public System.Nullable<bool> sobreturno
-		{
-			get
-			{
-				return this._sobreturno;
-			}
-			set
-			{
-				if ((this._sobreturno != value))
-				{
-					this._sobreturno = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diasFuturo", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
-		public System.Nullable<int> diasFuturo
-		{
-			get
-			{
-				return this._diasFuturo;
-			}
-			set
-			{
-				if ((this._diasFuturo != value))
-				{
-					this._diasFuturo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diasAntes", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
-		public int diasAntes
-		{
-			get
-			{
-				return this._diasAntes;
-			}
-			set
-			{
-				if ((this._diasAntes != value))
-				{
-					this._diasAntes = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_foto", DbType="VarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
-		public string foto
-		{
-			get
-			{
-				return this._foto;
-			}
-			set
-			{
-				if ((this._foto != value))
-				{
-					this._foto = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class BuscarCategoriaResult
-	{
-		
-		private int _idCategoria;
-		
-		private string _descripcion;
-		
-		private System.Nullable<int> _TieneHijos;
-		
-		public BuscarCategoriaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCategoria", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int idCategoria
-		{
-			get
-			{
-				return this._idCategoria;
-			}
-			set
-			{
-				if ((this._idCategoria != value))
-				{
-					this._idCategoria = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string descripcion
-		{
-			get
-			{
-				return this._descripcion;
-			}
-			set
-			{
-				if ((this._descripcion != value))
-				{
-					this._descripcion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TieneHijos", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> TieneHijos
-		{
-			get
-			{
-				return this._TieneHijos;
-			}
-			set
-			{
-				if ((this._TieneHijos != value))
-				{
-					this._TieneHijos = value;
 				}
 			}
 		}

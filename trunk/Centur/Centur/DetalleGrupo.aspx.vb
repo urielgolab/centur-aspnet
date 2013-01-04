@@ -55,4 +55,8 @@ Public Class DetalleGrupo
         oGruposService.DeleteGrupo(CInt(Request.QueryString("id")), Mensaje, Status)
         Response.Redirect("~/MisGrupos.aspx")
     End Sub
+
+    Protected Sub editGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles editGrupo.Click
+        Response.Redirect("~/EditarGrupo.aspx?id=" & CInt(Request.QueryString("id")))
+    End Sub
 End Class

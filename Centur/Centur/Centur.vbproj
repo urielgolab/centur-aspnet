@@ -100,6 +100,7 @@
     <Content Include="CrearGrupo.aspx" />
     <Content Include="CrearServicio.aspx" />
     <Content Include="DetalleServicio.aspx" />
+    <Content Include="EditarGrupo.aspx" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="Favoritos.aspx" />
     <Content Include="GrupoPendientes.aspx" />
@@ -214,6 +215,13 @@
     <Compile Include="CrearServicio.aspx.vb">
       <DependentUpon>CrearServicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarGrupo.aspx.designer.vb">
+      <DependentUpon>EditarGrupo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarGrupo.aspx.vb">
+      <DependentUpon>EditarGrupo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="ErrorPage.aspx.designer.vb">
       <DependentUpon>ErrorPage.aspx</DependentUpon>

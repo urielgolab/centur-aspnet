@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Agregar servicio" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="CrearServicio.aspx.vb" Inherits="Centur.CrearServicio" %>
+﻿<%@ Page Title="Agregar servicio" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="CrearServicio.aspx.vb" Inherits="Centur.CrearServicio" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server"> 
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="Scripts/addressPicker.js"></script>
@@ -6,6 +6,7 @@
     <script>
     $(function() {
         $("#tabs").tabs();
+        
     });
 
 //    $(function() {
@@ -17,17 +18,19 @@
             .button()
             .click(function (event) {
                 var activeTab = $("#tabs").tabs("option", "active");
-                if (activeTab < 4)
+                if (activeTab < 3)
                     $("#tabs").tabs("option", "active", activeTab + 1);
                 else {
-                    return;
+                    //do submit
+                    //event.preventDefault();
                 }
-            });
-        });
+            });        
+    });
 
-        $(function () {
+        function obtenerCategorias(idCategoria) {
             var jsonData = new Object();
-            jsonData.idCategoria = $ID("lstCategoria").val();
+            var lstCategoria = $ID("lstCategoria");
+            jsonData.idCategoria = idCategoria;
             $.ajax({
                 url: "CrearServicio.aspx/getCategorias",
                 type: "POST",
@@ -36,15 +39,28 @@
                 contentType: "application/json; charset=utf-8",
                 success:
                 function (resultado) {
+                    if (resultado.d.length>0)
+                        lstCategoria.find('option').remove().end();
                     $.each(resultado.d, function (index, item) {
-                        $ID("lstCategoria").get(0).options[$ID("lstCategoria").get(0).options.length] = new Option(item.text, item.value);
+                        lstCategoria.get(0).options[lstCategoria.get(0).options.length] = new Option(item.descripcion, item.idCategoria);
                     })
                 }
             });
-        });
+        }
+
 
         $(function () {
-            var addresspicker = $("#addresspicker").addresspicker();
+            obtenerCategorias($ID("lstCategoria").val());
+            $ID("lstCategoria").change(
+                function () {
+                    var idCategoria = $ID("lstCategoria").val();
+                    obtenerCategorias(idCategoria);
+                }
+            )
+        });
+
+
+        $(function () {
             var addresspickerMap = $("#addresspicker_map").addresspicker({
                 elements: {
                     map: "#map",
@@ -71,10 +87,11 @@
             theme: 'advanced',
             language: 'es',
             skin: "o2k7",
-            plugins: 'style,layer,table,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu',
+            plugins: "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen, preview,noneditable,visualchars,nonbreaking,template,wordcount,advlist, media",
+            //plugins: 'style,layer,table,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu',
             disk_cache : true,
 	     	debug : false,
-
+	     	theme_advanced_buttons1: "fontselect, fontsizeselect,|,forecolor,backcolor,|,bold,italic,underline,|,cut,copy,paste,|,bullist,numlist,|,newdocument,undo,redo,|,fullscreen, preview,|, image, media, |, justifyleft, justifycenter, justifyright, justifyfull",
 
 	     	// Theme options
             /*
@@ -157,7 +174,6 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    
     <p>
         <br />
     </p>
@@ -185,12 +201,10 @@
 	    <div class="ch-form-row ch-form-required sell-title">
 		    <label for="title">T&iacute;tulo: <em>*</em></label> 
 		
-		    <input type="text" value="" id="title" name="title.title" required="required" size="70" placeholder="Ej.: Wimbledon Tenis Club con Estacionamiento, Buffet y 6 canchas." title="Usa palabras clave para que encuentren f&aacute;cilmente tu servicio."/>
-		
-		    <span class="ch-form-hint">Restan <span id="display">60</span> caracteres.</span>
+		    <input type="text" value="" id="title" name="title" size="70" placeholder="Ej.: Wimbledon Tenis Club con Estacionamiento, Buffet y 6 canchas." title="Usa palabras clave para que encuentren f&aacute;cilmente tu servicio."/>
 		</div>
         
-        <div id="picContainer" class="ready clear" style="z-index: 0;">
+<%--        <div id="picContainer" class="ready clear" style="z-index: 0;">
                 <i class="repeat top ch-icon-camera"></i>
                 <i class="repeat mid ch-icon-camera"></i>
                 <i class="repeat bottom ch-icon-camera"></i>
@@ -198,26 +212,21 @@
                 
                 <p class="ch-form-hint"><span id="imgAmount">1</span> foto disponible</p>
                 <a type="button" id="addImgs" rel="prevent-not-needed" class="ch-btn-skin ch-btn-small trigger">Agregar fotos</a> 
-        </div>
+        </div>--%>
         <br />
-    	<div class='input'>
-	        <label>Dirección : </label> <input id="addresspicker_map" placeholder="Ej.: Av. Corrientes 571, Buenos Aires" size="50px" />   <br/>
-			<label>Locality: </label> <input id="locality" disabled="disabled"> <br/>
-			<label>Country:  </label> <input id="country" disabled="disabled"> <br/>
-			<label>Lat:      </label> <input id="lat" disabled="disabled"> <br/>
-			<label>Lng:      </label> <input id="lng" disabled="disabled"> <br/>
+        <div>
+    	    <div class='input'>
+	            <label>Dirección : </label> <input id="addresspicker_map" placeholder="Ej.: Av. Corrientes 571, Buenos Aires" size="50px" />   <br/>
+                    <label>Locality: </label> <input id="locality" disabled="disabled" /> <br/>
+			        <label>Country:  </label> <input id="country" disabled="disabled" /> <br/>
+			        <label>Lat:      </label> <input id="lat" disabled="disabled" /> <br/>
+			        <label>Lng:      </label> <input id="lng" disabled="disabled" /> <br/>
+            </div>
+            <div id="map"></div>
         </div>
-        <div id="map"></div>
 
         <br />
-        <div class="ui-widget">
-	        <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
-		        <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-		            <strong>No incluyas datos de contacto en tu publicación porque será dada de baja.</strong>
-                </p>
-	        </div>
-        </div>
-
+        <br />
 	    <p class="ch-form-row description ">
 		    <label for="description" id="lbl_description">Descripci&oacute;n: <span class="ch-form-hint optional">(opcional)</span></label>
 
@@ -237,7 +246,7 @@
     </div>
     <div id="configuralo">
         <p>REGLAS PERSONALIZADAS</p>
-        <button id="Button2">Finalizar</button>
+        <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" OnClick="btnFinalizar_Click" />
     </div>
 </div>
 

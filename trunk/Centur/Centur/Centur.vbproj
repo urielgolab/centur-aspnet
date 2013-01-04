@@ -96,6 +96,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="BuscarServicio.aspx" />
+    <Content Include="CrearServicioP2.aspx" />
     <Content Include="CrearGrupo.aspx" />
     <Content Include="CrearServicio.aspx" />
     <Content Include="DetalleServicio.aspx" />
@@ -107,6 +108,7 @@
     <Content Include="MiCuenta.aspx" />
     <Content Include="MisGrupos.aspx" />
     <Content Include="MisTurnos.aspx" />
+    <Content Include="CrearServicioP1.aspx" />
     <None Include="Service References\CenturServiceREST\CenturServiceREST.wsdl" />
     <None Include="Service References\CenturServiceREST\CenturServiceREST.xsd">
       <SubType>Designer</SubType>
@@ -192,6 +194,13 @@
       <DependentUpon>BuscarServicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="CrearServicioP2.aspx.designer.vb">
+      <DependentUpon>CrearServicioP2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearServicioP2.aspx.vb">
+      <DependentUpon>CrearServicioP2.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="CrearGrupo.aspx.designer.vb">
       <DependentUpon>CrearGrupo.aspx</DependentUpon>
     </Compile>
@@ -204,7 +213,7 @@
     </Compile>
     <Compile Include="CrearServicio.aspx.vb">
       <DependentUpon>CrearServicio.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ErrorPage.aspx.designer.vb">
       <DependentUpon>ErrorPage.aspx</DependentUpon>
@@ -350,6 +359,13 @@
     </Compile>
     <Compile Include="VerEstadisticas.aspx.vb">
       <DependentUpon>VerEstadisticas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="CrearServicioP1.aspx.designer.vb">
+      <DependentUpon>CrearServicioP1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearServicioP1.aspx.vb">
+      <DependentUpon>CrearServicioP1.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

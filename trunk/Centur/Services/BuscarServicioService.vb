@@ -55,13 +55,16 @@ Public Class BuscarServicioService
             If Not IsDBNull(dr("EnvioRecordatorio")) Then
                 oServicio.EnvioRecordatorio = CBool(dr("EnvioRecordatorio"))
             End If
-            If Not IsDBNull(dr("TipoConfirmacion")) Then
-                oServicio.TipoConfirmacion = CStr(dr("TipoConfirmacion"))
+            If Not IsDBNull(dr("necesitaConfirmacion")) Then
+                oServicio.NecesitaConfirmacion = CBool(dr("necesitaConfirmacion"))
+            End If
+            If Not IsDBNull(dr("MercadoPago")) Then
+                oServicio.MercadoPago = CBool(dr("MercadoPago"))
             End If
             oServicio.Telefono = CStr(dr("Telefono"))
             oServicio.Email = CStr(dr("Email"))
             oServicio.NombreUsuarioProveedor = CStr(dr("NombreUsuario"))
-            If Not IsDBNull(dr("TipoConfirmacion")) Then
+            If Not IsDBNull(dr("precio")) Then
                 oServicio.Precio = CType(dr("precio"), Double)
             Else
                 oServicio.Precio = 0
@@ -96,14 +99,18 @@ Public Class BuscarServicioService
 
 
     Public Function ReservarTurno(ByVal idServicio As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal idUsuario As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As Turno
-        Dim ds As DataSet = oBuscarServicioDA.ReservarTurno(idServicio, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, idUsuario, Mensaje, Status)
+
+        Dim TurnoHoraInicioFix As String = TurnoHoraInicio.Replace(".", ":") + ":00"
+        Dim TurnoHoraFinFix As String = TurnoHoraFin.Replace(".", ":") + ":00"
+
+        Dim ds As DataSet = oBuscarServicioDA.ReservarTurno(idServicio, TurnoFecha, TurnoHoraInicioFix, TurnoHoraFinFix, idUsuario, Mensaje, Status)
         Dim oTurno As New Turno
 
         If ds.Tables(0).Rows.Count > 0 Then
             Dim dr As DataRow = ds.Tables(0).Rows(0)
             oTurno.idTurno = dr("idTurno")
-            oTurno.horaInicio = dr("horaInicio")
-            oTurno.horaFin = dr("horaFin")
+            oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
+            oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
         End If
 
         Return oTurno

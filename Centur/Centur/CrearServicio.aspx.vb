@@ -11,6 +11,8 @@ Imports Datos
 Public Class CrearServicio
     Inherits System.Web.UI.Page
 
+
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
     End Sub
@@ -25,13 +27,14 @@ Public Class CrearServicio
 
     <System.Web.Services.WebMethod(BufferResponse:=False)> _
     <ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
-    Public Shared Function getCategorias(ByVal idCategoria As Integer?) As BuscarCategoriaResult
+    Public Shared Function getCategorias(ByVal idCategoria As Integer?) As List(Of CategoriaBuscarResult)
         Dim dc As New DC()
 
-        For Each var In dc.BuscarCategoria(If(idCategoria Is Nothing, "R", "H"), idCategoria)
-            Console.WriteLine(var.descripcion)
-        Next
-
-        Return dc.BuscarCategoria(CType(IIf(idCategoria Is Nothing, "R", "H"), Char), idCategoria)
+        Return dc.CategoriaBuscar(CType(IIf(idCategoria Is Nothing, "R", "H"), Char), idCategoria).ToList()
     End Function
+
+   
+    Protected Sub btnFinalizar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFinalizar.Click
+        Return
+    End Sub
 End Class

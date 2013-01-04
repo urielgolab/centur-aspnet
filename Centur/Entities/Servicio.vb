@@ -19,7 +19,8 @@ Public Class Servicio
     Private _privacidad As Boolean
     Private _envioRecordatorio As Boolean
     Private _sobreturno As Boolean
-    Private _tipoConfirmacion As String
+    Private _necesitaConfirmacion As Boolean
+    Private _mercadoPago As Boolean
     Private _telefono As String
     Private _email As String
     Private _nombreUsuarioProveedor As String
@@ -158,12 +159,21 @@ Public Class Servicio
         End Set
     End Property
 
-    Public Property TipoConfirmacion() As String
+    Public Property NecesitaConfirmacion() As Boolean
         Get
-            Return _tipoConfirmacion
+            Return _necesitaConfirmacion
         End Get
-        Set(ByVal value As String)
-            _tipoConfirmacion = value
+        Set(ByVal value As Boolean)
+            _necesitaConfirmacion = value
+        End Set
+    End Property
+
+    Public Property MercadoPago() As Boolean
+        Get
+            Return _mercadoPago
+        End Get
+        Set(ByVal value As Boolean)
+            _mercadoPago = value
         End Set
     End Property
 

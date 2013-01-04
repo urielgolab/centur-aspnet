@@ -17,7 +17,7 @@ Public Class BuscarServicioDA
     Public Function VerDetalleServicio(ByVal idServicio As Integer) As DataSet
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@idServicio", idServicio)}
-        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "BuscarServicio", params)
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "ServicioBuscar", params)
 
     End Function
 
@@ -44,8 +44,13 @@ Public Class BuscarServicioDA
         ParamMensaje.Direction = ParameterDirection.Output
 
         Dim params() As SqlParameter
-        params = New SqlParameter() {New SqlParameter("@idServicio", idServicio), New SqlParameter("@fecha", TurnoFecha), New SqlParameter("@horaInicio", TurnoHoraInicio), New SqlParameter("@horaFin", TurnoHoraFin), New SqlParameter("@idUsuario", idUsuario)}
-        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "TurnoRegistrar", params)
+        params = New SqlParameter() {New SqlParameter("@idServicio", idServicio), New SqlParameter("@fecha", TurnoFecha), New SqlParameter("@horaInicio", TurnoHoraInicio), New SqlParameter("@horaFin", TurnoHoraFin), New SqlParameter("@idUsuario", idUsuario), ParamMensaje, ParamStatus}
+        Dim ds As DataSet = SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "TurnoRegistrar", params)
+
+        Status = ParamStatus.Value
+        Mensaje = ParamMensaje.Value
+
+        Return ds
     End Function
 
     Public Function BuscarCategorias(ByVal accion As String, Optional ByVal idCategoria As Integer = 0, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As DataSet

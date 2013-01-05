@@ -18,6 +18,16 @@ Public Class DetalleGrupo
         NombreGrupo.Text = oGrupo.Nombre
         DescripGrupo.Text = oGrupo.Descripcion
 
+        If oGrupo.ServicioList.Count = 0 Then
+            LabelNoServicios.Visible = True
+        Else
+            servicios.Visible = True
+            ListBoxServicios.DataSource = oGrupo.ServicioList
+            ListBoxServicios.DataTextField = "Nombre"
+            ListBoxServicios.DataValueField = "ID"
+            ListBoxServicios.DataBind()
+        End If
+
         If (oGruposService.PuedeAdherir(CType(Session("Usuario"), Entities.Usuario).idUsuario, idGrupo)) Then
             Adherir.Visible = True
 
@@ -66,7 +76,7 @@ Public Class DetalleGrupo
         Dim mensaje As String = ""
         Dim status As Boolean
 
-        oGruposService.BajaAGrupo(CInt(Request.QueryString("id")), CType(Session("Usuario"), Entities.Usuario).idUsuario, mensaje, status)
+        oGruposService.BajaMiembroAGrupo(CInt(Request.QueryString("id")), CType(Session("Usuario"), Entities.Usuario).idUsuario, mensaje, status)
         Response.Redirect("~/MisGrupos.aspx")
     End Sub
 End Class

@@ -13,8 +13,39 @@
         <br />
          <asp:Label ID="Label2" runat="server" Text="Descripcion"></asp:Label>
         <asp:TextBox ID="DescripGrupo" runat="server"></asp:TextBox>
+        <br />
        <br />
-       <br />
+        <table>
+                 <tr> 
+          <td>
+        <div id="servicios" Runat="Server">
+        <asp:Label ID="Label4" runat="server" Text="Servicios"></asp:Label>
+        <br />
+       <asp:GridView ID="GridServicios" runat="server" AutoGenerateColumns="False" 
+                DataKeyNames="ID">
+       <Columns>
+       
+       <asp:TemplateField HeaderText="Selecccione">
+            <ItemTemplate>
+                <asp:CheckBox runat="server" ID="CheckBox1"/>
+            </ItemTemplate>
+       </asp:TemplateField>
+
+       <asp:BoundField DataField="Nombre" HeaderText="Nombre Servicio" SortExpression="Nombre"/>
+       </Columns>
+       </asp:GridView>
+       <br />     
+       
+            <asp:Label ID="Label5" runat="server" Text="Seleccione servicios a eliminar"></asp:Label>
+       
+     
+       </div>
+   
+   <asp:Label ID="labelNoServicios" runat="server" 
+        Text="Usted no tiene servicios asociados a este grupo" Visible="False"></asp:Label>
+        </td>
+        <td></td>
+    <td>
         <div id="miembros" Runat="Server">
         <asp:Label ID="LabelMiembros" runat="server" Text="Miembros"></asp:Label>
         <br />
@@ -40,8 +71,11 @@
    
    <asp:Label ID="LabelNoMiembros" runat="server" 
         Text="Usted no tiene miembros asociados a este grupo" Visible="False"></asp:Label>
-        <br />
-        <br />
+        </td>        
+        </tr>
+        </table>
+
+       <br />
     <asp:LinkButton ID="editGrupo" runat="server">Modificar</asp:LinkButton>
     
  </asp:Content>

@@ -9,11 +9,12 @@ Public Class EditarGrupo
 
         Dim idGrupo As Integer = CInt(Request.QueryString("id"))
 
-        oGrupo = oGruposService.GetDetalleGrupo(idGrupo)
-        NombreGrupo.Text = oGrupo.Nombre
-        DescripGrupo.Text = oGrupo.Descripcion
+        If Not IsPostBack Then
+            oGrupo = oGruposService.GetDetalleGrupo(idGrupo)
+            NombreGrupo.Text = oGrupo.Nombre
+            DescripGrupo.Text = oGrupo.Descripcion
 
-        If Not Page.IsPostBack Then
+
             If oGrupo.MiembrosList.Count > 0 Then
                 GridMiembros.DataSource = oGrupo.MiembrosList
                 GridMiembros.DataBind()
@@ -22,6 +23,35 @@ Public Class EditarGrupo
                 LabelNoMiembros.Visible = True
             End If
         End If
+
+    End Sub
+
+    Protected Sub editGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles editGrupo.Click
+
+        Dim idGrupo As Integer = CInt(Request.QueryString("id"))
+
+        oGrupo.ID = idGrupo
+        oGrupo.Nombre = NombreGrupo.Text
+        oGrupo.Descripcion = DescripGrupo.Text
+        oGruposService.UpdateGrupo(oGrupo)
+
+
+        For Each row As GridViewRow In GridMiembros.Rows
+
+            Dim mensaje As String = ""
+            Dim status As Boolean
+
+            If CType(row.FindControl("CheckBox1"), CheckBox).Checked = True Then
+
+                Dim idUsuario As Integer = Convert.ToInt32(GridMiembros.DataKeys(row.RowIndex).Values("idUsuario"))
+
+                oGruposService.BajaAGrupo(idGrupo, idUsuario, mensaje, status)
+
+            End If
+
+        Next row
+
+        Response.Redirect("~/DetalleGrupo.aspx?id=" & idGrupo)
 
     End Sub
 

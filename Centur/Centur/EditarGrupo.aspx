@@ -15,7 +15,7 @@
         <asp:TextBox ID="DescripGrupo" runat="server"></asp:TextBox>
        <br />
        <br />
-        <div id="miembros" Runat="Server" Visible="False">
+        <div id="miembros" Runat="Server">
         <asp:Label ID="LabelMiembros" runat="server" Text="Miembros"></asp:Label>
         <br />
        <asp:GridView ID="GridMiembros" runat="server" AutoGenerateColumns="False" 
@@ -31,10 +31,11 @@
        <asp:BoundField DataField="NombreUsuario" HeaderText="Nombre Usuario" SortExpression="NombreUsuario"/>
        </Columns>
        </asp:GridView>
-            
+       <br />     
        
-       <br />
-       <br />
+            <asp:Label ID="Label3" runat="server" Text="Seleccione miembros a eliminar"></asp:Label>
+       
+     
        </div>
    
    <asp:Label ID="LabelNoMiembros" runat="server" 

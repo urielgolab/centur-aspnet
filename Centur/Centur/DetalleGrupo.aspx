@@ -11,9 +11,11 @@
         &nbsp;
         &nbsp;
         <asp:LinkButton ID="Adherir" runat="server" Visible="False">Unite!</asp:LinkButton>
+        <asp:LinkButton ID="Desuscribirse" runat="server" Visible="False">Cancelar suscripción</asp:LinkButton>
         <br />
          <asp:Label ID="Label2" runat="server" Text="Descripcion"></asp:Label>
         <asp:TextBox ID="DescripGrupo" runat="server" ReadOnly="True"></asp:TextBox>
+       <br />
        <br />
         <div id="miembros" Runat="Server" Visible="False">
         <asp:Label ID="LabelMiembros" runat="server" Text="Miembros"></asp:Label>
@@ -23,14 +25,16 @@
         </asp:ListBox>
         <br />
         </div>
+
+    <asp:Label ID="LabelNoMiembros" runat="server" 
+        Text="Usted no tiene miembros asociados a este grupo" Visible="False"></asp:Label>
+
     <div id="comandosGrupo" Runat="Server" Visible="False">
+    <br />
     <asp:LinkButton ID="editGrupo" runat="server">Modificar Grupo</asp:LinkButton>
     <br />
     <asp:LinkButton ID="suprGrupo" runat="server">Eliminar Grupo</asp:LinkButton>
     </div>
-
-    <asp:Label ID="LabelNoMiembros" runat="server" 
-        Text="Usted no tiene miembros asociados a este grupo" Visible="False"></asp:Label>
 
     <br />
     

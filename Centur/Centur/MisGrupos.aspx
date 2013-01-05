@@ -28,11 +28,7 @@
         </asp:DropDownList>
         <asp:LinkButton ID="LinkButton5" runat="server">Ver Detalle...</asp:LinkButton>
     </div>
-    <div>
-        <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/CrearGrupo.aspx">Crear grupo</asp:LinkButton>
-         <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="DetalleGrupo.aspx">Modificar grupo</asp:LinkButton>
-          <asp:LinkButton ID="LinkButton3" runat="server">Eliminar grupo</asp:LinkButton>
-    </div>
+
 </div>
 
 

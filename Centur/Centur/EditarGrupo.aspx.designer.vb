@@ -68,13 +68,22 @@ Partial Public Class EditarGrupo
     Protected WithEvents LabelMiembros As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''hola control.
+    '''GridMiembros control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents GridMiembros As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''Label3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''LabelNoMiembros control.

@@ -41,6 +41,15 @@ Partial Public Class DetalleGrupo
     Protected WithEvents Adherir As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''Adherir0 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Desuscribirse As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''Label2 control.
     '''</summary>
     '''<remarks>
@@ -86,6 +95,15 @@ Partial Public Class DetalleGrupo
     Protected WithEvents ListBoxMiembros As Global.System.Web.UI.WebControls.ListBox
 
     '''<summary>
+    '''LabelNoMiembros control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LabelNoMiembros As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''comandosGrupo control.
     '''</summary>
     '''<remarks>
@@ -111,13 +129,4 @@ Partial Public Class DetalleGrupo
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents suprGrupo As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''LabelNoMiembros control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents LabelNoMiembros As Global.System.Web.UI.WebControls.Label
 End Class

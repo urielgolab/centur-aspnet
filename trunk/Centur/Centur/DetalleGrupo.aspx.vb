@@ -14,28 +14,30 @@ Public Class DetalleGrupo
             Response.Redirect("~/Login.aspx")
         End If
 
-        If (oGruposService.PuedeAdherir(CType(Session("Usuario"), Entities.Usuario).idUsuario, idGrupo)) Then
-            Adherir.Visible = True
-        End If
-
         oGrupo = oGruposService.GetDetalleGrupo(idGrupo)
         NombreGrupo.Text = oGrupo.Nombre
         DescripGrupo.Text = oGrupo.Descripcion
 
-        If oGruposService.esDueño(CType(Session("Usuario"), Entities.Usuario).idUsuario, idGrupo) Then
-            comandosGrupo.Visible = True
-            If oGrupo.MiembrosList.Count = 0 Then
-                LabelNoMiembros.Visible = True
+        If (oGruposService.PuedeAdherir(CType(Session("Usuario"), Entities.Usuario).idUsuario, idGrupo)) Then
+            Adherir.Visible = True
+
+        Else
+
+            If oGruposService.esDueño(CType(Session("Usuario"), Entities.Usuario).idUsuario, idGrupo) Then
+                comandosGrupo.Visible = True
+                If oGrupo.MiembrosList.Count = 0 Then
+                    LabelNoMiembros.Visible = True
+                Else
+                    miembros.Visible = True
+                    ListBoxMiembros.DataSource = oGrupo.MiembrosList
+                    ListBoxMiembros.DataTextField = "NombreUsuario"
+                    ListBoxMiembros.DataValueField = "idUsuario"
+                    ListBoxMiembros.DataBind()
+                End If
             Else
-                miembros.Visible = True
-                ListBoxMiembros.DataSource = oGrupo.MiembrosList
-                ListBoxMiembros.DataTextField = "NombreUsuario"
-                ListBoxMiembros.DataValueField = "idUsuario"
-                ListBoxMiembros.DataBind()
+                Desuscribirse.Visible = True
             End If
         End If
-        'falta miembros implementar pablo
-
     End Sub
 
    
@@ -58,5 +60,13 @@ Public Class DetalleGrupo
 
     Protected Sub editGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles editGrupo.Click
         Response.Redirect("~/EditarGrupo.aspx?id=" & CInt(Request.QueryString("id")))
+    End Sub
+
+    Protected Sub Desuscribirse_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Desuscribirse.Click
+        Dim mensaje As String = ""
+        Dim status As Boolean
+
+        oGruposService.BajaAGrupo(CInt(Request.QueryString("id")), CType(Session("Usuario"), Entities.Usuario).idUsuario, mensaje, status)
+        Response.Redirect("~/MisGrupos.aspx")
     End Sub
 End Class

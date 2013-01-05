@@ -38,9 +38,9 @@ Public Class GruposDA
 
     Public Sub UpdateGrupo(ByVal id As Integer, ByVal nombre As String, ByVal descripcion As String)
 
-        'Dim params() As SqlParameter
-        'params = New SqlParameter() {New SqlParameter("@idGrupo", id), New SqlParameter("@nombre", nombre), New SqlParameter("@descripcion", descripcion)}
-        'SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "UpdateGrupo", params)
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idGrupo", id), New SqlParameter("@nombre", nombre), New SqlParameter("@descripcion", descripcion)}
+        SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoUpdate", params)
 
     End Sub
 

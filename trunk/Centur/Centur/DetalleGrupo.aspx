@@ -15,8 +15,24 @@
         <br />
          <asp:Label ID="Label2" runat="server" Text="Descripcion"></asp:Label>
         <asp:TextBox ID="DescripGrupo" runat="server" ReadOnly="True"></asp:TextBox>
+               <br />
        <br />
-       <br />
+       <table>
+       <tr> 
+          <td>
+     
+        <div id="servicios" Runat="Server" Visible="False">
+        <asp:Label ID="Label3" runat="server" Text="Servicios"></asp:Label>
+        <br />
+        <asp:ListBox ID="ListBoxServicios" runat="server">
+            
+        </asp:ListBox>
+        <br />
+        </div>
+
+    <asp:Label ID="LabelNoServicios" runat="server" 
+        Text="Usted no tiene servicios asociados a este grupo" Visible="False"></asp:Label>
+        </td> <td>
         <div id="miembros" Runat="Server" Visible="False">
         <asp:Label ID="LabelMiembros" runat="server" Text="Miembros"></asp:Label>
         <br />
@@ -28,7 +44,9 @@
 
     <asp:Label ID="LabelNoMiembros" runat="server" 
         Text="Usted no tiene miembros asociados a este grupo" Visible="False"></asp:Label>
-
+        </td>
+        </tr> 
+        </table> 
     <div id="comandosGrupo" Runat="Server" Visible="False">
     <br />
     <asp:LinkButton ID="editGrupo" runat="server">Modificar Grupo</asp:LinkButton>

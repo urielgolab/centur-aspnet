@@ -22,7 +22,7 @@ Public Class GruposService
     End Function
 
     Public Function GetDetalleGrupo(ByVal GrupoId As Integer) As Grupo
-        Dim ds As DataSet = oGruposDA.GetDetalleGrupo(GrupoId, "U")
+        Dim ds As DataSet = oGruposDA.GetDetalleGrupo(GrupoId, "")
         Dim ogrupo As New Grupo
 
         If ds.Tables(0).Rows.Count > 0 Then
@@ -41,7 +41,18 @@ Public Class GruposService
                 oUsuario.NombreUsuario = CStr(dr("nombreUsuario"))
                 ogrupo.MiembrosList.Add(oUsuario)
             Next
+
         End If
+
+        If ds.Tables(2).Rows.Count > 0 Then
+            For Each dr As DataRow In ds.Tables(2).Rows
+                Dim oServicio As New Servicio
+                oServicio.ID = CStr(dr("idServicio"))
+                oServicio.Nombre = CStr(dr("nombre"))
+                ogrupo.ServicioList.Add(oServicio)
+            Next
+        End If
+
         Return ogrupo 'ver excepcion cuando no retorna nada, caso improbable pero bue...
 
     End Function
@@ -99,8 +110,14 @@ Public Class GruposService
         oGruposDA.AsociarUsuarioAGrupo(idUsuario, idGrupo, "A", Mensaje, Status)
     End Sub
 
-    Sub BajaAGrupo(ByVal idGrupo As Integer, ByVal idUsuario As Integer, ByVal mensaje As String, ByVal status As Boolean)
+    Sub BajaMiembroAGrupo(ByVal idGrupo As Integer, ByVal idUsuario As Integer, ByVal mensaje As String, ByVal status As Boolean)
         oGruposDA.AsociarUsuarioAGrupo(idUsuario, idGrupo, "B", mensaje, status)
+    End Sub
+
+    Sub BajaServicioAGrupo(ByVal idGrupo As Integer, ByVal idServicio As Integer, ByVal mensaje As String, ByVal status As Boolean)
+
+        oGruposDA.AsociarServicioAGrupo(idServicio, idGrupo, "B", mensaje, status)
+
     End Sub
 
 End Class

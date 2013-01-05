@@ -41,7 +41,7 @@ Partial Public Class DetalleGrupo
     Protected WithEvents Adherir As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''Adherir0 control.
+    '''Desuscribirse control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
@@ -66,6 +66,42 @@ Partial Public Class DetalleGrupo
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DescripGrupo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''servicios control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents servicios As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Label3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ListBoxServicios control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ListBoxServicios As Global.System.Web.UI.WebControls.ListBox
+
+    '''<summary>
+    '''LabelNoServicios control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LabelNoServicios As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''miembros control.

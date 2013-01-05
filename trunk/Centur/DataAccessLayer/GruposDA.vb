@@ -110,4 +110,20 @@ Public Class GruposDA
 
     End Function
 
+    Sub AsociarServicioAGrupo(ByVal idServicio As Integer, ByVal idGrupo As Integer, ByVal accion As String, ByVal mensaje As String, ByVal status As Boolean)
+
+        Dim ParamStatus As New SqlParameter("@status", SqlDbType.Bit)
+        ParamStatus.Direction = ParameterDirection.Output
+        Dim ParamMensaje As New SqlParameter("@mensaje", SqlDbType.VarChar, 500)
+        ParamMensaje.Direction = ParameterDirection.Output
+
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@accion", accion), New SqlParameter("@idGrupo", idGrupo), New SqlParameter("@idServicio", idServicio), New SqlParameter("@mensaje", mensaje), New SqlParameter("@status", status)}
+        SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoAsociarServicio", params)
+
+        status = ParamStatus.Value
+        mensaje = ParamMensaje.Value
+
+    End Sub
+
 End Class

@@ -14,6 +14,14 @@ Public Class EditarGrupo
             NombreGrupo.Text = oGrupo.Nombre
             DescripGrupo.Text = oGrupo.Descripcion
 
+            If oGrupo.ServicioList.Count > 0 Then
+                GridServicios.DataSource = oGrupo.ServicioList
+                GridServicios.DataBind()
+            Else
+                servicios.Visible = False
+                labelNoServicios.Visible = True
+            End If
+
 
             If oGrupo.MiembrosList.Count > 0 Then
                 GridMiembros.DataSource = oGrupo.MiembrosList
@@ -35,6 +43,20 @@ Public Class EditarGrupo
         oGrupo.Descripcion = DescripGrupo.Text
         oGruposService.UpdateGrupo(oGrupo)
 
+        For Each row As GridViewRow In GridServicios.Rows
+
+            Dim mensaje As String = ""
+            Dim status As Boolean
+
+            If CType(row.FindControl("CheckBox1"), CheckBox).Checked = True Then
+
+                Dim idServicio As Integer = Convert.ToInt32(GridMiembros.DataKeys(row.RowIndex).Values("idUsuario"))
+
+                oGruposService.BajaServicioAGrupo(idGrupo, idServicio, mensaje, status)
+
+            End If
+
+        Next row
 
         For Each row As GridViewRow In GridMiembros.Rows
 
@@ -45,7 +67,7 @@ Public Class EditarGrupo
 
                 Dim idUsuario As Integer = Convert.ToInt32(GridMiembros.DataKeys(row.RowIndex).Values("idUsuario"))
 
-                oGruposService.BajaAGrupo(idGrupo, idUsuario, mensaje, status)
+                oGruposService.BajaMiembroAGrupo(idGrupo, idUsuario, mensaje, status)
 
             End If
 

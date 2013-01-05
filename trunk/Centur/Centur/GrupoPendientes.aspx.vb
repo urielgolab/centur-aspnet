@@ -53,7 +53,7 @@ Public Class GrupoPendientes
                 Dim idGrupo As Integer = Convert.ToInt32(GridPendientes.DataKeys(row.RowIndex).Values("IdGrupo"))
                 Dim idUsuario As Integer = Convert.ToInt32(GridPendientes.DataKeys(row.RowIndex).Values("IdUsuario"))
 
-                oGruposService.BajaAGrupo(idGrupo, idUsuario, mensaje, status)
+                oGruposService.BajaMiembroAGrupo(idGrupo, idUsuario, mensaje, status)
 
             End If
 

@@ -9,6 +9,7 @@ Public Class Grupo
     Private _nombre As String
     Private _descripcion As String
     Private _miembrosList As List(Of Usuario)
+    Private _serviciosList As List(Of Servicio)
     Private _usuarioEstaEnGrupo As Boolean
 #End Region
 
@@ -58,6 +59,16 @@ Public Class Grupo
         End Set
     End Property
 
+    Public Property ServicioList() As List(Of Servicio)
+        Get
+            Return _serviciosList
+        End Get
+
+        Set(ByVal value As List(Of Servicio))
+            _serviciosList = value
+        End Set
+    End Property
+
     Public Property usuarioEstaEnGrupo() As Boolean
         Get
             Return _usuarioEstaEnGrupo
@@ -70,8 +81,10 @@ Public Class Grupo
 
 #End Region
 
+
     Public Sub New()
         _miembrosList = New List(Of Usuario)
+        _serviciosList = New List(Of Servicio)
     End Sub
 
 End Class

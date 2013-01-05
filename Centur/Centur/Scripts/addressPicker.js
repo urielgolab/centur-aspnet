@@ -18,8 +18,8 @@
         options: {
             appendAddressString: "",
             mapOptions: {
-                zoom: 5,
-                center: new google.maps.LatLng(46, 2),
+                zoom: 14,
+                center: new google.maps.LatLng(-34.603683, -58.381608),
                 scrollwheel: false,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             },

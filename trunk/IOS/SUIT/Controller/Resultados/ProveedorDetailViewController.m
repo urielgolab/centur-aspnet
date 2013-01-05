@@ -10,6 +10,7 @@
 #import "ProveedorMapaViewController.h"
 #import "SRVBusqueda.h"
 #import "FechaPikerViewController.h"
+#import "TurnosViewController.h"
 
 @interface ProveedorDetailViewController ()
 
@@ -76,11 +77,15 @@
 }
 
 -(void)turnoOK:(NSNotification*)notification{
+    TurnosViewController* tvc = [[TurnosViewController alloc]initWithNibName:@"TurnosViewController" bundle:nil];
+    tvc.turnos = notification.object;
+    tvc.servicio = proveedor;
+    [self.navigationController pushViewController:tvc animated:YES];
 
 }
 
 -(void)turnoFailed:(NSNotification*)notification{
-
+    [[[UIAlertView alloc]initWithTitle:nil message:@"No hay turnos Disponibles" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
 }
 
 -(void)servicioOK:(NSNotification*)notification{

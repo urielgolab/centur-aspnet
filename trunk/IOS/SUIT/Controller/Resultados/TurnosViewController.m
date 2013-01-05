@@ -51,7 +51,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [turnos count];
+    return [self.turnos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -59,9 +59,13 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    
+    cell.textLabel.text = [[self.turnos objectAtIndex:indexPath.row] Fecha] ;
+    cell.textLabel.textAlignment = UITextAlignmentLeft;
+    cell.detailTextLabel.textAlignment = UITextAlignmentLeft;
+    cell.detailTextLabel.text =  [NSString stringWithFormat:@"%@ - %@",[[self.turnos objectAtIndex:indexPath.row] horaInicio],[[self.turnos objectAtIndex:indexPath.row] horaFin] ];
+
     // Configure the cell...
     
     return cell;

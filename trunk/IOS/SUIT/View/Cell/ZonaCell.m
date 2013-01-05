@@ -33,6 +33,7 @@
 -(void)setZona:(Zona *)aZona{
     zona = aZona;    
     self.textLabel.text = zona.nombre;
+    self.textLabel.textAlignment = UITextAlignmentCenter;
     accesoryButton.hidden = ![zona hasSubZonas];
 }
 

@@ -46,6 +46,18 @@
     return [NSArray arrayWithArray:aux];
 }
 
++(NSArray*)arrayWhitTurnosForm:(NSArray*)arrayOfDictionary{
+    NSMutableArray * aux = [NSMutableArray array];
+    
+    for (NSDictionary* dict in arrayOfDictionary) {
+        Turno* proveedor = [[Turno alloc]initWhitDictionary:dict];
+        [aux addObject: proveedor ];
+    }
+    
+    return [NSArray arrayWithArray:aux];
+
+}
+
 +(NSArray*)arrayWhitUsuariosForm:(NSArray*)arrayOfDictionary{
     NSMutableArray * aux = [NSMutableArray array];
     

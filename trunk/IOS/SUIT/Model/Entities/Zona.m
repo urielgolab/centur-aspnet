@@ -18,6 +18,7 @@
     if (self = [super init]) {
         nombre = [dict objectForKey:@"NombreZona"];
         zonaID = [dict objectForKey:@"IDZona"];
+        _TieneHijos = [[dict objectForKey:@"TieneHijos"]boolValue];
         //subZonas = [NSArray arrayWhitZonasForm: [dict objectForKey:@"subZonas"]];
     }
     return self;
@@ -25,7 +26,7 @@
 }
 
 -(BOOL)hasSubZonas{
-    return [subZonas count]>0;
+    return self.TieneHijos;
 }
 
 #pragma mark - DEbug methods

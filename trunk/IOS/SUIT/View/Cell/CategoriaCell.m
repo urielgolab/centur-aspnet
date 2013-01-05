@@ -16,7 +16,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        accesoryButton = [UIButton buttonWithType: UIButtonTypeContactAdd];
+        accesoryButton = [UIButton buttonWithType: UIButtonTypeDetailDisclosure];
 
         self.accessoryView = accesoryButton;
         [accesoryButton addTarget:self 

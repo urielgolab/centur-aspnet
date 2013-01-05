@@ -8,6 +8,8 @@
 
 #import "ProveedorDetailViewController.h"
 #import "ProveedorMapaViewController.h"
+#import "SRVBusqueda.h"
+#import "FechaPikerViewController.h"
 
 @interface ProveedorDetailViewController ()
 
@@ -20,7 +22,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         proveedor = aProveedor;
-        self.title = proveedor.nombre;
+        
+        self.title = proveedor.Nombre;
+        [self createNotification];
+        [[SRVBusqueda GetInstance] startSearchForProvedorDetail:proveedor];
     }
     return self;
 }
@@ -28,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadData];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -44,15 +50,75 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(void)createNotification{
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(servicioOK:)
+                                                 name:SERVICE_GETSERVICIODETAIL_OK
+                                               object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(servicioFailed:)
+                                                 name:SERVICE_GETSERVICIODETAIL_FAILED
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(turnoOK:)
+                                                 name:SERVICE_TURNOSSERVICIO_OK
+                                               object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(turnoFailed:)
+                                                 name:SERVICE_TURNOSSERVICIO_FAILED
+                                               object:nil];
+
+}
+
+-(void)turnoOK:(NSNotification*)notification{
+
+}
+
+-(void)turnoFailed:(NSNotification*)notification{
+
+}
+
+-(void)servicioOK:(NSNotification*)notification{
+    [self loadData];
+}
+
+-(void)servicioFailed:(NSNotification*)notification{
+    
+    [[[UIAlertView alloc]initWithTitle:nil message:@"Fallo obtener detalle del Servicio" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+-(void)loadData{
+    thumbsImage.image = [UIImage imageNamed:@"stationimage.png"];
+    nombreLabel.text = proveedor.Nombre;
+    direccionLabel.text = proveedor.Direccion;
+    descripcionTextView.text = proveedor.Descripcion;
+    mapaButton.hidden =  !proveedor.isCoordinated;
+
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    thumbsImage.image = [UIImage imageNamed:@"stationimage.png"];
-    nombreLabel.text = proveedor.nombre;
-    direccionLabel.text = proveedor.direccion;
-    descripcionTextView.text = proveedor.descripcion;
-    mapaButton.hidden =  !proveedor.isCoordinated;
 }
+
+
 - (IBAction)pedirTurnoTouch:(UIButton *)sender {
+    FechaPikerViewController* fecha = [[FechaPikerViewController alloc]initWithNibName:@"FechaPikerViewController" bundle:nil];
+    
+    fecha.searchBlock = ^(NSDate* date){
+        [[SRVBusqueda GetInstance]buscarTurnosPara:proveedor paraDia:date];
+    };
+    
+    fecha.minunDate = [NSDate dateWithTimeIntervalSinceNow: [proveedor.MinOffset intValue]*60*60*24 ];
+    fecha.maxDate = [NSDate dateWithTimeIntervalSinceNow: [proveedor.MaxOffset intValue]*60*60*24 ];
+    
+    UINavigationController* nc = [[UINavigationController alloc]initWithRootViewController:fecha];
+    [self.navigationController presentModalViewController:nc animated:YES];
     
 }
 

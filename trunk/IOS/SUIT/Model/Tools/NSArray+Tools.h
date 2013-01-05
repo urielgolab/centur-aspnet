@@ -11,6 +11,7 @@
 #import "Zona.h"
 #import "Servicio.h"
 #import "Usuario.h"
+#import "Turno.h"
 
 @interface NSArray (Tools)
 
@@ -18,5 +19,5 @@
 +(NSArray*)arrayWhitZonasForm:(NSArray*)arrayOfDictionary;
 +(NSArray*)arrayWhitServiciosForm:(NSArray*)arrayOfDictionary;
 +(NSArray*)arrayWhitUsuariosForm:(NSArray*)arrayOfDictionary;
-
++(NSArray*)arrayWhitTurnosForm:(NSArray*)arrayOfDictionary;
 @end

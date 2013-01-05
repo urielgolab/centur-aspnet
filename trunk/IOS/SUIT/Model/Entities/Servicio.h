@@ -11,33 +11,32 @@
 #import "Categoria.h"
 
 @interface Servicio : NSObject<MKAnnotation>{
-    NSString* categoriaid;
-    NSString* descripcion;
-    NSString* direccion;
-    NSString* foto;
-    NSNumber* _id;
-    NSString* nombre;
-    NSString* observacion;
-    NSNumber* proveedorid;
-
-    CLLocationCoordinate2D coordinate;
-    BOOL isCoordinated;
+   
 }
 
 
+
+@property(nonatomic) NSString* Categoria;
+@property(nonatomic) NSString* Descripcion;
+@property(nonatomic) NSString* Direccion;
+@property(nonatomic) NSString* Email;
+@property(nonatomic) NSString* EnvioRecordatorio;
+@property(nonatomic) NSNumber* ID;
+@property(nonatomic) NSNumber* IDProveedor;
+@property(nonatomic) NSNumber* Imagen;
 @property(nonatomic) NSNumber* MaxOffset;
-@property(nonatomic) NSNumber* MinOffset;
+@property(nonatomic) BOOL MercadoPago;
+@property(nonatomic) NSString* MinOffset;
+@property(nonatomic) BOOL NecesitaConfirmacion;
+@property(nonatomic) NSString* Nombre;
+@property(nonatomic) NSString* NombreUsuarioProveedor;
+@property(nonatomic) NSString* Observaciones;
+@property(nonatomic) NSNumber* Precio;
+@property(nonatomic) BOOL Privacidad;
+@property(nonatomic) BOOL Sobreturno;
+@property(nonatomic) NSString* Telefono;
+@property(nonatomic) NSString* Zona;
 
-@property(nonatomic) NSString* Imagen;
-
-@property(nonatomic) NSString* categoriaid;
-@property(nonatomic) NSString* descripcion;
-@property(nonatomic) NSString* direccion;
-@property(nonatomic) NSString* foto;
-@property(nonatomic) NSNumber* _id;
-@property(nonatomic) NSString* nombre;
-@property(nonatomic) NSString* observacion;
-@property(nonatomic) NSNumber* proveedorid;
 
 @property(nonatomic) CLLocationCoordinate2D coordinate;
 @property(nonatomic) BOOL isCoordinated;

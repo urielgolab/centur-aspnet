@@ -21,4 +21,12 @@ CWL_DECLARE_SINGLETON_FOR_CLASS(SRVProfile);
 
 -(void)loginUserName:(NSString*)usuario withPassword:(NSString*)password;
 
+
+-(void)registrarNombreUsuario:(NSString*)nombreUsuario
+                     password:(NSString*)password
+                     telefono:(NSString*)telefono
+                       nombre:(NSString*)nombre
+                     apellido:(NSString*)apellido
+                        email:(NSString*)email;
+
 @end

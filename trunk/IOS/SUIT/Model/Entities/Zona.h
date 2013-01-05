@@ -14,9 +14,10 @@
     NSString* nombre;
 }
 
-@property(nonatomic,readonly) NSArray* subZonas;
+@property(nonatomic,retain) NSArray* subZonas;
 @property(nonatomic,readonly) NSNumber* zonaID;
 @property(nonatomic,readonly) NSString* nombre;
+@property(nonatomic,readonly) BOOL TieneHijos;
 
 
 -(Zona*)initWhitDictionary:(NSDictionary*)dict;

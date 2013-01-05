@@ -61,8 +61,29 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVZona);
 
 
 -(void)searchAllSubZonasFrom:(Zona *)zona{
-    [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_GETSUBZONAS_OK object:zona];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
+    //[params setObject:@"JSON" forKey:@"format"];
+    [params setObject:@"h" forKey:@"accion"];
+    [params setObject:zona.zonaID forKey:@"idZona"];
     
+    NSString* url = [NSString stringWithFormat:@"%@", SERVICE_BASE_URL ];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"BuscarZonas" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        zona.subZonas = [NSArray arrayWhitZonasForm:[JSON objectForKey:@"Body"]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_GETSUBZONAS_OK object:zona];
+        NSLog(@"%@",JSON);
+        
+        
+        
+    }
+                                                                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                                                            NSLog(@"%@",error);
+                                                                                        }];
+    
+    [operation start];    
 }
 
 -(NSArray*)getAllSubZonasFrom: (Zona*)zona{

@@ -78,10 +78,33 @@
     if (nombre) {
         [params setObject:nombre forKey:@"nombre"];
     }
-//    if ([categorias count]) {
-//        
-//        [params setObject: categorias  forKey:@"categoriaID"];
-//    }
+    if ([categorias count]) {
+        NSString* string = @"";
+        
+        for (Categoria* categoria in categorias) {
+            string = [NSString stringWithFormat:@"%@%@",string,categoria.categoriaID ];
+            
+            if ([categorias indexOfObject:categoria] != ([categorias count]-1)) {
+                string = [NSString stringWithFormat:@"%@|",string];
+            }
+        }
+        
+        [params setObject: string  forKey:@"categorias"];
+    }
+    
+    if ([zonas count]) {
+        NSString* string = @"";
+        
+        for (Zona* zona in zonas) {
+            string = [NSString stringWithFormat:@"%@%@",string,zona.zonaID ];
+            
+            if ([zonas indexOfObject:zona] != ([zonas count]-1)) {
+                string = [NSString stringWithFormat:@"%@|",string];
+            }
+        }
+        
+        [params setObject: string  forKey:@"zonas"];
+    }
     
     return [NSDictionary dictionaryWithDictionary:params];
 }

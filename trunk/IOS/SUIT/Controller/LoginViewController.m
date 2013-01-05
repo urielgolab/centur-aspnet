@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "SRVProfile.h"
+#import "SignUpViewController.h"
 
 typedef enum {
     AlertTypeLoginOK = 0,
@@ -25,6 +26,7 @@ typedef enum {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cerrar" style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
+        self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithTitle:@"Registrar" style:UIBarButtonItemStyleBordered target:self action:@selector(registrar)];
         [self createNotification];
     }
     return self;
@@ -52,6 +54,11 @@ typedef enum {
 
 -(void)close{
     [self.navigationController dismissModalViewControllerAnimated:YES];
+}
+
+-(void)registrar{
+    SignUpViewController *sg = [[SignUpViewController alloc]initWithNibName:@"SignUpViewController" bundle:nil];    
+    [self.navigationController pushViewController:sg animated:YES];
 }
 
 - (IBAction)loginTouch:(UIButton *)sender {

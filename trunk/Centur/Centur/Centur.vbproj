@@ -96,6 +96,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="BuscarServicio.aspx" />
+    <Content Include="CrearServicioP3.aspx" />
     <Content Include="CrearServicioP2.aspx" />
     <Content Include="CrearGrupo.aspx" />
     <Content Include="CrearServicio.aspx" />
@@ -194,6 +195,13 @@
     <Compile Include="BuscarServicio.aspx.vb">
       <DependentUpon>BuscarServicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearServicioP3.aspx.designer.vb">
+      <DependentUpon>CrearServicioP3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearServicioP3.aspx.vb">
+      <DependentUpon>CrearServicioP3.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="CrearServicioP2.aspx.designer.vb">
       <DependentUpon>CrearServicioP2.aspx</DependentUpon>

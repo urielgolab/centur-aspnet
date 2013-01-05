@@ -10,12 +10,15 @@
 #import "EntitiesProtocols.h"
 
 @interface FechaPikerViewController : UIViewController{
-    NSObject<Fecheable>* fecheable;
-    
-    IBOutlet UIDatePicker* pikerDesde;
-    IBOutlet UIDatePicker* pikerHasta;
     IBOutlet UIScrollView * scroll;
+    __weak IBOutlet UIDatePicker *datePiker;
+    
+    NSDate* minunDate;
+    NSDate* maxDate;
 }
 
-@property (nonatomic,retain) NSObject<Fecheable>* fecheable;
+@property(nonatomic,retain) NSDate* minunDate;
+@property(nonatomic,retain) NSDate* maxDate;
+@property(nonatomic,copy) void (^searchBlock)(NSDate* date);
+
 @end

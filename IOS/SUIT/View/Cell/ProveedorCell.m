@@ -30,7 +30,7 @@
 -(void)setProveedor:(Servicio *)aProveedor{
     proveedor = aProveedor;
     
-    self.textLabel.text = aProveedor.nombre;
+    self.textLabel.text = aProveedor.Nombre;
 }
 
 @end

@@ -20,10 +20,20 @@
 #define SERVICE_GETZONAS_OK @"getzonaOK"
 #define SERVICE_GETSUBZONAS_OK @"getsubzonaOK"
 
+#define SERVICE_GETSERVICIODETAIL_OK @"getservicioOK"
+#define SERVICE_GETSERVICIODETAIL_FAILED @"getservicioFAILED"
+
 
 #define SERVICE_LOGIN_OK @"loginOk"
 #define SERVICE_LOGIN_FAILED @"loginFailed"
- 
+
+
+#define SERVICE_SIGN_OK @"SIGNOk"
+#define SERVICE_SIGN_FAILED @"SIGNFailed"
+
+#define SERVICE_TURNOSSERVICIO_OK @"TURNOSERVICIOOK"
+#define SERVICE_TURNOSSERVICIO_FAILED @"TURNOSERVICIOFAILED"
+
 @interface SRVBase : NSObject
 
 

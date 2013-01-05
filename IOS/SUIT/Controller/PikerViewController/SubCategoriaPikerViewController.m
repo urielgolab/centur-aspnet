@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [[SRVCategoria GetInstance]searchAllSubCategoriesFrom:categoria];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -78,7 +78,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[[SRVCategoria GetInstance]getAllSubCategoriesFrom:categoria]count];
+    return [categoria.subCategorias count];// [[[SRVCategoria GetInstance]getAllSubCategoriesFrom:categoria]count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,6 +92,7 @@
     
     Categoria* subcategoria = [[[SRVCategoria GetInstance] getAllSubCategoriesFrom:categoria] objectAtIndex:indexPath.row];
     cell.categoria = subcategoria;
+    cell.target = self;
     if ([self.categorizable.categorias containsObject:subcategoria]) {
         [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
         

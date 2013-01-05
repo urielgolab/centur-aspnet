@@ -9,14 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface Categoria : NSObject{
-    NSArray* subCategorias;
-    NSNumber* categoriaID;
-    NSString* nombre;
 }
 
-@property(nonatomic,readonly) NSArray* subCategorias;
 @property(nonatomic,readonly) NSNumber* categoriaID;
 @property(nonatomic,readonly) NSString* nombre;
+@property(nonatomic,readonly) BOOL TieneHijos;
+@property(nonatomic,retain) NSArray* subCategorias;
+
 
 -(Categoria*)initWhitDictionary:(NSDictionary*)dict;
 -(BOOL)hasSubCategories;

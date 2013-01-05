@@ -60,11 +60,33 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVCategoria);
 
 
 -(void)searchAllSubCategoriesFrom: (Categoria*)categoria{
-    [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_GETSUBCATEGORIES_OK object:categoria];
-
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
+    //[params setObject:@"JSON" forKey:@"format"];
+    [params setObject:@"h" forKey:@"accion"];
+    [params setObject:categoria.categoriaID forKey:@"idCategoria"];
+    
+    NSString* url = [NSString stringWithFormat:@"%@", SERVICE_BASE_URL ];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"BuscarCategorias" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        categoria.subCategorias = [NSArray arrayWhitCategoriesForm:[JSON objectForKey:@"Body"]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_GETSUBCATEGORIES_OK object:categoria];
+        
+        
+        
+        
+    }
+    failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                                                            NSLog(@"%@",error);
+                                                                                        }];
+    [operation start];
 }
 
 -(NSArray*)getAllSubCategoriesFrom: (Categoria*)categoria{
+    
     return categoria.subCategorias;
 }
 

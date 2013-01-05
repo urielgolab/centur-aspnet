@@ -177,9 +177,9 @@ typedef enum  {
             
         }else if (row == 3) {
             //Fecha
-           FechaPikerViewController * fp = [[FechaPikerViewController alloc ]initWithNibName:@"FechaPikerViewController" bundle:nil];
-            fp.fecheable =  searchParametre;
-            [self.navigationController pushViewController:fp animated:YES];
+//           FechaPikerViewController * fp = [[FechaPikerViewController alloc ]initWithNibName:@"FechaPikerViewController" bundle:nil];
+//            fp.fecheable =  searchParametre;
+//            [self.navigationController pushViewController:fp animated:YES];
         }
     }else if (section == 1) {
         if (row == 0) {

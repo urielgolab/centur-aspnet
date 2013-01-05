@@ -11,32 +11,29 @@
 
 @implementation Servicio
 
-@synthesize categoriaid,descripcion,direccion,foto,_id,nombre,observacion,proveedorid, coordinate, isCoordinated,Imagen,MaxOffset,MinOffset;
 
 -(Servicio*)initWhitDictionary:(NSDictionary*)dict{
     if (self = [super init]) {
-        _id = [dict objectForKey:@"Categoria"];
-        categoriaid = [dict objectForKey:@"ID"];
-        Imagen = [dict objectForKey:@"Imagen"];
-        MaxOffset = [dict objectForKey:@"MaxOffset"];
-        MinOffset = [dict objectForKey:@"MinOffset"];
-        nombre = [dict objectForKey:@"Nombre"];
-        
-        descripcion = [dict objectForKey:@"descripcion"];
-        direccion = [dict objectForKey:@"direccion"];
-        foto = [dict objectForKey:@"foto"] ;
-        observacion = [dict objectForKey:@"observacion"];
-        proveedorid = [[dict objectForKey:@"proveedor"]objectForKey:@"id"];
-        
-        isCoordinated = [[dict objectForKey:@"coordinate"]boolValue];
-        if (isCoordinated){
-            CLLocationDegrees latitude = [[dict objectForKey:@"latitude"]doubleValue];
-            CLLocationDegrees longitude = [[dict objectForKey:@"longitude"]doubleValue];
-            coordinate = CLLocationCoordinate2DMake(latitude,longitude);
-        }
-        direccion =  [dict objectForKey:@"direccion"];
-        descripcion = [dict objectForKey:@"descripcion"];
-
+        self.Categoria = NIL_IF_NSNULL([dict objectForKey:@"Categoria"]);
+        self.Descripcion = NIL_IF_NSNULL([dict objectForKey:@"Descripcion"]);
+        self.Direccion = NIL_IF_NSNULL([dict objectForKey:@"Direccion"]);
+        self.Email = NIL_IF_NSNULL([dict objectForKey:@"Email"]);
+        self.EnvioRecordatorio = NIL_IF_NSNULL([dict objectForKey:@"EnvioRecordatorio"]);
+        self.ID = NIL_IF_NSNULL([dict objectForKey:@"ID"]);
+        self.IDProveedor = NIL_IF_NSNULL([dict objectForKey:@"IDProveedor"]);
+        self.Imagen = NIL_IF_NSNULL([dict objectForKey:@"Imagen"]);
+        self.MaxOffset = NIL_IF_NSNULL([dict objectForKey:@"MaxOffset"]);
+        self.MercadoPago = [NIL_IF_NSNULL([dict objectForKey:@"MercadoPago"])boolValue];
+        self.MinOffset = NIL_IF_NSNULL([dict objectForKey:@"MinOffset"]);
+        self.NecesitaConfirmacion = [NIL_IF_NSNULL([dict objectForKey:@"NecesitaConfirmacion"])boolValue];
+        self.Nombre = NIL_IF_NSNULL([dict objectForKey:@"Nombre"]);
+        self.NombreUsuarioProveedor = NIL_IF_NSNULL([dict objectForKey:@"NombreUsuarioProveedor"]);
+        self.Observaciones = NIL_IF_NSNULL([dict objectForKey:@"Observaciones"]);
+        self.Precio = NIL_IF_NSNULL([dict objectForKey:@"Precio"]);
+        self.Privacidad = [NIL_IF_NSNULL([dict objectForKey:@"Privacidad"])boolValue];
+        self.Sobreturno = [NIL_IF_NSNULL([dict objectForKey:@"Sobreturno"])boolValue];
+        self.Telefono = NIL_IF_NSNULL([dict objectForKey:@"Telefono"]);
+        self.Zona = NIL_IF_NSNULL([dict objectForKey:@"Zona"]);
     }
     return self;   
 }
@@ -45,11 +42,11 @@
 
 
 -(NSString*)title{
-    return [self.nombre copy];
+    return [self.Nombre copy];
 }
 
 -(NSString*)subtitle{
-    return [self.direccion copy];
+    return [self.Direccion copy];
 }
 
 

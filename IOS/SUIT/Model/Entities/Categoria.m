@@ -11,28 +11,27 @@
 
 @implementation Categoria
 
-@synthesize nombre,categoriaID,subCategorias;
 
 
 -(Categoria*)initWhitDictionary:(NSDictionary*)dict{
     
     if (self = [super init]) {
-        nombre = [dict objectForKey:@"NombreCategoria"];
-        categoriaID = [dict objectForKey:@"IDCategoria"];
-        //subCategorias = [NSArray arrayWhitCategoriesForm: [dict objectForKey:@"subCategorias"]];
+        _nombre = [dict objectForKey:@"NombreCategoria"];
+        _categoriaID = [dict objectForKey:@"IDCategoria"];
+        _TieneHijos = [[dict objectForKey:@"TieneHijos"]boolValue];
     }
     return self;
     
 }
 
 -(BOOL)hasSubCategories{
-    return [subCategorias count]>0;
+    return _TieneHijos;
 }
 
 #pragma mark - DEbug methods
 
 -(NSString*)description{
-    return [NSString stringWithFormat:@"%@ %@",nombre, [super description]];
+    return [NSString stringWithFormat:@"%@ %@",self.nombre, [super description]];
 }
 
 

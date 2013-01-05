@@ -31,7 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [[SRVZona GetInstance]searchAllSubZonasFrom:zona];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -56,7 +57,7 @@
 -(void) createNotification{
     [[NSNotificationCenter defaultCenter ]addObserver:self
                                              selector:@selector(getSubCategoriesOK:) 
-                                                 name: SERVICE_GETSUBCATEGORIES_OK
+                                                 name: SERVICE_GETSUBZONAS_OK
                                                object:nil];
 }
 
@@ -78,7 +79,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[[SRVZona GetInstance]getAllSubZonasFrom:zona]count];
+    return [zona.subZonas count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

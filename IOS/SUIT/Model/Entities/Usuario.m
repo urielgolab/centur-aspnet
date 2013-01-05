@@ -16,10 +16,9 @@
     self = [super init];
     
     if (self) {
-        usuarioID = [dict objectForKey:@"usuarioID"];
-        nombre = [dict objectForKey:@"nombre"];
+        usuarioID = [dict objectForKey:@"idUsuario"];
+        nombre = [dict objectForKey:@"NombreUsuario"];
         mail = [dict objectForKey:@"mail"];
-        mail = [dict objectForKey:@"direccion"];
     }
     return self;
 }

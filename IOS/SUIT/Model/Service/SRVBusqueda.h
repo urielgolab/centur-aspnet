@@ -24,5 +24,8 @@ CWL_DECLARE_SINGLETON_FOR_CLASS(SRVBusqueda);
 
 -(void)startSearchForProvedores:(NSObject<Searchable>*)search delegate: (NSObject<SearchDelegate>*) delegate;
 
+-(void)startSearchForProvedorDetail:(Servicio*)servicio;
+
+-(void)buscarTurnosPara:(Servicio*)servicio paraDia:(NSDate*)dia;
 
 @end

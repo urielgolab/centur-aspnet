@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         proveedor = aProveedor;
-        self.title = proveedor.nombre;
+        self.title = proveedor.Nombre;
     }
     return self;
 }

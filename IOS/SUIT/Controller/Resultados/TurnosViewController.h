@@ -11,5 +11,6 @@
 @interface TurnosViewController : UITableViewController
 
 @property(nonatomic,retain) NSArray* turnos;
+@property(nonatomic,retain) Servicio* servicio;
 
 @end

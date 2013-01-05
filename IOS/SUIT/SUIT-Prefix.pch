@@ -14,4 +14,6 @@
     #import <Foundation/Foundation.h>
 #endif
 
+#import "SRVBase.h"
+
 #define NIL_IF_NSNULL(dictionary) ((dictionary != [NSNull null]) ? dictionary : nil)

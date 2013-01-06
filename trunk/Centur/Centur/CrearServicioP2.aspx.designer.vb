@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class CrearServicioP2
 
     '''<summary>
+    '''lblMensajeError control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMensajeError As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtTitulo control.
     '''</summary>
     '''<remarks>
@@ -21,6 +30,24 @@ Partial Public Class CrearServicioP2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtTitulo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''imgFotoServicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents imgFotoServicio As Global.System.Web.UI.WebControls.Image
+
+    '''<summary>
+    '''fleImagenServicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fleImagenServicio As Global.System.Web.UI.WebControls.FileUpload
 
     '''<summary>
     '''txtDireccion control.

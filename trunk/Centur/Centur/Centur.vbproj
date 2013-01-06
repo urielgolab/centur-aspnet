@@ -105,7 +105,9 @@
     <Content Include="ErrorPage.aspx" />
     <Content Include="Favoritos.aspx" />
     <Content Include="GrupoPendientes.aspx" />
+    <Content Include="Images\locationArrow.jpg" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\photo_camera_up.png" />
     <Content Include="Login.aspx" />
     <Content Include="MiCuenta.aspx" />
     <Content Include="MisGrupos.aspx" />

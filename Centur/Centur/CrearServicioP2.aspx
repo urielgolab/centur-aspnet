@@ -79,12 +79,17 @@
 	</ul>
 	<div id="elige-la-categoria"></div>
 	<div id="describe-el-servicio">
+        <asp:Label ID="lblMensajeError" runat="server"></asp:Label>
+
         <p class="ch-form-hint">* Datos obligatorios</p>
 	    <div class="ch-form-row ch-form-required sell-title">
 		    <label for="title">T&iacute;tulo: <em>*</em></label> 
             <asp:TextBox ID="txtTitulo" runat="server" Width="500" placeholder="Ej.: Wimbledon Tenis Club con Estacionamiento, Buffet y 6 canchas." title="Usa palabras clave para que encuentren f&aacute;cilmente tu servicio."></asp:TextBox>
 		</div>
 
+        <br />
+        <asp:Image ID="imgFotoServicio" runat="server" ImageUrl="~/Images/photo_camera_up.png"  />
+        <asp:FileUpload ID="fleImagenServicio" runat="server"/>
         <br />
         
         <label>Dirección : </label> 
@@ -99,7 +104,6 @@
             </div>
             <div id="map"></div>
         </div>
-
         <br />
         <br />
 	    <p class="ch-form-row description ">

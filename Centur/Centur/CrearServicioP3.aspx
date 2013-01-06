@@ -29,7 +29,7 @@
                 return Globalize.format(new Date(value), "t");
             }
         });
-        
+
         $(function () {
             $("#tabs").tabs();
             $("#tabs").tabs('option', 'disabled', [0, 1, 3]);
@@ -40,6 +40,7 @@
             //$ID("txtFechaHasta").datepicker();
             $('[id^="MainContent_txtCapacidad"]').spinner();
             $('[id^="MainContent_txtDuracion"]').spinner();
+            Globalize.culture("de-DE");
             $('[id^="MainContent_txtHora"]').timespinner();
         });
     </script>
@@ -78,7 +79,7 @@
                     <tr>
                         <td><asp:CheckBox ID="chkLunes" runat="server" AutoPostBack="true" />&nbsp;&nbsp;Lunes</td>
                         <td>
-                            <asp:Table ID="tbLunes" runat="server" Visible="false">
+                            <asp:Table ID="tbLunes" runat="server" Visible="false" Width="650px">
 
                             </asp:Table>
                         </td>

@@ -11,6 +11,7 @@ Public Class CenturServiceREST
     Dim oBuscarServicioService As New Services.BuscarServicioService()
     Dim oLoginService As New Services.LoginService
     Dim oFavoritosService As New Services.FavoritosService
+    Dim oGruposService As New Services.GruposService
 
    
     Public Function BuscarServicio(Optional ByVal nombre As String = "", Optional ByVal categorias As String = "", Optional ByVal zonas As String = "", Optional ByVal precioDesde As Double = 0, Optional ByVal precioHasta As Double = 0) As Stream Implements ICenturServiceREST.BuscarServicio
@@ -215,6 +216,147 @@ Public Class CenturServiceREST
     End Function
 
 #End Region
+
+
+#Region "Grupos"
+
+    Function VerGrupos(ByVal usuarioID As Integer, ByVal accion As Char) As Stream Implements ICenturServiceREST.VerGrupos
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        Dim grupos As GrupoList = oGruposService.GetGrupos(usuarioID, accion)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        result.Body = grupos
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+
+    Function VerDetalleGrupo(ByVal grupoID As Integer) As Stream Implements ICenturServiceREST.VerDetalleGrupo
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        Dim grupo As Grupo = oGruposService.GetDetalleGrupo(grupoID)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        result.Body = grupo
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+    Function ModificarGrupo(ByVal grupoID As Integer, ByVal nombre As String, ByVal descripcion As String) As Stream Implements ICenturServiceREST.ModificarGrupo
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        Dim nuevoGrupo As New Grupo
+        nuevoGrupo.ID = grupoID
+        nuevoGrupo.Nombre = nombre
+        nuevoGrupo.Descripcion = descripcion
+
+        oGruposService.UpdateGrupo(nuevoGrupo)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        'result.Body = Nothing
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+    Function EliminarGrupo(ByVal grupoID As Integer) As Stream Implements ICenturServiceREST.EliminarGrupo
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        oGruposService.DeleteGrupo(grupoID)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        'result.Body = Nothing
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+    Function CrearGrupo(ByVal nombre As String, ByVal descripcion As String, ByVal proveedorID As Integer) As Stream Implements ICenturServiceREST.CrearGrupo
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        oGruposService.RegistrarGrupo(nombre, descripcion, proveedorID)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        'result.Body = Nothing
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+    Function VerSolicitudesPendientesAGrupo(ByVal proveedorID As Integer) As Stream Implements ICenturServiceREST.VerSolicitudesPendientesAGrupo
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        Dim solicitudesPendientes As GrupoPendientesList = oGruposService.ObtenerPendientes(proveedorID)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        result.Body = solicitudesPendientes
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+    Function AgregarUsuarioAGrupo(ByVal grupoID As Integer, ByVal usuarioID As Integer) As Stream Implements ICenturServiceREST.AgregarUsuarioAGrupo
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        oGruposService.AltaAGrupo(grupoID, usuarioID)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        'result.Body = Nothing
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+    Function EliminarUsuarioDeGrupo(ByVal grupoID As Integer, ByVal usuarioID As Integer) As Stream Implements ICenturServiceREST.EliminarUsuarioDeGrupo
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        oGruposService.BajaMiembroAGrupo(grupoID, usuarioID)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        'result.Body = Nothing
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+
+#End Region
+
 
 
     Public Function Test(ByVal fecha As Date, ByVal hora As String, ByVal numero As Integer) As Stream Implements ICenturServiceREST.Test

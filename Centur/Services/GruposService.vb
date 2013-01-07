@@ -88,7 +88,7 @@ Public Class GruposService
 
     End Function
 
-    Function ObtenerPendientes(ByRef idProveedor As Integer) As GrupoPendientesList
+    Function ObtenerPendientes(ByVal idProveedor As Integer) As GrupoPendientesList
 
         Dim ds As DataSet = oGruposDA.ObtenerPendientes(idProveedor)
 
@@ -110,7 +110,7 @@ Public Class GruposService
         oGruposDA.AsociarUsuarioAGrupo(idUsuario, idGrupo, "A", Mensaje, Status)
     End Sub
 
-    Sub BajaMiembroAGrupo(ByVal idGrupo As Integer, ByVal idUsuario As Integer, ByVal mensaje As String, ByVal status As Boolean)
+    Sub BajaMiembroAGrupo(ByVal idGrupo As Integer, ByVal idUsuario As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
         oGruposDA.AsociarUsuarioAGrupo(idUsuario, idGrupo, "B", mensaje, status)
     End Sub
 

@@ -58,6 +58,48 @@ Public Interface ICenturServiceREST
 
 #End Region
 
+   
+
+#Region "Grupos"
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/VerGrupos?usuarioID={usuarioID}&accion={accion}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function VerGrupos(ByVal usuarioID As Integer, ByVal accion As Char) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/VerDetalleGrupo?grupoID={grupoID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function VerDetalleGrupo(ByVal grupoID As Integer) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/ModificarGrupo?grupoID={grupoID}&nombre={nombre}&descripcion={descripcion}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function ModificarGrupo(ByVal grupoID As Integer, ByVal nombre As String, ByVal descripcion As String) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/EliminarGrupo?grupoID={grupoID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function EliminarGrupo(ByVal grupoID As Integer) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/CrearGrupo?nombre={nombre}&descripcion={descripcion}&proveedorID={proveedorID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function CrearGrupo(ByVal nombre As String, ByVal descripcion As String, ByVal proveedorID As Integer) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/VerSolicitudesPendientesAGrupo?proveedorID={proveedorID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function VerSolicitudesPendientesAGrupo(ByVal proveedorID As Integer) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/AgregarUsuarioAGrupo?grupoID={grupoID}&usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function AgregarUsuarioAGrupo(ByVal grupoID As Integer, ByVal usuarioID As Integer) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/EliminarUsuarioDeGrupo?grupoID={grupoID}&usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function EliminarUsuarioDeGrupo(ByVal grupoID As Integer, ByVal usuarioID As Integer) As Stream
+
+
+
+#End Region
+
+
+
     <OperationContract()>
 <WebGet(UriTemplate:="/Test?fecha={fecha}&hora={hora}&numero={numero}", ResponseFormat:=WebMessageFormat.Json)> _
     Function Test(ByVal fecha As Date, ByVal hora As String, ByVal numero As Integer) As Stream

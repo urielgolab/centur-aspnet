@@ -114,7 +114,7 @@ Public Class GruposService
         oGruposDA.AsociarUsuarioAGrupo(idUsuario, idGrupo, "B", mensaje, status)
     End Sub
 
-    Sub BajaServicioAGrupo(ByVal idGrupo As Integer, ByVal idServicio As Integer, ByVal mensaje As String, ByVal status As Boolean)
+    Sub BajaServicioAGrupo(ByVal idGrupo As Integer, ByVal idServicio As Integer, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False)
 
         oGruposDA.AsociarServicioAGrupo(idServicio, idGrupo, "B", mensaje, status)
 

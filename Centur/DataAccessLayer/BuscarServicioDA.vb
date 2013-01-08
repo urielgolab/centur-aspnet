@@ -86,4 +86,20 @@ Public Class BuscarServicioDA
         Return ds
     End Function
 
+    Function ObtenerServicios(ByVal idUsuario As Integer, ByVal accion As Char, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As DataSet
+        Dim ParamStatus As New SqlParameter("@status", SqlDbType.Bit)
+        ParamStatus.Direction = ParameterDirection.Output
+        Dim ParamMensaje As New SqlParameter("@mensaje", SqlDbType.VarChar, 500)
+        ParamMensaje.Direction = ParameterDirection.Output
+
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@accion", accion), New SqlParameter("@idUsuario", idUsuario)}
+        Dim ds As DataSet = SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "ObtenerServicios", params)
+
+        Status = ParamStatus.Value
+        Mensaje = ParamMensaje.Value
+
+        Return ds
+    End Function
+
 End Class

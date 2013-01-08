@@ -171,4 +171,20 @@ Public Class BuscarServicioService
         Return oZonaList
     End Function
 
+    Function ObtenerServicios(ByVal idUsuario As Integer, ByVal accion As Char, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As ServicioList
+
+        Dim ds As DataSet = oBuscarServicioDA.ObtenerServicios(idUsuario, accion, Mensaje, Status)
+        Dim oServicioList As New ServicioList
+
+        For Each dr As DataRow In ds.Tables(0).Rows
+            Dim oServicio As New Servicio
+            oServicio.ID = CInt(dr("idServicio"))
+            oServicio.Nombre = CStr(dr("nombre"))
+
+            oServicioList.Add(oServicio)
+        Next
+
+        Return oServicioList
+    End Function
+
 End Class

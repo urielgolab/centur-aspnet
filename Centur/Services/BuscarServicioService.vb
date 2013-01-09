@@ -187,4 +187,24 @@ Public Class BuscarServicioService
         Return oServicioList
     End Function
 
+
+    Public Function VerServiciosDeProveedor(ByVal idProveedor As Integer) As ServicioList
+        Dim ds As DataSet = oBuscarServicioDA.VerServiciosDeProveedor(idProveedor)
+
+        Dim oServicioList As New ServicioList
+
+        For Each dr As DataRow In ds.Tables(0).Rows
+            Dim oServicio As New Servicio
+            oServicio.ID = CInt(dr("IdServicio"))
+            oServicio.Nombre = CStr(dr("Nombre"))
+            oServicio.Categoria = CStr(dr("Categoria"))
+            oServicio.Zona = CStr(dr("Zona"))
+            oServicio.Precio = CType(dr("precio"), Double)
+
+            oServicioList.Add(oServicio)
+        Next
+
+        Return oServicioList
+    End Function
+
 End Class

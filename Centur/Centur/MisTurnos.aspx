@@ -14,8 +14,31 @@
         <asp:LinkButton ID="LinkButton4" runat="server">Ver Turnos...</asp:LinkButton>
         
 </div>
-<div id="tomados">
 <h2>Turnos inscriptos</h2>
+<div id="tomados" runat="server">
+<br />
+<asp:GridView ID="GridTomados" runat="server" AutoGenerateColumns="False" 
+                DataKeyNames="idTurno">
+       <Columns>
+       
+       <asp:TemplateField HeaderText="Selecccione">
+            <ItemTemplate>
+                <asp:CheckBox runat="server" ID="CheckBox1"/>
+            </ItemTemplate>
+       </asp:TemplateField>
+       
+       <asp:BoundField DataField="ServicioNombre" HeaderText="Nombre servicio" SortExpression="ServicioNombre"/>
+       <asp:BoundField DataField="Fecha" HeaderText="Fecha turno" SortExpression="Fecha"/>
+       <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" SortExpression="horaInicio"/>
+       <asp:BoundField DataField="horaFin" HeaderText="Hora fin" SortExpression="horaFin"/>
 
-</div>
+       </Columns>
+       </asp:GridView>
+       <br />     
+       
+            <asp:Label ID="Label5" runat="server" Text="Seleccione turnos a cancelar"></asp:Label>
+     </div>
+     <asp:Label ID="labelNoReservados" runat="server" 
+        Text="Usted no posee turnos reservados" Visible="False"></asp:Label>
+     <br />
 </asp:Content>

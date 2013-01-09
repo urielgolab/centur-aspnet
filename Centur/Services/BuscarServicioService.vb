@@ -170,24 +170,6 @@ Public Class BuscarServicioService
 
         Return oZonaList
     End Function
-
-    Function ObtenerServicios(ByVal idUsuario As Integer, ByVal accion As Char, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As ServicioList
-
-        Dim ds As DataSet = oBuscarServicioDA.ObtenerServicios(idUsuario, accion, Mensaje, Status)
-        Dim oServicioList As New ServicioList
-
-        For Each dr As DataRow In ds.Tables(0).Rows
-            Dim oServicio As New Servicio
-            oServicio.ID = CInt(dr("idServicio"))
-            oServicio.Nombre = CStr(dr("nombre"))
-
-            oServicioList.Add(oServicio)
-        Next
-
-        Return oServicioList
-    End Function
-
-
     Public Function VerServiciosDeProveedor(ByVal idProveedor As Integer) As ServicioList
         Dim ds As DataSet = oBuscarServicioDA.VerServiciosDeProveedor(idProveedor)
 
@@ -205,6 +187,24 @@ Public Class BuscarServicioService
         Next
 
         Return oServicioList
+    End Function
+
+    Function VerTurnosCliente(ByVal idUsuario As Integer) As TurnoList
+        Dim ds As DataSet = oBuscarServicioDA.verTurnosCliente(idUsuario, 1)
+        Dim oTurnoList As New TurnoList
+
+        For Each dr As DataRow In ds.Tables(0).Rows
+            Dim oTurno As New Turno
+            oTurno.idTurno = CInt(dr("idturno"))
+            oTurno.Fecha = CStr(dr("fecha"))
+            oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
+            oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
+            oTurno.ServicioNombre = CStr(dr("nombre"))
+
+            oTurnoList.Add(oTurno)
+        Next
+
+        Return oTurnoList
     End Function
 
 End Class

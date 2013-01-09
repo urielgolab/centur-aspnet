@@ -15,22 +15,37 @@ Public Class MisTurnos
             propios.Visible = False
         End If
 
-        'Me.GetGruposAdheridos()
+        Me.GetTurnosTomados()
     End Sub
 
     Private Sub GetServiciosPropios()
 
-        Dim mensaje As String = ""
-        Dim status As Boolean
         Dim oServicioList As New ServicioList
 
-        oServicioList = oBuscarServicioService.ObtenerServicios(CType(Session("Usuario"), Entities.Usuario).idUsuario, "P", mensaje, status)
+        oServicioList = oBuscarServicioService.VerServiciosDeProveedor(CType(Session("Usuario"), Entities.Usuario).idUsuario)
         If oServicioList.Count > 0 Then
             If Not (Page.IsPostBack) Then
                 DropDownListServiciosPropios.DataSource = oServicioList
                 DropDownListServiciosPropios.DataTextField = "Nombre"
                 DropDownListServiciosPropios.DataValueField = "ID"
                 DropDownListServiciosPropios.DataBind()
+            End If
+        End If
+
+    End Sub
+
+    Private Sub GetTurnosTomados()
+        Dim oTurnoList As New TurnoList
+
+        If Not IsPostBack Then
+            oTurnoList = oBuscarServicioService.VerTurnosCliente(CType(Session("Usuario"), Entities.Usuario).idUsuario)
+
+            If oTurnoList.Count > 0 Then
+                GridTomados.DataSource = oTurnoList
+                GridTomados.DataBind()
+            Else
+                tomados.Visible = False
+                labelNoReservados.Visible = True
             End If
         End If
 

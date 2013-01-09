@@ -9,6 +9,7 @@ Public Class Turno
     Private _disponible As Boolean
     Private _fecha As String
     Private _servicioID As Integer
+    Private _servicioNombre As String
 #End Region
 
 
@@ -65,6 +66,15 @@ Public Class Turno
         End Get
         Set(ByVal value As Integer)
             _servicioID = value
+        End Set
+    End Property
+
+    Public Property ServicioNombre() As String
+        Get
+            Return _servicioNombre
+        End Get
+        Set(ByVal value As String)
+            _servicioNombre = value
         End Set
     End Property
 

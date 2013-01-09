@@ -102,4 +102,15 @@ Public Class BuscarServicioDA
         Return ds
     End Function
 
+
+    Public Function VerServiciosDeProveedor(ByVal idProveedor As Integer) As DataSet
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idProveedor", idProveedor)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "ServicioBuscar", params)
+
+    End Function
+
+
+
+
 End Class

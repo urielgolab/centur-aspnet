@@ -137,8 +137,10 @@
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.9.1.custom.js" />
     <Content Include="Scripts\jquery-ui-1.9.1.custom.min.js" />
+    <Content Include="Scripts\jquery.timepicker.js" />
     <Content Include="Shared DLLs\BaseClasses.dll" />
     <Content Include="Shared DLLs\Microsoft.ApplicationBlocks.Data.dll" />
+    <Content Include="Styles\jquery.timepicker.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Home.aspx" />
     <Content Include="Global.asax" />
@@ -415,6 +417,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.vbproj">
+      <Project>{1B3F0F2F-9352-4AE6-B5BA-E085878D04AE}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Datos\Datos.csproj">
       <Project>{E0A75608-4CD7-4F0B-933D-3C6E02E20EEB}</Project>
       <Name>Datos</Name>

@@ -14,11 +14,11 @@ Public Class CenturServiceREST
     Dim oGruposService As New Services.GruposService
 
    
-    Public Function BuscarServicio(Optional ByVal nombre As String = "", Optional ByVal categorias As String = "", Optional ByVal zonas As String = "", Optional ByVal precioDesde As Double = 0, Optional ByVal precioHasta As Double = 0) As Stream Implements ICenturServiceREST.BuscarServicio
+    Public Function BuscarServicio(Optional ByVal nombre As String = "", Optional ByVal categorias As String = "", Optional ByVal zonas As String = "", Optional ByVal precioDesde As Double = 0, Optional ByVal precioHasta As Double = 0, Optional ByVal usuarioID As Integer = 0) As Stream Implements ICenturServiceREST.BuscarServicio
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
-        Dim servicios As ServicioList = oBuscarServicioService.BuscarServicio(nombre, categorias, zonas, precioDesde, precioHasta)
+        Dim servicios As ServicioList = oBuscarServicioService.BuscarServicio(nombre, categorias, zonas, precioDesde, precioHasta, usuarioID)
 
         Dim result As New JSONResult
         result.Estado = Status
@@ -30,11 +30,11 @@ Public Class CenturServiceREST
         Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
     End Function
 
-    Public Function DetalleServicio(ByVal servicioID As Integer) As Stream Implements ICenturServiceREST.DetalleServicio
+    Public Function DetalleServicio(ByVal servicioID As Integer, Optional ByVal usuarioID As Integer = 0) As Stream Implements ICenturServiceREST.DetalleServicio
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
-        Dim servicio As Servicio = oBuscarServicioService.VerDetalleServicio(servicioID)
+        Dim servicio As Servicio = oBuscarServicioService.VerDetalleServicio(servicioID, usuarioID)
 
         Dim result As New JSONResult
         result.Estado = Status
@@ -52,13 +52,18 @@ Public Class CenturServiceREST
 
         Dim turnos As TurnoList = oBuscarServicioService.VerTurnosServicioxDia(servicioID, TurnoFecha)
 
+        For Each oTurno As Turno In turnos
+            oTurno.horaFin = oTurno.horaFin.Replace(".", ":")
+            oTurno.horaInicio = oTurno.horaInicio.Replace(".", ":")
+        Next
+
         Dim result As New JSONResult
         result.Estado = Status
         result.Mensaje = Mensaje
         result.Body = turnos
 
         Dim js As New JavaScriptSerializer()
-        Dim strJSON As String = js.Serialize(turnos)
+        Dim strJSON As String = js.Serialize(result)
         Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
     End Function
 
@@ -68,6 +73,9 @@ Public Class CenturServiceREST
         Dim Status As Boolean
 
         Dim turno As Turno = oBuscarServicioService.ReservarTurno(servicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, usuarioID, Mensaje, Status)
+
+        turno.horaFin = turno.horaFin.Replace(".", ":")
+        turno.horaInicio = turno.horaInicio.Replace(".", ":")
 
         Dim result As New JSONResult
         result.Estado = Status
@@ -352,6 +360,40 @@ Public Class CenturServiceREST
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
         Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+
+    Function AltaAGrupoPendienteAprobacion(ByVal grupoID As Integer, ByVal usuarioID As Integer) As Stream Implements ICenturServiceREST.AltaAGrupoPendienteAprobacion
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        oGruposService.AltaAGrupoPendienteAprobacion(usuarioID, grupoID, Mensaje, Status)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        'result.Body = Nothing
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+    Function BajaServicioAGrupo(ByVal grupoID As Integer, ByVal servicioID As Integer) As Stream Implements ICenturServiceREST.BajaServicioAGrupo
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        oGruposService.BajaServicioAGrupo(grupoID, servicioID, Mensaje, Status)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        'result.Body = Nothing
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+
     End Function
 
 

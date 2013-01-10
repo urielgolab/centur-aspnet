@@ -5,8 +5,8 @@ Public Class BuscarServicioService
 
     Dim oBuscarServicioDA As New DataAccessLayer.BuscarServicioDA()
 
-    Public Function BuscarServicio(ByVal nombre As String, ByVal categorias As String, ByVal zonas As String, ByVal precioDesde As Double, ByVal precioHasta As Double) As ServicioList
-        Dim ds As DataSet = oBuscarServicioDA.BuscarServicio(nombre, categorias, zonas, precioDesde, precioHasta)
+    Public Function BuscarServicio(ByVal nombre As String, ByVal categorias As String, ByVal zonas As String, ByVal precioDesde As Double, ByVal precioHasta As Double, ByVal usuarioID As Integer) As ServicioList
+        Dim ds As DataSet = oBuscarServicioDA.BuscarServicio(nombre, categorias, zonas, precioDesde, precioHasta, usuarioID)
 
         Dim oServicioList As New ServicioList
 
@@ -17,6 +17,7 @@ Public Class BuscarServicioService
             oServicio.Categoria = CStr(dr("Categoria"))
             oServicio.Zona = CStr(dr("Zona"))
             oServicio.Precio = CType(dr("precio"), Double)
+            oServicio.EsFavorito = CBool(dr("esFavorito"))
 
             oServicioList.Add(oServicio)
         Next
@@ -25,8 +26,8 @@ Public Class BuscarServicioService
     End Function
 
 
-    Public Function VerDetalleServicio(ByVal ServicioID As Integer) As Servicio
-        Dim ds As DataSet = oBuscarServicioDA.VerDetalleServicio(ServicioID)
+    Public Function VerDetalleServicio(ByVal ServicioID As Integer, ByVal usuarioID As Integer) As Servicio
+        Dim ds As DataSet = oBuscarServicioDA.VerDetalleServicio(ServicioID, usuarioID)
         Dim oServicio As New Servicio
 
         If ds.Tables(0).Rows.Count > 0 Then
@@ -37,6 +38,7 @@ Public Class BuscarServicioService
             oServicio.Categoria = CStr(dr("Categoria"))
             oServicio.Zona = CStr(dr("Zona"))
             oServicio.Descripcion = CStr(dr("Descripcion"))
+            oServicio.EsFavorito = CBool(dr("esFavorito"))
             If Not IsDBNull(dr("direccion")) Then
                 oServicio.Direccion = CStr(dr("direccion"))
             End If
@@ -189,22 +191,22 @@ Public Class BuscarServicioService
         Return oServicioList
     End Function
 
-    Function VerTurnosCliente(ByVal idUsuario As Integer) As TurnoList
-        Dim ds As DataSet = oBuscarServicioDA.verTurnosCliente(idUsuario, 1)
-        Dim oTurnoList As New TurnoList
+    'Function VerTurnosCliente(ByVal idUsuario As Integer) As TurnoList
+    '    Dim ds As DataSet = oBuscarServicioDA.verTurnosCliente(idUsuario, 1)
+    '    Dim oTurnoList As New TurnoList
 
-        For Each dr As DataRow In ds.Tables(0).Rows
-            Dim oTurno As New Turno
-            oTurno.idTurno = CInt(dr("idturno"))
-            oTurno.Fecha = CStr(dr("fecha"))
-            oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
-            oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
-            oTurno.ServicioNombre = CStr(dr("nombre"))
+    '    For Each dr As DataRow In ds.Tables(0).Rows
+    '        Dim oTurno As New Turno
+    '        oTurno.idTurno = CInt(dr("idturno"))
+    '        oTurno.Fecha = CStr(dr("fecha"))
+    '        oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
+    '        oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
+    '        oTurno.ServicioNombre = CStr(dr("nombre"))
 
-            oTurnoList.Add(oTurno)
-        Next
+    '        oTurnoList.Add(oTurno)
+    '    Next
 
-        Return oTurnoList
-    End Function
+    '    Return oTurnoList
+    'End Function
 
 End Class

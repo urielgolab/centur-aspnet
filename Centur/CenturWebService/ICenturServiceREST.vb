@@ -7,8 +7,8 @@ Public Interface ICenturServiceREST
 
 
     <OperationContract()>
-   <WebGet(UriTemplate:="/BuscarServicio?nombre={nombre}&categorias={categorias}&zonas={zonas}&precioDesde={precioDesde}&precioHasta={precioHasta}", ResponseFormat:=WebMessageFormat.Json)> _
-    Function BuscarServicio(Optional ByVal nombre As String = "", Optional ByVal categorias As String = "", Optional ByVal zonas As String = "", Optional ByVal precioDesde As Double = 0, Optional ByVal precioHasta As Double = 0) As Stream
+   <WebGet(UriTemplate:="/BuscarServicio?nombre={nombre}&categorias={categorias}&zonas={zonas}&precioDesde={precioDesde}&precioHasta={precioHasta}&usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function BuscarServicio(Optional ByVal nombre As String = "", Optional ByVal categorias As String = "", Optional ByVal zonas As String = "", Optional ByVal precioDesde As Double = 0, Optional ByVal precioHasta As Double = 0, Optional ByVal usuarioID As Integer = 0) As Stream
 
     <OperationContract()>
    <WebGet(UriTemplate:="/BuscarCategorias?accion={accion}&idCategoria={idCategoria}", ResponseFormat:=WebMessageFormat.Json)> _
@@ -19,8 +19,8 @@ Public Interface ICenturServiceREST
     Function BuscarZonas(ByVal accion As String, Optional ByVal idZona As Integer = 0) As Stream
 
     <OperationContract()>
-<WebGet(UriTemplate:="/DetalleServicio?servicioID={servicioID}", ResponseFormat:=WebMessageFormat.Json)> _
-    Function DetalleServicio(ByVal servicioID As Integer) As Stream
+<WebGet(UriTemplate:="/DetalleServicio?servicioID={servicioID}&usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function DetalleServicio(ByVal servicioID As Integer, Optional ByVal usuarioID As Integer = 0) As Stream
 
     <OperationContract()>
 <WebGet(UriTemplate:="/ReservarTurno?servicioID={servicioID}&TurnoFecha={TurnoFecha}&TurnoHoraInicio={TurnoHoraInicio}&TurnoHoraFin={TurnoHoraFin}&usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
@@ -93,6 +93,15 @@ Public Interface ICenturServiceREST
     <OperationContract()>
 <WebGet(UriTemplate:="/EliminarUsuarioDeGrupo?grupoID={grupoID}&usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
     Function EliminarUsuarioDeGrupo(ByVal grupoID As Integer, ByVal usuarioID As Integer) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/AltaAGrupoPendienteAprobacion?grupoID={grupoID}&usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function AltaAGrupoPendienteAprobacion(ByVal grupoID As Integer, ByVal usuarioID As Integer) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/BajaServicioAGrupo?grupoID={grupoID}&servicioID={servicioID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function BajaServicioAGrupo(ByVal grupoID As Integer, ByVal servicioID As Integer) As Stream
+
 
 
 

@@ -22,12 +22,12 @@
             precioHastaDbl = CType(Me.precioHasta.Text, Double)
         End If
 
-        gridResultados.DataSource = oBuscarServicioService.BuscarServicio(Me.nombre.Text, categoriasSeleccionadas, zonasSeleccionadas, precioDesdeDbl, precioHastaDbl)
+        gridResultados.DataSource = oBuscarServicioService.BuscarServicio(Me.nombre.Text, categoriasSeleccionadas, zonasSeleccionadas, precioDesdeDbl, precioHastaDbl, CType(Session("Usuario"), Entities.Usuario).idUsuario)
         gridResultados.DataBind()
         resultados.Visible = True
     End Sub
 
-    Private Sub reset_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Reset.Click
+    Private Sub reset_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles reset.Click
         resultados.Visible = False
         DeseleccionarNodos(ArbolCategorias.Nodes)
         DeseleccionarNodos(ArbolZonas.Nodes)

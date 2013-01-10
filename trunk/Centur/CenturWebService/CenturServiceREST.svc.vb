@@ -18,6 +18,10 @@ Public Class CenturServiceREST
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
+        If precioHasta = 0 Then
+            precioHasta = Double.MaxValue
+        End If
+
         Dim servicios As ServicioList = oBuscarServicioService.BuscarServicio(nombre, categorias, zonas, precioDesde, precioHasta, usuarioID)
 
         Dim result As New JSONResult

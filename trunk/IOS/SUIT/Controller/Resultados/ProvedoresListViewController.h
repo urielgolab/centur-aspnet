@@ -21,5 +21,6 @@
 }
 
 @property(nonatomic,retain) CategoriaSearchParametre* searchParametre;
+@property(nonatomic,retain)UITableView* tableView;
 
 @end

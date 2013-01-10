@@ -48,6 +48,8 @@
 		8F7F06DB15F2958200308236 /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F06DA15F2958200308236 /* Usuario.m */; };
 		8F7F06DD15F2A0AE00308236 /* Usuarios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F7F06DC15F2A0AE00308236 /* Usuarios.plist */; };
 		8F7F06DF15F2A69D00308236 /* logotitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F7F06DE15F2A69D00308236 /* logotitle.png */; };
+		8F970D48169E385800EAA1C3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F970D47169E385800EAA1C3 /* Default-568h@2x.png */; };
+		8F970D4C169E3F3800EAA1C3 /* ProvedoresFavoritosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F970D4B169E3F3800EAA1C3 /* ProvedoresFavoritosViewController.m */; };
 		8FA7DB19157ABE340038AC95 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA7DB18157ABE340038AC95 /* UIKit.framework */; };
 		8FA7DB1B157ABE340038AC95 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA7DB1A157ABE340038AC95 /* Foundation.framework */; };
 		8FA7DB1D157ABE340038AC95 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA7DB1C157ABE340038AC95 /* CoreGraphics.framework */; };
@@ -182,6 +184,9 @@
 		8F7F06DA15F2958200308236 /* Usuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Usuario.m; sourceTree = "<group>"; };
 		8F7F06DC15F2A0AE00308236 /* Usuarios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Usuarios.plist; sourceTree = "<group>"; };
 		8F7F06DE15F2A69D00308236 /* logotitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logotitle.png; sourceTree = "<group>"; };
+		8F970D47169E385800EAA1C3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8F970D4A169E3F3800EAA1C3 /* ProvedoresFavoritosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvedoresFavoritosViewController.h; sourceTree = "<group>"; };
+		8F970D4B169E3F3800EAA1C3 /* ProvedoresFavoritosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvedoresFavoritosViewController.m; sourceTree = "<group>"; };
 		8FA7DB14157ABE340038AC95 /* CenTur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CenTur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FA7DB18157ABE340038AC95 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8FA7DB1A157ABE340038AC95 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -446,6 +451,7 @@
 		8FA7DB09157ABE340038AC95 = {
 			isa = PBXGroup;
 			children = (
+				8F970D47169E385800EAA1C3 /* Default-568h@2x.png */,
 				8F7F06D015F27E5700308236 /* logoIcono@2x.png */,
 				8F7F06CE15F27E4900308236 /* logoIcono.png */,
 				8FA7DB1E157ABE340038AC95 /* SUIT */,
@@ -661,6 +667,8 @@
 				8FE06FF11698C46C00A1EA1D /* TurnosViewController.h */,
 				8FE06FF21698C46D00A1EA1D /* TurnosViewController.m */,
 				8FE06FF31698C46F00A1EA1D /* TurnosViewController.xib */,
+				8F970D4A169E3F3800EAA1C3 /* ProvedoresFavoritosViewController.h */,
+				8F970D4B169E3F3800EAA1C3 /* ProvedoresFavoritosViewController.m */,
 			);
 			path = Resultados;
 			sourceTree = "<group>";
@@ -772,6 +780,7 @@
 				8F7F06DF15F2A69D00308236 /* logotitle.png in Resources */,
 				8FE06FD716988FAE00A1EA1D /* SignUpViewController.xib in Resources */,
 				8FE06FF51698C47100A1EA1D /* TurnosViewController.xib in Resources */,
+				8F970D48169E385800EAA1C3 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,6 +872,7 @@
 				8FE06FD616988FAE00A1EA1D /* SignUpViewController.m in Sources */,
 				8FE06FF01698BE8300A1EA1D /* Turno.m in Sources */,
 				8FE06FF41698C47100A1EA1D /* TurnosViewController.m in Sources */,
+				8F970D4C169E3F3800EAA1C3 /* ProvedoresFavoritosViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

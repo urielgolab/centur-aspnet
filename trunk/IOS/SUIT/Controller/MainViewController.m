@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "BusquedaCategoriaViewController.h"
+#import "ProvedoresFavoritosViewController.h"
 
 @interface MainViewController () {
     NSMutableArray *_objects;
@@ -123,7 +124,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSIndexPath*)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
@@ -134,7 +135,20 @@
             [self.navigationController pushViewController:bc animated:YES];
         }
     }
+    
+    if (section == 1) {
+        if (row == 0) {
+            
+        }
+        if (row == 1) {
+            if ([SRVProfile GetInstance].currentUser) {
+                ProvedoresFavoritosViewController* fvc = [[ProvedoresFavoritosViewController alloc]initWithNibName:@"ProvedoresListViewController" bundle:nil];
+                [self.navigationController pushViewController:fvc animated:YES];
 
+            }
+        }
+    }
+    return nil;
 }
 
 @end

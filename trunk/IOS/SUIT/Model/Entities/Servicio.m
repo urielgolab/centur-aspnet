@@ -34,6 +34,7 @@
         self.Sobreturno = [NIL_IF_NSNULL([dict objectForKey:@"Sobreturno"])boolValue];
         self.Telefono = NIL_IF_NSNULL([dict objectForKey:@"Telefono"]);
         self.Zona = NIL_IF_NSNULL([dict objectForKey:@"Zona"]);
+        self.EsFavorito = [NIL_IF_NSNULL([dict objectForKey:@"EsFavorito"])boolValue];
     }
     return self;   
 }

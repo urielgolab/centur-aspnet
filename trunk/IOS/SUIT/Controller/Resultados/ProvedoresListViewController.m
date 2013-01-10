@@ -13,14 +13,11 @@
 
 @interface ProvedoresListViewController ()
 
-@property(nonatomic,retain)UITableView* tableView;
-
 @end
 
 @implementation ProvedoresListViewController
 
 @synthesize searchParametre;
-@synthesize tableView=_tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,7 +31,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[SRVBusqueda GetInstance] startSearchForProvedores:self.searchParametre delegate:self];
+    [self loadServicios];
+}
+
+-(void)loadServicios{
+    [[SRVBusqueda GetInstance] startSearchForProvedores:self.searchParametre delegate:self];    
 }
 
 - (void)viewDidUnload

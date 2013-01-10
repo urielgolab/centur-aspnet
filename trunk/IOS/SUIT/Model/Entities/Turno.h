@@ -11,11 +11,11 @@
 @interface Turno : NSObject
 
 @property(nonatomic) BOOL Disponible;
-@property(nonatomic) NSString* Fecha;
-@property(nonatomic) NSNumber* ServicioID;
-@property(nonatomic) NSString* horaFin;
-@property(nonatomic) NSString* horaInicio;
-@property(nonatomic) NSNumber* idTurno;
+@property(nonatomic,retain) NSString* Fecha;
+@property(nonatomic,retain) NSNumber* ServicioID;
+@property(nonatomic,retain) NSString* horaFin;
+@property(nonatomic,retain) NSString* horaInicio;
+@property(nonatomic,retain) NSNumber* idTurno;
 
 -(Turno*)initWhitDictionary:(NSDictionary*)dict;
 

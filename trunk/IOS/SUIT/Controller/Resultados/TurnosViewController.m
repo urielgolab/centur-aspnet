@@ -7,6 +7,8 @@
 //
 
 #import "TurnosViewController.h"
+#import "SRVBusqueda.h"
+#import "SRVProfile.h"
 
 @interface TurnosViewController ()
 
@@ -18,6 +20,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
+        [self createNotification];
         // Custom initialization
     }
     return self;
@@ -38,6 +41,29 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)createNotification{
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(reservarOK:)
+                                                 name:SERVICE_RESERVARTURNOSSERVICIO_OK
+                                               object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(reservarFailed:)
+                                                 name:SERVICE_RESERVARTURNOSSERVICIO_FAILED
+                                               object:nil];
+  
+}
+
+-(void)reservarOK:(NSNotification*) notification{
+    
+}
+
+
+-(void)reservarFailed:(NSNotification*) notification{
+    
 }
 
 #pragma mark - Table view data source
@@ -71,56 +97,22 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+-(NSIndexPath*)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    Turno* turno = [self.turnos objectAtIndex:indexPath.row];
+    Usuario* usuario = [SRVProfile GetInstance].currentUser;
+    
+    if (!usuario) {
+        //TODO
+        //Levantar la vista de logiarse
+        return nil;
+    }
+    
+    [[SRVBusqueda GetInstance] reservarTurno:turno servicio:self.servicio usuario:usuario];
+    
+    return nil;
 }
 
 @end

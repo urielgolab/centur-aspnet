@@ -9,6 +9,7 @@
 #import "SRVBase.h"
 #import "SearchParametre.h"
 #import "ServiciosResult.h"
+#import "SRVProfile.h"
 
 
 @protocol SearchDelegate <NSObject>
@@ -27,5 +28,15 @@ CWL_DECLARE_SINGLETON_FOR_CLASS(SRVBusqueda);
 -(void)startSearchForProvedorDetail:(Servicio*)servicio;
 
 -(void)buscarTurnosPara:(Servicio*)servicio paraDia:(NSDate*)dia;
+
+-(void)reservarTurno:(Turno*)turno servicio:(Servicio*)servicio usuario:(Usuario*)usuario;
+
+
+-(void)agregarAfavoritos:(Servicio*)servicio usuario:(Usuario*)usuario;
+
+-(void)quitarDefavoritos:(Servicio*)servicio usuario:(Usuario*)usuario;
+
+
+-(void)startsearchFavoritosFor:(Usuario*)usuario;
 
 @end

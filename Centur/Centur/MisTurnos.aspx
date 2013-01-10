@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <h1>Mis Turnos</h1>
 <div id="propios" Runat="Server">
-<h2>Turnos otorgados</h2>
+<h2>Servicios prestados</h2>
 <br />
         <asp:Label ID="Label1" runat="server" Text="Seleccionar servicio"></asp:Label>
         
@@ -27,7 +27,8 @@
             </ItemTemplate>
        </asp:TemplateField>
        
-       <asp:BoundField DataField="ServicioNombre" HeaderText="Nombre servicio" SortExpression="ServicioNombre"/>
+       <asp:HyperLinkField DataTextField="ServicioNombre" HeaderText="Nombre servicio" DataNavigateUrlFormatString="~/DetalleServicio.aspx?servicioID={0}"
+                    DataNavigateUrlFields="ServicioID" />
        <asp:BoundField DataField="Fecha" HeaderText="Fecha turno" SortExpression="Fecha"/>
        <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" SortExpression="horaInicio"/>
        <asp:BoundField DataField="horaFin" HeaderText="Hora fin" SortExpression="horaFin"/>
@@ -37,6 +38,9 @@
        <br />     
        
             <asp:Label ID="Label5" runat="server" Text="Seleccione turnos a cancelar"></asp:Label>
+       
+       <br />
+       <asp:LinkButton ID="Cancelar" runat="server">Cancelar turnos</asp:LinkButton>
      </div>
      <asp:Label ID="labelNoReservados" runat="server" 
         Text="Usted no posee turnos reservados" Visible="False"></asp:Label>

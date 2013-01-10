@@ -12,6 +12,7 @@
 #import "FechaPikerViewController.h"
 #import "TurnosViewController.h"
 
+
 @interface ProveedorDetailViewController ()
 
 @end
@@ -25,6 +26,7 @@
         proveedor = aProveedor;
         
         self.title = proveedor.Nombre;
+       
         [self createNotification];
         [[SRVBusqueda GetInstance] startSearchForProvedorDetail:proveedor];
     }
@@ -73,8 +75,47 @@
                                              selector:@selector(turnoFailed:)
                                                  name:SERVICE_TURNOSSERVICIO_FAILED
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(agregarFavoritoOK:)
+                                                 name:SERVICE_AGREGARFAVORITO_OK
+                                               object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(agregarFavoritoFailed:)
+                                                 name:SERVICE_AGREGARFAVORITO_FAILED
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(quitarFavoritoOK:)
+                                                 name:SERVICE_QUITARFAVORITO_OK
+                                               object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(quitarFavoritoFailed:)
+                                                 name:SERVICE_QUITARFAVORITO_FAILED
+                                               object:nil];
 
 }
+
+-(void)agregarFavoritoOK:(NSNotification*)notification{
+    [self loadData];
+}
+
+-(void)agregarFavoritoFailed:(NSNotification*)notification{
+    [self loadData];    
+}
+
+-(void)quitarFavoritoOK:(NSNotification*)notification{
+    [self loadData];
+}
+
+-(void)quitarFavoritoFailed:(NSNotification*)notification{
+    [self loadData];
+}
+
 
 -(void)turnoOK:(NSNotification*)notification{
     TurnosViewController* tvc = [[TurnosViewController alloc]initWithNibName:@"TurnosViewController" bundle:nil];
@@ -105,6 +146,16 @@
     descripcionTextView.text = proveedor.Descripcion;
     mapaButton.hidden =  !proveedor.isCoordinated;
 
+    if ([SRVProfile GetInstance].currentUser) {
+        
+        if (proveedor.EsFavorito ) {
+            //esfavorito
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(quitarFavoritoTouched)];
+        }else{
+            //No es favorito
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(agregarFavoritoTouched)];
+        }
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -132,5 +183,17 @@
     [self.navigationController pushViewController:pm animated:YES];
 }
 
+-(void)agregarFavoritoTouched{
+    if ([SRVProfile GetInstance].currentUser){
+        [[SRVBusqueda GetInstance] agregarAfavoritos:proveedor usuario: [SRVProfile GetInstance].currentUser];
+    }
+}
+
+-(void)quitarFavoritoTouched{
+    //[SRVBusqueda GetInstance]
+    if ([SRVProfile GetInstance].currentUser){
+        [[SRVBusqueda GetInstance] quitarDefavoritos:proveedor usuario: [SRVProfile GetInstance].currentUser];
+    }
+}
 
 @end

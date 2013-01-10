@@ -68,6 +68,11 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVProfile);
     NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"RegistrarUsuario" parameters:params];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        if ([[JSON objectForKey:@"Estado"]boolValue]) {
+            [[NSNotificationCenter defaultCenter]postNotificationName:SERVICE_SIGN_FAILED object:nil userInfo:nil];
+            return;
+        }
+        
         self.currentUser = [[Usuario alloc]initWhitDictionary:[JSON objectForKey:@"Body"]];
         [[NSNotificationCenter defaultCenter]postNotificationName:SERVICE_SIGN_OK object:nil userInfo:nil];
         NSLog(@"%@",JSON);

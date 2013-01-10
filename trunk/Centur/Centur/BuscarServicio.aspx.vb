@@ -17,7 +17,7 @@
         End If
 
         If Me.precioHasta.Text = "" Then
-            precioHastaDbl = 0
+            precioHastaDbl = Integer.MaxValue
         Else
             precioHastaDbl = CType(Me.precioHasta.Text, Double)
         End If

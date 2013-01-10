@@ -31,6 +31,9 @@ Public Class MisTurnos
                 DropDownListServiciosPropios.DataValueField = "ID"
                 DropDownListServiciosPropios.DataBind()
             End If
+        Else
+            tomados.Visible = False
+            labelNoReservados.Visible = True
         End If
 
     End Sub

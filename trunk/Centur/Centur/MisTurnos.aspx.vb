@@ -3,6 +3,7 @@
 Public Class MisTurnos
     Inherits System.Web.UI.Page
     Dim oBuscarServicioService As New Services.BuscarServicioService
+    Dim oTurnosService As New Services.TurnosService
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Session("Usuario") Is Nothing Then
@@ -38,7 +39,7 @@ Public Class MisTurnos
         Dim oTurnoList As New TurnoList
 
         If Not IsPostBack Then
-            oTurnoList = oBuscarServicioService.VerTurnosCliente(CType(Session("Usuario"), Entities.Usuario).idUsuario)
+            oTurnoList = oTurnosService.VerTurnosCliente(CType(Session("Usuario"), Entities.Usuario).idUsuario)
 
             If oTurnoList.Count > 0 Then
                 GridTomados.DataSource = oTurnoList
@@ -51,4 +52,24 @@ Public Class MisTurnos
 
     End Sub
 
+    Protected Sub Cancelar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Cancelar.Click
+
+        For Each row As GridViewRow In GridTomados.Rows
+
+            If CType(row.FindControl("CheckBox1"), CheckBox).Checked = True Then
+
+                Dim idTurno As Integer = Convert.ToInt32(GridTomados.DataKeys(row.RowIndex).Values("idTurno"))
+
+                oTurnosService.CancelarTurno(idTurno)
+
+            End If
+
+        Next row
+
+        Response.Redirect("~/MisTurnos.aspx")
+    End Sub
+
+    Protected Sub LinkButton4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton4.Click
+        Response.Redirect("~/AdministrarTurnos.aspx?servicioId=" & DropDownListServiciosPropios.Text)
+    End Sub
 End Class

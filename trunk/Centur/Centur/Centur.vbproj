@@ -95,6 +95,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="AdministrarTurnos.aspx" />
     <Content Include="BuscarServicio.aspx" />
     <Content Include="CrearServicioP3.aspx" />
     <Content Include="CrearServicioP2.aspx" />
@@ -191,6 +192,13 @@
     </Compile>
     <Compile Include="Account\Register.aspx.vb">
       <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="AdministrarTurnos.aspx.designer.vb">
+      <DependentUpon>AdministrarTurnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrarTurnos.aspx.vb">
+      <DependentUpon>AdministrarTurnos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="BuscarServicio.aspx.designer.vb">

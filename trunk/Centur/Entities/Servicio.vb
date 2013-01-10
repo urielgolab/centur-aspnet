@@ -24,6 +24,7 @@ Public Class Servicio
     Private _telefono As String
     Private _email As String
     Private _nombreUsuarioProveedor As String
+    Private _esFavorito As Boolean
 #End Region
 
 #Region "Properties"
@@ -201,6 +202,15 @@ Public Class Servicio
         End Get
         Set(ByVal value As String)
             _nombreUsuarioProveedor = value
+        End Set
+    End Property
+
+    Public Property EsFavorito() As Boolean
+        Get
+            Return _esFavorito
+        End Get
+        Set(ByVal value As Boolean)
+            _esFavorito = value
         End Set
     End Property
 

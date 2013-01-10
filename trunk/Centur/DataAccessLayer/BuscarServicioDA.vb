@@ -7,16 +7,16 @@ Public Class BuscarServicioDA
     Dim CmdText As String
 
 
-    Public Function BuscarServicio(ByVal nombre As String, ByVal categorias As String, ByVal zonas As String, ByVal precioDesde As Double, ByVal precioHasta As Double) As DataSet
+    Public Function BuscarServicio(ByVal nombre As String, ByVal categorias As String, ByVal zonas As String, ByVal precioDesde As Double, ByVal precioHasta As Double, ByVal usuarioID As Integer) As DataSet
         Dim params() As SqlParameter
-        params = New SqlParameter() {New SqlParameter("@nombre", nombre), New SqlParameter("@categorias", categorias), New SqlParameter("@zonas", zonas), New SqlParameter("@precioDesde", precioDesde), New SqlParameter("@precioHasta", precioHasta)}
+        params = New SqlParameter() {New SqlParameter("@nombre", nombre), New SqlParameter("@categorias", categorias), New SqlParameter("@zonas", zonas), New SqlParameter("@precioDesde", precioDesde), New SqlParameter("@precioHasta", precioHasta), New SqlParameter("@idUsuario", usuarioID)}
 
         Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "ServicioBuscar", params)
     End Function
 
-    Public Function VerDetalleServicio(ByVal idServicio As Integer) As DataSet
+    Public Function VerDetalleServicio(ByVal idServicio As Integer, ByVal usuarioID As Integer) As DataSet
         Dim params() As SqlParameter
-        params = New SqlParameter() {New SqlParameter("@idServicio", idServicio)}
+        params = New SqlParameter() {New SqlParameter("@idServicio", idServicio), New SqlParameter("@idUsuario", usuarioID)}
         Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "ServicioBuscar", params)
 
     End Function
@@ -93,16 +93,12 @@ Public Class BuscarServicioDA
 
     End Function
 
-    Function verTurnosCliente(ByVal idUsuario As Integer, ByVal confirmado As Integer) As DataSet
+    'Function verTurnosCliente(ByVal idUsuario As Integer, ByVal confirmado As Integer) As DataSet
 
-        Dim params() As SqlParameter
-        params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario), New SqlParameter("@confirmado", confirmado)}
-        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "TurnoObtener", params)
-
-
-    End Function
-
-
+    '    Dim params() As SqlParameter
+    '    params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario), New SqlParameter("@confirmado", confirmado)}
+    '    Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "TurnoObtener", params)
+    'End Function
 
 
 End Class

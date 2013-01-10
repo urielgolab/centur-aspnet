@@ -15,7 +15,7 @@ Public Class DetalleServicio
 
         'DivPedirTurno.Visible = False
 
-        servicio = oBuscarServicioService.VerDetalleServicio(CInt(Request.QueryString("ServicioID")))
+        servicio = oBuscarServicioService.VerDetalleServicio(CInt(Request.QueryString("ServicioID")), CType(Session("Usuario"), Entities.Usuario).idUsuario)
 
         Me.NombreServicio.Text = servicio.Nombre
         Me.CategoriaServicio.Text = servicio.Categoria

@@ -93,12 +93,14 @@ Public Class BuscarServicioDA
 
     End Function
 
-    'Function verTurnosCliente(ByVal idUsuario As Integer, ByVal confirmado As Integer) As DataSet
+    Function EsDueño(ByVal idServicio As Integer, ByVal idProveedor As Integer) As DataSet
 
-    '    Dim params() As SqlParameter
-    '    params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario), New SqlParameter("@confirmado", confirmado)}
-    '    Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "TurnoObtener", params)
-    'End Function
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idServicio", idServicio), New SqlParameter("@idProveedor", idProveedor)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "ServicioEsDueño", params)
+
+    End Function
+
 
 
 End Class

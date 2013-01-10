@@ -191,22 +191,12 @@ Public Class BuscarServicioService
         Return oServicioList
     End Function
 
-    'Function VerTurnosCliente(ByVal idUsuario As Integer) As TurnoList
-    '    Dim ds As DataSet = oBuscarServicioDA.verTurnosCliente(idUsuario, 1)
-    '    Dim oTurnoList As New TurnoList
+    Function esDueño(ByVal idServicio As Integer, ByVal idProveedor As Integer) As Boolean
+        Dim ds As DataSet = oBuscarServicioDA.EsDueño(idServicio, idProveedor)
 
-    '    For Each dr As DataRow In ds.Tables(0).Rows
-    '        Dim oTurno As New Turno
-    '        oTurno.idTurno = CInt(dr("idturno"))
-    '        oTurno.Fecha = CStr(dr("fecha"))
-    '        oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
-    '        oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
-    '        oTurno.ServicioNombre = CStr(dr("nombre"))
+        Return ds.Tables(0).Rows.Count > 0
 
-    '        oTurnoList.Add(oTurno)
-    '    Next
+    End Function
 
-    '    Return oTurnoList
-    'End Function
 
 End Class

@@ -14,11 +14,38 @@ Option Explicit On
 Partial Public Class AdministrarTurnos
 
     '''<summary>
-    '''turnosConfirmados control.
+    '''tomados control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents turnosConfirmados As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents tomados As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''GridTomados control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridTomados As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''Label5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Cancelar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Cancelar As Global.System.Web.UI.WebControls.LinkButton
 End Class

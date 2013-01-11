@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class AdministrarTurnos
 
     '''<summary>
+    '''LabelServicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LabelServicio As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''tomados control.
     '''</summary>
     '''<remarks>
@@ -48,4 +57,58 @@ Partial Public Class AdministrarTurnos
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Cancelar As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''LabelNoTurnosOtorgados control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LabelNoTurnosOtorgados As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''pendientes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pendientes As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''GridPendientes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridPendientes As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''LinkButtonCancelAp control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LinkButtonCancelAp As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''LinkButtonAcepAp control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LinkButtonAcepAp As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''LabelNoPendientes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LabelNoPendientes As Global.System.Web.UI.WebControls.Label
 End Class

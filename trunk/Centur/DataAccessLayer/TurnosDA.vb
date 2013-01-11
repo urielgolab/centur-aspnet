@@ -22,4 +22,16 @@ Public Class TurnosDA
         Dim ds As DataSet = SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "TurnoAdministrar", params)
     End Sub
 
+    Function verTurnosProveedor(ByVal idProveedor As Integer, ByVal confirmado As Integer) As DataSet
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idProveedor", idProveedor), New SqlParameter("@confirmado", confirmado)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "TurnoObtener", params)
+    End Function
+
+    Function verTurnosServicio(ByVal idServicio As Integer, ByVal confirmado As Integer) As DataSet
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idServicio", idServicio), New SqlParameter("@confirmado", confirmado)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "TurnoObtener", params)
+    End Function
+
 End Class

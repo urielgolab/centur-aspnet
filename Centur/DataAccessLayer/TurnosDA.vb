@@ -15,7 +15,7 @@ Public Class TurnosDA
 
     End Function
 
-    Sub TurnoAdministrar(ByVal idTurno As Integer, ByVal accion As String)
+    Sub TurnoAdministrar(ByVal idTurno As Integer, ByVal accion As Char)
 
         Dim params() As SqlParameter
         params = New SqlParameter() {New SqlParameter("@accion", accion), New SqlParameter("@idTurno", idTurno)}

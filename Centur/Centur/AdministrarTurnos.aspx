@@ -7,7 +7,7 @@
     </h1>
 
 <h2>Turnos otorgados</h2>
-<div id="tomados" runat="server" visible="False">
+<div id="tomados" runat="server">
 <br />
 <asp:GridView ID="GridTomados" runat="server" AutoGenerateColumns="False" 
                 DataKeyNames="idTurno">
@@ -35,12 +35,12 @@
      </div>
 
     <asp:Label ID="LabelNoTurnosOtorgados" runat="server" 
-        Text="Usted no ha otorgado turnos para este servicio"></asp:Label>
+        Text="Usted no ha otorgado turnos para este servicio" Visible="False"></asp:Label>
 <br />
 <br />
 
 <h2>Turnos pendientes de aprobacion</h2>
-<div id="pendientes" runat="server" visible="False">
+<div id="pendientes" runat="server">
 <br />
 <asp:GridView ID="GridPendientes" runat="server" AutoGenerateColumns="False" 
                 DataKeyNames="idTurno">
@@ -67,7 +67,7 @@
      </div>
 
     <asp:Label ID="LabelNoPendientes" runat="server" 
-        Text="Usted no tiene turnos pendientes para este servicio"></asp:Label>
+        Text="Usted no tiene turnos pendientes para este servicio" Visible="False"></asp:Label>
 
 
 </asp:Content>

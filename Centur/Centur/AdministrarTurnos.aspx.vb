@@ -18,7 +18,6 @@ Public Class AdministrarTurnos
 
         If Not IsPostBack Then
 
-
             oServicio = oBuscarServicioService.VerDetalleServicio(idServicio, 0)
             LabelServicio.Text = oServicio.Nombre
 
@@ -54,6 +53,7 @@ Public Class AdministrarTurnos
         Dim idServicio As Integer = CInt(Request.QueryString("servicioId"))
         Dim oTurnoList As New TurnoList
 
+
         oTurnoList = oTurnosService.VerTurnosProveedor(idServicio, 1)
         If oTurnoList.Count > 0 Then
             GridTomados.DataSource = oTurnoList
@@ -62,6 +62,7 @@ Public Class AdministrarTurnos
             tomados.Visible = False
             LabelNoTurnosOtorgados.Visible = True
         End If
+
     End Sub
 
 
@@ -69,14 +70,16 @@ Public Class AdministrarTurnos
         Dim idServicio As Integer = CInt(Request.QueryString("servicioId"))
         Dim oTurnoList As New TurnoList
 
+
         oTurnoList = oTurnosService.VerTurnosProveedor(idServicio, 0)
         If oTurnoList.Count > 0 Then
-            GridTomados.DataSource = oTurnoList
-            GridTomados.DataBind()
+            GridPendientes.DataSource = oTurnoList
+            GridPendientes.DataBind()
         Else
             pendientes.Visible = False
             LabelNoPendientes.Visible = True
         End If
+
     End Sub
 
 
@@ -84,11 +87,11 @@ Public Class AdministrarTurnos
     Protected Sub LinkButtonCancelAp_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButtonCancelAp.Click
 
         Dim idServicio As Integer = CInt(Request.QueryString("servicioId"))
-        For Each row As GridViewRow In GridTomados.Rows
+        For Each row As GridViewRow In GridPendientes.Rows
 
             If CType(row.FindControl("CheckBox1"), CheckBox).Checked = True Then
 
-                Dim idTurno As Integer = Convert.ToInt32(GridTomados.DataKeys(row.RowIndex).Values("idTurno"))
+                Dim idTurno As Integer = Convert.ToInt32(GridPendientes.DataKeys(row.RowIndex).Values("idTurno"))
 
                 oTurnosService.CancelarTurno(idTurno)
 
@@ -102,11 +105,11 @@ Public Class AdministrarTurnos
     Protected Sub LinkButtonAcepAp_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButtonAcepAp.Click
 
         Dim idServicio As Integer = CInt(Request.QueryString("servicioId"))
-        For Each row As GridViewRow In GridTomados.Rows
+        For Each row As GridViewRow In GridPendientes.Rows
 
             If CType(row.FindControl("CheckBox1"), CheckBox).Checked = True Then
 
-                Dim idTurno As Integer = Convert.ToInt32(GridTomados.DataKeys(row.RowIndex).Values("idTurno"))
+                Dim idTurno As Integer = Convert.ToInt32(GridPendientes.DataKeys(row.RowIndex).Values("idTurno"))
 
                 oTurnosService.AceptarTurno(idTurno)
 

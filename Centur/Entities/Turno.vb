@@ -10,7 +10,9 @@ Public Class Turno
     Private _fecha As String
     Private _servicioID As Integer
     Private _servicioNombre As String
+    Private _usuarioID As Integer
     Private _clienteNombre As String
+
 #End Region
 
 
@@ -60,6 +62,15 @@ Public Class Turno
         End Set
     End Property
 
+
+    Public Property UsuarioID() As Integer
+        Get
+            Return _usuarioID
+        End Get
+        Set(ByVal value As Integer)
+            _usuarioID = value
+        End Set
+    End Property
 
     Public Property ServicioID() As Integer
         Get

@@ -98,6 +98,7 @@
     <Content Include="AdministrarTurnos.aspx" />
     <Content Include="AsignarTurno.aspx" />
     <Content Include="BuscarServicio.aspx" />
+    <Content Include="CrearServicioP4.aspx" />
     <Content Include="CrearServicioP3.aspx" />
     <Content Include="CrearServicioP2.aspx" />
     <Content Include="CrearGrupo.aspx" />
@@ -129,6 +130,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
+    <Content Include="ModificarGrupo.aspx" />
     <Content Include="ModificarServicio.aspx" />
     <Content Include="Registrer.aspx" />
     <Content Include="ReservarTurno.aspx" />
@@ -215,6 +217,13 @@
     <Compile Include="BuscarServicio.aspx.vb">
       <DependentUpon>BuscarServicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearServicioP4.aspx.designer.vb">
+      <DependentUpon>CrearServicioP4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearServicioP4.aspx.vb">
+      <DependentUpon>CrearServicioP4.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="CrearServicioP3.aspx.designer.vb">
       <DependentUpon>CrearServicioP3.aspx</DependentUpon>
@@ -316,6 +325,12 @@
     <Compile Include="MisTurnos.aspx.vb">
       <DependentUpon>MisTurnos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ModificarGrupo.aspx.designer.vb">
+      <DependentUpon>ModificarGrupo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarGrupo.aspx.vb">
+      <DependentUpon>ModificarGrupo.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModificarServicio.aspx.designer.vb">
       <DependentUpon>ModificarServicio.aspx</DependentUpon>

@@ -14,76 +14,454 @@ Option Explicit On
 Partial Public Class CrearServicioP3
 
     '''<summary>
-    '''chkLunes control.
+    '''chkDia1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkLunes As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents chkDia1 As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''tbLunes control.
+    '''grdHorarios1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tbLunes As Global.System.Web.UI.WebControls.Table
+    Protected WithEvents grdHorarios1 As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''chkMartes control.
+    '''lnkAgregarOtroHorario1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkMartes As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents lnkAgregarOtroHorario1 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''chkMiercoles control.
+    '''tb1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkMiercoles As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents tb1 As Global.System.Web.UI.WebControls.Table
 
     '''<summary>
-    '''chkJueves control.
+    '''txtHoraDesde1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkJueves As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents txtHoraDesde1 As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''chkViernes control.
+    '''txtHoraHasta1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkViernes As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents txtHoraHasta1 As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''chkSabado control.
+    '''txtCapacidad1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkSabado As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents txtCapacidad1 As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''chkDomingo control.
+    '''txtDuracion1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkDomingo As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents txtDuracion1 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''chkDia2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkDia2 As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
+    '''grdHorarios2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents grdHorarios2 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''tb2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb2 As Global.System.Web.UI.WebControls.Table
+
+    '''<summary>
+    '''txtHoraDesde2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraDesde2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtHoraHasta2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraHasta2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCapacidad2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCapacidad2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtDuracion2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDuracion2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''chkDia3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkDia3 As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
+    '''grdHorarios3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents grdHorarios3 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''tb3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb3 As Global.System.Web.UI.WebControls.Table
+
+    '''<summary>
+    '''txtHoraDesde3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraDesde3 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtHoraHasta3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraHasta3 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCapacidad3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCapacidad3 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtDuracion3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDuracion3 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''chkDia4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkDia4 As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
+    '''grdHorarios4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents grdHorarios4 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''tb4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb4 As Global.System.Web.UI.WebControls.Table
+
+    '''<summary>
+    '''txtHoraDesde4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraDesde4 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtHoraHasta4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraHasta4 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCapacidad4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCapacidad4 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtDuracion4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDuracion4 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''chkDia5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkDia5 As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
+    '''grdHorarios5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents grdHorarios5 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''tb5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb5 As Global.System.Web.UI.WebControls.Table
+
+    '''<summary>
+    '''txtHoraDesde5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraDesde5 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtHoraHasta5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraHasta5 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCapacidad5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCapacidad5 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtDuracion5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDuracion5 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''chkDia6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkDia6 As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
+    '''grdHorarios6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents grdHorarios6 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''tb6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb6 As Global.System.Web.UI.WebControls.Table
+
+    '''<summary>
+    '''txtHoraDesde6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraDesde6 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtHoraHasta6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraHasta6 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCapacidad6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCapacidad6 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtDuracion6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDuracion6 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''chkDia7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkDia7 As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
+    '''grdHorarios7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents grdHorarios7 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''tb7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tb7 As Global.System.Web.UI.WebControls.Table
+
+    '''<summary>
+    '''txtHoraDesde7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraDesde7 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtHoraHasta7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraHasta7 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCapacidad7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCapacidad7 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtDuracion7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDuracion7 As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''btnSiguiente control.

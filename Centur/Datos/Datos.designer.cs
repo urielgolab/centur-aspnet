@@ -411,6 +411,45 @@ namespace Datos
 			status = ((System.Nullable<bool>)(result.GetParameterValue(8)));
 			return ((ISingleResult<UsuarioRegistrarResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrillaHorarioEliminar")]
+		public int GrillaHorarioEliminar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idConfiguracionHoraria)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idConfiguracionHoraria);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrillaHorarioRegistrar")]
+		public int GrillaHorarioRegistrar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dia", DbType="Int")] System.Nullable<int> dia, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Time")] System.Nullable<System.TimeSpan> horaInicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Time")] System.Nullable<System.TimeSpan> horaFin, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> capacidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> duracion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idGrilla, dia, horaInicio, horaFin, capacidad, duracion, mensaje, status);
+			mensaje = ((string)(result.GetParameterValue(6)));
+			status = ((System.Nullable<bool>)(result.GetParameterValue(7)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrillaHorarioValidar")]
+		public int GrillaHorarioValidar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> numeroDia, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Time")] System.Nullable<System.TimeSpan> horaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Time")] System.Nullable<System.TimeSpan> horaHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> capacidad, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> duracion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idGrilla, numeroDia, horaDesde, horaHasta, capacidad, duracion, mensaje);
+			mensaje = ((string)(result.GetParameterValue(6)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrillaRegistrar")]
+		public int GrillaRegistrar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> vigenciaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> vigenciaHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), vigenciaDesde, vigenciaHasta, mensaje, status);
+			mensaje = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrillaDiaEliminar")]
+		public int GrillaDiaEliminar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dia", DbType="SmallInt")] System.Nullable<short> dia)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idGrilla, dia);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Categoria")]

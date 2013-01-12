@@ -129,7 +129,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
-    <Content Include="ModificarGrupo.aspx" />
     <Content Include="ModificarServicio.aspx" />
     <Content Include="Registrer.aspx" />
     <Content Include="ReservarTurno.aspx" />
@@ -316,13 +315,6 @@
     </Compile>
     <Compile Include="MisTurnos.aspx.vb">
       <DependentUpon>MisTurnos.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="ModificarGrupo.aspx.designer.vb">
-      <DependentUpon>ModificarGrupo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ModificarGrupo.aspx.vb">
-      <DependentUpon>ModificarGrupo.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="ModificarServicio.aspx.designer.vb">

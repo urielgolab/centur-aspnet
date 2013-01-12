@@ -36,8 +36,17 @@
 
     <asp:Label ID="LabelNoTurnosOtorgados" runat="server" 
         Text="Usted no ha otorgado turnos para este servicio" Visible="False"></asp:Label>
-<br />
-<br />
+
+   <br />
+   <br />
+    <asp:Label ID="Label6" runat="server" Text="Reservar turno a usuario:"></asp:Label>
+    <asp:TextBox ID="TextBoxUser" runat="server"></asp:TextBox>
+    <asp:LinkButton ID="linkVerTurno" runat="server">Ver disponibilidad</asp:LinkButton>
+    <br />
+
+    <asp:Label ID="LabelUsuarioNoExiste" runat="server" 
+        Text="Usuario no existente. Intente nuevamente" ForeColor="Red" Visible="False"></asp:Label>
+
 
 <h2>Turnos pendientes de aprobacion</h2>
 <div id="pendientes" runat="server">

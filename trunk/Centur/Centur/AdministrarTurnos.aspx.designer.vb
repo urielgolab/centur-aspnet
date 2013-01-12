@@ -68,6 +68,42 @@ Partial Public Class AdministrarTurnos
     Protected WithEvents LabelNoTurnosOtorgados As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''Label6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''TextBoxUser control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents TextBoxUser As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''linkVerTurno control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents linkVerTurno As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''LabelUsuarioNoExiste control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LabelUsuarioNoExiste As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''pendientes control.
     '''</summary>
     '''<remarks>

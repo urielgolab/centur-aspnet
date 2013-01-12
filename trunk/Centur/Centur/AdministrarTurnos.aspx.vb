@@ -4,6 +4,7 @@ Public Class AdministrarTurnos
     Inherits System.Web.UI.Page
     Dim oBuscarServicioService As New Services.BuscarServicioService
     Dim oTurnosService As New Services.TurnosService
+    Dim oLoginService As New Services.LoginService
 
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -118,6 +119,21 @@ Public Class AdministrarTurnos
         Next row
 
         Response.Redirect("~/AdministrarTurnos.aspx?servicioId=" & idServicio)
+
+    End Sub
+
+    Protected Sub linkVerTurno_Click(ByVal sender As Object, ByVal e As EventArgs) Handles linkVerTurno.Click
+
+        Dim oUsuario As New Usuario
+        Dim idServicio As Integer = CInt(Request.QueryString("servicioId"))
+
+        oUsuario = oLoginService.GetUserInfo(TextBoxUser.Text)
+
+        If oUsuario.idUsuario Then
+            Response.Redirect("~/AsignarTurno.aspx?servicioId=" & idServicio & "&usuarioId=" & oUsuario.idUsuario)
+        Else
+            LabelUsuarioNoExiste.Visible = True
+        End If
 
     End Sub
 End Class

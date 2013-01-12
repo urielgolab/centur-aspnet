@@ -12,8 +12,9 @@ Public Class CenturServiceREST
     Dim oLoginService As New Services.LoginService
     Dim oFavoritosService As New Services.FavoritosService
     Dim oGruposService As New Services.GruposService
+    Dim oTurnosService As New Services.TurnosService
 
-   
+#Region "BuscarServcio"
     Public Function BuscarServicio(Optional ByVal nombre As String = "", Optional ByVal categorias As String = "", Optional ByVal zonas As String = "", Optional ByVal precioDesde As Double = 0, Optional ByVal precioHasta As Double = 0, Optional ByVal usuarioID As Integer = 0) As Stream Implements ICenturServiceREST.BuscarServicio
         Dim Mensaje As String = ""
         Dim Status As Boolean
@@ -91,40 +92,6 @@ Public Class CenturServiceREST
         Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
     End Function
 
-    Public Function DetalleUsuario(ByVal nombreUsuario As String) As Stream Implements ICenturServiceREST.DetalleUsuario
-        Dim Mensaje As String = ""
-        Dim Status As Boolean
-
-        Dim usuario As Usuario = oLoginService.GetUserInfo(nombreUsuario)
-
-        Dim result As New JSONResult
-        result.Estado = Status
-        result.Mensaje = Mensaje
-        result.Body = usuario
-
-        Dim js As New JavaScriptSerializer()
-        Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
-    End Function
-
-    Public Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal password As String, ByVal telefono As String, ByVal rolUsuario As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String) As Stream Implements ICenturServiceREST.RegistrarUsuario
-        Dim Mensaje As String = ""
-        Dim Status As Boolean
-
-        Dim usuario As Usuario = oLoginService.RegistrarUsuario(NombreUsuario, Password, Telefono, rolUsuario, nombre, apellido, email, Mensaje, Status)
-
-        Dim result As New JSONResult
-        result.Estado = Status
-        result.Mensaje = Mensaje
-        result.Body = usuario
-
-        Dim js As New JavaScriptSerializer()
-        Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
-    End Function
-
-
-
     Public Function BuscarCategorias(ByVal accion As String, Optional ByVal idCategoria As Integer = 0) As Stream Implements ICenturServiceREST.BuscarCategorias
         Dim Mensaje As String = ""
         Dim Status As Boolean
@@ -157,7 +124,42 @@ Public Class CenturServiceREST
         Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
     End Function
 
+#End Region
 
+#Region "Login"
+    Public Function DetalleUsuario(ByVal nombreUsuario As String) As Stream Implements ICenturServiceREST.DetalleUsuario
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        Dim usuario As Usuario = oLoginService.GetUserInfo(nombreUsuario)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        result.Body = usuario
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+    Public Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal password As String, ByVal telefono As String, ByVal rolUsuario As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String) As Stream Implements ICenturServiceREST.RegistrarUsuario
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        Dim usuario As Usuario = oLoginService.RegistrarUsuario(NombreUsuario, password, telefono, rolUsuario, nombre, apellido, email, Mensaje, Status)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        result.Body = usuario
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+#End Region
 
 #Region "Favoritos"
 
@@ -228,7 +230,6 @@ Public Class CenturServiceREST
     End Function
 
 #End Region
-
 
 #Region "Grupos"
 
@@ -400,6 +401,58 @@ Public Class CenturServiceREST
 
     End Function
 
+
+#End Region
+
+#Region "Turnos"
+
+    Function VerTurnosCliente(ByVal idUsuario As Integer, ByVal confirmado As Integer) As Stream Implements ICenturServiceREST.VerTurnosCliente
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        Dim oTurnoList As TurnoList = oTurnosService.VerTurnosCliente(idUsuario, confirmado)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        result.Body = oTurnoList
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+    Function CancelarTurno(ByVal idTurno As Integer) As Stream Implements ICenturServiceREST.CancelarTurno
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        oTurnosService.CancelarTurno(idTurno)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        'result.Body = oTurnoList
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
+
+    Function AceptarTurno(ByVal idTurno As Integer) As Stream Implements ICenturServiceREST.AceptarTurno
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        oTurnosService.AceptarTurno(idTurno)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        'result.Body = oTurnoList
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+    End Function
 
 #End Region
 

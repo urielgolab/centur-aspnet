@@ -5,6 +5,7 @@ Imports System.IO
 <ServiceContract()>
 Public Interface ICenturServiceREST
 
+#Region "BuscarServicio"
 
     <OperationContract()>
    <WebGet(UriTemplate:="/BuscarServicio?nombre={nombre}&categorias={categorias}&zonas={zonas}&precioDesde={precioDesde}&precioHasta={precioHasta}&usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
@@ -29,6 +30,9 @@ Public Interface ICenturServiceREST
     <OperationContract()>
 <WebGet(UriTemplate:="/VerTurnosServicioxDia?servicioID={servicioID}&TurnoFecha={TurnoFecha}", ResponseFormat:=WebMessageFormat.Json)> _
     Function VerTurnosServicioxDia(ByVal servicioID As Integer, ByVal TurnoFecha As Date) As Stream
+#End Region
+
+#Region "Login"
 
     <OperationContract()>
 <WebGet(UriTemplate:="/DetalleUsuario?nombreUsuario={nombreUsuario}", ResponseFormat:=WebMessageFormat.Json)> _
@@ -37,6 +41,8 @@ Public Interface ICenturServiceREST
     <OperationContract()>
 <WebGet(UriTemplate:="/RegistrarUsuario?nombreUsuario={nombreUsuario}&password={password}&telefono={telefono}&rolUsuario={rolUsuario}&nombre={nombre}&apellido={apellido}&email={email}", ResponseFormat:=WebMessageFormat.Json)> _
     Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal password As String, ByVal telefono As String, ByVal rolUsuario As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String) As Stream
+
+#End Region
 
 #Region "Favoritos"
 
@@ -57,8 +63,6 @@ Public Interface ICenturServiceREST
     Function EsFavorito(ByVal servicioID As Integer, ByVal usuarioID As Integer) As Stream
 
 #End Region
-
-   
 
 #Region "Grupos"
 
@@ -107,7 +111,22 @@ Public Interface ICenturServiceREST
 
 #End Region
 
+#Region "Turnos"
 
+    <OperationContract()>
+<WebGet(UriTemplate:="/VerTurnosCliente?idUsuario={idUsuario}&confirmado={confirmado}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function VerTurnosCliente(ByVal idUsuario As Integer, ByVal confirmado As Integer) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/CancelarTurno?idTurno={idTurno}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function CancelarTurno(ByVal idTurno As Integer) As Stream
+
+    <OperationContract()>
+<WebGet(UriTemplate:="/AceptarTurno?idTurno={idTurno}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function AceptarTurno(ByVal idTurno As Integer) As Stream
+
+
+#End Region
 
     <OperationContract()>
 <WebGet(UriTemplate:="/Test?fecha={fecha}&hora={hora}&numero={numero}", ResponseFormat:=WebMessageFormat.Json)> _

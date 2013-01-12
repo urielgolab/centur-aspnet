@@ -439,4 +439,41 @@
       <Column Name="apellido" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.GrillaHorarioEliminar" Method="GrillaHorarioEliminar">
+    <Parameter Name="idConfiguracionHoraria" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GrillaHorarioRegistrar" Method="GrillaHorarioRegistrar">
+    <Parameter Name="idGrilla" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Dia" Parameter="dia" Type="System.Int32" DbType="Int" />
+    <Parameter Name="horaInicio" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="horaFin" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="capacidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="duracion" Type="System.Int32" DbType="Int" />
+    <Parameter Name="mensaje" Type="System.String" DbType="VarChar(500)" Direction="InOut" />
+    <Parameter Name="status" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GrillaHorarioValidar" Method="GrillaHorarioValidar">
+    <Parameter Name="idGrilla" Type="System.Int32" DbType="Int" />
+    <Parameter Name="numeroDia" Type="System.Int32" DbType="Int" />
+    <Parameter Name="horaDesde" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="horaHasta" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="capacidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="duracion" Type="System.Int32" DbType="Int" />
+    <Parameter Name="mensaje" Type="System.String" DbType="VarChar(500)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GrillaRegistrar" Method="GrillaRegistrar">
+    <Parameter Name="vigenciaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="vigenciaHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="mensaje" Type="System.String" DbType="VarChar(500)" Direction="InOut" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GrillaDiaEliminar" Method="GrillaDiaEliminar">
+    <Parameter Name="idGrilla" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Dia" Parameter="dia" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

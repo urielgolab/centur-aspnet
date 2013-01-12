@@ -96,6 +96,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="AdministrarTurnos.aspx" />
+    <Content Include="AsignarTurno.aspx" />
     <Content Include="BuscarServicio.aspx" />
     <Content Include="CrearServicioP3.aspx" />
     <Content Include="CrearServicioP2.aspx" />
@@ -132,6 +133,7 @@
     <Content Include="ModificarServicio.aspx" />
     <Content Include="Registrer.aspx" />
     <Content Include="ReservarTurno.aspx" />
+    <Content Include="ReservarTurnoProveedor.aspx" />
     <Content Include="Scripts\addressPicker.js" />
     <Content Include="Scripts\commonFunctions.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -199,6 +201,13 @@
     </Compile>
     <Compile Include="AdministrarTurnos.aspx.vb">
       <DependentUpon>AdministrarTurnos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="AsignarTurno.aspx.designer.vb">
+      <DependentUpon>AsignarTurno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AsignarTurno.aspx.vb">
+      <DependentUpon>AsignarTurno.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="BuscarServicio.aspx.designer.vb">
@@ -354,6 +363,13 @@
     </Compile>
     <Compile Include="ReservarTurno.aspx.vb">
       <DependentUpon>ReservarTurno.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ReservarTurnoProveedor.aspx.designer.vb">
+      <DependentUpon>ReservarTurnoProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReservarTurnoProveedor.aspx.vb">
+      <DependentUpon>ReservarTurnoProveedor.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Service References\CenturServiceREST\Reference.vb">

@@ -54,7 +54,7 @@ Public Class CenturServiceREST
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
-        Dim turnos As TurnoList = oBuscarServicioService.VerTurnosServicioxDia(servicioID, TurnoFecha)
+        Dim turnos As TurnoList = oBuscarServicioService.VerTurnosServicioxDia(servicioID, TurnoFecha, False)
 
         For Each oTurno As Turno In turnos
             oTurno.horaFin = oTurno.horaFin.Replace(".", ":")
@@ -72,11 +72,11 @@ Public Class CenturServiceREST
     End Function
 
 
-    Public Function ReservarTurno(ByVal servicioID As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal usuarioID As Integer) As Stream Implements ICenturServiceREST.ReservarTurno
+    Public Function ReservarTurno(ByVal servicioID As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal usuarioID As Integer, ByVal esProveedor As Boolean) As Stream Implements ICenturServiceREST.ReservarTurno
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
-        Dim turno As Turno = oBuscarServicioService.ReservarTurno(servicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, usuarioID, Mensaje, Status)
+        Dim turno As Turno = oBuscarServicioService.ReservarTurno(servicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, usuarioID, esProveedor, Mensaje, Status)
 
         turno.horaFin = turno.horaFin.Replace(".", ":")
         turno.horaInicio = turno.horaInicio.Replace(".", ":")
@@ -409,7 +409,7 @@ Public Class CenturServiceREST
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
-        Dim turnos As TurnoList = oBuscarServicioService.VerTurnosServicioxDia(numero, fecha)
+        Dim turnos As TurnoList = oBuscarServicioService.VerTurnosServicioxDia(numero, fecha, False)
 
         Dim result As New JSONResult
         result.Estado = Status

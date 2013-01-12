@@ -127,6 +127,8 @@ Public Class BuscarServicioService
 
         Dim oTurnoList As New TurnoList
 
+
+
         If esProveedor Then
             For Each dr As DataRow In ds.Tables(0).Rows
                 Dim oTurno As New Turno
@@ -135,6 +137,7 @@ Public Class BuscarServicioService
                 oTurno.Disponible = dr("disponible")
                 oTurno.Fecha = CStr(dr("fecha"))
                 oTurno.ServicioID = CInt(dr("servicioID"))
+                oTurno.UsuarioID = UsuarioID
 
                 oTurnoList.Add(oTurno)
             Next
@@ -153,7 +156,11 @@ Public Class BuscarServicioService
             Next
         End If
 
+
+
         Return oTurnoList
+
+
     End Function
 
     Public Function BuscarCategorias(ByVal accion As String, Optional ByVal idCategoria As Integer = 0, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As CategoriaList

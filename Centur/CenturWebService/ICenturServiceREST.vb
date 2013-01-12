@@ -23,8 +23,8 @@ Public Interface ICenturServiceREST
     Function DetalleServicio(ByVal servicioID As Integer, Optional ByVal usuarioID As Integer = 0) As Stream
 
     <OperationContract()>
-<WebGet(UriTemplate:="/ReservarTurno?servicioID={servicioID}&TurnoFecha={TurnoFecha}&TurnoHoraInicio={TurnoHoraInicio}&TurnoHoraFin={TurnoHoraFin}&usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
-    Function ReservarTurno(ByVal servicioID As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal usuarioID As Integer) As Stream
+<WebGet(UriTemplate:="/ReservarTurno?servicioID={servicioID}&TurnoFecha={TurnoFecha}&TurnoHoraInicio={TurnoHoraInicio}&TurnoHoraFin={TurnoHoraFin}&usuarioID={usuarioID}&esProveedor={esProveedor}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function ReservarTurno(ByVal servicioID As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal usuarioID As Integer, ByVal esProveedor As Boolean) As Stream
 
     <OperationContract()>
 <WebGet(UriTemplate:="/VerTurnosServicioxDia?servicioID={servicioID}&TurnoFecha={TurnoFecha}", ResponseFormat:=WebMessageFormat.Json)> _

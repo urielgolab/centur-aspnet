@@ -4,8 +4,8 @@
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="MainContent">
-<h1>
-    &nbsp;</h1>
+<h1>Favoritos</h1>
+<br />
     <asp:GridView ID="GridResultadosFavoritos" runat="server" AutoGenerateColumns="False">
         <Columns>
             <asp:HyperLinkField DataTextField="Nombre" HeaderText="Nombre" DataNavigateUrlFormatString="DetalleServicio.aspx?servicioID={0}"

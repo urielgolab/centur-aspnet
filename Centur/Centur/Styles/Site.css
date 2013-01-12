@@ -560,6 +560,66 @@ div.Servicio
     margin: 15px;    
 }
 
+.GrupoEditarLinks
+{
+    float:left;
+    width:500px;    
+    font-size:large;
+    font-family:Book Antiqua;
+    margin: 15px;    
+}
+
+.GrupoDetalleTextbox
+{
+    float:left;
+    margin-top:20px;
+}
+
+.GrupoDetalleLinksSuscripcion
+{
+    float:left;
+    font-size:large;
+    font-family:Book Antiqua;
+    margin-left: 15px;
+    margin-top:20px;    
+    }
+
+.GrupoDetalleListas
+{
+    float:left;
+    width:900px;
+    margin-bottom:30px;
+    margin-top:25px;
+}
+
+.GrupoDetalleServicios
+{
+    float:left;
+    width:300px;
+    margin-top:25px;
+}
+
+.GrupoDetalleMiembros
+{
+    float:left;
+    width:300px;
+    margin-top:25px;
+    margin-left:40px;
+}
+
+.GrupoDetalleLinks
+{
+    float:left;
+    font-size:large;
+    font-family:Book Antiqua;
+    margin: 15px;    
+}
+
+.DetalleGrupoSupr
+{
+ margin-left:15px;
+}
+
 #MainContent_FechaDesde, #MainContent_HoraDesde
 {
     margin-left: 3px;

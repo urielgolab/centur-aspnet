@@ -3,13 +3,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<h1> Editar Grupo </h1>
-     
+<p align="left" class="tituloPrincipal" > Editar Grupo</p>
+   
         <asp:Label ID="Label1" runat="server" Text="Nombre"></asp:Label>
         <asp:TextBox ID="NombreGrupo" runat="server"></asp:TextBox> 
-        &nbsp;
-        &nbsp;
-        &nbsp;
         <br />
          <asp:Label ID="Label2" runat="server" Text="Descripcion"></asp:Label>
         <asp:TextBox ID="DescripGrupo" runat="server"></asp:TextBox>
@@ -18,11 +15,13 @@
         <table>
                  <tr> 
           <td>
-        <div id="servicios" Runat="Server">
-        <asp:Label ID="Label4" runat="server" Text="Servicios"></asp:Label>
+        
+        <p class="busqueda">Servicios</p>
         <br />
+        <div id="servicios" Runat="Server">
        <asp:GridView ID="GridServicios" runat="server" AutoGenerateColumns="False" 
-                DataKeyNames="ID">
+                DataKeyNames="ID" CellPadding="4" ForeColor="#333333" GridLines="None">
+           <AlternatingRowStyle BackColor="White" />
        <Columns>
        
        <asp:TemplateField HeaderText="Selecccione">
@@ -33,6 +32,16 @@
 
        <asp:BoundField DataField="Nombre" HeaderText="Nombre Servicio" SortExpression="Nombre"/>
        </Columns>
+           <EditRowStyle BackColor="#2461BF" />
+           <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+           <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+           <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+           <RowStyle BackColor="#EFF3FB" />
+           <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+           <SortedAscendingCellStyle BackColor="#F5F7FB" />
+           <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+           <SortedDescendingCellStyle BackColor="#E9EBEF" />
+           <SortedDescendingHeaderStyle BackColor="#4870BE" />
        </asp:GridView>
        <br />     
        
@@ -42,15 +51,18 @@
        </div>
    
    <asp:Label ID="labelNoServicios" runat="server" 
-        Text="Usted no tiene servicios asociados a este grupo" Visible="False"></asp:Label>
+        Text="Usted no tiene servicios asociados a este grupo" Visible="False" 
+                  ForeColor="#FF3300"></asp:Label>
         </td>
         <td></td>
     <td>
-        <div id="miembros" Runat="Server">
-        <asp:Label ID="LabelMiembros" runat="server" Text="Miembros"></asp:Label>
+        <p class="busqueda">Miembros</p>
         <br />
+        <div id="miembros" Runat="Server">
        <asp:GridView ID="GridMiembros" runat="server" AutoGenerateColumns="False" 
-                DataKeyNames="idUsuario">
+                DataKeyNames="idUsuario" CellPadding="4" ForeColor="#333333" 
+                GridLines="None">
+           <AlternatingRowStyle BackColor="White" />
        <Columns>
        
        <asp:TemplateField HeaderText="Selecccione">
@@ -61,6 +73,16 @@
 
        <asp:BoundField DataField="NombreUsuario" HeaderText="Nombre Usuario" SortExpression="NombreUsuario"/>
        </Columns>
+           <EditRowStyle BackColor="#2461BF" />
+           <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+           <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+           <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+           <RowStyle BackColor="#EFF3FB" />
+           <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+           <SortedAscendingCellStyle BackColor="#F5F7FB" />
+           <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+           <SortedDescendingCellStyle BackColor="#E9EBEF" />
+           <SortedDescendingHeaderStyle BackColor="#4870BE" />
        </asp:GridView>
        <br />     
        
@@ -70,12 +92,15 @@
        </div>
    
    <asp:Label ID="LabelNoMiembros" runat="server" 
-        Text="Usted no tiene miembros asociados a este grupo" Visible="False"></asp:Label>
+        Text="Usted no tiene miembros asociados a este grupo" Visible="False" 
+            ForeColor="#FF3300"></asp:Label>
         </td>        
         </tr>
         </table>
 
        <br />
+    <div class="GrupoEditarLinks">
     <asp:LinkButton ID="editGrupo" runat="server">Modificar</asp:LinkButton>
+    </div>
     
  </asp:Content>

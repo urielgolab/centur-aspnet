@@ -32,24 +32,6 @@ Partial Public Class DetalleGrupo
     Protected WithEvents NombreGrupo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Adherir control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Adherir As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''Desuscribirse control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Desuscribirse As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
     '''Label2 control.
     '''</summary>
     '''<remarks>
@@ -68,6 +50,24 @@ Partial Public Class DetalleGrupo
     Protected WithEvents DescripGrupo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''Adherir control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Adherir As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''Desuscribirse control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Desuscribirse As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''servicios control.
     '''</summary>
     '''<remarks>
@@ -75,15 +75,6 @@ Partial Public Class DetalleGrupo
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents servicios As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''Label3 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''ListBoxServicios control.
@@ -111,15 +102,6 @@ Partial Public Class DetalleGrupo
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents miembros As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''LabelMiembros control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents LabelMiembros As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''ListBoxMiembros control.

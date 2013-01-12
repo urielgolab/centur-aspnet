@@ -59,15 +59,6 @@ Partial Public Class EditarGrupo
     Protected WithEvents servicios As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''Label4 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''GridServicios control.
     '''</summary>
     '''<remarks>
@@ -102,15 +93,6 @@ Partial Public Class EditarGrupo
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents miembros As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''LabelMiembros control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents LabelMiembros As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''GridMiembros control.

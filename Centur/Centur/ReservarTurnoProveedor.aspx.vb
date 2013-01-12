@@ -1,4 +1,4 @@
-﻿Public Class ReservarTurno
+﻿Public Class ReservarTurnoProveedor
     Inherits System.Web.UI.Page
 
     Dim oBuscarServicioService As New Services.BuscarServicioService()
@@ -11,6 +11,7 @@
         Dim TurnoHoraFin As String = CStr(Request.QueryString("horaFin"))
         Dim TurnoFecha As Date = CDate(CStr(Request.QueryString("fecha")))
         Dim ServicioID As Integer = CInt(Request.QueryString("servicioID"))
+        Dim UsuarioID As Integer = CInt(Request.QueryString("usuarioID"))
 
         Dim esProveedor As Boolean
         If CType(Session("Usuario"), Entities.Usuario).TipoUsuario = "P" Then
@@ -19,11 +20,10 @@
             esProveedor = False
         End If
 
-        Dim oTurno As Entities.Turno = oBuscarServicioService.ReservarTurno(ServicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, CType(Session("Usuario"), Entities.Usuario).idUsuario, esProveedor, Mensaje, Status)
+        Dim oTurno As Entities.Turno = oBuscarServicioService.ReservarTurno(ServicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, UsuarioID, esProveedor, Mensaje, Status)
 
 
-        TurnoStatus.InnerText = "Reservado!! De " + oTurno.horaInicio + " a " + oTurno.horaFin
-
+        TurnoStatus.InnerText = "Reservado manualmente por el proveedor!! De " + oTurno.horaInicio + " a " + oTurno.horaFin
 
     End Sub
 

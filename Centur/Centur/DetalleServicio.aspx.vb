@@ -46,7 +46,7 @@ Public Class DetalleServicio
   
     Private Sub VerHorarios_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles VerHorarios.Click
         Dim selectedDate As Date = CDate(txtDatePicker.Text)
-        HorariosxDia.DataSource = oBuscarServicioService.VerTurnosServicioxDia(servicio.ID, selectedDate)
+        HorariosxDia.DataSource = oBuscarServicioService.VerTurnosServicioxDia(servicio.ID, selectedDate, False)
         HorariosxDia.DataBind()
     End Sub
 

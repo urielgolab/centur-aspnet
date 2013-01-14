@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class CrearServicioP3
 
     '''<summary>
+    '''lblMensajeErrror control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMensajeErrror As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''chkDia1 control.
     '''</summary>
     '''<remarks>
@@ -104,6 +113,15 @@ Partial Public Class CrearServicioP3
     Protected WithEvents grdHorarios2 As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
+    '''lnkAgregarOtroHorario2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lnkAgregarOtroHorario2 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''tb2 control.
     '''</summary>
     '''<remarks>
@@ -165,6 +183,15 @@ Partial Public Class CrearServicioP3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents grdHorarios3 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''lnkAgregarOtroHorario3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lnkAgregarOtroHorario3 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''tb3 control.
@@ -230,6 +257,15 @@ Partial Public Class CrearServicioP3
     Protected WithEvents grdHorarios4 As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
+    '''lnkAgregarOtroHorario4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lnkAgregarOtroHorario4 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''tb4 control.
     '''</summary>
     '''<remarks>
@@ -291,6 +327,15 @@ Partial Public Class CrearServicioP3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents grdHorarios5 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''lnkAgregarOtroHorario5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lnkAgregarOtroHorario5 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''tb5 control.
@@ -356,6 +401,15 @@ Partial Public Class CrearServicioP3
     Protected WithEvents grdHorarios6 As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
+    '''lnkAgregarOtroHorario6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lnkAgregarOtroHorario6 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''tb6 control.
     '''</summary>
     '''<remarks>
@@ -417,6 +471,15 @@ Partial Public Class CrearServicioP3
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents grdHorarios7 As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''lnkAgregarOtroHorario7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lnkAgregarOtroHorario7 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''tb7 control.

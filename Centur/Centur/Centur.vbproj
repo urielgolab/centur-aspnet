@@ -331,6 +331,7 @@
     </Compile>
     <Compile Include="ModificarGrupo.aspx.vb">
       <DependentUpon>ModificarGrupo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ModificarServicio.aspx.designer.vb">
       <DependentUpon>ModificarServicio.aspx</DependentUpon>

@@ -58,6 +58,8 @@
 	<div id="describe-el-servicio"></div>
 	<div id="define-los-tiempos">
         <div id="configuracionDias">
+            <asp:Label ID="lblMensajeErrror" Text="" Visible="false" runat="server"></asp:Label>
+
             <table id="one-column-emphasis">
                 <colgroup>
     	            <col class="oce-first">
@@ -76,7 +78,7 @@
                                 <tr>
                                     <td>
                                         <asp:GridView ID="grdHorarios1" runat="server" Visible="False" 
-                                            AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria">
+                                            AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria" CssClass="tbHorariosDia" BorderWidth="0">
                                             <Columns>
                                                 <asp:BoundField DataField="idConfiguracionHoraria" 
                                                     HeaderText="idConfiguracionHoraria" InsertVisible="False" ReadOnly="True" 
@@ -91,7 +93,7 @@
                                                     SortExpression="capacidad" />
                                                 <asp:BoundField DataField="duracion" HeaderText="Duraci&oacute;n" 
                                                     SortExpression="duracion" />
-                                                <asp:TemplateField ShowHeader="False">
+                                                <asp:TemplateField HeaderText="Acciones">
                                                     <ItemTemplate>
                                                         <asp:LinkButton ID="lnkEliminar1" runat="server" CausesValidation="False" 
                                                             CommandName="Delete" Text="Eliminar"></asp:LinkButton>
@@ -123,215 +125,245 @@
                                         <asp:TextBox ID="txtDuracion1" runat="server"  Width="35" MaxLength="3"  Text="30"/>
                                     </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
                         <td><asp:CheckBox ID="chkDia2" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Lunes</td><td>
-                            <asp:GridView ID="grdHorarios2" runat="server" Visible="False" 
-                                AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria">
-                                <Columns>
-                                    <asp:BoundField DataField="idConfiguracionHoraria" 
-                                        HeaderText="idConfiguracionHoraria" InsertVisible="False" ReadOnly="True" 
-                                        SortExpression="idConfiguracionHoraria" Visible="False" />
-                                    <asp:BoundField DataField="idConfiguracionDia" HeaderText="idConfiguracionDia" 
-                                        SortExpression="idConfiguracionDia" Visible="False" />
-                                    <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
-                                        SortExpression="horaInicio" />
-                                    <asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
-                                        SortExpression="horaFin" />
-                                    <asp:BoundField DataField="capacidad" HeaderText="Capacidad" 
-                                        SortExpression="capacidad" />
-                                    <asp:BoundField DataField="duracion" HeaderText="Duraci&oacute;n" 
-                                        SortExpression="duracion" />
-                                </Columns>
-
-                            </asp:GridView>
-                            <asp:Table ID="tb2" runat="server" Visible="False" Width="650px">
-                                <asp:TableRow>
-                                    <asp:TableCell>
-                                        Desde:
-                                        <asp:TextBox ID="txtHoraDesde2" runat="server" Width="50" MaxLength="5" Text="09:00" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Hasta:
-                                        <asp:TextBox ID="txtHoraHasta2" runat="server" Width="50" MaxLength="5" Text="20:00"/>
-                                    </asp:TableCell><asp:TableCell>
-                                        Capacidad:
-                                        <asp:TextBox ID="txtCapacidad2" runat="server" Width="15" MaxLength="2" Text="1" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Duraci&oacute;n (min):
-                                        <asp:TextBox ID="txtDuracion2" runat="server"  Width="35" MaxLength="3"  Text="30"/>
-                                    </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
+                            <table border="0">
+	                            <tr>
+		                            <td>
+			                            <asp:GridView ID="grdHorarios2" runat="server" Visible="False" 
+				                            AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria" CssClass="tbHorariosDia" BorderWidth="0">
+				                            <Columns>
+					                            <asp:BoundField DataField="idConfiguracionHoraria" 
+						                            HeaderText="idConfiguracionHoraria" InsertVisible="False" ReadOnly="True" 
+						                            SortExpression="idConfiguracionHoraria" Visible="False" />
+					                            <asp:BoundField DataField="idConfiguracionDia" HeaderText="idConfiguracionDia" 
+						                            SortExpression="idConfiguracionDia" Visible="False" />
+					                            <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
+						                            SortExpression="horaInicio" DataFormatString="{0:t}" />
+					                            <asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
+						                            SortExpression="horaFin" DataFormatString="{0:t}" />
+					                            <asp:BoundField DataField="capacidad" HeaderText="Capacidad" 
+						                            SortExpression="capacidad" />
+					                            <asp:BoundField DataField="duracion" HeaderText="Duraci&oacute;n" 
+						                            SortExpression="duracion" />
+					                            <asp:TemplateField HeaderText="Acciones">
+						                            <ItemTemplate>
+							                            <asp:LinkButton ID="lnkEliminar2" runat="server" CausesValidation="False" 
+								                            CommandName="Delete" Text="Eliminar"></asp:LinkButton></ItemTemplate></asp:TemplateField></Columns></asp:GridView></td></tr><tr>
+		                            <td align="right" colspan="2">
+			                            <asp:LinkButton ID="lnkAgregarOtroHorario2" runat="server" Visible="False">(+) Agregar otro</asp:LinkButton></td></tr></table><asp:Table ID="tb2" runat="server" Visible="False" Width="650px">
+	                            <asp:TableRow>
+		                            <asp:TableCell>
+			                            Desde:
+			                            <asp:TextBox ID="txtHoraDesde2" runat="server" Width="50" MaxLength="5" Text="09:00" />
+		                            </asp:TableCell><asp:TableCell>
+			                            Hasta:
+			                            <asp:TextBox ID="txtHoraHasta2" runat="server" Width="50" MaxLength="5" Text="20:00"/>
+		                            </asp:TableCell><asp:TableCell>
+			                            Capacidad:
+			                            <asp:TextBox ID="txtCapacidad2" runat="server" Width="15" MaxLength="2" Text="1" />
+		                            </asp:TableCell><asp:TableCell>
+			                            Duraci&oacute;n (min):
+			                            <asp:TextBox ID="txtDuracion2" runat="server"  Width="35" MaxLength="3"  Text="30"/>
+		                            </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
                         <td><asp:CheckBox ID="chkDia3" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Martes</td><td>
-                            <asp:GridView ID="grdHorarios3" runat="server" Visible="False" 
-                                AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria">
-                                <Columns>
-                                    <asp:BoundField DataField="idConfiguracionHoraria" 
-                                        HeaderText="idConfiguracionHoraria" InsertVisible="False" ReadOnly="True" 
-                                        SortExpression="idConfiguracionHoraria" Visible="False" />
-                                    <asp:BoundField DataField="idConfiguracionDia" HeaderText="idConfiguracionDia" 
-                                        SortExpression="idConfiguracionDia" Visible="False" />
-                                    <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
-                                        SortExpression="horaInicio" />
-                                    <asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
-                                        SortExpression="horaFin" />
-                                    <asp:BoundField DataField="capacidad" HeaderText="Capacidad" 
-                                        SortExpression="capacidad" />
-                                    <asp:BoundField DataField="duracion" HeaderText="Duraci&oacute;n" 
-                                        SortExpression="duracion" />
-                                </Columns>
-
-                            </asp:GridView>
-                            <asp:Table ID="tb3" runat="server" Visible="False" Width="650px">
-                                <asp:TableRow>
-                                    <asp:TableCell>
-                                        Desde:
-                                        <asp:TextBox ID="txtHoraDesde3" runat="server" Width="50" MaxLength="5" Text="09:00" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Hasta:
-                                        <asp:TextBox ID="txtHoraHasta3" runat="server" Width="50" MaxLength="5" Text="20:00"/>
-                                    </asp:TableCell><asp:TableCell>
-                                        Capacidad:
-                                        <asp:TextBox ID="txtCapacidad3" runat="server" Width="15" MaxLength="2" Text="1" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Duraci&oacute;n (min):
-                                        <asp:TextBox ID="txtDuracion3" runat="server"  Width="35" MaxLength="3"  Text="30"/>
-                                    </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
+<table border="0">
+	<tr>
+		<td>
+			<asp:GridView ID="grdHorarios3" runat="server" Visible="False" 
+				AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria" CssClass="tbHorariosDia" BorderWidth="0">
+				<Columns>
+					<asp:BoundField DataField="idConfiguracionHoraria" 
+						HeaderText="idConfiguracionHoraria" InsertVisible="False" ReadOnly="True" 
+						SortExpression="idConfiguracionHoraria" Visible="False" />
+					<asp:BoundField DataField="idConfiguracionDia" HeaderText="idConfiguracionDia" 
+						SortExpression="idConfiguracionDia" Visible="False" />
+					<asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
+						SortExpression="horaInicio" DataFormatString="{0:t}" />
+					<asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
+						SortExpression="horaFin" DataFormatString="{0:t}" />
+					<asp:BoundField DataField="capacidad" HeaderText="Capacidad" 
+						SortExpression="capacidad" />
+					<asp:BoundField DataField="duracion" HeaderText="Duraci&oacute;n" 
+						SortExpression="duracion" />
+					<asp:TemplateField HeaderText="Acciones">
+						<ItemTemplate>
+							<asp:LinkButton ID="lnkEliminar3" runat="server" CausesValidation="False" 
+								CommandName="Delete" Text="Eliminar"></asp:LinkButton></ItemTemplate></asp:TemplateField></Columns></asp:GridView></td></tr><tr>
+		<td align="right" colspan="2">
+			<asp:LinkButton ID="lnkAgregarOtroHorario3" runat="server" Visible="False">(+) Agregar otro</asp:LinkButton></td></tr></table><asp:Table ID="tb3" runat="server" Visible="False" Width="650px">
+	<asp:TableRow>
+		<asp:TableCell>
+			Desde:
+			<asp:TextBox ID="txtHoraDesde3" runat="server" Width="50" MaxLength="5" Text="09:00" />
+		</asp:TableCell><asp:TableCell>
+			Hasta:
+			<asp:TextBox ID="txtHoraHasta3" runat="server" Width="50" MaxLength="5" Text="20:00"/>
+		</asp:TableCell><asp:TableCell>
+			Capacidad:
+			<asp:TextBox ID="txtCapacidad3" runat="server" Width="15" MaxLength="2" Text="1" />
+		</asp:TableCell><asp:TableCell>
+			Duraci&oacute;n (min):
+			<asp:TextBox ID="txtDuracion3" runat="server"  Width="35" MaxLength="3"  Text="30"/>
+		</asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
                         <td><asp:CheckBox ID="chkDia4" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Mi&eacute;rcoles</td><td>
-                            <asp:GridView ID="grdHorarios4" runat="server" Visible="False" 
-                                AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria">
-                                <Columns>
-                                    <asp:BoundField DataField="idConfiguracionHoraria" 
-                                        HeaderText="idConfiguracionHoraria" InsertVisible="False" ReadOnly="True" 
-                                        SortExpression="idConfiguracionHoraria" Visible="False" />
-                                    <asp:BoundField DataField="idConfiguracionDia" HeaderText="idConfiguracionDia" 
-                                        SortExpression="idConfiguracionDia" Visible="False" />
-                                    <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
-                                        SortExpression="horaInicio" />
-                                    <asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
-                                        SortExpression="horaFin" />
-                                    <asp:BoundField DataField="capacidad" HeaderText="Capacidad" 
-                                        SortExpression="capacidad" />
-                                    <asp:BoundField DataField="duracion" HeaderText="Duraci&oacute;n" 
-                                        SortExpression="duracion" />
-                                </Columns>
-
-                            </asp:GridView>
-                            <asp:Table ID="tb4" runat="server" Visible="False" Width="650px">
-                                <asp:TableRow>
-                                    <asp:TableCell>
-                                        Desde:
-                                        <asp:TextBox ID="txtHoraDesde4" runat="server" Width="50" MaxLength="5" Text="09:00" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Hasta:
-                                        <asp:TextBox ID="txtHoraHasta4" runat="server" Width="50" MaxLength="5" Text="20:00"/>
-                                    </asp:TableCell><asp:TableCell>
-                                        Capacidad:
-                                        <asp:TextBox ID="txtCapacidad4" runat="server" Width="15" MaxLength="2" Text="1" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Duraci&oacute;n (min):
-                                        <asp:TextBox ID="txtDuracion4" runat="server"  Width="35" MaxLength="3"  Text="30"/>
-                                    </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
+                            <table border="0">
+	                            <tr>
+		                            <td>
+			                            <asp:GridView ID="grdHorarios4" runat="server" Visible="False" 
+				                            AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria" CssClass="tbHorariosDia" BorderWidth="0">
+				                            <Columns>
+					                            <asp:BoundField DataField="idConfiguracionHoraria" 
+						                            HeaderText="idConfiguracionHoraria" InsertVisible="False" ReadOnly="True" 
+						                            SortExpression="idConfiguracionHoraria" Visible="False" />
+					                            <asp:BoundField DataField="idConfiguracionDia" HeaderText="idConfiguracionDia" 
+						                            SortExpression="idConfiguracionDia" Visible="False" />
+					                            <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
+						                            SortExpression="horaInicio" DataFormatString="{0:t}" />
+					                            <asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
+						                            SortExpression="horaFin" DataFormatString="{0:t}" />
+					                            <asp:BoundField DataField="capacidad" HeaderText="Capacidad" 
+						                            SortExpression="capacidad" />
+					                            <asp:BoundField DataField="duracion" HeaderText="Duraci&oacute;n" 
+						                            SortExpression="duracion" />
+					                            <asp:TemplateField HeaderText="Acciones">
+						                            <ItemTemplate>
+							                            <asp:LinkButton ID="lnkEliminar4" runat="server" CausesValidation="False" 
+								                            CommandName="Delete" Text="Eliminar"></asp:LinkButton></ItemTemplate></asp:TemplateField></Columns></asp:GridView></td></tr><tr>
+		                            <td align="right" colspan="2">
+			                            <asp:LinkButton ID="lnkAgregarOtroHorario4" runat="server" Visible="False">(+) Agregar otro</asp:LinkButton></td></tr></table><asp:Table ID="tb4" runat="server" Visible="False" Width="650px">
+	                            <asp:TableRow>
+		                            <asp:TableCell>
+			                            Desde:
+			                            <asp:TextBox ID="txtHoraDesde4" runat="server" Width="50" MaxLength="5" Text="09:00" />
+		                            </asp:TableCell><asp:TableCell>
+			                            Hasta:
+			                            <asp:TextBox ID="txtHoraHasta4" runat="server" Width="50" MaxLength="5" Text="20:00"/>
+		                            </asp:TableCell><asp:TableCell>
+			                            Capacidad:
+			                            <asp:TextBox ID="txtCapacidad4" runat="server" Width="15" MaxLength="2" Text="1" />
+		                            </asp:TableCell><asp:TableCell>
+			                            Duraci&oacute;n (min):
+			                            <asp:TextBox ID="txtDuracion4" runat="server"  Width="35" MaxLength="3"  Text="30"/>
+		                            </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
                         <td><asp:CheckBox ID="chkDia5" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Jueves</td><td>
-                            <asp:GridView ID="grdHorarios5" runat="server" Visible="False" 
-                                AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria">
-                                <Columns>
-                                    <asp:BoundField DataField="idConfiguracionHoraria" 
-                                        HeaderText="idConfiguracionHoraria" InsertVisible="False" ReadOnly="True" 
-                                        SortExpression="idConfiguracionHoraria" Visible="False" />
-                                    <asp:BoundField DataField="idConfiguracionDia" HeaderText="idConfiguracionDia" 
-                                        SortExpression="idConfiguracionDia" Visible="False" />
-                                    <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
-                                        SortExpression="horaInicio" />
-                                    <asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
-                                        SortExpression="horaFin" />
-                                    <asp:BoundField DataField="capacidad" HeaderText="Capacidad" 
-                                        SortExpression="capacidad" />
-                                    <asp:BoundField DataField="duracion" HeaderText="Duraci&oacute;n" 
-                                        SortExpression="duracion" />
-                                </Columns>
-
-                            </asp:GridView>
-                            <asp:Table ID="tb5" runat="server" Visible="False" Width="650px">
-                                <asp:TableRow>
-                                    <asp:TableCell>
-                                        Desde:
-                                        <asp:TextBox ID="txtHoraDesde5" runat="server" Width="50" MaxLength="5" Text="09:00" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Hasta:
-                                        <asp:TextBox ID="txtHoraHasta5" runat="server" Width="50" MaxLength="5" Text="20:00"/>
-                                    </asp:TableCell><asp:TableCell>
-                                        Capacidad:
-                                        <asp:TextBox ID="txtCapacidad5" runat="server" Width="15" MaxLength="2" Text="1" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Duraci&oacute;n (min):
-                                        <asp:TextBox ID="txtDuracion5" runat="server"  Width="35" MaxLength="3"  Text="30"/>
-                                    </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
+                        <table border="0">
+	                        <tr>
+		                        <td>
+			                        <asp:GridView ID="grdHorarios5" runat="server" Visible="False" 
+				                        AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria" CssClass="tbHorariosDia" BorderWidth="0">
+				                        <Columns>
+					                        <asp:BoundField DataField="idConfiguracionHoraria" 
+						                        HeaderText="idConfiguracionHoraria" InsertVisible="False" ReadOnly="True" 
+						                        SortExpression="idConfiguracionHoraria" Visible="False" />
+					                        <asp:BoundField DataField="idConfiguracionDia" HeaderText="idConfiguracionDia" 
+						                        SortExpression="idConfiguracionDia" Visible="False" />
+					                        <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
+						                        SortExpression="horaInicio" DataFormatString="{0:t}" />
+					                        <asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
+						                        SortExpression="horaFin" DataFormatString="{0:t}" />
+					                        <asp:BoundField DataField="capacidad" HeaderText="Capacidad" 
+						                        SortExpression="capacidad" />
+					                        <asp:BoundField DataField="duracion" HeaderText="Duraci&oacute;n" 
+						                        SortExpression="duracion" />
+					                        <asp:TemplateField HeaderText="Acciones">
+						                        <ItemTemplate>
+							                        <asp:LinkButton ID="lnkEliminar5" runat="server" CausesValidation="False" 
+								                        CommandName="Delete" Text="Eliminar"></asp:LinkButton></ItemTemplate></asp:TemplateField></Columns></asp:GridView></td></tr><tr>
+		                        <td align="right" colspan="2">
+			                        <asp:LinkButton ID="lnkAgregarOtroHorario5" runat="server" Visible="False">(+) Agregar otro</asp:LinkButton></td></tr></table><asp:Table ID="tb5" runat="server" Visible="False" Width="650px">
+	                        <asp:TableRow>
+		                        <asp:TableCell>
+			                        Desde:
+			                        <asp:TextBox ID="txtHoraDesde5" runat="server" Width="50" MaxLength="5" Text="09:00" />
+		                        </asp:TableCell><asp:TableCell>
+			                        Hasta:
+			                        <asp:TextBox ID="txtHoraHasta5" runat="server" Width="50" MaxLength="5" Text="20:00"/>
+		                        </asp:TableCell><asp:TableCell>
+			                        Capacidad:
+			                        <asp:TextBox ID="txtCapacidad5" runat="server" Width="15" MaxLength="2" Text="1" />
+		                        </asp:TableCell><asp:TableCell>
+			                        Duraci&oacute;n (min):
+			                        <asp:TextBox ID="txtDuracion5" runat="server"  Width="35" MaxLength="3"  Text="30"/>
+		                        </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
                         <td><asp:CheckBox ID="chkDia6" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Viernes</td><td>
-                            <asp:GridView ID="grdHorarios6" runat="server" Visible="False" 
-                                AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria">
-                                <Columns>
-                                    <asp:BoundField DataField="idConfiguracionHoraria" 
-                                        HeaderText="idConfiguracionHoraria" InsertVisible="False" ReadOnly="True" 
-                                        SortExpression="idConfiguracionHoraria" Visible="False" />
-                                    <asp:BoundField DataField="idConfiguracionDia" HeaderText="idConfiguracionDia" 
-                                        SortExpression="idConfiguracionDia" Visible="False" />
-                                    <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
-                                        SortExpression="horaInicio" />
-                                    <asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
-                                        SortExpression="horaFin" />
-                                    <asp:BoundField DataField="capacidad" HeaderText="Capacidad" 
-                                        SortExpression="capacidad" />
-                                    <asp:BoundField DataField="duracion" HeaderText="Duraci&oacute;n" 
-                                        SortExpression="duracion" />
-                                </Columns>
-
-                            </asp:GridView>
-                            <asp:Table ID="tb6" runat="server" Visible="False" Width="650px">
-                                <asp:TableRow>
-                                    <asp:TableCell>
-                                        Desde:
-                                        <asp:TextBox ID="txtHoraDesde6" runat="server" Width="50" MaxLength="5" Text="09:00" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Hasta:
-                                        <asp:TextBox ID="txtHoraHasta6" runat="server" Width="50" MaxLength="5" Text="20:00"/>
-                                    </asp:TableCell><asp:TableCell>
-                                        Capacidad:
-                                        <asp:TextBox ID="txtCapacidad6" runat="server" Width="15" MaxLength="2" Text="1" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Duraci&oacute;n (min):
-                                        <asp:TextBox ID="txtDuracion6" runat="server"  Width="35" MaxLength="3"  Text="30"/>
-                                    </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
+                        <table border="0">
+	                        <tr>
+		                        <td>
+			                        <asp:GridView ID="grdHorarios6" runat="server" Visible="False" 
+				                        AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria" CssClass="tbHorariosDia" BorderWidth="0">
+				                        <Columns>
+					                        <asp:BoundField DataField="idConfiguracionHoraria" 
+						                        HeaderText="idConfiguracionHoraria" InsertVisible="False" ReadOnly="True" 
+						                        SortExpression="idConfiguracionHoraria" Visible="False" />
+					                        <asp:BoundField DataField="idConfiguracionDia" HeaderText="idConfiguracionDia" 
+						                        SortExpression="idConfiguracionDia" Visible="False" />
+					                        <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
+						                        SortExpression="horaInicio" DataFormatString="{0:t}" />
+					                        <asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
+						                        SortExpression="horaFin" DataFormatString="{0:t}" />
+					                        <asp:BoundField DataField="capacidad" HeaderText="Capacidad" 
+						                        SortExpression="capacidad" />
+					                        <asp:BoundField DataField="duracion" HeaderText="Duraci&oacute;n" 
+						                        SortExpression="duracion" />
+					                        <asp:TemplateField HeaderText="Acciones">
+						                        <ItemTemplate>
+							                        <asp:LinkButton ID="lnkEliminar6" runat="server" CausesValidation="False" 
+								                        CommandName="Delete" Text="Eliminar"></asp:LinkButton></ItemTemplate></asp:TemplateField></Columns></asp:GridView></td></tr><tr>
+		                        <td align="right" colspan="2">
+			                        <asp:LinkButton ID="lnkAgregarOtroHorario6" runat="server" Visible="False">(+) Agregar otro</asp:LinkButton></td></tr></table><asp:Table ID="tb6" runat="server" Visible="False" Width="650px">
+	                        <asp:TableRow>
+		                        <asp:TableCell>
+			                        Desde:
+			                        <asp:TextBox ID="txtHoraDesde6" runat="server" Width="50" MaxLength="5" Text="09:00" />
+		                        </asp:TableCell><asp:TableCell>
+			                        Hasta:
+			                        <asp:TextBox ID="txtHoraHasta6" runat="server" Width="50" MaxLength="5" Text="20:00"/>
+		                        </asp:TableCell><asp:TableCell>
+			                        Capacidad:
+			                        <asp:TextBox ID="txtCapacidad6" runat="server" Width="15" MaxLength="2" Text="1" />
+		                        </asp:TableCell><asp:TableCell>
+			                        Duraci&oacute;n (min):
+			                        <asp:TextBox ID="txtDuracion6" runat="server"  Width="35" MaxLength="3"  Text="30"/>
+		                        </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
                         <td><asp:CheckBox ID="chkDia7" runat="server" AutoPostBack="True" />&nbsp;&nbsp;S&aacute;bado</td><td>
-                            <asp:GridView ID="grdHorarios7" runat="server" Visible="False" 
-                                AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria">
-                                <Columns>
-                                    <asp:BoundField DataField="idConfiguracionHoraria" 
-                                        HeaderText="idConfiguracionHoraria" InsertVisible="False" ReadOnly="True" 
-                                        SortExpression="idConfiguracionHoraria" Visible="False" />
-                                    <asp:BoundField DataField="idConfiguracionDia" HeaderText="idConfiguracionDia" 
-                                        SortExpression="idConfiguracionDia" Visible="False" />
-                                    <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
-                                        SortExpression="horaInicio" />
-                                    <asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
-                                        SortExpression="horaFin" />
-                                    <asp:BoundField DataField="capacidad" HeaderText="Capacidad" 
-                                        SortExpression="capacidad" />
-                                    <asp:BoundField DataField="duracion" HeaderText="Duraci&oacute;n" 
-                                        SortExpression="duracion" />
-                                </Columns>
-
-                            </asp:GridView>
-                            <asp:Table ID="tb7" runat="server" Visible="False" Width="650px">
-                                <asp:TableRow>
-                                    <asp:TableCell>
-                                        Desde:
-                                        <asp:TextBox ID="txtHoraDesde7" runat="server" Width="50" MaxLength="5" Text="09:00" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Hasta:
-                                        <asp:TextBox ID="txtHoraHasta7" runat="server" Width="50" MaxLength="5" Text="20:00"/>
-                                    </asp:TableCell><asp:TableCell>
-                                        Capacidad:
-                                        <asp:TextBox ID="txtCapacidad7" runat="server" Width="15" MaxLength="2" Text="1" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Duraci&oacute;n (min):
-                                        <asp:TextBox ID="txtDuracion7" runat="server"  Width="35" MaxLength="3"  Text="30"/>
-                                    </asp:TableCell></asp:TableRow></asp:Table></td></tr></tbody></table></div><br />
+                        <table border="0">
+	                        <tr>
+		                        <td>
+			                        <asp:GridView ID="grdHorarios7" runat="server" Visible="False" 
+				                        AutoGenerateColumns="False" DataKeyNames="idConfiguracionHoraria" CssClass="tbHorariosDia" BorderWidth="0">
+				                        <Columns>
+					                        <asp:BoundField DataField="idConfiguracionHoraria" 
+						                        HeaderText="idConfiguracionHoraria" InsertVisible="False" ReadOnly="True" 
+						                        SortExpression="idConfiguracionHoraria" Visible="False" />
+					                        <asp:BoundField DataField="idConfiguracionDia" HeaderText="idConfiguracionDia" 
+						                        SortExpression="idConfiguracionDia" Visible="False" />
+					                        <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
+						                        SortExpression="horaInicio" DataFormatString="{0:t}" />
+					                        <asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
+						                        SortExpression="horaFin" DataFormatString="{0:t}" />
+					                        <asp:BoundField DataField="capacidad" HeaderText="Capacidad" 
+						                        SortExpression="capacidad" />
+					                        <asp:BoundField DataField="duracion" HeaderText="Duraci&oacute;n" 
+						                        SortExpression="duracion" />
+					                        <asp:TemplateField HeaderText="Acciones">
+						                        <ItemTemplate>
+							                        <asp:LinkButton ID="lnkEliminar7" runat="server" CausesValidation="False" 
+								                        CommandName="Delete" Text="Eliminar"></asp:LinkButton></ItemTemplate></asp:TemplateField></Columns></asp:GridView></td></tr><tr>
+		                        <td align="right" colspan="2">
+			                        <asp:LinkButton ID="lnkAgregarOtroHorario7" runat="server" Visible="False">(+) Agregar otro</asp:LinkButton></td></tr></table><asp:Table ID="tb7" runat="server" Visible="False" Width="650px">
+	                        <asp:TableRow>
+		                        <asp:TableCell>
+			                        Desde:
+			                        <asp:TextBox ID="txtHoraDesde7" runat="server" Width="50" MaxLength="5" Text="09:00" />
+		                        </asp:TableCell><asp:TableCell>
+			                        Hasta:
+			                        <asp:TextBox ID="txtHoraHasta7" runat="server" Width="50" MaxLength="5" Text="20:00"/>
+		                        </asp:TableCell><asp:TableCell>
+			                        Capacidad:
+			                        <asp:TextBox ID="txtCapacidad7" runat="server" Width="15" MaxLength="2" Text="1" />
+		                        </asp:TableCell><asp:TableCell>
+			                        Duraci&oacute;n (min):
+			                        <asp:TextBox ID="txtDuracion7" runat="server"  Width="35" MaxLength="3"  Text="30"/>
+		                        </asp:TableCell></asp:TableRow></asp:Table></td></tr></tbody></table></div><br />
         <asp:Button ID="btnSiguiente" runat="server" Text="Continuar"  />
     </div>
     <div id="configuralo"></div>

@@ -4,6 +4,8 @@ Public Class CrearServicioP3
     Inherits System.Web.UI.Page
     Dim dc As New DC()
     Dim idGrilla As Integer?
+    Dim cntPlaceHolder As ContentPlaceHolder
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Session("idGrilla") Is Nothing Then
             idGrilla = Session("idGrilla")
@@ -11,7 +13,7 @@ Public Class CrearServicioP3
             idGrilla = 5 'dc.GrillaRegistrar(Nothing, Nothing, Nothing, Nothing)
         End If
 
-        Dim cntPlaceHolder As ContentPlaceHolder = DirectCast(Master.FindControl("MainContent"), ContentPlaceHolder)
+        cntPlaceHolder = DirectCast(Master.FindControl("MainContent"), ContentPlaceHolder)
 
         If Not idGrilla Is Nothing And Not Page.IsPostBack Then
             CargarConfiguracionHoraria(cntPlaceHolder, idGrilla)
@@ -19,17 +21,16 @@ Public Class CrearServicioP3
     End Sub
 
     Protected Sub btnContinuar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSiguiente.Click
-        Dim contentPlaceHolder As ContentPlaceHolder = DirectCast(Master.FindControl("MainContent"), ContentPlaceHolder)
         Dim blnEverithingOk As Boolean = True, blnGuardoDatos As Boolean = False
 
-        For Each oControl As Control In contentPlaceHolder.Controls
+        For Each oControl As Control In cntPlaceHolder.Controls
             If TypeOf oControl Is CheckBox Then
                 Dim chkDia As CheckBox = DirectCast(oControl, CheckBox)
                 Dim strDia As String = chkDia.ID.Substring(chkDia.ID.Length - 1)
-                Dim grdHorarioDia As GridView = DirectCast(contentPlaceHolder.FindControl("grdHorarios" + strDia), GridView)
+                Dim grdHorarioDia As GridView = DirectCast(cntPlaceHolder.FindControl("grdHorarios" + strDia), GridView)
 
                 If chkDia.Checked Then
-                    Dim tbHorarioDia As Table = DirectCast(contentPlaceHolder.FindControl("tb" + strDia), Table)
+                    Dim tbHorarioDia As Table = DirectCast(cntPlaceHolder.FindControl("tb" + strDia), Table)
                     If tbHorarioDia.Visible Then
                         blnGuardoDatos = True
                         guardarHorarioDia(idGrilla, tbHorarioDia)
@@ -37,7 +38,7 @@ Public Class CrearServicioP3
                         grdHorarioDia.DataBind()
                         grdHorarioDia.Visible = True
                         tbHorarioDia.Visible = False
-                        Dim lnkAgregarOtroHorario As LinkButton = contentPlaceHolder.FindControl("lnkAgregarOtroHorario" + strDia)
+                        Dim lnkAgregarOtroHorario As LinkButton = cntPlaceHolder.FindControl("lnkAgregarOtroHorario" + strDia)
                         lnkAgregarOtroHorario.Visible = True
                         btnSiguiente.Text = "Siguiente"
                     End If
@@ -55,9 +56,6 @@ Public Class CrearServicioP3
             'Response.Redirect("CrearServicioP4.aspx")
         End If
     End Sub
-    Protected Sub btAgregarNuevo_Click(ByVal sender As Object, ByVal e As EventArgs)
-        Return
-    End Sub
 
     Private Sub guardarHorarioDia(ByVal idGrilla As Integer, ByVal tbHorarioDia As Table)
         Dim numeroDia As String = tbHorarioDia.ID.Substring(tbHorarioDia.ID.Length - 1)
@@ -70,8 +68,14 @@ Public Class CrearServicioP3
 
         Dim strMensajeError As String = ""
         If dc.GrillaHorarioValidar(idGrilla, numeroDia, TimeSpan.Parse(txtHoraDesde.Text), TimeSpan.Parse(txtHoraHasta.Text), txtCapacidad.Text, txtDuracion.Text, strMensajeError) Then
+            lblMensajeErrror.Visible = False
             dc.GrillaHorarioRegistrar(idGrilla, numeroDia, TimeSpan.Parse(txtHoraDesde.Text), TimeSpan.Parse(txtHoraHasta.Text), txtCapacidad.Text, txtDuracion.Text, Nothing, Nothing)
         Else
+            lblMensajeErrror.Text = "<div class=""ui-widget""><div class=""ui-state-error ui-corner-all"" style=""padding: 0 .7em;"">" & _
+                                    "<p><span class=""ui-icon ui-icon-alert"" style=""float: left; margin-right: .3em;""></span>" & _
+                                    "<strong>Error:</strong> " + strMensajeError + ".</p>" & _
+                                    "</div></div> "
+            lblMensajeErrror.Visible = True
             'Mostrar error 
         End If
     End Sub
@@ -108,91 +112,8 @@ Public Class CrearServicioP3
         Next
     End Sub
 
-
-    Private Sub agregarFilaConfDia(ByVal tbTabla As Table)
-        Dim strFila As String = tbTabla.Rows.Count.ToString()
-
-        Dim trFilaHorario As New TableRow
-
-        Dim tdHoraDesde As New TableCell
-
-        Dim lblHoraDesde As New Label
-        lblHoraDesde.ID = "lblHoraDesde" + strFila
-        lblHoraDesde.Width = 50
-        lblHoraDesde.Text = "Desde:"
-        tdHoraDesde.Controls.Add(lblHoraDesde)
-        Dim txtHoraDesde As New TextBox
-        txtHoraDesde.ID = "txtHoraDesde" + strFila
-        txtHoraDesde.Attributes.Add("placeholder", "Desde")
-        txtHoraDesde.Width = 50
-        txtHoraDesde.Text = "09:00"
-        txtHoraDesde.MaxLength = 5
-        tdHoraDesde.Controls.Add(txtHoraDesde)
-        trFilaHorario.Cells.Add(tdHoraDesde)
-
-        Dim tdHoraHasta As New TableCell
-        Dim lblHoraHasta As New Label
-        lblHoraHasta.ID = "lblHoraHasta" + strFila
-        lblHoraHasta.Width = 50
-        lblHoraHasta.Text = "Hasta:"
-        tdHoraHasta.Controls.Add(lblHoraHasta)
-        Dim txtHoraHasta As New TextBox
-        txtHoraHasta.ID = "txtHoraHasta" + strFila
-        txtHoraHasta.Attributes.Add("placeholder", "Hasta")
-        txtHoraHasta.Width = 50
-        txtHoraHasta.Text = "20:00"
-        txtHoraHasta.MaxLength = 5
-        tdHoraHasta.Controls.Add(txtHoraHasta)
-        trFilaHorario.Cells.Add(tdHoraHasta)
-
-        Dim tdCapacidad As New TableCell
-        Dim lblCapacidad As New Label
-        lblCapacidad.ID = "lblCapacidad" + strFila
-        lblCapacidad.Width = 75
-        lblCapacidad.Text = "Capacidad:"
-        tdCapacidad.Controls.Add(lblCapacidad)
-        Dim txtCapacidad As New TextBox
-        txtCapacidad.ID = "txtCapacidad" + strFila
-        txtCapacidad.Width = 15
-        txtCapacidad.Text = "1"
-        txtCapacidad.MaxLength = 2
-        tdCapacidad.Controls.Add(txtCapacidad)
-        trFilaHorario.Cells.Add(tdCapacidad)
-
-        Dim tdDuracion As New TableCell
-        Dim lblDuracion As New Label
-        lblDuracion.ID = "lblDuracion" + strFila
-        lblDuracion.Width = 100
-        lblDuracion.Text = "Duraci&oacute;n (min):"
-        tdDuracion.Controls.Add(lblDuracion)
-        Dim txtDuracion As New TextBox
-        txtDuracion.ID = "txtDuracion" + strFila
-        txtDuracion.Width = 35
-        txtDuracion.Text = "30"
-        txtDuracion.MaxLength = 3
-        tdDuracion.Controls.Add(txtDuracion)
-        trFilaHorario.Cells.Add(tdDuracion)
-
-
-        tbTabla.Rows.Add(trFilaHorario)
-    End Sub
-    Private Sub agregarFilaNuevoDia(ByVal tbTabla As Table)
-        Dim trFilaAgregarNuevo As New TableRow
-
-        Dim tdNuevoDia As New TableCell
-        Dim btAgregarNuevo As New Button
-        btAgregarNuevo.ID = "btAgregarNuevo"
-        btAgregarNuevo.Text = "(+) Nuevo rango"
-        tdNuevoDia.Controls.Add(btAgregarNuevo)
-        trFilaAgregarNuevo.Cells.Add(tdNuevoDia)
-        AddHandler btAgregarNuevo.Click, AddressOf btAgregarNuevo_Click
-        tbTabla.Rows.Add(trFilaAgregarNuevo)
-    End Sub
-
     Protected Sub grdHorarios1_RowDeleting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeleteEventArgs) Handles grdHorarios1.RowDeleting
-        eliminarHorario(e.Keys(0))
-        grdHorarios1.DataSource = obtenerConfiguracionDias(idGrilla, 1)
-        grdHorarios1.DataBind()
+        screenEliminarHorario(1, e.Keys(0))
     End Sub
     Private Function obtenerConfiguracionDias(ByVal idGrilla As Integer, ByVal intDia As Integer) As List(Of GrillaConfiguracionHoraria)
         Return (From gch In dc.GrillaConfiguracionHorarias
@@ -206,25 +127,112 @@ Public Class CrearServicioP3
         dc.GrillaHorarioEliminar(idConfiguracionHoraria)
     End Sub
 
-    'Protected Sub lnkNuevoHorario1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkNuevoHorario1.Click
-    '    tb1.Visible = True
-    'End Sub
-
     Protected Sub chkDia1_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkDia1.CheckedChanged
-        btnSiguiente.Text = "Grabar"
-        If grdHorarios1.Rows.Count > 0 Then
-            tb1.Visible = False
-            grdHorarios1.Visible = chkDia1.Checked
-            lnkAgregarOtroHorario1.Visible = chkDia1.Checked
-        Else
-            tb1.Visible = chkDia1.Checked
-        End If
-
+        screenCambiarCheckDia(1)
     End Sub
 
     Protected Sub lnkAgregarOtroHorario1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkAgregarOtroHorario1.Click
-        tb1.Visible = True
+        screenAgregarOtroHorario(1)
+    End Sub
+
+    Protected Sub lnkAgregarOtroHorario2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkAgregarOtroHorario2.Click
+        screenAgregarOtroHorario(2)
+    End Sub
+    Private Sub screenEliminarHorario(ByVal strNumeroDia As String, ByVal idGrillaConfHorario As Integer)
+        eliminarHorario(idGrillaConfHorario)
+        Dim grdHorarios As GridView = DirectCast(cntPlaceHolder.FindControl("grdHorarios" + strNumeroDia), GridView)
+        grdHorarios.DataSource = obtenerConfiguracionDias(idGrilla, CInt(strNumeroDia))
+        grdHorarios.DataBind()
+    End Sub
+    Private Sub screenCambiarCheckDia(ByVal strNumeroDia As String)
         btnSiguiente.Text = "Grabar"
-        lnkAgregarOtroHorario1.Visible = False
+        Dim grdHorarios As GridView = DirectCast(cntPlaceHolder.FindControl("grdHorarios" + strNumeroDia), GridView)
+        Dim chkDia As CheckBox = DirectCast(cntPlaceHolder.FindControl("chkDia" + strNumeroDia), CheckBox)
+        Dim tb As Table = DirectCast(cntPlaceHolder.FindControl("tb" + strNumeroDia), Table)
+        Dim lnkOtroHorario As LinkButton = DirectCast(cntPlaceHolder.FindControl("lnkAgregarOtroHorario" + strNumeroDia), LinkButton)
+
+        If grdHorarios.Rows.Count > 0 Then
+            tb.Visible = False
+            grdHorarios.Visible = chkDia.Checked
+            lnkOtroHorario.Visible = chkDia.Checked
+        Else
+            tb.Visible = chkDia.Checked
+        End If
+    End Sub
+    Private Sub screenAgregarOtroHorario(ByVal strNumeroDia As String)
+        Dim tb As Table = DirectCast(cntPlaceHolder.FindControl("tb" + strNumeroDia), Table)
+        tb.Visible = True
+
+        btnSiguiente.Text = "Grabar"
+        Dim lnkOtroHorario As LinkButton = DirectCast(cntPlaceHolder.FindControl("lnkAgregarOtroHorario" + strNumeroDia), LinkButton)
+        lnkOtroHorario.Visible = False
+    End Sub
+
+    Protected Sub chkDia2_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkDia2.CheckedChanged
+        screenCambiarCheckDia(2)
+    End Sub
+
+    Protected Sub grdHorarios2_RowDeleting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeleteEventArgs) Handles grdHorarios2.RowDeleting
+        screenEliminarHorario(2, e.Keys(0))
+    End Sub
+
+    Protected Sub lnkAgregarOtroHorario3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkAgregarOtroHorario3.Click
+        screenAgregarOtroHorario(3)
+    End Sub
+
+    Protected Sub chkDia3_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkDia3.CheckedChanged
+        screenCambiarCheckDia(3)
+    End Sub
+
+    Protected Sub grdHorarios3_RowDeleting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeleteEventArgs) Handles grdHorarios3.RowDeleting
+        screenEliminarHorario(3, e.Keys(0))
+    End Sub
+
+    Protected Sub lnkAgregarOtroHorario4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkAgregarOtroHorario4.Click
+        screenAgregarOtroHorario(4)
+    End Sub
+
+    Protected Sub grdHorarios4_RowDeleting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeleteEventArgs) Handles grdHorarios4.RowDeleting
+        screenEliminarHorario(4, e.Keys(0))
+    End Sub
+
+    Protected Sub chkDia4_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkDia4.CheckedChanged
+        screenCambiarCheckDia(4)
+    End Sub
+
+    Protected Sub chkDia5_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkDia5.CheckedChanged
+        screenCambiarCheckDia(5)
+    End Sub
+
+    Protected Sub lnkAgregarOtroHorario5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkAgregarOtroHorario5.Click
+        screenAgregarOtroHorario(5)
+    End Sub
+
+    Protected Sub grdHorarios5_RowDeleting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeleteEventArgs) Handles grdHorarios5.RowDeleting
+        screenEliminarHorario(5, e.Keys(0))
+    End Sub
+
+    Protected Sub lnkAgregarOtroHorario6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkAgregarOtroHorario6.Click
+        screenAgregarOtroHorario(6)
+    End Sub
+
+    Protected Sub grdHorarios6_RowDeleting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeleteEventArgs) Handles grdHorarios6.RowDeleting
+        screenEliminarHorario(6, e.Keys(0))
+    End Sub
+
+    Protected Sub chkDia6_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkDia6.CheckedChanged
+        screenCambiarCheckDia(6)
+    End Sub
+
+    Protected Sub lnkAgregarOtroHorario7_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkAgregarOtroHorario7.Click
+        screenAgregarOtroHorario(7)
+    End Sub
+
+    Protected Sub grdHorarios7_RowDeleting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeleteEventArgs) Handles grdHorarios7.RowDeleting
+        screenEliminarHorario(7, e.Keys(0))
+    End Sub
+
+    Protected Sub chkDia7_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkDia7.CheckedChanged
+        screenCambiarCheckDia(7)
     End Sub
 End Class

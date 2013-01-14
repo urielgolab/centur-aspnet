@@ -5,6 +5,7 @@ Public Class DetalleGrupo
 
     Dim oGruposService As New Services.GruposService()
     Dim oGrupo As New Grupo
+    Dim oMaqueteado As New Maqueteado
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
@@ -26,6 +27,7 @@ Public Class DetalleGrupo
             ListBoxServicios.DataTextField = "Nombre"
             ListBoxServicios.DataValueField = "ID"
             ListBoxServicios.DataBind()
+            oMaqueteado.AttachColor(ListBoxServicios, "lightblue", "white")
         End If
 
         If (oGruposService.PuedeAdherir(CType(Session("Usuario"), Entities.Usuario).idUsuario, idGrupo)) Then
@@ -43,6 +45,8 @@ Public Class DetalleGrupo
                     ListBoxMiembros.DataTextField = "NombreUsuario"
                     ListBoxMiembros.DataValueField = "idUsuario"
                     ListBoxMiembros.DataBind()
+                    oMaqueteado.AttachColor(ListBoxMiembros, "lightblue", "white")
+
                 End If
             Else
                 Desuscribirse.Visible = True
@@ -79,4 +83,7 @@ Public Class DetalleGrupo
         oGruposService.BajaMiembroAGrupo(CInt(Request.QueryString("id")), CType(Session("Usuario"), Entities.Usuario).idUsuario, mensaje, status)
         Response.Redirect("~/MisGrupos.aspx")
     End Sub
+
+    
+
 End Class

@@ -2,9 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<h1>Usuarios Pendientes de Aprobación</h1>
+<p align="left" class="tituloPrincipal" > Usuarios pendientes de aprobación</p>
+
     <div id="pendientes" Runat="Server">
-        <asp:GridView ID="GridPendientes" runat="server" AutoGenerateColumns="False" DataKeyNames="IdGrupo,IdUsuario">
+        <asp:GridView ID="GridPendientes" runat="server" AutoGenerateColumns="False" 
+            DataKeyNames="IdGrupo,IdUsuario" CellPadding="4" ForeColor="#333333" 
+            GridLines="None">
+            <AlternatingRowStyle BackColor="White" />
         <Columns>
             
          <asp:TemplateField HeaderText="Selecccione">
@@ -16,11 +20,22 @@
             <asp:BoundField DataField="NombreGrupo" HeaderText="Nombre Grupo" SortExpression="NombreGrupo" />
             <asp:BoundField DataField="NombreUsuario" HeaderText="Nombre Usuario" SortExpression="NombreUsuario" />
         </Columns>
+            <EditRowStyle BackColor="#2461BF" />
+            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
    
-        <asp:LinkButton ID="AceptarSel" runat="server">Aceptar seleccionados</asp:LinkButton>
-        <br />
-        <asp:LinkButton ID="RechazarSel" runat="server">Rechazar Seleccionados</asp:LinkButton>
+        <div class="GruposPendientesLinks">
+            <asp:LinkButton ID="AceptarSel" runat="server">Aceptar seleccionados</asp:LinkButton>
+            <asp:LinkButton ID="RechazarSel" cssclass="LinkDerecho" runat="server">Rechazar Seleccionados</asp:LinkButton>
+        </div>
      </div>
     <asp:Label ID="noPendientes" runat="server" Font-Size="Large" 
         Text="Usted no tiene usuarios pendientes de aprobación" Visible="False"></asp:Label>

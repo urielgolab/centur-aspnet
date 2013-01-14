@@ -4,6 +4,7 @@ Public Class MisGrupos
     Inherits System.Web.UI.Page
 
     Dim oGruposService As New Services.GruposService()
+    Dim oMaqueteado As New Maqueteado
 
     Private Sub MisGrupos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
@@ -37,6 +38,7 @@ Public Class MisGrupos
                 DropDownListGruposPropios.DataTextField = "Nombre"
                 DropDownListGruposPropios.DataValueField = "ID"
                 DropDownListGruposPropios.DataBind()
+                oMaqueteado.AttachColor(DropDownListGruposPropios, "lightblue", "white")
             End If
         End If
 
@@ -55,6 +57,7 @@ Public Class MisGrupos
                 DropDownListGruposAdheridos.DataTextField = "Nombre"
                 DropDownListGruposAdheridos.DataValueField = "ID"
                 DropDownListGruposAdheridos.DataBind()
+                oMaqueteado.AttachColor(DropDownListGruposAdheridos, "lightblue", "white")
             End If
         End If
 

@@ -620,10 +620,53 @@ div.Servicio
     margin: 15px;    
 }
 
-.DetalleGrupoSupr
+.LinkDerecho
 {
  margin-left:15px;
 }
+
+.GruposLinks
+{
+    font-size:large;
+    font-family:Book Antiqua;
+    margin-left: 10px;
+}
+
+.DivGruposLinks
+{
+    float:left;
+    font-size:large;
+    font-family:Book Antiqua;
+    margin: 15px;  
+    margin-bottom: 30px;  
+}
+
+.GruposAdheridos
+{
+    float:left;
+    width: 700px;
+}
+
+.GruposCombo
+{
+    margin-left: 5px;
+}
+
+.GrupoCrearLinks
+{
+    font-size:large;
+    font-family:Book Antiqua;
+    
+}
+
+.GruposPendientesLinks
+{
+    font-size:large;
+    font-family:Book Antiqua;
+    margin-left: 10px;
+    margin-top: 20px;
+    }
+
 
 #MainContent_FechaDesde, #MainContent_HoraDesde
 {

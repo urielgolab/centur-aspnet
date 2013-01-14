@@ -18,14 +18,13 @@
         <asp:LinkButton ID="Adherir" runat="server" Visible="False">Unite!</asp:LinkButton>
         <asp:LinkButton ID="Desuscribirse" runat="server" Visible="False">Cancelar suscripción</asp:LinkButton>
         </div>
-               <br />
-       <br />
+       
        
        <div class="GrupoDetalleListas">
         <div class="GrupoDetalleServicios">
         <div id="servicios" Runat="Server" Visible="False">
         <p class="busqueda">Servicios</p>
-        <asp:ListBox ID="ListBoxServicios" runat="server">
+        <asp:ListBox ID="ListBoxServicios" runat="server" Width="150px">
             
         </asp:ListBox>
         <br />
@@ -38,7 +37,8 @@
         <div class="GrupoDetalleMiembros">
         <div id="miembros" Runat="Server" Visible="False">
         <p class="busqueda">Miembros</p>
-        <asp:ListBox ID="ListBoxMiembros" runat="server">
+        <asp:ListBox ID="ListBoxMiembros" CssClass="GrupoDetalleListBox" runat="server" 
+                Width="150px">
             
         </asp:ListBox>
         <br />
@@ -51,10 +51,10 @@
        </div>    
     <div id="comandosGrupo" class="GrupoDetalleLinks" Runat="Server" Visible="False">
     <asp:LinkButton ID="editGrupo" runat="server">Modificar Grupo</asp:LinkButton>
-    <asp:LinkButton ID="suprGrupo" CssClass="DetalleGrupoSupr" runat="server">Eliminar Grupo</asp:LinkButton>
+    <asp:LinkButton ID="suprGrupo" CssClass="LinkDerecho" runat="server">Eliminar Grupo</asp:LinkButton>
     </div>
 
-    <br />
+    
     
 </asp:Content>
 

@@ -594,7 +594,7 @@ div.Servicio
     float:left;
     width:900px;
     margin-bottom:30px;
-    margin-top:25px;
+    margin-top:0px;
 }
 
 .GrupoDetalleServicios
@@ -632,10 +632,18 @@ div.Servicio
     margin-left: 10px;
 }
 
+.MisGruposLinks
+{
+    font-size: medium;
+    font-family:Book Antiqua;
+    margin-left: 10px;
+}
+
+
 .DivGruposLinks
 {
     float:left;
-    font-size:large;
+    font-size: medium;
     font-family:Book Antiqua;
     margin: 15px;  
     margin-bottom: 30px;  

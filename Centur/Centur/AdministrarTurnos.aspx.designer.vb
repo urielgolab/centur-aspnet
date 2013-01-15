@@ -122,15 +122,6 @@ Partial Public Class AdministrarTurnos
     Protected WithEvents GridPendientes As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''LinkButtonCancelAp control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents LinkButtonCancelAp As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
     '''LinkButtonAcepAp control.
     '''</summary>
     '''<remarks>
@@ -138,6 +129,15 @@ Partial Public Class AdministrarTurnos
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LinkButtonAcepAp As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''LinkButtonCancelAp control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LinkButtonCancelAp As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''LabelNoPendientes control.

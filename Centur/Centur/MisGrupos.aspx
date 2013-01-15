@@ -10,7 +10,7 @@
         <asp:DropDownList ID="DropDownListGruposPropios" cssclass="GruposCombo" runat="server" DataTextField="Nombre" DataValueField="ID">
             <asp:ListItem Value="none">No posee grupos</asp:ListItem>
         </asp:DropDownList>
-        <asp:LinkButton ID="LinkButton4" cssclass="GruposLinks" runat="server">Ver Detalle...</asp:LinkButton>
+        <asp:LinkButton ID="LinkButton4" cssclass="MisGruposLinks" runat="server">Ver Detalle...</asp:LinkButton>
         <br />
     </div>
     
@@ -27,7 +27,7 @@
         <asp:DropDownList ID="DropDownListGruposAdheridos" cssclass="GruposCombo" runat="server">
             <asp:ListItem Value="none">No tiene grupos adheridos</asp:ListItem>
         </asp:DropDownList>
-        <asp:LinkButton ID="LinkButton5" CssClass="GruposLinks" runat="server">Ver Detalle...</asp:LinkButton>
+        <asp:LinkButton ID="LinkButton5" CssClass="MisGruposLinks" runat="server">Ver Detalle...</asp:LinkButton>
     </div>
 
 </div>

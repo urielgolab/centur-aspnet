@@ -40,6 +40,8 @@ Public Class MisGrupos
                 DropDownListGruposPropios.DataBind()
                 oMaqueteado.AttachColor(DropDownListGruposPropios, "lightblue", "white")
             End If
+        Else
+            LinkButton4.Visible = False
         End If
 
     End Sub
@@ -59,6 +61,8 @@ Public Class MisGrupos
                 DropDownListGruposAdheridos.DataBind()
                 oMaqueteado.AttachColor(DropDownListGruposAdheridos, "lightblue", "white")
             End If
+        Else
+            LinkButton5.Visible = False
         End If
 
     End Sub

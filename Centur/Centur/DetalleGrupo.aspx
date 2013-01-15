@@ -22,8 +22,9 @@
        
        <div class="GrupoDetalleListas">
         <div class="GrupoDetalleServicios">
-        <div id="servicios" Runat="Server" Visible="False">
+        
         <p class="busqueda">Servicios</p>
+        <div id="servicios" Runat="Server" Visible="False">
         <asp:ListBox ID="ListBoxServicios" runat="server" Width="150px">
             
         </asp:ListBox>
@@ -35,8 +36,8 @@
                 ForeColor="#FF3300"></asp:Label>
        </div>
         <div class="GrupoDetalleMiembros">
-        <div id="miembros" Runat="Server" Visible="False">
         <p class="busqueda">Miembros</p>
+        <div id="miembros" Runat="Server" Visible="False">
         <asp:ListBox ID="ListBoxMiembros" CssClass="GrupoDetalleListBox" runat="server" 
                 Width="150px">
             

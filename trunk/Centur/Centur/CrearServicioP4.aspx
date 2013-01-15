@@ -1,5 +1,13 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="CrearServicioP4.aspx.vb" Inherits="Centur.CrearServicioP4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <style>
+        *
+        {
+            border:0;
+            margin:0;
+            padding:0;    
+        }    
+    </style>
     <script language="javascript">
         $(function () {
             $("#tabs").tabs();
@@ -46,7 +54,7 @@
                 </colgroup>
                 <thead>
                     <tr>
-                      <th>Reglas personalizadas</th>
+                      <th style="width:150px">Reglas personalizadas</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,8 +71,7 @@
                                                 <asp:BoundField DataField="idServicioGrupo" 
                                                     HeaderText="idServicioGrupo" InsertVisible="False" ReadOnly="True" 
                                                     SortExpression="idServicioGrupo" Visible="False" />
-                                                <asp:BoundField DataField="Grupo" HeaderText="Grupo" 
-                                                    SortExpression="Grupo" />
+                                                <asp:BoundField DataField="Grupo" HeaderText="Grupo" SortExpression="Grupo" />
                                                 <asp:TemplateField HeaderText="Acciones">
                                                     <ItemTemplate>
                                                         <asp:LinkButton ID="lnkEliminar1" runat="server" CausesValidation="False" 
@@ -73,7 +80,7 @@
                                                 </asp:TemplateField>
                                             </Columns>
                                         </asp:GridView>
-                                        <asp:Table ID="tbServicioGrupo" runat="server" Visible="False" Width="650px">
+                                        <asp:Table ID="tbServicioGrupo" runat="server" Visible="False" Width="300px">
 	                                        <asp:TableRow>
                                                 <asp:TableCell>
 			                                        Grupo:

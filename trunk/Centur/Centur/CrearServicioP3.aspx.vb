@@ -80,7 +80,6 @@ Public Class CrearServicioP3
         End If
     End Sub
     Private Sub CargarConfiguracionHoraria(ByVal cntPlaceHolder As ContentPlaceHolder, ByVal idGrilla As Integer)
-        Dim dc As New DC()
 
         btnSiguiente.Text = "Continuar"
         For intDia As Integer = 1 To 7 'oConfigDia As GrillaConfiguracionDia In configuracionDias

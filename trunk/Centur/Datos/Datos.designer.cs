@@ -58,9 +58,6 @@ namespace Datos
     partial void InsertNombreConstante(NombreConstante instance);
     partial void UpdateNombreConstante(NombreConstante instance);
     partial void DeleteNombreConstante(NombreConstante instance);
-    partial void InsertServicio(Servicio instance);
-    partial void UpdateServicio(Servicio instance);
-    partial void DeleteServicio(Servicio instance);
     partial void InsertServicioFavorito(ServicioFavorito instance);
     partial void UpdateServicioFavorito(ServicioFavorito instance);
     partial void DeleteServicioFavorito(ServicioFavorito instance);
@@ -85,6 +82,9 @@ namespace Datos
     partial void InsertUsuarioGrupo(UsuarioGrupo instance);
     partial void UpdateUsuarioGrupo(UsuarioGrupo instance);
     partial void DeleteUsuarioGrupo(UsuarioGrupo instance);
+    partial void InsertServicio(Servicio instance);
+    partial void UpdateServicio(Servicio instance);
+    partial void DeleteServicio(Servicio instance);
     #endregion
 		
 		public DC(string connection) : 
@@ -183,14 +183,6 @@ namespace Datos
 			}
 		}
 		
-		public System.Data.Linq.Table<Servicio> Servicios
-		{
-			get
-			{
-				return this.GetTable<Servicio>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ServicioFavorito> ServicioFavoritos
 		{
 			get
@@ -252,6 +244,14 @@ namespace Datos
 			get
 			{
 				return this.GetTable<UsuarioGrupo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Servicio> Servicios
+		{
+			get
+			{
+				return this.GetTable<Servicio>();
 			}
 		}
 		
@@ -465,11 +465,11 @@ namespace Datos
 		
 		private System.Nullable<bool> _raiz;
 		
-		private EntitySet<Servicio> _Servicios;
-		
 		private EntitySet<SubCategoria> _SubCategorias;
 		
 		private EntitySet<SubCategoria> _SubCategorias1;
+		
+		private EntitySet<Servicio> _Servicios;
 		
 		private bool serializing;
 		
@@ -553,27 +553,8 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Categoria_Servicio", Storage="_Servicios", ThisKey="idCategoria", OtherKey="idCategoria")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4, EmitDefaultValue=false)]
-		public EntitySet<Servicio> Servicios
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Servicios.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Servicios;
-			}
-			set
-			{
-				this._Servicios.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Categoria_SubCategoria", Storage="_SubCategorias", ThisKey="idCategoria", OtherKey="idCategoriaHijo")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4, EmitDefaultValue=false)]
 		public EntitySet<SubCategoria> SubCategorias
 		{
 			get
@@ -592,7 +573,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Categoria_SubCategoria1", Storage="_SubCategorias1", ThisKey="idCategoria", OtherKey="idCategoriaPadre")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
 		public EntitySet<SubCategoria> SubCategorias1
 		{
 			get
@@ -607,6 +588,25 @@ namespace Datos
 			set
 			{
 				this._SubCategorias1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Categoria_Servicio", Storage="_Servicios", ThisKey="idCategoria", OtherKey="idCategoria")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6, EmitDefaultValue=false)]
+		public EntitySet<Servicio> Servicios
+		{
+			get
+			{
+				if ((this.serializing 
+							&& (this._Servicios.HasLoadedOrAssignedValues == false)))
+				{
+					return null;
+				}
+				return this._Servicios;
+			}
+			set
+			{
+				this._Servicios.Assign(value);
 			}
 		}
 		
@@ -628,18 +628,6 @@ namespace Datos
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Servicios(Servicio entity)
-		{
-			this.SendPropertyChanging();
-			entity.Categoria = this;
-		}
-		
-		private void detach_Servicios(Servicio entity)
-		{
-			this.SendPropertyChanging();
-			entity.Categoria = null;
 		}
 		
 		private void attach_SubCategorias(SubCategoria entity)
@@ -666,11 +654,23 @@ namespace Datos
 			entity.Categoria1 = null;
 		}
 		
+		private void attach_Servicios(Servicio entity)
+		{
+			this.SendPropertyChanging();
+			entity.Categoria = this;
+		}
+		
+		private void detach_Servicios(Servicio entity)
+		{
+			this.SendPropertyChanging();
+			entity.Categoria = null;
+		}
+		
 		private void Initialize()
 		{
-			this._Servicios = new EntitySet<Servicio>(new Action<Servicio>(this.attach_Servicios), new Action<Servicio>(this.detach_Servicios));
 			this._SubCategorias = new EntitySet<SubCategoria>(new Action<SubCategoria>(this.attach_SubCategorias), new Action<SubCategoria>(this.detach_SubCategorias));
 			this._SubCategorias1 = new EntitySet<SubCategoria>(new Action<SubCategoria>(this.attach_SubCategorias1), new Action<SubCategoria>(this.detach_SubCategorias1));
+			this._Servicios = new EntitySet<Servicio>(new Action<Servicio>(this.attach_Servicios), new Action<Servicio>(this.detach_Servicios));
 			OnCreated();
 		}
 		
@@ -709,11 +709,11 @@ namespace Datos
 		
 		private System.Nullable<bool> _raiz;
 		
-		private EntitySet<Servicio> _Servicios;
-		
 		private EntitySet<SubZona> _SubZonas;
 		
 		private EntitySet<SubZona> _SubZonas1;
+		
+		private EntitySet<Servicio> _Servicios;
 		
 		private bool serializing;
 		
@@ -797,27 +797,8 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Zona_Servicio", Storage="_Servicios", ThisKey="idZona", OtherKey="idZona")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4, EmitDefaultValue=false)]
-		public EntitySet<Servicio> Servicios
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Servicios.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Servicios;
-			}
-			set
-			{
-				this._Servicios.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Zona_SubZona", Storage="_SubZonas", ThisKey="idZona", OtherKey="idZonaPadre")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4, EmitDefaultValue=false)]
 		public EntitySet<SubZona> SubZonas
 		{
 			get
@@ -836,7 +817,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Zona_SubZona1", Storage="_SubZonas1", ThisKey="idZona", OtherKey="idZonaHijo")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
 		public EntitySet<SubZona> SubZonas1
 		{
 			get
@@ -851,6 +832,25 @@ namespace Datos
 			set
 			{
 				this._SubZonas1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Zona_Servicio", Storage="_Servicios", ThisKey="idZona", OtherKey="idZona")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6, EmitDefaultValue=false)]
+		public EntitySet<Servicio> Servicios
+		{
+			get
+			{
+				if ((this.serializing 
+							&& (this._Servicios.HasLoadedOrAssignedValues == false)))
+				{
+					return null;
+				}
+				return this._Servicios;
+			}
+			set
+			{
+				this._Servicios.Assign(value);
 			}
 		}
 		
@@ -872,18 +872,6 @@ namespace Datos
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Servicios(Servicio entity)
-		{
-			this.SendPropertyChanging();
-			entity.Zona = this;
-		}
-		
-		private void detach_Servicios(Servicio entity)
-		{
-			this.SendPropertyChanging();
-			entity.Zona = null;
 		}
 		
 		private void attach_SubZonas(SubZona entity)
@@ -910,11 +898,23 @@ namespace Datos
 			entity.Zona1 = null;
 		}
 		
+		private void attach_Servicios(Servicio entity)
+		{
+			this.SendPropertyChanging();
+			entity.Zona = this;
+		}
+		
+		private void detach_Servicios(Servicio entity)
+		{
+			this.SendPropertyChanging();
+			entity.Zona = null;
+		}
+		
 		private void Initialize()
 		{
-			this._Servicios = new EntitySet<Servicio>(new Action<Servicio>(this.attach_Servicios), new Action<Servicio>(this.detach_Servicios));
 			this._SubZonas = new EntitySet<SubZona>(new Action<SubZona>(this.attach_SubZonas), new Action<SubZona>(this.detach_SubZonas));
 			this._SubZonas1 = new EntitySet<SubZona>(new Action<SubZona>(this.attach_SubZonas1), new Action<SubZona>(this.detach_SubZonas1));
+			this._Servicios = new EntitySet<Servicio>(new Action<Servicio>(this.attach_Servicios), new Action<Servicio>(this.detach_Servicios));
 			OnCreated();
 		}
 		
@@ -2447,648 +2447,6 @@ namespace Datos
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Servicio")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Servicio : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idServicio;
-		
-		private string _nombre;
-		
-		private string _descripcion;
-		
-		private int _idCategoria;
-		
-		private int _idZona;
-		
-		private int _idProveedor;
-		
-		private string _observaciones;
-		
-		private System.Nullable<bool> _privacidad;
-		
-		private string _tipoConfirmacion;
-		
-		private System.Nullable<bool> _envioRecordatorio;
-		
-		private System.Nullable<bool> _sobreturno;
-		
-		private System.Nullable<int> _diasFuturo;
-		
-		private int _diasAntes;
-		
-		private string _foto;
-		
-		private EntitySet<ServicioFavorito> _ServicioFavoritos;
-		
-		private EntitySet<ServicioGrilla> _ServicioGrillas;
-		
-		private EntitySet<ServicioGrupo> _ServicioGrupos;
-		
-		private EntityRef<Categoria> _Categoria;
-		
-		private EntityRef<Zona> _Zona;
-		
-		private EntityRef<Usuario> _Usuario;
-		
-		private bool serializing;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidServicioChanging(int value);
-    partial void OnidServicioChanged();
-    partial void OnnombreChanging(string value);
-    partial void OnnombreChanged();
-    partial void OndescripcionChanging(string value);
-    partial void OndescripcionChanged();
-    partial void OnidCategoriaChanging(int value);
-    partial void OnidCategoriaChanged();
-    partial void OnidZonaChanging(int value);
-    partial void OnidZonaChanged();
-    partial void OnidProveedorChanging(int value);
-    partial void OnidProveedorChanged();
-    partial void OnobservacionesChanging(string value);
-    partial void OnobservacionesChanged();
-    partial void OnprivacidadChanging(System.Nullable<bool> value);
-    partial void OnprivacidadChanged();
-    partial void OntipoConfirmacionChanging(string value);
-    partial void OntipoConfirmacionChanged();
-    partial void OnenvioRecordatorioChanging(System.Nullable<bool> value);
-    partial void OnenvioRecordatorioChanged();
-    partial void OnsobreturnoChanging(System.Nullable<bool> value);
-    partial void OnsobreturnoChanged();
-    partial void OndiasFuturoChanging(System.Nullable<int> value);
-    partial void OndiasFuturoChanged();
-    partial void OndiasAntesChanging(int value);
-    partial void OndiasAntesChanged();
-    partial void OnfotoChanging(string value);
-    partial void OnfotoChanged();
-    #endregion
-		
-		public Servicio()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idServicio", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int idServicio
-		{
-			get
-			{
-				return this._idServicio;
-			}
-			set
-			{
-				if ((this._idServicio != value))
-				{
-					this.OnidServicioChanging(value);
-					this.SendPropertyChanging();
-					this._idServicio = value;
-					this.SendPropertyChanged("idServicio");
-					this.OnidServicioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this.OnnombreChanging(value);
-					this.SendPropertyChanging();
-					this._nombre = value;
-					this.SendPropertyChanged("nombre");
-					this.OnnombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public string descripcion
-		{
-			get
-			{
-				return this._descripcion;
-			}
-			set
-			{
-				if ((this._descripcion != value))
-				{
-					this.OndescripcionChanging(value);
-					this.SendPropertyChanging();
-					this._descripcion = value;
-					this.SendPropertyChanged("descripcion");
-					this.OndescripcionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCategoria", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public int idCategoria
-		{
-			get
-			{
-				return this._idCategoria;
-			}
-			set
-			{
-				if ((this._idCategoria != value))
-				{
-					if (this._Categoria.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidCategoriaChanging(value);
-					this.SendPropertyChanging();
-					this._idCategoria = value;
-					this.SendPropertyChanged("idCategoria");
-					this.OnidCategoriaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idZona", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public int idZona
-		{
-			get
-			{
-				return this._idZona;
-			}
-			set
-			{
-				if ((this._idZona != value))
-				{
-					if (this._Zona.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidZonaChanging(value);
-					this.SendPropertyChanging();
-					this._idZona = value;
-					this.SendPropertyChanged("idZona");
-					this.OnidZonaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProveedor", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-		public int idProveedor
-		{
-			get
-			{
-				return this._idProveedor;
-			}
-			set
-			{
-				if ((this._idProveedor != value))
-				{
-					if (this._Usuario.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidProveedorChanging(value);
-					this.SendPropertyChanging();
-					this._idProveedor = value;
-					this.SendPropertyChanged("idProveedor");
-					this.OnidProveedorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_observaciones", DbType="VarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public string observaciones
-		{
-			get
-			{
-				return this._observaciones;
-			}
-			set
-			{
-				if ((this._observaciones != value))
-				{
-					this.OnobservacionesChanging(value);
-					this.SendPropertyChanging();
-					this._observaciones = value;
-					this.SendPropertyChanged("observaciones");
-					this.OnobservacionesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_privacidad", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-		public System.Nullable<bool> privacidad
-		{
-			get
-			{
-				return this._privacidad;
-			}
-			set
-			{
-				if ((this._privacidad != value))
-				{
-					this.OnprivacidadChanging(value);
-					this.SendPropertyChanging();
-					this._privacidad = value;
-					this.SendPropertyChanged("privacidad");
-					this.OnprivacidadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipoConfirmacion", DbType="VarChar(1)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-		public string tipoConfirmacion
-		{
-			get
-			{
-				return this._tipoConfirmacion;
-			}
-			set
-			{
-				if ((this._tipoConfirmacion != value))
-				{
-					this.OntipoConfirmacionChanging(value);
-					this.SendPropertyChanging();
-					this._tipoConfirmacion = value;
-					this.SendPropertyChanged("tipoConfirmacion");
-					this.OntipoConfirmacionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_envioRecordatorio", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
-		public System.Nullable<bool> envioRecordatorio
-		{
-			get
-			{
-				return this._envioRecordatorio;
-			}
-			set
-			{
-				if ((this._envioRecordatorio != value))
-				{
-					this.OnenvioRecordatorioChanging(value);
-					this.SendPropertyChanging();
-					this._envioRecordatorio = value;
-					this.SendPropertyChanged("envioRecordatorio");
-					this.OnenvioRecordatorioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sobreturno", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
-		public System.Nullable<bool> sobreturno
-		{
-			get
-			{
-				return this._sobreturno;
-			}
-			set
-			{
-				if ((this._sobreturno != value))
-				{
-					this.OnsobreturnoChanging(value);
-					this.SendPropertyChanging();
-					this._sobreturno = value;
-					this.SendPropertyChanged("sobreturno");
-					this.OnsobreturnoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diasFuturo", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
-		public System.Nullable<int> diasFuturo
-		{
-			get
-			{
-				return this._diasFuturo;
-			}
-			set
-			{
-				if ((this._diasFuturo != value))
-				{
-					this.OndiasFuturoChanging(value);
-					this.SendPropertyChanging();
-					this._diasFuturo = value;
-					this.SendPropertyChanged("diasFuturo");
-					this.OndiasFuturoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diasAntes", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
-		public int diasAntes
-		{
-			get
-			{
-				return this._diasAntes;
-			}
-			set
-			{
-				if ((this._diasAntes != value))
-				{
-					this.OndiasAntesChanging(value);
-					this.SendPropertyChanging();
-					this._diasAntes = value;
-					this.SendPropertyChanged("diasAntes");
-					this.OndiasAntesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_foto", DbType="VarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
-		public string foto
-		{
-			get
-			{
-				return this._foto;
-			}
-			set
-			{
-				if ((this._foto != value))
-				{
-					this.OnfotoChanging(value);
-					this.SendPropertyChanging();
-					this._foto = value;
-					this.SendPropertyChanged("foto");
-					this.OnfotoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioFavorito", Storage="_ServicioFavoritos", ThisKey="idServicio", OtherKey="idServicio")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15, EmitDefaultValue=false)]
-		public EntitySet<ServicioFavorito> ServicioFavoritos
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._ServicioFavoritos.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._ServicioFavoritos;
-			}
-			set
-			{
-				this._ServicioFavoritos.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioGrilla", Storage="_ServicioGrillas", ThisKey="idServicio", OtherKey="idServicio")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16, EmitDefaultValue=false)]
-		public EntitySet<ServicioGrilla> ServicioGrillas
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._ServicioGrillas.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._ServicioGrillas;
-			}
-			set
-			{
-				this._ServicioGrillas.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioGrupo", Storage="_ServicioGrupos", ThisKey="idServicio", OtherKey="idServicio")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=17, EmitDefaultValue=false)]
-		public EntitySet<ServicioGrupo> ServicioGrupos
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._ServicioGrupos.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._ServicioGrupos;
-			}
-			set
-			{
-				this._ServicioGrupos.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Categoria_Servicio", Storage="_Categoria", ThisKey="idCategoria", OtherKey="idCategoria", IsForeignKey=true)]
-		public Categoria Categoria
-		{
-			get
-			{
-				return this._Categoria.Entity;
-			}
-			set
-			{
-				Categoria previousValue = this._Categoria.Entity;
-				if (((previousValue != value) 
-							|| (this._Categoria.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Categoria.Entity = null;
-						previousValue.Servicios.Remove(this);
-					}
-					this._Categoria.Entity = value;
-					if ((value != null))
-					{
-						value.Servicios.Add(this);
-						this._idCategoria = value.idCategoria;
-					}
-					else
-					{
-						this._idCategoria = default(int);
-					}
-					this.SendPropertyChanged("Categoria");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Zona_Servicio", Storage="_Zona", ThisKey="idZona", OtherKey="idZona", IsForeignKey=true)]
-		public Zona Zona
-		{
-			get
-			{
-				return this._Zona.Entity;
-			}
-			set
-			{
-				Zona previousValue = this._Zona.Entity;
-				if (((previousValue != value) 
-							|| (this._Zona.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Zona.Entity = null;
-						previousValue.Servicios.Remove(this);
-					}
-					this._Zona.Entity = value;
-					if ((value != null))
-					{
-						value.Servicios.Add(this);
-						this._idZona = value.idZona;
-					}
-					else
-					{
-						this._idZona = default(int);
-					}
-					this.SendPropertyChanged("Zona");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Servicio", Storage="_Usuario", ThisKey="idProveedor", OtherKey="idUsuario", IsForeignKey=true)]
-		public Usuario Usuario
-		{
-			get
-			{
-				return this._Usuario.Entity;
-			}
-			set
-			{
-				Usuario previousValue = this._Usuario.Entity;
-				if (((previousValue != value) 
-							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Usuario.Entity = null;
-						previousValue.Servicios.Remove(this);
-					}
-					this._Usuario.Entity = value;
-					if ((value != null))
-					{
-						value.Servicios.Add(this);
-						this._idProveedor = value.idUsuario;
-					}
-					else
-					{
-						this._idProveedor = default(int);
-					}
-					this.SendPropertyChanged("Usuario");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ServicioFavoritos(ServicioFavorito entity)
-		{
-			this.SendPropertyChanging();
-			entity.Servicio = this;
-		}
-		
-		private void detach_ServicioFavoritos(ServicioFavorito entity)
-		{
-			this.SendPropertyChanging();
-			entity.Servicio = null;
-		}
-		
-		private void attach_ServicioGrillas(ServicioGrilla entity)
-		{
-			this.SendPropertyChanging();
-			entity.Servicio = this;
-		}
-		
-		private void detach_ServicioGrillas(ServicioGrilla entity)
-		{
-			this.SendPropertyChanging();
-			entity.Servicio = null;
-		}
-		
-		private void attach_ServicioGrupos(ServicioGrupo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Servicio = this;
-		}
-		
-		private void detach_ServicioGrupos(ServicioGrupo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Servicio = null;
-		}
-		
-		private void Initialize()
-		{
-			this._ServicioFavoritos = new EntitySet<ServicioFavorito>(new Action<ServicioFavorito>(this.attach_ServicioFavoritos), new Action<ServicioFavorito>(this.detach_ServicioFavoritos));
-			this._ServicioGrillas = new EntitySet<ServicioGrilla>(new Action<ServicioGrilla>(this.attach_ServicioGrillas), new Action<ServicioGrilla>(this.detach_ServicioGrillas));
-			this._ServicioGrupos = new EntitySet<ServicioGrupo>(new Action<ServicioGrupo>(this.attach_ServicioGrupos), new Action<ServicioGrupo>(this.detach_ServicioGrupos));
-			this._Categoria = default(EntityRef<Categoria>);
-			this._Zona = default(EntityRef<Zona>);
-			this._Usuario = default(EntityRef<Usuario>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ServicioFavoritos")]
 	[global::System.Runtime.Serialization.DataContractAttribute()]
 	public partial class ServicioFavorito : INotifyPropertyChanging, INotifyPropertyChanged
@@ -3102,9 +2460,9 @@ namespace Datos
 		
 		private int _idServicio;
 		
-		private EntityRef<Servicio> _Servicio;
-		
 		private EntityRef<Usuario> _Usuario;
+		
+		private EntityRef<Servicio> _Servicio;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3194,40 +2552,6 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioFavorito", Storage="_Servicio", ThisKey="idServicio", OtherKey="idServicio", IsForeignKey=true)]
-		public Servicio Servicio
-		{
-			get
-			{
-				return this._Servicio.Entity;
-			}
-			set
-			{
-				Servicio previousValue = this._Servicio.Entity;
-				if (((previousValue != value) 
-							|| (this._Servicio.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Servicio.Entity = null;
-						previousValue.ServicioFavoritos.Remove(this);
-					}
-					this._Servicio.Entity = value;
-					if ((value != null))
-					{
-						value.ServicioFavoritos.Add(this);
-						this._idServicio = value.idServicio;
-					}
-					else
-					{
-						this._idServicio = default(int);
-					}
-					this.SendPropertyChanged("Servicio");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_ServicioFavorito", Storage="_Usuario", ThisKey="idUsuario", OtherKey="idUsuario", IsForeignKey=true)]
 		public Usuario Usuario
 		{
@@ -3262,6 +2586,40 @@ namespace Datos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioFavorito", Storage="_Servicio", ThisKey="idServicio", OtherKey="idServicio", IsForeignKey=true)]
+		public Servicio Servicio
+		{
+			get
+			{
+				return this._Servicio.Entity;
+			}
+			set
+			{
+				Servicio previousValue = this._Servicio.Entity;
+				if (((previousValue != value) 
+							|| (this._Servicio.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Servicio.Entity = null;
+						previousValue.ServicioFavoritos.Remove(this);
+					}
+					this._Servicio.Entity = value;
+					if ((value != null))
+					{
+						value.ServicioFavoritos.Add(this);
+						this._idServicio = value.idServicio;
+					}
+					else
+					{
+						this._idServicio = default(int);
+					}
+					this.SendPropertyChanged("Servicio");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -3284,8 +2642,8 @@ namespace Datos
 		
 		private void Initialize()
 		{
-			this._Servicio = default(EntityRef<Servicio>);
 			this._Usuario = default(EntityRef<Usuario>);
+			this._Servicio = default(EntityRef<Servicio>);
 			OnCreated();
 		}
 		
@@ -4435,13 +3793,13 @@ namespace Datos
 		
 		private string _apellido;
 		
-		private EntitySet<Servicio> _Servicios;
-		
 		private EntitySet<ServicioFavorito> _ServicioFavoritos;
 		
 		private EntitySet<Turno> _Turnos;
 		
 		private EntitySet<UsuarioGrupo> _UsuarioGrupos;
+		
+		private EntitySet<Servicio> _Servicios;
 		
 		private bool serializing;
 		
@@ -4640,27 +3998,8 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Servicio", Storage="_Servicios", ThisKey="idUsuario", OtherKey="idProveedor")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9, EmitDefaultValue=false)]
-		public EntitySet<Servicio> Servicios
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Servicios.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Servicios;
-			}
-			set
-			{
-				this._Servicios.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_ServicioFavorito", Storage="_ServicioFavoritos", ThisKey="idUsuario", OtherKey="idUsuario")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9, EmitDefaultValue=false)]
 		public EntitySet<ServicioFavorito> ServicioFavoritos
 		{
 			get
@@ -4679,7 +4018,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Turno", Storage="_Turnos", ThisKey="idUsuario", OtherKey="idUsuario")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10, EmitDefaultValue=false)]
 		public EntitySet<Turno> Turnos
 		{
 			get
@@ -4698,7 +4037,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_UsuarioGrupo", Storage="_UsuarioGrupos", ThisKey="idUsuario", OtherKey="idUsuario")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11, EmitDefaultValue=false)]
 		public EntitySet<UsuarioGrupo> UsuarioGrupos
 		{
 			get
@@ -4713,6 +4052,25 @@ namespace Datos
 			set
 			{
 				this._UsuarioGrupos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Servicio", Storage="_Servicios", ThisKey="idUsuario", OtherKey="idProveedor")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12, EmitDefaultValue=false)]
+		public EntitySet<Servicio> Servicios
+		{
+			get
+			{
+				if ((this.serializing 
+							&& (this._Servicios.HasLoadedOrAssignedValues == false)))
+				{
+					return null;
+				}
+				return this._Servicios;
+			}
+			set
+			{
+				this._Servicios.Assign(value);
 			}
 		}
 		
@@ -4734,18 +4092,6 @@ namespace Datos
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Servicios(Servicio entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = this;
-		}
-		
-		private void detach_Servicios(Servicio entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = null;
 		}
 		
 		private void attach_ServicioFavoritos(ServicioFavorito entity)
@@ -4784,12 +4130,24 @@ namespace Datos
 			entity.Usuario = null;
 		}
 		
+		private void attach_Servicios(Servicio entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Servicios(Servicio entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
 		private void Initialize()
 		{
-			this._Servicios = new EntitySet<Servicio>(new Action<Servicio>(this.attach_Servicios), new Action<Servicio>(this.detach_Servicios));
 			this._ServicioFavoritos = new EntitySet<ServicioFavorito>(new Action<ServicioFavorito>(this.attach_ServicioFavoritos), new Action<ServicioFavorito>(this.detach_ServicioFavoritos));
 			this._Turnos = new EntitySet<Turno>(new Action<Turno>(this.attach_Turnos), new Action<Turno>(this.detach_Turnos));
 			this._UsuarioGrupos = new EntitySet<UsuarioGrupo>(new Action<UsuarioGrupo>(this.attach_UsuarioGrupos), new Action<UsuarioGrupo>(this.detach_UsuarioGrupos));
+			this._Servicios = new EntitySet<Servicio>(new Action<Servicio>(this.attach_Servicios), new Action<Servicio>(this.detach_Servicios));
 			OnCreated();
 		}
 		
@@ -5020,6 +4378,748 @@ namespace Datos
 		public void OnDeserializing(StreamingContext context)
 		{
 			this.Initialize();
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Servicio")]
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class Servicio : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idServicio;
+		
+		private string _nombre;
+		
+		private string _descripcion;
+		
+		private int _idCategoria;
+		
+		private int _idZona;
+		
+		private int _idProveedor;
+		
+		private string _observaciones;
+		
+		private System.Nullable<bool> _privacidad;
+		
+		private System.Nullable<bool> _necesitaConfirmacion;
+		
+		private System.Nullable<bool> _envioRecordatorio;
+		
+		private System.Nullable<bool> _sobreturno;
+		
+		private System.Nullable<int> _diasFuturo;
+		
+		private int _diasAntes;
+		
+		private string _foto;
+		
+		private System.Nullable<double> _precio;
+		
+		private string _direccion;
+		
+		private System.Nullable<bool> _mercadoPago;
+		
+		private System.Nullable<double> _precioReserva;
+		
+		private EntitySet<ServicioFavorito> _ServicioFavoritos;
+		
+		private EntitySet<ServicioGrilla> _ServicioGrillas;
+		
+		private EntitySet<ServicioGrupo> _ServicioGrupos;
+		
+		private EntityRef<Categoria> _Categoria;
+		
+		private EntityRef<Usuario> _Usuario;
+		
+		private EntityRef<Zona> _Zona;
+		
+		private bool serializing;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidServicioChanging(int value);
+    partial void OnidServicioChanged();
+    partial void OnnombreChanging(string value);
+    partial void OnnombreChanged();
+    partial void OndescripcionChanging(string value);
+    partial void OndescripcionChanged();
+    partial void OnidCategoriaChanging(int value);
+    partial void OnidCategoriaChanged();
+    partial void OnidZonaChanging(int value);
+    partial void OnidZonaChanged();
+    partial void OnidProveedorChanging(int value);
+    partial void OnidProveedorChanged();
+    partial void OnobservacionesChanging(string value);
+    partial void OnobservacionesChanged();
+    partial void OnprivacidadChanging(System.Nullable<bool> value);
+    partial void OnprivacidadChanged();
+    partial void OnnecesitaConfirmacionChanging(System.Nullable<bool> value);
+    partial void OnnecesitaConfirmacionChanged();
+    partial void OnenvioRecordatorioChanging(System.Nullable<bool> value);
+    partial void OnenvioRecordatorioChanged();
+    partial void OnsobreturnoChanging(System.Nullable<bool> value);
+    partial void OnsobreturnoChanged();
+    partial void OndiasFuturoChanging(System.Nullable<int> value);
+    partial void OndiasFuturoChanged();
+    partial void OndiasAntesChanging(int value);
+    partial void OndiasAntesChanged();
+    partial void OnfotoChanging(string value);
+    partial void OnfotoChanged();
+    partial void OnprecioChanging(System.Nullable<double> value);
+    partial void OnprecioChanged();
+    partial void OndireccionChanging(string value);
+    partial void OndireccionChanged();
+    partial void OnmercadoPagoChanging(System.Nullable<bool> value);
+    partial void OnmercadoPagoChanged();
+    partial void OnprecioReservaChanging(System.Nullable<double> value);
+    partial void OnprecioReservaChanged();
+    #endregion
+		
+		public Servicio()
+		{
+			this.Initialize();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idServicio", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idServicio
+		{
+			get
+			{
+				return this._idServicio;
+			}
+			set
+			{
+				if ((this._idServicio != value))
+				{
+					this.OnidServicioChanging(value);
+					this.SendPropertyChanging();
+					this._idServicio = value;
+					this.SendPropertyChanged("idServicio");
+					this.OnidServicioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this.OnnombreChanging(value);
+					this.SendPropertyChanging();
+					this._nombre = value;
+					this.SendPropertyChanged("nombre");
+					this.OnnombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(MAX)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this.OndescripcionChanging(value);
+					this.SendPropertyChanging();
+					this._descripcion = value;
+					this.SendPropertyChanged("descripcion");
+					this.OndescripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCategoria", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public int idCategoria
+		{
+			get
+			{
+				return this._idCategoria;
+			}
+			set
+			{
+				if ((this._idCategoria != value))
+				{
+					if (this._Categoria.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidCategoriaChanging(value);
+					this.SendPropertyChanging();
+					this._idCategoria = value;
+					this.SendPropertyChanged("idCategoria");
+					this.OnidCategoriaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idZona", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public int idZona
+		{
+			get
+			{
+				return this._idZona;
+			}
+			set
+			{
+				if ((this._idZona != value))
+				{
+					if (this._Zona.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidZonaChanging(value);
+					this.SendPropertyChanging();
+					this._idZona = value;
+					this.SendPropertyChanged("idZona");
+					this.OnidZonaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProveedor", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+		public int idProveedor
+		{
+			get
+			{
+				return this._idProveedor;
+			}
+			set
+			{
+				if ((this._idProveedor != value))
+				{
+					if (this._Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidProveedorChanging(value);
+					this.SendPropertyChanging();
+					this._idProveedor = value;
+					this.SendPropertyChanged("idProveedor");
+					this.OnidProveedorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_observaciones", DbType="VarChar(MAX)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+		public string observaciones
+		{
+			get
+			{
+				return this._observaciones;
+			}
+			set
+			{
+				if ((this._observaciones != value))
+				{
+					this.OnobservacionesChanging(value);
+					this.SendPropertyChanging();
+					this._observaciones = value;
+					this.SendPropertyChanged("observaciones");
+					this.OnobservacionesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_privacidad", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public System.Nullable<bool> privacidad
+		{
+			get
+			{
+				return this._privacidad;
+			}
+			set
+			{
+				if ((this._privacidad != value))
+				{
+					this.OnprivacidadChanging(value);
+					this.SendPropertyChanging();
+					this._privacidad = value;
+					this.SendPropertyChanged("privacidad");
+					this.OnprivacidadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_necesitaConfirmacion", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public System.Nullable<bool> necesitaConfirmacion
+		{
+			get
+			{
+				return this._necesitaConfirmacion;
+			}
+			set
+			{
+				if ((this._necesitaConfirmacion != value))
+				{
+					this.OnnecesitaConfirmacionChanging(value);
+					this.SendPropertyChanging();
+					this._necesitaConfirmacion = value;
+					this.SendPropertyChanged("necesitaConfirmacion");
+					this.OnnecesitaConfirmacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_envioRecordatorio", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		public System.Nullable<bool> envioRecordatorio
+		{
+			get
+			{
+				return this._envioRecordatorio;
+			}
+			set
+			{
+				if ((this._envioRecordatorio != value))
+				{
+					this.OnenvioRecordatorioChanging(value);
+					this.SendPropertyChanging();
+					this._envioRecordatorio = value;
+					this.SendPropertyChanged("envioRecordatorio");
+					this.OnenvioRecordatorioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sobreturno", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+		public System.Nullable<bool> sobreturno
+		{
+			get
+			{
+				return this._sobreturno;
+			}
+			set
+			{
+				if ((this._sobreturno != value))
+				{
+					this.OnsobreturnoChanging(value);
+					this.SendPropertyChanging();
+					this._sobreturno = value;
+					this.SendPropertyChanged("sobreturno");
+					this.OnsobreturnoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diasFuturo", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+		public System.Nullable<int> diasFuturo
+		{
+			get
+			{
+				return this._diasFuturo;
+			}
+			set
+			{
+				if ((this._diasFuturo != value))
+				{
+					this.OndiasFuturoChanging(value);
+					this.SendPropertyChanging();
+					this._diasFuturo = value;
+					this.SendPropertyChanged("diasFuturo");
+					this.OndiasFuturoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diasAntes", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+		public int diasAntes
+		{
+			get
+			{
+				return this._diasAntes;
+			}
+			set
+			{
+				if ((this._diasAntes != value))
+				{
+					this.OndiasAntesChanging(value);
+					this.SendPropertyChanging();
+					this._diasAntes = value;
+					this.SendPropertyChanged("diasAntes");
+					this.OndiasAntesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_foto", DbType="VarChar(MAX)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+		public string foto
+		{
+			get
+			{
+				return this._foto;
+			}
+			set
+			{
+				if ((this._foto != value))
+				{
+					this.OnfotoChanging(value);
+					this.SendPropertyChanging();
+					this._foto = value;
+					this.SendPropertyChanged("foto");
+					this.OnfotoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio", DbType="Float")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
+		public System.Nullable<double> precio
+		{
+			get
+			{
+				return this._precio;
+			}
+			set
+			{
+				if ((this._precio != value))
+				{
+					this.OnprecioChanging(value);
+					this.SendPropertyChanging();
+					this._precio = value;
+					this.SendPropertyChanged("precio");
+					this.OnprecioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_direccion", DbType="VarChar(255)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+		public string direccion
+		{
+			get
+			{
+				return this._direccion;
+			}
+			set
+			{
+				if ((this._direccion != value))
+				{
+					this.OndireccionChanging(value);
+					this.SendPropertyChanging();
+					this._direccion = value;
+					this.SendPropertyChanged("direccion");
+					this.OndireccionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mercadoPago", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=17)]
+		public System.Nullable<bool> mercadoPago
+		{
+			get
+			{
+				return this._mercadoPago;
+			}
+			set
+			{
+				if ((this._mercadoPago != value))
+				{
+					this.OnmercadoPagoChanging(value);
+					this.SendPropertyChanging();
+					this._mercadoPago = value;
+					this.SendPropertyChanged("mercadoPago");
+					this.OnmercadoPagoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precioReserva", DbType="Float")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18)]
+		public System.Nullable<double> precioReserva
+		{
+			get
+			{
+				return this._precioReserva;
+			}
+			set
+			{
+				if ((this._precioReserva != value))
+				{
+					this.OnprecioReservaChanging(value);
+					this.SendPropertyChanging();
+					this._precioReserva = value;
+					this.SendPropertyChanged("precioReserva");
+					this.OnprecioReservaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioFavorito", Storage="_ServicioFavoritos", ThisKey="idServicio", OtherKey="idServicio")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=19, EmitDefaultValue=false)]
+		public EntitySet<ServicioFavorito> ServicioFavoritos
+		{
+			get
+			{
+				if ((this.serializing 
+							&& (this._ServicioFavoritos.HasLoadedOrAssignedValues == false)))
+				{
+					return null;
+				}
+				return this._ServicioFavoritos;
+			}
+			set
+			{
+				this._ServicioFavoritos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioGrilla", Storage="_ServicioGrillas", ThisKey="idServicio", OtherKey="idServicio")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=20, EmitDefaultValue=false)]
+		public EntitySet<ServicioGrilla> ServicioGrillas
+		{
+			get
+			{
+				if ((this.serializing 
+							&& (this._ServicioGrillas.HasLoadedOrAssignedValues == false)))
+				{
+					return null;
+				}
+				return this._ServicioGrillas;
+			}
+			set
+			{
+				this._ServicioGrillas.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioGrupo", Storage="_ServicioGrupos", ThisKey="idServicio", OtherKey="idServicio")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=21, EmitDefaultValue=false)]
+		public EntitySet<ServicioGrupo> ServicioGrupos
+		{
+			get
+			{
+				if ((this.serializing 
+							&& (this._ServicioGrupos.HasLoadedOrAssignedValues == false)))
+				{
+					return null;
+				}
+				return this._ServicioGrupos;
+			}
+			set
+			{
+				this._ServicioGrupos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Categoria_Servicio", Storage="_Categoria", ThisKey="idCategoria", OtherKey="idCategoria", IsForeignKey=true)]
+		public Categoria Categoria
+		{
+			get
+			{
+				return this._Categoria.Entity;
+			}
+			set
+			{
+				Categoria previousValue = this._Categoria.Entity;
+				if (((previousValue != value) 
+							|| (this._Categoria.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Categoria.Entity = null;
+						previousValue.Servicios.Remove(this);
+					}
+					this._Categoria.Entity = value;
+					if ((value != null))
+					{
+						value.Servicios.Add(this);
+						this._idCategoria = value.idCategoria;
+					}
+					else
+					{
+						this._idCategoria = default(int);
+					}
+					this.SendPropertyChanged("Categoria");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Servicio", Storage="_Usuario", ThisKey="idProveedor", OtherKey="idUsuario", IsForeignKey=true)]
+		public Usuario Usuario
+		{
+			get
+			{
+				return this._Usuario.Entity;
+			}
+			set
+			{
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.Servicios.Remove(this);
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Servicios.Add(this);
+						this._idProveedor = value.idUsuario;
+					}
+					else
+					{
+						this._idProveedor = default(int);
+					}
+					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Zona_Servicio", Storage="_Zona", ThisKey="idZona", OtherKey="idZona", IsForeignKey=true)]
+		public Zona Zona
+		{
+			get
+			{
+				return this._Zona.Entity;
+			}
+			set
+			{
+				Zona previousValue = this._Zona.Entity;
+				if (((previousValue != value) 
+							|| (this._Zona.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Zona.Entity = null;
+						previousValue.Servicios.Remove(this);
+					}
+					this._Zona.Entity = value;
+					if ((value != null))
+					{
+						value.Servicios.Add(this);
+						this._idZona = value.idZona;
+					}
+					else
+					{
+						this._idZona = default(int);
+					}
+					this.SendPropertyChanged("Zona");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ServicioFavoritos(ServicioFavorito entity)
+		{
+			this.SendPropertyChanging();
+			entity.Servicio = this;
+		}
+		
+		private void detach_ServicioFavoritos(ServicioFavorito entity)
+		{
+			this.SendPropertyChanging();
+			entity.Servicio = null;
+		}
+		
+		private void attach_ServicioGrillas(ServicioGrilla entity)
+		{
+			this.SendPropertyChanging();
+			entity.Servicio = this;
+		}
+		
+		private void detach_ServicioGrillas(ServicioGrilla entity)
+		{
+			this.SendPropertyChanging();
+			entity.Servicio = null;
+		}
+		
+		private void attach_ServicioGrupos(ServicioGrupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Servicio = this;
+		}
+		
+		private void detach_ServicioGrupos(ServicioGrupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Servicio = null;
+		}
+		
+		private void Initialize()
+		{
+			this._ServicioFavoritos = new EntitySet<ServicioFavorito>(new Action<ServicioFavorito>(this.attach_ServicioFavoritos), new Action<ServicioFavorito>(this.detach_ServicioFavoritos));
+			this._ServicioGrillas = new EntitySet<ServicioGrilla>(new Action<ServicioGrilla>(this.attach_ServicioGrillas), new Action<ServicioGrilla>(this.detach_ServicioGrillas));
+			this._ServicioGrupos = new EntitySet<ServicioGrupo>(new Action<ServicioGrupo>(this.attach_ServicioGrupos), new Action<ServicioGrupo>(this.detach_ServicioGrupos));
+			this._Categoria = default(EntityRef<Categoria>);
+			this._Usuario = default(EntityRef<Usuario>);
+			this._Zona = default(EntityRef<Zona>);
+			OnCreated();
+		}
+		
+		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnDeserializing(StreamingContext context)
+		{
+			this.Initialize();
+		}
+		
+		[global::System.Runtime.Serialization.OnSerializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnSerializing(StreamingContext context)
+		{
+			this.serializing = true;
+		}
+		
+		[global::System.Runtime.Serialization.OnSerializedAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnSerialized(StreamingContext context)
+		{
+			this.serializing = false;
 		}
 	}
 	

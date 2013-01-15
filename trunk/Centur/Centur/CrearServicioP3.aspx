@@ -4,7 +4,14 @@
     <script src="Scripts/external/globalize.js"></script>
     <script src="Scripts/external/globalize.culture.de-DE.js"></script>
     <script src="Scripts/addressPicker.js"></script>
-
+    <style>
+        *
+        {
+            border:0;
+            margin:0;
+            padding:0;    
+        }    
+    </style>
     <script language="javascript">
         $.widget("ui.timespinner", $.ui.spinner, {
             options: {

@@ -32,8 +32,7 @@ Public Class MisTurnos
                 DropDownListServiciosPropios.DataBind()
             End If
         Else
-            tomados.Visible = False
-            labelNoReservados.Visible = True
+            LinkButton4.Visible = False
         End If
 
     End Sub

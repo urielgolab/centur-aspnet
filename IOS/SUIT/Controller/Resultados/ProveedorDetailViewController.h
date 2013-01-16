@@ -19,9 +19,10 @@
     IBOutlet UITextView *descripcionTextView;
     IBOutlet UIButton *pedirTurno;
     IBOutlet UIButton *mapaButton;
-    
+    IBOutlet UIButton *verGruposButton;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andProveedor:(Servicio*)aProveedor;
+- (IBAction)verGrupos:(UIButton *)sender;
 
 @end

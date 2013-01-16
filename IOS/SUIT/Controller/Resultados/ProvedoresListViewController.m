@@ -80,13 +80,13 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (NSIndexPath*)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     Servicio *proveedor = ((ProveedorCell*)[tableView cellForRowAtIndexPath:indexPath]).proveedor;
     
     ProveedorDetailViewController * pd = [[ProveedorDetailViewController alloc]initWithNibName:@"ProveedorDetailViewController" bundle:nil andProveedor:proveedor];
 
     [self.navigationController pushViewController:pd animated:YES];
+    return nil;
 }
 
 @end

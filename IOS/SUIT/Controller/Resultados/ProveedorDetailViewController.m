@@ -11,7 +11,7 @@
 #import "SRVBusqueda.h"
 #import "FechaPikerViewController.h"
 #import "TurnosViewController.h"
-
+#import "GruposDeServicioViewController.h"
 
 @interface ProveedorDetailViewController ()
 
@@ -48,6 +48,7 @@
     pedirTurno = nil;
     mapaButton = nil;
     nombreLabel = nil;
+    verGruposButton = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -145,9 +146,9 @@
     direccionLabel.text = proveedor.Direccion;
     descripcionTextView.text = proveedor.Descripcion;
     mapaButton.hidden =  !proveedor.isCoordinated;
-
+    verGruposButton.hidden = YES;
     if ([SRVProfile GetInstance].currentUser) {
-        
+        verGruposButton.hidden = NO;
         if (proveedor.EsFavorito ) {
             //esfavorito
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(quitarFavoritoTouched)];
@@ -196,4 +197,9 @@
     }
 }
 
+- (IBAction)verGrupos:(UIButton *)sender {
+    GruposDeServicioViewController *gp = [[GruposDeServicioViewController alloc]initWithNibName:@"GruposDeServicioViewController" bundle:nil andServicio:proveedor];
+    [self.navigationController pushViewController:gp animated:YES];
+    
+}
 @end

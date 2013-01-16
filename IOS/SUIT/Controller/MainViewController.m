@@ -9,7 +9,8 @@
 #import "MainViewController.h"
 #import "BusquedaCategoriaViewController.h"
 #import "ProvedoresFavoritosViewController.h"
-
+#import "MisTurnosViewController.h"
+#import "MisGruposViewController.h"
 @interface MainViewController () {
     NSMutableArray *_objects;
 }
@@ -52,6 +53,11 @@
     // Release any retained subviews of the main view.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
@@ -71,7 +77,10 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    if ([SRVProfile GetInstance].currentUser) {
+        return 2;
+    }
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -79,7 +88,7 @@
     if (section == 0 ) {
         return 1;
     }else if (section == 1) {
-        return 2;
+        return 3;
     }
     
     return 0;
@@ -89,7 +98,7 @@
     if (section == 0 ) {
         return @"Busquedas";
     }else if (section == 1) {
-        return @"Mis Turnos";
+        return @"Usuario";
     }
     return nil;
 }
@@ -119,7 +128,9 @@
             cell.textLabel.text = @"Mis turnos Actuales";
         }else if (row == 1) {
             cell.textLabel.text = @"Favoritos";
-        }    
+        }else if (row == 2){
+            cell.textLabel.text = @"Mis Grupos";
+        }
     }
     return cell;
 }
@@ -138,13 +149,25 @@
     
     if (section == 1) {
         if (row == 0) {
-            
+            if ([SRVProfile GetInstance].currentUser) {
+                MisTurnosViewController* fvc = [[MisTurnosViewController alloc]initWithNibName:@"MisTurnosViewController" bundle:nil];
+                [self.navigationController pushViewController:fvc animated:YES];
+                
+            }
+
         }
         if (row == 1) {
             if ([SRVProfile GetInstance].currentUser) {
                 ProvedoresFavoritosViewController* fvc = [[ProvedoresFavoritosViewController alloc]initWithNibName:@"ProvedoresListViewController" bundle:nil];
                 [self.navigationController pushViewController:fvc animated:YES];
 
+            }
+        }
+        if (row == 2) {
+            if ([SRVProfile GetInstance].currentUser) {
+                MisGruposViewController* fvc = [[MisGruposViewController alloc]initWithNibName:@"MisGruposViewController" bundle:nil];
+                [self.navigationController pushViewController:fvc animated:YES];
+                
             }
         }
     }

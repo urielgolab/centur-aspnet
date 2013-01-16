@@ -82,7 +82,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVBusqueda);
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary ];
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
-    [df setDateFormat:@"YYYY-MM-dd"];
+    [df setDateFormat:@"MM/dd/YYYYY"];
     
     [params setObject:servicio.ID forKey:@"servicioID"];
     [params setObject: [df stringFromDate:dia ] forKey:@"TurnoFecha"];
@@ -93,7 +93,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVBusqueda);
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         NSLog(@"%@",JSON);
-        NSArray* result  = [NSArray arrayWhitTurnosForm: JSON];//[JSON objectForKey:@"Body" ]];
+        NSArray* result  = [NSArray arrayWhitTurnosForm:  [JSON objectForKey:@"Body" ]];//[JSON objectForKey:@"Body" ]];
 
         [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_TURNOSSERVICIO_OK object:result];
     }
@@ -120,6 +120,8 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVBusqueda);
     [params setObject: turno.horaInicio forKey:@"TurnoHoraInicio"];
     [params setObject: turno.horaFin forKey:@"TurnoHoraFin"];
     [params setObject: usuario.usuarioID forKey:@"usuarioID"];
+    [params setObject: @"False" forKey:@"esProveedor"];
+//servicioID=3&TurnoFecha=12/12/2012&TurnoHoraInicio=10:30&TurnoHoraFin=11:00&usuarioID=1&esProveedor=False
     
     
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
@@ -134,9 +136,31 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVBusqueda);
             [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_RESERVARTURNOSSERVICIO_FAILED object:nil];
                                                                                             
                                                                                         }];
-    
     [operation start];
+}
 
+-(void)cancelarTurno:(Turno*)turno {
+    NSString* url = [NSString stringWithFormat:@"%@", SERVICE_BASE_URL ];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
+    
+    //    ReservarTurno(ByVal servicioID As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal usuarioID As Integer)
+    
+    [params setObject:turno.idTurno forKey:@"idTurno"];
+    
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"CancelarTurno" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_CANCELARTURNO_OK object:turno];
+    }
+                                                                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                                                            NSLog(@"%@",error);
+                                                                                            [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_CANCELARTURNO_FAILED object:nil];
+                                                                                            
+                                                                                        }];
+    [operation start];
 }
 
 -(void)agregarAfavoritos:(Servicio*)servicio usuario:(Usuario*)usuario{
@@ -179,7 +203,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVBusqueda);
     
     
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
-    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"AltaFavoritos" parameters:params];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"BajaFavoritos" parameters:params];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
@@ -220,6 +244,117 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVBusqueda);
                                                                                         }];
     
     [operation start];
+}
+
+-(void)startsearchMisTurnos:(Usuario*)usuario{
+    NSString* url = [NSString stringWithFormat:@"%@", SERVICE_BASE_URL ];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
+    
+    //    ReservarTurno(ByVal servicioID As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal usuarioID As Integer)
+    
+    [params setObject: usuario.usuarioID forKey:@"usuarioID"];
+    
+    
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"VerTurnosCliente" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSArray *serviciosFavoritos = [NSArray arrayWhitTurnosForm: [JSON objectForKey:@"Body" ]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_SERVICIOSMISTURNOS_OK object:serviciosFavoritos];
+    }
+                                                                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                                                            NSLog(@"%@",error);
+                                                                                            [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_SERVICIOSMISTURNOS_FAILED object:nil];
+                                                                                            
+                                                                                        }];
+    
+    [operation start];
+}
+
+-(void)startsearchMisGrupos:(Usuario*)usuario{
+    NSString* url = [NSString stringWithFormat:@"%@", SERVICE_BASE_URL ];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
+    
+    //    ReservarTurno(ByVal servicioID As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal usuarioID As Integer)
+    
+    [params setObject: usuario.usuarioID forKey:@"usuarioID"];
+    
+    
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"VerGrupos" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"%@",JSON);
+        NSArray* grupos = [NSArray arrayWhitGruposForm: [JSON objectForKey:@"Body" ]];
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_GRUPOS_OK object: grupos];
+    }
+    failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+    NSLog(@"%@",error);
+    [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_GRUPOS_FAILED object:nil];
+                                                                                            
+                                                                                        }];
+    
+    [operation start];
+}
+
+-(void)startsearchServiciosDeGrupo:(Grupo*)grupo{
+    NSString* url = [NSString stringWithFormat:@"%@", SERVICE_BASE_URL ];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
+    
+    //    ReservarTurno(ByVal servicioID As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal usuarioID As Integer)
+    
+    [params setObject: grupo.ID forKey:@"grupoID"];
+    
+    
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"VerDetalleGrupo" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"%@",JSON);
+        NSArray* servicios = [NSArray arrayWhitServiciosForm: [[JSON objectForKey:@"Body"]objectForKey:@"ServicioList"]];
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_SERVICIOSFGrupo_OK object: servicios];
+    }
+                                                                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        NSLog(@"%@",error);
+        [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_SERVICIOSGrupo_FAILED object:nil];
+                                                                                            
+                                                                                        }];
+    
+    [operation start];
+}
+
+-(void)startsearchGruposDeServicio:(Servicio*)servicio{
+    NSString* url = [NSString stringWithFormat:@"%@", SERVICE_BASE_URL ];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
+    
+    //    ReservarTurno(ByVal servicioID As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal usuarioID As Integer)
+    
+    [params setObject: servicio.ID forKey:@"servicioID"];
+    [params setObject:[SRVProfile GetInstance].currentUser.usuarioID forKey:@"usuarioID"];
+    
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"VerGruposAsociadosAServicio" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"%@",JSON);
+        NSArray* grupos = [NSArray arrayWhitGruposForm: [[JSON objectForKey:@"Body"]objectForKey:@"ServicioList"]];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_GRUPOSDeServicio_OK object: grupos];
+    }
+                                                                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                                                            NSLog(@"%@",error);
+                                                                                            [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_GRUPOSDeServicio_FAILED object:nil];
+                                                                                            
+                                                                                        }];
+    
+    [operation start];
+
 }
 
 @end

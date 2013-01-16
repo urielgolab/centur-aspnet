@@ -68,7 +68,7 @@ typedef enum {
 }
 
 -(BOOL)canCreateUser{
-    return [usuarioTextField.text length]>6 && [usuarioTextField.text length]>5;
+    return [usuarioTextField.text length]>2 && [usuarioTextField.text length]>2;
 }
 
 #pragma mark Notification

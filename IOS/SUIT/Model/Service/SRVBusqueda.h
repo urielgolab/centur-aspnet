@@ -30,13 +30,21 @@ CWL_DECLARE_SINGLETON_FOR_CLASS(SRVBusqueda);
 -(void)buscarTurnosPara:(Servicio*)servicio paraDia:(NSDate*)dia;
 
 -(void)reservarTurno:(Turno*)turno servicio:(Servicio*)servicio usuario:(Usuario*)usuario;
-
+-(void)cancelarTurno:(Turno*)turno;
 
 -(void)agregarAfavoritos:(Servicio*)servicio usuario:(Usuario*)usuario;
 
 -(void)quitarDefavoritos:(Servicio*)servicio usuario:(Usuario*)usuario;
 
-
 -(void)startsearchFavoritosFor:(Usuario*)usuario;
+
+-(void)startsearchMisGrupos:(Usuario*)usuario;
+
+-(void)startsearchServiciosDeGrupo:(Grupo*)grupo;
+
+-(void)startsearchMisTurnos:(Usuario*)usuario;
+
+-(void)startsearchGruposDeServicio:(Servicio*)servicio;
+
 
 @end

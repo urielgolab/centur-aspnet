@@ -12,6 +12,7 @@
 #import "Servicio.h"
 #import "Usuario.h"
 #import "Turno.h"
+#import "Grupo.h"
 
 @interface NSArray (Tools)
 
@@ -20,4 +21,5 @@
 +(NSArray*)arrayWhitServiciosForm:(NSArray*)arrayOfDictionary;
 +(NSArray*)arrayWhitUsuariosForm:(NSArray*)arrayOfDictionary;
 +(NSArray*)arrayWhitTurnosForm:(NSArray*)arrayOfDictionary;
++(NSArray*)arrayWhitGruposForm:(NSArray*)arrayOfDictionary;
 @end

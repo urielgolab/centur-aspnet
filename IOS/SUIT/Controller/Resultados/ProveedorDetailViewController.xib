@@ -175,7 +175,7 @@
 						<string key="NSFrame">{{16, 320}, {109, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="768197196"/>
+						<reference key="NSNextKeyView" ref="927667869"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -205,10 +205,10 @@
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
-					<object class="IBUIButton" id="768197196">
+					<object class="IBUIButton" id="927667869">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{189, 320}, {114, 37}}</string>
+						<int key="NSvFlags">-2147483356</int>
+						<string key="NSFrame">{{189, 317}, {111, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -217,7 +217,7 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">Ver en Mapa</string>
+						<string key="IBUINormalTitle">Ver Grupos</string>
 						<reference key="IBUIHighlightedTitleColor" ref="174466613"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -291,19 +291,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">mapaButton</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="768197196"/>
-					</object>
-					<int key="connectionID">16</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">nombreLabel</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="333891932"/>
 					</object>
 					<int key="connectionID">17</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">verGruposButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="927667869"/>
+					</object>
+					<int key="connectionID">23</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -316,12 +316,12 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">mapTouched:</string>
-						<reference key="source" ref="768197196"/>
+						<string key="label">verGrupos:</string>
+						<reference key="source" ref="927667869"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">18</int>
+					<int key="connectionID">22</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -342,7 +342,7 @@
 							<reference ref="923331316"/>
 							<reference ref="950562734"/>
 							<reference ref="440137150"/>
-							<reference ref="768197196"/>
+							<reference ref="927667869"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -388,8 +388,8 @@
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">11</int>
-						<reference key="object" ref="768197196"/>
+						<int key="objectID">20</int>
+						<reference key="object" ref="927667869"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</array>
@@ -401,7 +401,7 @@
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="20.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -412,7 +412,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">19</int>
+			<int key="maxID">23</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -427,20 +427,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">ProveedorDetailViewController</string>
 					<string key="superclassName">BaseViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="mapTouched:">UIButton</string>
-						<string key="pedirTurnoTouch:">UIButton</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="mapTouched:">
-							<string key="name">mapTouched:</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">verGrupos:</string>
+						<string key="NS.object.0">UIButton</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">verGrupos:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">verGrupos:</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
-						<object class="IBActionInfo" key="pedirTurnoTouch:">
-							<string key="name">pedirTurnoTouch:</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-					</dictionary>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="descripcionTextView">UITextView</string>
 						<string key="direccionLabel">UILabel</string>
@@ -448,6 +445,7 @@
 						<string key="nombreLabel">UILabel</string>
 						<string key="pedirTurno">UIButton</string>
 						<string key="thumbsImage">UIImageView</string>
+						<string key="verGruposButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="descripcionTextView">
@@ -473,6 +471,10 @@
 						<object class="IBToOneOutletInfo" key="thumbsImage">
 							<string key="name">thumbsImage</string>
 							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="verGruposButton">
+							<string key="name">verGruposButton</string>
+							<string key="candidateClassName">UIButton</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

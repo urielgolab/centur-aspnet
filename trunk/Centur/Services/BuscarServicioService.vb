@@ -81,20 +81,36 @@ Public Class BuscarServicioService
         Return oServicio
     End Function
 
-    Public Function VerGruposAsociadosAServicio(ByVal ServicioID As Integer) As GrupoList
-        Dim ds As DataSet = oBuscarServicioDA.VerGruposAsociadosAServicio(ServicioID)
+    Public Function VerGruposAsociadosAServicio(ByVal ServicioID As Integer, Optional ByVal UsuarioID As Integer = 0) As GrupoList
         Dim oGrupoList As New GrupoList
 
-        For Each dr As DataRow In ds.Tables(0).Rows
-            Dim oGrupo As New Grupo
+        If UsuarioID = 0 Then
+            Dim ds As DataSet = oBuscarServicioDA.VerGruposAsociadosAServicio(ServicioID)
 
-            oGrupo.ID = CInt(dr("idGrupo"))
-            oGrupo.Nombre = CStr(dr("Nombre"))
-            oGrupo.Descripcion = CStr(dr("descripcion"))
+            For Each dr As DataRow In ds.Tables(0).Rows
+                Dim oGrupo As New Grupo
 
+                oGrupo.ID = CInt(dr("idGrupo"))
+                oGrupo.Nombre = CStr(dr("Nombre"))
+                oGrupo.Descripcion = CStr(dr("descripcion"))
 
-            oGrupoList.Add(oGrupo)
-        Next
+                oGrupoList.Add(oGrupo)
+            Next
+        Else
+            Dim ds As DataSet = oBuscarServicioDA.VerGruposAsociadosAServicioConUsuarios(ServicioID, UsuarioID)
+
+            For Each dr As DataRow In ds.Tables(0).Rows
+                Dim oGrupo As New Grupo
+
+                oGrupo.ID = CInt(dr("idGrupo"))
+                oGrupo.Nombre = CStr(dr("Nombre"))
+                oGrupo.Descripcion = CStr(dr("descripcion"))
+                oGrupo.usuarioEstaEnGrupo = CBool(dr("EstaEnGrupo"))
+
+                oGrupoList.Add(oGrupo)
+            Next
+
+        End If
 
         Return oGrupoList
     End Function
@@ -121,13 +137,7 @@ Public Class BuscarServicioService
 
     Public Function VerTurnosServicioxDia(ByVal idServicio As Integer, ByVal fecha As Date, ByVal esProveedor As Boolean, Optional ByVal UsuarioID As Integer = 0) As TurnoList
         Dim ds As DataSet = oBuscarServicioDA.VerTurnosServicioxDia(idServicio, fecha)
-
-        ds.Tables(0).Columns.Add("usuarioID")
-
-
         Dim oTurnoList As New TurnoList
-
-
 
         If esProveedor Then
             For Each dr As DataRow In ds.Tables(0).Rows
@@ -135,6 +145,7 @@ Public Class BuscarServicioService
                 oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
                 oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
                 oTurno.Disponible = dr("disponible")
+                'oTurno.Fecha = Format(dr("fecha"), "MM/dd/yyyy")
                 oTurno.Fecha = CStr(dr("fecha"))
                 oTurno.ServicioID = CInt(dr("servicioID"))
                 oTurno.UsuarioID = UsuarioID
@@ -148,6 +159,9 @@ Public Class BuscarServicioService
                     oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
                     oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
                     oTurno.Disponible = dr("disponible")
+                    'Dim a As String = CStr(dr("fecha"))
+                    'Dim b As String = Format(a, "MM/dd/yyyy")
+                    'oTurno.Fecha = Format(dr("fecha"), "MM/dd/yyyy")
                     oTurno.Fecha = CStr(dr("fecha"))
                     oTurno.ServicioID = CInt(dr("servicioID"))
 

@@ -28,6 +28,13 @@ Public Class BuscarServicioDA
 
     End Function
 
+    Public Function VerGruposAsociadosAServicioConUsuarios(ByVal idServicio As Integer, ByVal idUsuario As Integer) As DataSet
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idServicio", idServicio), New SqlParameter("@idUsuario", idUsuario)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "GrupoBuscarPor", params)
+
+    End Function
+
     Public Function VerTurnosServicioxDia(ByVal idServicio As Integer, ByVal fecha As Date) As DataSet
         'DEVOLVER TODOS LOS TURNOS (DISPONIBLES Y OCUPADOS) DE ESE DIA PARA ESE SERVICIO. UN FLAG DEBE INDICAR SI QUEDA AL MENOS UN LUGAR 
         'EN EL CASO QUE UN USUARIO PUEDA RESERVAR 1+ TURNO, EN ESTE SP SE DEBERIA DEVOLVER LA CANTIDAD DE LUGARES DISPONIBLES --> UN USUARIO SOLO PUEDE RESERVAR DE UN TURNO A LA VEZ!!

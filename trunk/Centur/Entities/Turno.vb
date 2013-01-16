@@ -8,6 +8,7 @@ Public Class Turno
     Private _horaFin As String
     Private _disponible As Boolean
     Private _fecha As String
+    Private _fechaMMDD As String
     Private _servicioID As Integer
     Private _servicioNombre As String
     Private _usuarioID As Integer
@@ -50,6 +51,15 @@ Public Class Turno
         End Get
         Set(ByVal value As Boolean)
             _disponible = value
+        End Set
+    End Property
+
+    Public Property FechaMMDD() As String
+        Get
+            Return _fechaMMDD
+        End Get
+        Set(ByVal value As String)
+            _fechaMMDD = value
         End Set
     End Property
 

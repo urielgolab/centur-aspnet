@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F01A012169F7C7E00141895 /* MisTurnosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F01A010169F7C7E00141895 /* MisTurnosViewController.m */; };
+		8F01A013169F7C7E00141895 /* MisTurnosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F01A011169F7C7E00141895 /* MisTurnosViewController.xib */; };
+		8F01A018169F80E700141895 /* MisGruposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F01A016169F80E700141895 /* MisGruposViewController.m */; };
+		8F01A019169F80E700141895 /* MisGruposViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F01A017169F80E700141895 /* MisGruposViewController.xib */; };
+		8F01A01C169F874600141895 /* Grupo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F01A01B169F874600141895 /* Grupo.m */; };
+		8F01A01F169F8C8700141895 /* ProvedoresDeGrupoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F01A01E169F8C8600141895 /* ProvedoresDeGrupoViewController.m */; };
 		8F3EE9A015F1BA280024F3E8 /* ProveedorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3EE99E15F1BA280024F3E8 /* ProveedorDetailViewController.m */; };
 		8F3EE9A115F1BA280024F3E8 /* ProveedorDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F3EE99F15F1BA280024F3E8 /* ProveedorDetailViewController.xib */; };
 		8F3EE9A615F1BEEB0024F3E8 /* stationimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3EE9A515F1BEEB0024F3E8 /* stationimage.png */; };
@@ -103,6 +109,8 @@
 		8FE06FF01698BE8300A1EA1D /* Turno.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE06FEF1698BE8100A1EA1D /* Turno.m */; };
 		8FE06FF41698C47100A1EA1D /* TurnosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE06FF21698C46D00A1EA1D /* TurnosViewController.m */; };
 		8FE06FF51698C47100A1EA1D /* TurnosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE06FF31698C46F00A1EA1D /* TurnosViewController.xib */; };
+		8FF7BEA316A62353007C9DAC /* GruposDeServicioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF7BEA116A62351007C9DAC /* GruposDeServicioViewController.m */; };
+		8FF7BEA416A62353007C9DAC /* GruposDeServicioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF7BEA216A62352007C9DAC /* GruposDeServicioViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +124,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F01A00F169F7C7E00141895 /* MisTurnosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MisTurnosViewController.h; sourceTree = "<group>"; };
+		8F01A010169F7C7E00141895 /* MisTurnosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MisTurnosViewController.m; sourceTree = "<group>"; };
+		8F01A011169F7C7E00141895 /* MisTurnosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MisTurnosViewController.xib; sourceTree = "<group>"; };
+		8F01A015169F80E700141895 /* MisGruposViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MisGruposViewController.h; sourceTree = "<group>"; };
+		8F01A016169F80E700141895 /* MisGruposViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MisGruposViewController.m; sourceTree = "<group>"; };
+		8F01A017169F80E700141895 /* MisGruposViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MisGruposViewController.xib; sourceTree = "<group>"; };
+		8F01A01A169F874600141895 /* Grupo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grupo.h; sourceTree = "<group>"; };
+		8F01A01B169F874600141895 /* Grupo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grupo.m; sourceTree = "<group>"; };
+		8F01A01D169F8C8600141895 /* ProvedoresDeGrupoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvedoresDeGrupoViewController.h; sourceTree = "<group>"; };
+		8F01A01E169F8C8600141895 /* ProvedoresDeGrupoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvedoresDeGrupoViewController.m; sourceTree = "<group>"; };
 		8F3EE99D15F1BA280024F3E8 /* ProveedorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProveedorDetailViewController.h; sourceTree = "<group>"; };
 		8F3EE99E15F1BA280024F3E8 /* ProveedorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProveedorDetailViewController.m; sourceTree = "<group>"; };
 		8F3EE99F15F1BA280024F3E8 /* ProveedorDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProveedorDetailViewController.xib; sourceTree = "<group>"; };
@@ -277,6 +295,9 @@
 		8FE06FF11698C46C00A1EA1D /* TurnosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurnosViewController.h; sourceTree = "<group>"; };
 		8FE06FF21698C46D00A1EA1D /* TurnosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TurnosViewController.m; sourceTree = "<group>"; };
 		8FE06FF31698C46F00A1EA1D /* TurnosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TurnosViewController.xib; sourceTree = "<group>"; };
+		8FF7BEA016A6234F007C9DAC /* GruposDeServicioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GruposDeServicioViewController.h; sourceTree = "<group>"; };
+		8FF7BEA116A62351007C9DAC /* GruposDeServicioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GruposDeServicioViewController.m; sourceTree = "<group>"; };
+		8FF7BEA216A62352007C9DAC /* GruposDeServicioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GruposDeServicioViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +457,8 @@
 				8F7F06DA15F2958200308236 /* Usuario.m */,
 				8FE06FEE1698BE8000A1EA1D /* Turno.h */,
 				8FE06FEF1698BE8100A1EA1D /* Turno.m */,
+				8F01A01A169F874600141895 /* Grupo.h */,
+				8F01A01B169F874600141895 /* Grupo.m */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -669,6 +692,17 @@
 				8FE06FF31698C46F00A1EA1D /* TurnosViewController.xib */,
 				8F970D4A169E3F3800EAA1C3 /* ProvedoresFavoritosViewController.h */,
 				8F970D4B169E3F3800EAA1C3 /* ProvedoresFavoritosViewController.m */,
+				8F01A01D169F8C8600141895 /* ProvedoresDeGrupoViewController.h */,
+				8F01A01E169F8C8600141895 /* ProvedoresDeGrupoViewController.m */,
+				8F01A00F169F7C7E00141895 /* MisTurnosViewController.h */,
+				8F01A010169F7C7E00141895 /* MisTurnosViewController.m */,
+				8F01A011169F7C7E00141895 /* MisTurnosViewController.xib */,
+				8F01A015169F80E700141895 /* MisGruposViewController.h */,
+				8F01A016169F80E700141895 /* MisGruposViewController.m */,
+				8F01A017169F80E700141895 /* MisGruposViewController.xib */,
+				8FF7BEA016A6234F007C9DAC /* GruposDeServicioViewController.h */,
+				8FF7BEA116A62351007C9DAC /* GruposDeServicioViewController.m */,
+				8FF7BEA216A62352007C9DAC /* GruposDeServicioViewController.xib */,
 			);
 			path = Resultados;
 			sourceTree = "<group>";
@@ -781,6 +815,9 @@
 				8FE06FD716988FAE00A1EA1D /* SignUpViewController.xib in Resources */,
 				8FE06FF51698C47100A1EA1D /* TurnosViewController.xib in Resources */,
 				8F970D48169E385800EAA1C3 /* Default-568h@2x.png in Resources */,
+				8F01A013169F7C7E00141895 /* MisTurnosViewController.xib in Resources */,
+				8F01A019169F80E700141895 /* MisGruposViewController.xib in Resources */,
+				8FF7BEA416A62353007C9DAC /* GruposDeServicioViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -873,6 +910,11 @@
 				8FE06FF01698BE8300A1EA1D /* Turno.m in Sources */,
 				8FE06FF41698C47100A1EA1D /* TurnosViewController.m in Sources */,
 				8F970D4C169E3F3800EAA1C3 /* ProvedoresFavoritosViewController.m in Sources */,
+				8F01A012169F7C7E00141895 /* MisTurnosViewController.m in Sources */,
+				8F01A018169F80E700141895 /* MisGruposViewController.m in Sources */,
+				8F01A01C169F874600141895 /* Grupo.m in Sources */,
+				8F01A01F169F8C8700141895 /* ProvedoresDeGrupoViewController.m in Sources */,
+				8FF7BEA316A62353007C9DAC /* GruposDeServicioViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

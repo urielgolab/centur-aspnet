@@ -68,4 +68,15 @@
     return [NSArray arrayWithArray:aux]; 
 }
 
++(NSArray*)arrayWhitGruposForm:(NSArray*)arrayOfDictionary{
+    NSMutableArray * aux = [NSMutableArray array];
+    
+    for (NSDictionary* dict in arrayOfDictionary) {
+        Grupo* grupo = [[Grupo alloc]initWhitDictionary:dict];
+        [aux addObject: grupo];
+    }
+    return [NSArray arrayWithArray:aux];
+
+}
+
 @end

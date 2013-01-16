@@ -21,6 +21,9 @@
         self.horaFin = NIL_IF_NSNULL([dict objectForKey:@"horaFin"]);
         self.horaInicio = NIL_IF_NSNULL([dict objectForKey:@"horaInicio"]);
         self.idTurno = NIL_IF_NSNULL([dict objectForKey:@"idTurno"]);
+        self.ClienteNombre = NIL_IF_NSNULL([dict objectForKey:@"ClienteNombre"]);
+        self.ServicioNombre = NIL_IF_NSNULL([dict objectForKey:@"ServicioNombre"]);
+
     }
     return self;
 }

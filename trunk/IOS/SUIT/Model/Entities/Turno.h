@@ -12,6 +12,8 @@
 
 @property(nonatomic) BOOL Disponible;
 @property(nonatomic,retain) NSString* Fecha;
+@property(nonatomic,retain) NSString* ClienteNombre;
+@property(nonatomic,retain) NSString* ServicioNombre;
 @property(nonatomic,retain) NSNumber* ServicioID;
 @property(nonatomic,retain) NSString* horaFin;
 @property(nonatomic,retain) NSString* horaInicio;

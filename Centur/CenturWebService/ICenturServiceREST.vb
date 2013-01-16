@@ -106,6 +106,9 @@ Public Interface ICenturServiceREST
 <WebGet(UriTemplate:="/BajaServicioAGrupo?grupoID={grupoID}&servicioID={servicioID}", ResponseFormat:=WebMessageFormat.Json)> _
     Function BajaServicioAGrupo(ByVal grupoID As Integer, ByVal servicioID As Integer) As Stream
 
+    <OperationContract()>
+<WebGet(UriTemplate:="/VerGruposAsociadosAServicio?servicioID={servicioID}&usuarioID={usuarioID}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function VerGruposAsociadosAServicio(ByVal servicioID As Integer, ByVal usuarioID As Integer) As Stream
 
 
 

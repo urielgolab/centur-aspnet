@@ -60,6 +60,7 @@ Public Class CenturServiceREST
         For Each oTurno As Turno In turnos
             oTurno.horaFin = oTurno.horaFin.Replace(".", ":")
             oTurno.horaInicio = oTurno.horaInicio.Replace(".", ":")
+            'oTurno.Fecha = Format(oTurno.Fecha, "MM/dd/yyyy")
         Next
 
         Dim result As New JSONResult
@@ -399,6 +400,23 @@ Public Class CenturServiceREST
         Dim strJSON As String = js.Serialize(result)
         Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
 
+    End Function
+
+
+    Function VerGruposAsociadosAServicio(ByVal servicioID As Integer, ByVal usuarioID As Integer) As Stream Implements ICenturServiceREST.VerGruposAsociadosAServicio
+        Dim Mensaje As String = ""
+        Dim Status As Boolean
+
+        Dim grupos As GrupoList = oBuscarServicioService.VerGruposAsociadosAServicio(servicioID, usuarioID)
+
+        Dim result As New JSONResult
+        result.Estado = Status
+        result.Mensaje = Mensaje
+        result.Body = grupos
+
+        Dim js As New JavaScriptSerializer()
+        Dim strJSON As String = js.Serialize(result)
+        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
     End Function
 
 

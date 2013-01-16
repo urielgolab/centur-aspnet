@@ -145,7 +145,7 @@ Public Class BuscarServicioService
                 oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
                 oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
                 oTurno.Disponible = dr("disponible")
-                'oTurno.Fecha = Format(dr("fecha"), "MM/dd/yyyy")
+                oTurno.FechaMMDD = Format(dr("fecha"), "MM/dd/yyyy")
                 oTurno.Fecha = CStr(dr("fecha"))
                 oTurno.ServicioID = CInt(dr("servicioID"))
                 oTurno.UsuarioID = UsuarioID
@@ -159,9 +159,7 @@ Public Class BuscarServicioService
                     oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
                     oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
                     oTurno.Disponible = dr("disponible")
-                    'Dim a As String = CStr(dr("fecha"))
-                    'Dim b As String = Format(a, "MM/dd/yyyy")
-                    'oTurno.Fecha = Format(dr("fecha"), "MM/dd/yyyy")
+                    oTurno.FechaMMDD = Format(dr("fecha"), "MM/dd/yyyy")
                     oTurno.Fecha = CStr(dr("fecha"))
                     oTurno.ServicioID = CInt(dr("servicioID"))
 

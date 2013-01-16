@@ -1,0 +1,5 @@
+C:\Users\MaxiHP\Documents\Visual Studio 2010\Projects\EnvioRecordatorios\EnvioRecordatorios\bin\Release\EnvioRecordatorios.exe
+C:\Users\MaxiHP\Documents\Visual Studio 2010\Projects\EnvioRecordatorios\EnvioRecordatorios\bin\Release\EnvioRecordatorios.pdb
+C:\Users\MaxiHP\Documents\Visual Studio 2010\Projects\EnvioRecordatorios\EnvioRecordatorios\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\MaxiHP\Documents\Visual Studio 2010\Projects\EnvioRecordatorios\EnvioRecordatorios\obj\x86\Release\EnvioRecordatorios.exe
+C:\Users\MaxiHP\Documents\Visual Studio 2010\Projects\EnvioRecordatorios\EnvioRecordatorios\obj\x86\Release\EnvioRecordatorios.pdb

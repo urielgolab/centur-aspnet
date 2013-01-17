@@ -34,7 +34,7 @@ a:active
 
 p
 {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     line-height: 1.6em;
 }
 
@@ -376,6 +376,50 @@ TextBoxFiltrosBusqueda
     width:100%
 }
 
+p.bienvenida
+{
+  font-size: x-large;
+  color: Blue;
+  font-family: Book Antiqua;
+  text-align:left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.imgMP
+{
+    margin-left: 80px;
+    margin-right: 40px;
+    padding-bottom: 20px;
+    
+}
+
+.imgPrivacidad
+{
+    margin-left: 80px;
+}
+
+.imgCalendario
+{
+  margin-left: 80px;
+}
+
+.imgLogoSlogan
+{
+    margin-top: 5px;
+    margin-left: 220px;
+}
+
+.imgBusqueda
+{
+    margin-left: 70px;
+}
+
+.imgRentabilidad
+{
+    margin-left: 50px;
+    padding-bottom: 10px;
+}
 
 p.tituloPrincipal
 {
@@ -714,7 +758,6 @@ div.Servicio
 {
     margin-left:10px;
     }
-
 
 
 

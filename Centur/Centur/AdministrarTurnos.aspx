@@ -48,7 +48,7 @@
 
     <asp:Label ID="LabelNoTurnosOtorgados" runat="server" 
         Text="Usted no ha otorgado turnos para este servicio" Visible="False" 
-        Font-Size="Medium"></asp:Label>
+        Font-Size="Medium" Font-Names="Corbel"></asp:Label>
 
 
    <div class="DivTurnoProveedorReservar" style="border: thin solid #FF0000">

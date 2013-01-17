@@ -108,9 +108,15 @@
     <Content Include="ErrorPage.aspx" />
     <Content Include="Favoritos.aspx" />
     <Content Include="GrupoPendientes.aspx" />
+    <Content Include="Images\rentabilidad.png" />
+    <Content Include="Images\search.png" />
+    <Content Include="Images\calendario.png" />
     <Content Include="Images\locationArrow.jpg" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\logoSlogan.png" />
+    <Content Include="Images\mercadopago.png" />
     <Content Include="Images\photo_camera_up.png" />
+    <Content Include="Images\private.png" />
     <Content Include="Login.aspx" />
     <Content Include="MiCuenta.aspx" />
     <Content Include="MisGrupos.aspx" />

@@ -503,4 +503,8 @@
     <Parameter Name="status" Type="System.Boolean" DbType="Bit" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.ZonaObtenerPadre" Method="ZonaObtenerPadre" IsComposable="true">
+    <Parameter Name="idZona" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
 </Database>

@@ -472,6 +472,12 @@ namespace Datos
 			status = ((System.Nullable<bool>)(result.GetParameterValue(4)));
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ZonaObtenerPadre", IsComposable=true)]
+		public string ZonaObtenerPadre([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idZona)
+		{
+			return ((string)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idZona).ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Categoria")]

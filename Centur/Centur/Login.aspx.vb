@@ -27,6 +27,7 @@
 
         If usuarioValido Then
             Session("Usuario") = oUsuario
+            Session("idUsuario") = oUsuario.idUsuario
 
             Response.Redirect("Home.aspx")
         Else

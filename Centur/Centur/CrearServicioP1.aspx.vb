@@ -73,6 +73,7 @@ Public Class CrearServicioP1
 
         oServicio.idCategoria = lstCategoria.SelectedValue
         Session("oServicio") = oServicio
+        Session("oDataContext") = dc
 
         Response.Redirect("CrearServicioP2.aspx")
     End Sub

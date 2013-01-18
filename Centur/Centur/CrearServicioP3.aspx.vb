@@ -2,11 +2,17 @@
 
 Public Class CrearServicioP3
     Inherits System.Web.UI.Page
-    Dim dc As New DC()
+    Dim dc As DC
     Dim idGrilla As Integer?
     Dim cntPlaceHolder As ContentPlaceHolder
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not Session("oDataContext") Is Nothing Then
+            dc = DirectCast(Session("oDataContext"), DC)
+        Else
+            dc = New DC()
+        End If
+
         If Not Session("idGrilla") Is Nothing Then
             idGrilla = Session("idGrilla")
         Else
@@ -68,8 +74,9 @@ Public Class CrearServicioP3
         'Dim mControl As ControlType = DirectCast(contentPlaceHolder.FindControl("ControlName"), ControlType)
 
         If blnEverithingOk And Not blnGuardoDatos Then
-            Session("ServicioGrilla") = idGrilla
 
+            Session("ServicioGrilla") = idGrilla
+            Session("idGrilla") = Nothing
             Response.Redirect("CrearServicioP4.aspx")
         End If
     End Sub

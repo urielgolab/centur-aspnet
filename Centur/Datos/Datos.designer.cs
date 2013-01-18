@@ -290,24 +290,6 @@ namespace Datos
 			return ((ISingleResult<FavoritoObtenerResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoAsociarServicio")]
-		public ISingleResult<GrupoAsociarServicioResult> GrupoAsociarServicio([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrupo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idGrupo, idServicio, mensaje, status);
-			mensaje = ((string)(result.GetParameterValue(3)));
-			status = ((System.Nullable<bool>)(result.GetParameterValue(4)));
-			return ((ISingleResult<GrupoAsociarServicioResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoAsociarUsuario")]
-		public ISingleResult<GrupoAsociarUsuarioResult> GrupoAsociarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrupo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idGrupo, idUsuario, mensaje, status);
-			mensaje = ((string)(result.GetParameterValue(3)));
-			status = ((System.Nullable<bool>)(result.GetParameterValue(4)));
-			return ((ISingleResult<GrupoAsociarUsuarioResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoBorrar")]
 		public int GrupoBorrar([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrupo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
 		{
@@ -462,6 +444,33 @@ namespace Datos
 		public string CategoriaObtenerPadre([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idCategoria)
 		{
 			return ((string)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCategoria).ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoAsociarServicio")]
+		public ISingleResult<GrupoAsociarServicioResult> GrupoAsociarServicio([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrupo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idGrupo, idServicio, mensaje, status);
+			mensaje = ((string)(result.GetParameterValue(3)));
+			status = ((System.Nullable<bool>)(result.GetParameterValue(4)));
+			return ((ISingleResult<GrupoAsociarServicioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrupoAsociarUsuario")]
+		public ISingleResult<GrupoAsociarUsuarioResult> GrupoAsociarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrupo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idGrupo, idUsuario, mensaje, status);
+			mensaje = ((string)(result.GetParameterValue(3)));
+			status = ((System.Nullable<bool>)(result.GetParameterValue(4)));
+			return ((ISingleResult<GrupoAsociarUsuarioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GrillaAsociarServicio")]
+		public int GrillaAsociarServicio([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(1)")] string accion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idGrilla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] ref string mensaje, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accion, idGrilla, idServicio, mensaje, status);
+			mensaje = ((string)(result.GetParameterValue(3)));
+			status = ((System.Nullable<bool>)(result.GetParameterValue(4)));
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -5354,157 +5363,6 @@ namespace Datos
 	}
 	
 	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class GrupoAsociarServicioResult
-	{
-		
-		private int _idServicioGrupo;
-		
-		private int _idServicio;
-		
-		private int _idGrupo;
-		
-		public GrupoAsociarServicioResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idServicioGrupo", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int idServicioGrupo
-		{
-			get
-			{
-				return this._idServicioGrupo;
-			}
-			set
-			{
-				if ((this._idServicioGrupo != value))
-				{
-					this._idServicioGrupo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idServicio", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public int idServicio
-		{
-			get
-			{
-				return this._idServicio;
-			}
-			set
-			{
-				if ((this._idServicio != value))
-				{
-					this._idServicio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public int idGrupo
-		{
-			get
-			{
-				return this._idGrupo;
-			}
-			set
-			{
-				if ((this._idGrupo != value))
-				{
-					this._idGrupo = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class GrupoAsociarUsuarioResult
-	{
-		
-		private int _idUsuarioGrupo;
-		
-		private System.Nullable<int> _idGrupo;
-		
-		private System.Nullable<int> _idUsuario;
-		
-		private System.Nullable<bool> _confirmado;
-		
-		public GrupoAsociarUsuarioResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuarioGrupo", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int idUsuarioGrupo
-		{
-			get
-			{
-				return this._idUsuarioGrupo;
-			}
-			set
-			{
-				if ((this._idUsuarioGrupo != value))
-				{
-					this._idUsuarioGrupo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public System.Nullable<int> idGrupo
-		{
-			get
-			{
-				return this._idGrupo;
-			}
-			set
-			{
-				if ((this._idGrupo != value))
-				{
-					this._idGrupo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.Nullable<int> idUsuario
-		{
-			get
-			{
-				return this._idUsuario;
-			}
-			set
-			{
-				if ((this._idUsuario != value))
-				{
-					this._idUsuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_confirmado", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<bool> confirmado
-		{
-			get
-			{
-				return this._confirmado;
-			}
-			set
-			{
-				if ((this._confirmado != value))
-				{
-					this._confirmado = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Runtime.Serialization.DataContractAttribute()]
 	public partial class GrupoBuscarPorResult
 	{
 		
@@ -7259,6 +7117,157 @@ namespace Datos
 				if ((this._idProveedor != value))
 				{
 					this._idProveedor = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class GrupoAsociarServicioResult
+	{
+		
+		private int _idServicioGrupo;
+		
+		private int _idServicio;
+		
+		private int _idGrupo;
+		
+		public GrupoAsociarServicioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idServicioGrupo", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idServicioGrupo
+		{
+			get
+			{
+				return this._idServicioGrupo;
+			}
+			set
+			{
+				if ((this._idServicioGrupo != value))
+				{
+					this._idServicioGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idServicio", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public int idServicio
+		{
+			get
+			{
+				return this._idServicio;
+			}
+			set
+			{
+				if ((this._idServicio != value))
+				{
+					this._idServicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					this._idGrupo = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class GrupoAsociarUsuarioResult
+	{
+		
+		private int _idUsuarioGrupo;
+		
+		private System.Nullable<int> _idGrupo;
+		
+		private System.Nullable<int> _idUsuario;
+		
+		private System.Nullable<bool> _confirmado;
+		
+		public GrupoAsociarUsuarioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuarioGrupo", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idUsuarioGrupo
+		{
+			get
+			{
+				return this._idUsuarioGrupo;
+			}
+			set
+			{
+				if ((this._idUsuarioGrupo != value))
+				{
+					this._idUsuarioGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public System.Nullable<int> idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					this._idGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.Nullable<int> idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_confirmado", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public System.Nullable<bool> confirmado
+		{
+			get
+			{
+				return this._confirmado;
+			}
+			set
+			{
+				if ((this._confirmado != value))
+				{
+					this._confirmado = value;
 				}
 			}
 		}

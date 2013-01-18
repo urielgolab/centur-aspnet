@@ -9,7 +9,7 @@ Public Class Servicio
     Private _descripcion As String
     Private _categoria As String
     Private _zona As String
-    Private _imagen As Image
+    Private _imagen As String
     Private _minOffset As Integer
     Private _maxOffset As Integer
     Private _precio As Double
@@ -70,11 +70,11 @@ Public Class Servicio
             _zona = value
         End Set
     End Property
-    Public Property Imagen() As Image
+    Public Property Imagen() As String
         Get
             Return _imagen
         End Get
-        Set(ByVal value As Image)
+        Set(ByVal value As String)
             _imagen = value
         End Set
     End Property

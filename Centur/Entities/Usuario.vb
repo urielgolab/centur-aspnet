@@ -9,6 +9,8 @@ Public Class Usuario
     Private _apellido As String
     Private _password As String
     Private _tipoUsuario As String
+    Private _email As String
+    Private _telefono As String
 #End Region
 
 #Region "Properties"
@@ -63,6 +65,24 @@ Public Class Usuario
         End Get
         Set(ByVal value As String)
             _tipoUsuario = value
+        End Set
+    End Property
+
+    Public Property Email() As String
+        Get
+            Return _email
+        End Get
+        Set(ByVal value As String)
+            _email = value
+        End Set
+    End Property
+
+    Public Property Telefono() As String
+        Get
+            Return _telefono
+        End Get
+        Set(ByVal value As String)
+            _telefono = value
         End Set
     End Property
 

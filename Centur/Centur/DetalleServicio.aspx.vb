@@ -37,6 +37,7 @@ Public Class DetalleServicio
         If oFavoritosService.esFavorito(CType(Session("Usuario"), Entities.Usuario).idUsuario, servicio.ID) Then
             Me.Favoritos.Text = "Quitar de Favoritos"
         Else
+            Me.Favoritos.Text = "Agregar a Favoritos"
         End If
 
         'End If

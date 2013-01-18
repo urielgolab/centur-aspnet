@@ -480,4 +480,19 @@
     <Parameter Name="Dia" Parameter="dia" Type="System.Int16" DbType="SmallInt" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.GruposListarDisponibles" Method="GruposListarDisponibles">
+    <Parameter Name="idProveedor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GruposListarDisponiblesResult">
+      <Column Name="IdGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tipoGrupo" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="idProveedor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CategoriaObtenerPadre" Method="CategoriaObtenerPadre" IsComposable="true">
+    <Parameter Name="idCategoria" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
 </Database>

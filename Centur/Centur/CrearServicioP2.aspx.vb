@@ -4,19 +4,33 @@ Imports Datos
 Public Class CrearServicioP2
     Inherits System.Web.UI.Page
 
+    Dim oServicio As Servicio
+    Dim dc As New DC()
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not Session("oServicio") Is Nothing Then
+            oServicio = DirectCast(Session("oServicio"), Servicio)
+        End If
 
+        If Not Page.IsPostBack Then
+            cargarDatosServicio()
+        End If
     End Sub
-
+    Private Sub cargarDatosServicio()
+        txtTitulo.Text = oServicio.nombre
+        txtDireccion.Text = oServicio.direccion
+        txtDescripcion.Value = oServicio.descripcion
+        imgFotoServicio.ImageUrl = oServicio.foto
+    End Sub
     Private Sub cargarImagen()
         ' Initialize variables
         Dim sSavePath As String
         Dim sThumbExtension As String
-        Dim intMaxThumbSize As Integer = 200
+        Dim intMaxThumbSize As Integer = 100
         Dim intThumbWidth As Integer = intMaxThumbSize, intThumbHeight As Integer = intMaxThumbSize
         ' Set constant values
         sSavePath = "Images/publicaciones/"
-        sThumbExtension = "_thumb"
+        sThumbExtension = "thumb_"
 
         ' If file field isn’t empty
         If fleImagenServicio.PostedFile IsNot Nothing Then
@@ -60,7 +74,7 @@ Public Class CrearServicioP2
 
                 ' If jpg file is a jpeg, create a thumbnail filename that is unique.
                 file_append = 0
-                Dim sThumbFile As String = System.IO.Path.GetFileNameWithoutExtension(myFile.FileName) & sThumbExtension & ".jpg"
+                Dim sThumbFile As String = sThumbExtension & System.IO.Path.GetFileNameWithoutExtension(myFile.FileName) & ".jpg"
                 While System.IO.File.Exists(Server.MapPath(sSavePath & sThumbFile))
                     file_append += 1
                     sThumbFile = System.IO.Path.GetFileNameWithoutExtension(myFile.FileName) & file_append.ToString() & sThumbExtension & ".jpg"
@@ -97,6 +111,15 @@ Public Class CrearServicioP2
 
     Protected Sub btnContinuar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSiguiente.Click
         cargarImagen()
+
+        With oServicio
+            .nombre = txtTitulo.Text
+            .direccion = txtDireccion.Text
+            .descripcion = txtDescripcion.Value
+            .idZona = 1
+        End With
+
+        dc.SubmitChanges()
 
         Response.Redirect("CrearServicioP3.aspx")
     End Sub

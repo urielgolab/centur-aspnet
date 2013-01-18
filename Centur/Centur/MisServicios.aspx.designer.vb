@@ -11,32 +11,32 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class CrearServicioP1
+Partial Public Class MisServicios
 
     '''<summary>
-    '''lnkCategoriaPadre control.
+    '''grdServicios control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lnkCategoriaPadre As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents grdServicios As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''lstCategoria control.
+    '''linqServicios control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lstCategoria As Global.System.Web.UI.WebControls.ListBox
+    Protected WithEvents linqServicios As Global.System.Web.UI.WebControls.LinqDataSource
 
     '''<summary>
-    '''btnSiguiente control.
+    '''btAgregarServicio control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnSiguiente As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btAgregarServicio As Global.System.Web.UI.WebControls.Button
 End Class

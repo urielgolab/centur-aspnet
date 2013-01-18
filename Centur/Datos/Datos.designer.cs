@@ -450,6 +450,19 @@ namespace Datos
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idGrilla, dia);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GruposListarDisponibles")]
+		public ISingleResult<GruposListarDisponiblesResult> GruposListarDisponibles([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idProveedor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idServicio)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idProveedor, idServicio);
+			return ((ISingleResult<GruposListarDisponiblesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CategoriaObtenerPadre", IsComposable=true)]
+		public string CategoriaObtenerPadre([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idCategoria)
+		{
+			return ((string)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCategoria).ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Categoria")]
@@ -7142,6 +7155,110 @@ namespace Datos
 				if ((this._apellido != value))
 				{
 					this._apellido = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class GruposListarDisponiblesResult
+	{
+		
+		private int _IdGrupo;
+		
+		private string _tipoGrupo;
+		
+		private string _nombre;
+		
+		private string _descripcion;
+		
+		private System.Nullable<int> _idProveedor;
+		
+		public GruposListarDisponiblesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrupo", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int IdGrupo
+		{
+			get
+			{
+				return this._IdGrupo;
+			}
+			set
+			{
+				if ((this._IdGrupo != value))
+				{
+					this._IdGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipoGrupo", DbType="VarChar(1)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string tipoGrupo
+		{
+			get
+			{
+				return this._tipoGrupo;
+			}
+			set
+			{
+				if ((this._tipoGrupo != value))
+				{
+					this._tipoGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(MAX)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProveedor", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public System.Nullable<int> idProveedor
+		{
+			get
+			{
+				return this._idProveedor;
+			}
+			set
+			{
+				if ((this._idProveedor != value))
+				{
+					this._idProveedor = value;
 				}
 			}
 		}

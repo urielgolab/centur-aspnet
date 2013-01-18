@@ -144,11 +144,11 @@ Public Class CenturServiceREST
         Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
     End Function
 
-    Public Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal password As String, ByVal telefono As String, ByVal rolUsuario As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String) As Stream Implements ICenturServiceREST.RegistrarUsuario
+    Public Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal telefono As String, ByVal rolUsuario As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String, ByVal accion As Char, Optional ByVal password As String = "") As Stream Implements ICenturServiceREST.RegistrarUsuario
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
-        Dim usuario As Usuario = oLoginService.RegistrarUsuario(NombreUsuario, password, telefono, rolUsuario, nombre, apellido, email, Mensaje, Status)
+        Dim usuario As Usuario = oLoginService.RegistrarUsuario(NombreUsuario, password, telefono, rolUsuario, nombre, apellido, email, accion, Mensaje, Status)
 
         Dim result As New JSONResult
         result.Estado = Status

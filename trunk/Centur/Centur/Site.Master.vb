@@ -7,9 +7,11 @@
         If Not Session("Usuario") Is Nothing Then
             Me.ArmarMenu(CType(Session("Usuario"), Entities.Usuario).TipoUsuario)
             logout.Visible = True
+            miCuenta.Visible = True
         Else
             Me.ArmarMenu("")
             logout.Visible = False
+            miCuenta.Visible = False
         End If
 
     End Sub

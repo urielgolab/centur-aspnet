@@ -16,7 +16,7 @@ Public Class LoginDA
     End Function
 
 
-    Public Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal Password As String, ByVal Telefono As String, ByVal rolUsuario As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As DataSet
+    Public Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal Password As String, ByVal Telefono As String, ByVal rolUsuario As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String, ByVal accion As Char, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As DataSet
         'Registrar el usuario, primero chequear si el nombre de usuario ya existe, en dicho caso no registrarlo y devovler un mensaje (o flag) de error.
         'Caso contrario, registrarlo y devolver un mensaje (o flag) afirmativo
 
@@ -26,7 +26,7 @@ Public Class LoginDA
         ParamMensaje.Direction = ParameterDirection.Output
 
         Dim params() As SqlParameter
-        params = New SqlParameter() {New SqlParameter("@nombreUsuario", NombreUsuario), New SqlParameter("@tipoUsuario", rolUsuario), New SqlParameter("@password", Password), New SqlParameter("@nombre", nombre), New SqlParameter("@apellido", apellido), New SqlParameter("@email", email), New SqlParameter("@telefono", Telefono), ParamMensaje, ParamStatus}
+        params = New SqlParameter() {New SqlParameter("@accion", accion), New SqlParameter("@nombreUsuario", NombreUsuario), New SqlParameter("@tipoUsuario", rolUsuario), New SqlParameter("@password", Password), New SqlParameter("@nombre", nombre), New SqlParameter("@apellido", apellido), New SqlParameter("@email", email), New SqlParameter("@telefono", Telefono), ParamMensaje, ParamStatus}
         Dim ds As DataSet = SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "UsuarioRegistrar", params)
 
         Status = ParamStatus.Value

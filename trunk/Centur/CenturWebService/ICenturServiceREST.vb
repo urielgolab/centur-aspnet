@@ -39,8 +39,8 @@ Public Interface ICenturServiceREST
     Function DetalleUsuario(ByVal nombreUsuario As String) As Stream
 
     <OperationContract()>
-<WebGet(UriTemplate:="/RegistrarUsuario?nombreUsuario={nombreUsuario}&password={password}&telefono={telefono}&rolUsuario={rolUsuario}&nombre={nombre}&apellido={apellido}&email={email}", ResponseFormat:=WebMessageFormat.Json)> _
-    Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal password As String, ByVal telefono As String, ByVal rolUsuario As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String) As Stream
+<WebGet(UriTemplate:="/RegistrarUsuario?nombreUsuario={nombreUsuario}&telefono={telefono}&rolUsuario={rolUsuario}&nombre={nombre}&apellido={apellido}&email={email}&accion={accion}&password={password}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal telefono As String, ByVal rolUsuario As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String, ByVal accion As Char, Optional ByVal password As String = "") As Stream
 
 #End Region
 

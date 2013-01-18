@@ -28,7 +28,11 @@ Public Class DetalleServicio
         Me.EmailServicio.Text = servicio.Email
         Me.ObservacionesServicio.Text = servicio.Observaciones
         Me.TelefonoServicio.Text = servicio.Telefono
-        Me.ImagenServicio.ImageUrl = "http://t3.gstatic.com/images?q=tbn:ANd9GcQ4zKwAP4L3k0GOQfqa-D9P85q0lfUHAdJD2vbbti-Efo7bsTru"
+        Me.ImagenServicio.ImageUrl = "Images/publicaciones/" + servicio.Imagen
+
+        If servicio.Imagen Is Nothing Then
+            Me.ImagenServicio.Visible = False
+        End If
 
         GruposAsociados.DataSource = oBuscarServicioService.VerGruposAsociadosAServicio(CInt(Request.QueryString("ServicioID")))
         GruposAsociados.DataBind()

@@ -79,8 +79,14 @@
         </p>
         
         <asp:Label ID="Mensaje" runat="server"></asp:Label>
+        
+        <div class="linksDetalleServicio">  
+        <asp:LinkButton ID="Favoritos" runat="server"> </asp:LinkButton>
+        </div>
 
          <p class="busqueda">Grupos asociados</p>
+
+
         <div id="GruposAsociadosServ">
             <asp:GridView ID="GruposAsociados" runat="server" AutoGenerateColumns="False" 
                 CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -117,8 +123,8 @@
     </div>
 
    <div class="linksDetalleServicio">   
-   <asp:LinkButton ID="Favoritos" runat="server"> </asp:LinkButton>
-        <asp:LinkButton ID="VolveraBusqueda" PostBackUrl="~/BuscarServicio.aspx" runat="server"> Volver </asp:LinkButton>
+   
+   <asp:LinkButton ID="VolveraBusqueda" PostBackUrl="~/BuscarServicio.aspx" runat="server"> Volver </asp:LinkButton>
         <a href="#" class="MarginLeft30" id="PedirTurno">Pedir Turno</a>
     </div>
 

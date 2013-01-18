@@ -25,6 +25,8 @@
             </div>
             <div class="loginDisplay">
             <asp:LinkButton id="logout" runat="server">Desloguearse</asp:LinkButton>
+            <br />
+            <asp:LinkButton id="miCuenta" runat="server" PostBackUrl="~/MiCuenta.aspx">Mi Cuenta</asp:LinkButton>
             </div>
 
            <%-- <div class="loginDisplay">

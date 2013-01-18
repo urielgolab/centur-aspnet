@@ -73,9 +73,9 @@ Public Class BuscarServicioService
             End If
             oServicio.MinOffset = CInt(dr("diasAntes"))
             oServicio.MaxOffset = CInt(dr("diasFuturo"))
-            'If Not IsDBNull(dr("Foto")) Then
-            '    oServicio.Imagen = CType((dr("Imagen")), Image)
-            'End If
+            If Not IsDBNull(dr("foto")) Then
+                oServicio.Imagen = CStr(dr("foto"))
+            End If
         End If
 
         Return oServicio

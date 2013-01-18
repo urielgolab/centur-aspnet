@@ -232,31 +232,6 @@
       <Column Name="Zona" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.GrupoAsociarServicio" Method="GrupoAsociarServicio">
-    <Parameter Name="accion" Type="System.String" DbType="VarChar(1)" />
-    <Parameter Name="idGrupo" Type="System.Int32" DbType="Int" />
-    <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
-    <Parameter Name="mensaje" Type="System.String" DbType="VarChar(500)" Direction="InOut" />
-    <Parameter Name="status" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <ElementType Name="GrupoAsociarServicioResult">
-      <Column Name="idServicioGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idServicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.GrupoAsociarUsuario" Method="GrupoAsociarUsuario">
-    <Parameter Name="accion" Type="System.String" DbType="VarChar(1)" />
-    <Parameter Name="idGrupo" Type="System.Int32" DbType="Int" />
-    <Parameter Name="idUsuario" Type="System.Int32" DbType="Int" />
-    <Parameter Name="mensaje" Type="System.String" DbType="VarChar(500)" Direction="InOut" />
-    <Parameter Name="status" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <ElementType Name="GrupoAsociarUsuarioResult">
-      <Column Name="idUsuarioGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idGrupo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="confirmado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.GrupoBorrar" Method="GrupoBorrar">
     <Parameter Name="idGrupo" Type="System.Int32" DbType="Int" />
     <Parameter Name="mensaje" Type="System.String" DbType="VarChar(500)" Direction="InOut" />
@@ -494,5 +469,38 @@
   <Function Name="dbo.CategoriaObtenerPadre" Method="CategoriaObtenerPadre" IsComposable="true">
     <Parameter Name="idCategoria" Type="System.Int32" DbType="Int" />
     <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.GrupoAsociarServicio" Method="GrupoAsociarServicio">
+    <Parameter Name="accion" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="idGrupo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
+    <Parameter Name="mensaje" Type="System.String" DbType="VarChar(500)" Direction="InOut" />
+    <Parameter Name="status" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <ElementType Name="GrupoAsociarServicioResult">
+      <Column Name="idServicioGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idServicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GrupoAsociarUsuario" Method="GrupoAsociarUsuario">
+    <Parameter Name="accion" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="idGrupo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="mensaje" Type="System.String" DbType="VarChar(500)" Direction="InOut" />
+    <Parameter Name="status" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <ElementType Name="GrupoAsociarUsuarioResult">
+      <Column Name="idUsuarioGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idGrupo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="confirmado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GrillaAsociarServicio" Method="GrillaAsociarServicio">
+    <Parameter Name="accion" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="idGrilla" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
+    <Parameter Name="mensaje" Type="System.String" DbType="VarChar(500)" Direction="InOut" />
+    <Parameter Name="status" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

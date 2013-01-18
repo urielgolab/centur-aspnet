@@ -75,13 +75,13 @@
                                 <tr>
                                     <td>
                                         <asp:GridView ID="grdPrivacidadGrupos" runat="server" Visible="False" 
-                                            AutoGenerateColumns="False" DataKeyNames="idServicioGrupo" 
+                                            AutoGenerateColumns="False" DataKeyNames="idGrupo" 
                                             CssClass="tbHorariosDia" BorderWidth="0px">
                                             <Columns>
-                                                <asp:BoundField DataField="idServicioGrupo" 
-                                                    HeaderText="idServicioGrupo" InsertVisible="False" ReadOnly="True" 
-                                                    SortExpression="idServicioGrupo" Visible="False" />
-                                                <asp:BoundField DataField="Grupo" HeaderText="Grupo" SortExpression="Grupo" />
+                                                <asp:BoundField DataField="idGrupo" 
+                                                    HeaderText="idGrupo" InsertVisible="False" ReadOnly="True" 
+                                                    SortExpression="idGrupo" Visible="False" />
+                                                <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
                                                 <asp:TemplateField HeaderText="Acciones">
                                                     <ItemTemplate>
                                                         <asp:LinkButton ID="lnkEliminar1" runat="server" CausesValidation="False" 
@@ -91,15 +91,17 @@
                                                 <asp:BoundField DataField="idGrupo" Visible="False" />
                                             </Columns>
                                         </asp:GridView>
-                                        <asp:Table ID="tbServicioGrupo" runat="server" Visible="False" Width="300px">
+                                        <asp:Table ID="tbServicioGrupo" runat="server" Visible="False" Width="350px">
 	                                        <asp:TableRow>
                                                 <asp:TableCell>
 			                                        Agregar grupo:
                                                     <asp:DropDownList ID="dpServicioGrupo" runat="server" DataTextField="nombre" DataValueField="IdGrupo" AppendDataBoundItems="true">
                                                         <asp:ListItem Value="0">Seleccionar</asp:ListItem>
                                                     </asp:DropDownList>
+                                                    &nbsp;<asp:Button ID="btAgregarGrupo" runat="server" Text="Agregar" />
 		                                        </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
                                     <td align="right" colspan="2">
+                                        
                                         <asp:LinkButton ID="lnkAgregarOtroGrupo" runat="server" Visible="False">(+) Agregar otro</asp:LinkButton></td></tr></table><%--<asp:Table ID="tb1" runat="server" Visible="False" Width="650px">
                                 <asp:TableRow>
                                     <asp:TableCell>

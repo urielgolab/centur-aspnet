@@ -68,6 +68,15 @@ Partial Public Class CrearServicioP4
     Protected WithEvents dpServicioGrupo As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''btAgregarGrupo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btAgregarGrupo As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''lnkAgregarOtroGrupo control.
     '''</summary>
     '''<remarks>

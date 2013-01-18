@@ -154,6 +154,7 @@
 
             <br />
             <asp:Image ID="imgFotoServicio" runat="server" ImageUrl="~/Images/photo_camera_up.png"  />
+            <br />
             <asp:FileUpload ID="fleImagenServicio" runat="server"/>
             <br />
         

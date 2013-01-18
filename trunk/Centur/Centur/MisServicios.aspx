@@ -40,17 +40,22 @@
             DataSourceID="linqServicios" CssClass="tbHorariosDia">
             <Columns>
                 <asp:BoundField DataField="nombre" HeaderText="Servicio" ReadOnly="True" 
-                    SortExpression="nombre" />
+                    SortExpression="nombre" >
+                <ItemStyle Font-Size="Large" />
+                </asp:BoundField>
                 <asp:BoundField DataField="descripcion" HeaderText="Descripcion" 
-                    ReadOnly="True" SortExpression="descripcion" />
+                    ReadOnly="True" SortExpression="descripcion" Visible="False" />
                 <asp:TemplateField HeaderText="Categoria" 
                     SortExpression="Categoria.descripcion">
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("Categoria.descripcion") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="idZona" HeaderText="idZona" ReadOnly="True" 
-                    SortExpression="idZona" />
+                <asp:TemplateField HeaderText="Zona" SortExpression="idZona">
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("Zona.descripcion") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField ShowHeader="false">
                     <ItemTemplate>
                         <asp:Image runat="server" ImageUrl =<%# String.Format("~/Images/publicaciones/thumb_{0}",Eval("foto"))%>  Visible='<%# (Not Eval("foto")="") %>' style="max-width:100px" />

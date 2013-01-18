@@ -5,9 +5,15 @@ Public Class CrearServicioP2
     Inherits System.Web.UI.Page
 
     Dim oServicio As Servicio
-    Dim dc As New DC()
+    Dim dc As DC
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not Session("oDataContext") Is Nothing Then
+            dc = DirectCast(Session("oDataContext"), DC)
+        Else
+            dc = New DC()
+        End If
+
         If Not Session("oServicio") Is Nothing Then
             oServicio = DirectCast(Session("oServicio"), Servicio)
         End If
@@ -20,9 +26,13 @@ Public Class CrearServicioP2
         txtTitulo.Text = oServicio.nombre
         txtDireccion.Text = oServicio.direccion
         txtDescripcion.Value = oServicio.descripcion
-        imgFotoServicio.ImageUrl = oServicio.foto
+        If oServicio.foto <> "" Then
+            imgFotoServicio.ImageUrl = "Images/publicaciones/thumb_" + oServicio.foto
+        Else
+            imgFotoServicio.Visible = False
+        End If
     End Sub
-    Private Sub cargarImagen()
+    Private Function cargarImagen(ByRef strNombreArchivo As String) As String
         ' Initialize variables
         Dim sSavePath As String
         Dim sThumbExtension As String
@@ -39,13 +49,13 @@ Public Class CrearServicioP2
             Dim nFileLen As Integer = myFile.ContentLength
             If nFileLen = 0 Then
                 lblMensajeError.Text = "No se han subido archivos."
-                Return
+                Return True
             End If
 
             ' Check file extension (must be JPG)
             If System.IO.Path.GetExtension(myFile.FileName).ToLower() <> ".jpg" Then
                 lblMensajeError.Text = "El archivo debe tener formato JPG"
-                Return
+                Return False
             End If
 
             ' Read file into a data stream
@@ -59,6 +69,7 @@ Public Class CrearServicioP2
             While System.IO.File.Exists(Server.MapPath(sSavePath & sFilename))
                 file_append += 1
                 sFilename = System.IO.Path.GetFileNameWithoutExtension(myFile.FileName) & file_append.ToString() & ".jpg"
+                strNombreArchivo = sFilename
             End While
 
             ' Save the stream to disk
@@ -77,7 +88,7 @@ Public Class CrearServicioP2
                 Dim sThumbFile As String = sThumbExtension & System.IO.Path.GetFileNameWithoutExtension(myFile.FileName) & ".jpg"
                 While System.IO.File.Exists(Server.MapPath(sSavePath & sThumbFile))
                     file_append += 1
-                    sThumbFile = System.IO.Path.GetFileNameWithoutExtension(myFile.FileName) & file_append.ToString() & sThumbExtension & ".jpg"
+                    sThumbFile = sThumbExtension & System.IO.Path.GetFileNameWithoutExtension(myFile.FileName) & file_append.ToString() & ".jpg"
                 End While
 
                 ' Save thumbnail and output it onto the webpage
@@ -101,27 +112,32 @@ Public Class CrearServicioP2
                 ' Destroy objects
                 myThumbnail.Dispose()
                 myBitmap.Dispose()
+                Return True
             Catch errArgument As ArgumentException
                 ' The file wasn't a valid jpg file
                 lblMensajeError.Text = "The file wasn't a valid jpg file."
                 System.IO.File.Delete(Server.MapPath(sSavePath & sFilename))
+                Return False
             End Try
         End If
-    End Sub
+        Return True
+    End Function
 
     Protected Sub btnContinuar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSiguiente.Click
-        cargarImagen()
+        Dim strNombreArchivo As String = Nothing
+        If cargarImagen(strNombreArchivo) Then
+            With oServicio
+                .nombre = txtTitulo.Text
+                .direccion = txtDireccion.Text
+                .descripcion = txtDescripcion.Value
+                .foto = strNombreArchivo
+                .idZona = 1
+            End With
 
-        With oServicio
-            .nombre = txtTitulo.Text
-            .direccion = txtDireccion.Text
-            .descripcion = txtDescripcion.Value
-            .idZona = 1
-        End With
+            Session("oServicio") = oServicio
 
-        dc.SubmitChanges()
-
-        Response.Redirect("CrearServicioP3.aspx")
+            Response.Redirect("CrearServicioP3.aspx")
+        End If
     End Sub
 
     Public Function ThumbnailCallback() As Boolean

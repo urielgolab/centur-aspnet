@@ -75,7 +75,7 @@
             ContextTypeName="Datos.DC" EntityTypeName="" 
             TableName="Servicios" Where="idProveedor == @idProveedor">
             <WhereParameters>
-                <asp:SessionParameter Name="idProveedor" SessionField="Usuario" Type="Int32" DefaultValue="1" />
+                <asp:SessionParameter Name="idProveedor" SessionField="idUsuario" Type="Int32" DefaultValue="1" />
             </WhereParameters>
         </asp:LinqDataSource>
     </div>

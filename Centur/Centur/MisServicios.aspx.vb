@@ -10,9 +10,8 @@ Public Class MisServicios
         'End If
 
         If Not Request.QueryString("idServicio") Is Nothing Then
-            Dim oServicio As Servicio = dc.Servicios.SingleOrDefault(Function(x) x.idServicio = CInt(Request.QueryString("idServicio")))
-            dc.Servicios.DeleteOnSubmit(oServicio)
-            dc.SubmitChanges()
+            Dim idServicio As Integer = CInt(Request.QueryString("idServicio"))
+            dc.ServicioBorrar(idServicio, Nothing)
 
             grdServicios.DataBind()
         End If

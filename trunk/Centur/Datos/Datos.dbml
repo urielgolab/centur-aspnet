@@ -507,4 +507,9 @@
     <Parameter Name="idZona" Type="System.Int32" DbType="Int" />
     <Return Type="System.String" />
   </Function>
+  <Function Name="dbo.ServicioBorrar" Method="ServicioBorrar">
+    <Parameter Name="idServicio" Type="System.Int32" DbType="Int" />
+    <Parameter Name="mensaje" Type="System.String" DbType="VarChar(500)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

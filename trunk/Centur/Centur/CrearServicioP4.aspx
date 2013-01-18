@@ -13,6 +13,8 @@
             $("#tabs").tabs();
             $("#tabs").tabs('option', 'disabled', [1, 2, 0]);
             $("#tabs").tabs("select", 3)
+
+            $('[id^="MainContent_txtDias"]').spinner({ max: 99, min: 0 });
             $ID("btnFinalizar").button();
 
 
@@ -59,6 +61,14 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td title="Indica la anticipaci&oacute;n m&aacute;xima y m&iacute;nima requerida para reservar turnos">Configuraci&oacute;n general</td>
+                        <td>
+                            D&iacute;as antes:<asp:TextBox ID="txtDiasAntes" runat="server" MaxLength="2" Text="0" Width="30"></asp:TextBox>
+                            &nbsp;&nbsp;
+                            D&iacute;as desp&uacute;es:<asp:TextBox ID="txtDiasDespues" runat="server" MaxLength="2" Text="30" Width="30"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
                         <td title="Elige esta opci&oacute;n si deseas que s&oacute;lo un grupo de personas pueda realizar reservas"><asp:CheckBox ID="chkPrivado" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Privacidad</td>
                         <td>
                             <table border="0">
@@ -78,13 +88,16 @@
                                                             CommandName="Delete" Text="Eliminar"></asp:LinkButton>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
+                                                <asp:BoundField DataField="idGrupo" Visible="False" />
                                             </Columns>
                                         </asp:GridView>
                                         <asp:Table ID="tbServicioGrupo" runat="server" Visible="False" Width="300px">
 	                                        <asp:TableRow>
                                                 <asp:TableCell>
-			                                        Grupo:
-                                                    <asp:DropDownList ID="dpServicioGrupo" runat="server"></asp:DropDownList>
+			                                        Agregar grupo:
+                                                    <asp:DropDownList ID="dpServicioGrupo" runat="server" DataTextField="nombre" DataValueField="IdGrupo" AppendDataBoundItems="true">
+                                                        <asp:ListItem Value="0">Seleccionar</asp:ListItem>
+                                                    </asp:DropDownList>
 		                                        </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
                                     <td align="right" colspan="2">
                                         <asp:LinkButton ID="lnkAgregarOtroGrupo" runat="server" Visible="False">(+) Agregar otro</asp:LinkButton></td></tr></table><%--<asp:Table ID="tb1" runat="server" Visible="False" Width="650px">

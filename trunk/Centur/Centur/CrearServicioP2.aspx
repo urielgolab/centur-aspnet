@@ -1,5 +1,71 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="CrearServicioP2.aspx.vb" Inherits="Centur.CrearServicioP2" ValidateRequest="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <style type="text/css">
+        html, body {
+	        margin: 0;
+	        padding: 0;
+	        width: 100%;
+	        height: 100%; 
+        }
+
+        .contenido {
+	        min-height: 90%;
+	        position: relative;
+	        overflow: auto;
+	        z-index: 0; 
+        }
+
+        .background {
+	        position: absolute;
+	        z-index: -1;
+	        top: 0;
+	        bottom: 0;
+	        margin: 0;
+	        padding: 0;
+        }
+
+        .top_block {
+	        width: 100%;
+	        display: block; 
+        }
+
+        .bottom_block {
+	        position: absolute;
+	        width: 100%;
+	        display: block;
+	        bottom: 0; 
+        }
+
+        .left_block {
+	        display: block;
+	        float: left; 
+        }
+
+        .right_block {
+	        display: block;
+	        float: right; 
+        }
+
+        .center_block {
+	        display: block;
+	        width: auto; 
+        }
+
+        .background.block_2 {
+	        height: auto !important;
+	        padding-bottom: 0;
+	        left: 0;
+	        width: 50%;
+	        background-color: #999999; 
+        }
+
+        .block_2 {
+	        height: auto;
+	        width: 50%;
+	        padding-bottom: 0px;
+        }
+    </style>
+    
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="Scripts/addressPicker.js"></script>
 
@@ -34,7 +100,7 @@
         tinyMCE.init({
             // General options
             mode: "exact",
-            elements: "txtDescripcion",
+            elements: "MainContent_txtDescripcion",
             theme: 'advanced',
             language: 'es',
             skin: "o2k7",
@@ -69,53 +135,51 @@
     <!-- /TinyMCE -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
     <div id="tabs">
-	<ul>
-		<li><a href="#elige-la-categoria">Elige la categoría</a></li>
-		<li><a href="#describe-el-servicio">Describe el servicio</a></li>
-		<li><a href="#define-los-tiempos">Define tiempos</a></li>
-        <li><a href="#configuralo">Configuralo</a></li>
-	</ul>
-	<div id="elige-la-categoria"></div>
-	<div id="describe-el-servicio">
-        <asp:Label ID="lblMensajeError" runat="server"></asp:Label>
+	    <ul>
+		    <li><a href="#elige-la-categoria">Elige la categoría</a></li>
+		    <li><a href="#describe-el-servicio">Describe el servicio</a></li>
+		    <li><a href="#define-los-tiempos">Define tiempos</a></li>
+            <li><a href="#configuralo">Configuralo</a></li>
+	    </ul>
+	    <div id="elige-la-categoria"></div>
+	    <div id="describe-el-servicio" class="contenido">
+            <asp:Label ID="lblMensajeError" runat="server"></asp:Label>
 
-        <p class="ch-form-hint">* Datos obligatorios</p>
-	    <div class="ch-form-row ch-form-required sell-title">
-		    <label for="title">T&iacute;tulo: <em>*</em></label> 
-            <asp:TextBox ID="txtTitulo" runat="server" Width="500" placeholder="Ej.: Wimbledon Tenis Club con Estacionamiento, Buffet y 6 canchas." title="Usa palabras clave para que encuentren f&aacute;cilmente tu servicio."></asp:TextBox>
-		</div>
+            <p class="ch-form-hint">* Datos obligatorios</p>
+	        <div class="ch-form-row ch-form-required sell-title">
+		        <label for="title">T&iacute;tulo: <em>*</em></label> 
+                <asp:TextBox ID="txtTitulo" runat="server" Width="500" placeholder="Ej.: Wimbledon Tenis Club con Estacionamiento, Buffet y 6 canchas." title="Usa palabras clave para que encuentren f&aacute;cilmente tu servicio."></asp:TextBox>
+		    </div>
 
-        <br />
-        <asp:Image ID="imgFotoServicio" runat="server" ImageUrl="~/Images/photo_camera_up.png"  />
-        <asp:FileUpload ID="fleImagenServicio" runat="server"/>
-        <br />
+            <br />
+            <asp:Image ID="imgFotoServicio" runat="server" ImageUrl="~/Images/photo_camera_up.png"  />
+            <asp:FileUpload ID="fleImagenServicio" runat="server"/>
+            <br />
         
-        <label>Dirección : </label> 
-        <asp:TextBox ID="txtDireccion" runat="server" placeholder="Ej.: Av. Corrientes 571, Buenos Aires" size="50px"></asp:TextBox>&nbsp;
-        <div id="mapa">
-    	    <div class='input'>
+            <label>Dirección : </label> 
+            <asp:TextBox ID="txtDireccion" runat="server" placeholder="Ej.: Av. Corrientes 571, Buenos Aires" size="50px"></asp:TextBox>&nbsp;
+            <div id="mapa">
+    	        <div class='input'>
 	            
-                    <label>Ciudad: </label> <input id="locality" disabled="disabled" /> <br/>
-			        <label>Pa&iacute;s:  </label> <input id="country" disabled="disabled" /> <br/>
-			        <label>Lat:      </label> <input id="lat" disabled="disabled" /> <br/>
-			        <label>Lng:      </label> <input id="lng" disabled="disabled" /> <br/>
+                        <label>Ciudad: </label> <input id="locality" disabled="disabled" /> <br/>
+			            <label>Pa&iacute;s:  </label> <input id="country" disabled="disabled" /> <br/>
+			            <label>Lat:      </label> <input id="lat" disabled="disabled" /> <br/>
+			            <label>Lng:      </label> <input id="lng" disabled="disabled" /> <br/>
+                </div>
+                <div id="map"></div>
             </div>
-            <div id="map"></div>
-        </div>
-        <br />
-        <br />
-	    <p class="ch-form-row description ">
-		    <label for="description" id="lbl_description">Descripci&oacute;n: <span class="ch-form-hint optional">(opcional)</span></label>
-    	    <textarea id="txtDescripcion" name="txtDescripcion" rows="15" cols="80" style="height: 200px;width: 95%">
-	        </textarea>
-		    <!-- Tiny_MCE -->
-	    </p>
+            <br />
+            <br />
+	        <p class="ch-form-row description ">
+		        <label for="description" id="lbl_description">Descripci&oacute;n: <span class="ch-form-hint optional">(opcional)</span></label>
+    	        <textarea id="txtDescripcion" runat="server" name="txtDescripcion" rows="15" cols="80" style="height: 200px;width: 95%" />
+		        <!-- Tiny_MCE -->
+	        </p>
 
-        <asp:Button ID="btnSiguiente" runat="server" Text="Continuar"  />
+            <asp:Button ID="btnSiguiente" runat="server" Text="Continuar"  />
+        </div>
+	    <div id="define-los-tiempos"></div>
+        <div id="configuralo"></div>
     </div>
-	<div id="define-los-tiempos"></div>
-    <div id="configuralo"></div>
-</div>
 </asp:Content>

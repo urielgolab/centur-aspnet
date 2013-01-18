@@ -10,7 +10,22 @@ Public Class CrearServicioP3
         If Not Session("idGrilla") Is Nothing Then
             idGrilla = Session("idGrilla")
         Else
-            idGrilla = 5 'dc.GrillaRegistrar(Nothing, Nothing, Nothing, Nothing)
+            Dim oServicio As Servicio
+            Dim ServicioGrilla As Integer?
+
+            If Not Session("oServicio") Is Nothing Then
+                oServicio = DirectCast(Session("oServicio"), Servicio)
+                ServicioGrilla = (From sg In dc.ServicioGrillas
+                                  Where (sg.idServicio = oServicio.idServicio)
+                                  Select sg.idGrilla).SingleOrDefault()
+            End If
+
+            If Not oServicio Is Nothing AndAlso ServicioGrilla > 0 Then
+                idGrilla = ServicioGrilla
+            Else
+                idGrilla = dc.GrillaRegistrar(New Date(2013, 1, 1), New Date(2015, 1, 1), Nothing, Nothing)
+            End If
+            Session("idGrilla") = idGrilla
         End If
 
         cntPlaceHolder = DirectCast(Master.FindControl("MainContent"), ContentPlaceHolder)
@@ -53,7 +68,9 @@ Public Class CrearServicioP3
         'Dim mControl As ControlType = DirectCast(contentPlaceHolder.FindControl("ControlName"), ControlType)
 
         If blnEverithingOk And Not blnGuardoDatos Then
-            'Response.Redirect("CrearServicioP4.aspx")
+            Session("ServicioGrilla") = idGrilla
+
+            Response.Redirect("CrearServicioP4.aspx")
         End If
     End Sub
 

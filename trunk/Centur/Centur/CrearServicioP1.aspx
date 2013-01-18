@@ -17,9 +17,11 @@
         <li><a href="#configuralo">Configuralo</a></li>
 	</ul>
 	<div id="elige-la-categoria">
-        <asp:Label ID="lblCategoriaPadre" runat="server"></asp:Label>
         <br />
-        <asp:ListBox ID="lstCategoria" runat="server" AutoPostBack="True"></asp:ListBox>
+        <asp:LinkButton ID="lnkCategoriaPadre" runat="server"></asp:LinkButton>
+        <br /><br />
+        <asp:ListBox ID="lstCategoria" runat="server" AutoPostBack="True" style="background: white;width: 268px;padding: 5px;font-size: 16px;line-height: 1;border: 0;border-radius: 0;height: 200px;"></asp:ListBox>
+        <br />
         <br />
         <asp:Button ID="btnSiguiente" runat="server" Text="Continuar" Enabled="False" />
     </div>

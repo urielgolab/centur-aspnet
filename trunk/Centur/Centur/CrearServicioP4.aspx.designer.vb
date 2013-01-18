@@ -14,6 +14,24 @@ Option Explicit On
 Partial Public Class CrearServicioP4
 
     '''<summary>
+    '''txtDiasAntes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDiasAntes As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtDiasDespues control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDiasDespues As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''chkPrivado control.
     '''</summary>
     '''<remarks>

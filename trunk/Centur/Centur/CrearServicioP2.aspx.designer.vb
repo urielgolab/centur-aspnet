@@ -59,6 +59,15 @@ Partial Public Class CrearServicioP2
     Protected WithEvents txtDireccion As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''txtDescripcion control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDescripcion As Global.System.Web.UI.HtmlControls.HtmlTextArea
+
+    '''<summary>
     '''btnSiguiente control.
     '''</summary>
     '''<remarks>

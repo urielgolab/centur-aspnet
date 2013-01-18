@@ -155,6 +155,10 @@
             <br />
             <asp:Image ID="imgFotoServicio" runat="server" ImageUrl="~/Images/photo_camera_up.png"  />
             <br />
+            <asp:LinkButton ID="lnkCategoriaPadre" runat="server"></asp:LinkButton>
+            <br />
+            <asp:ListBox ID="lstZonas" runat="server" AutoPostBack="True" style="background: white;width: 268px;padding: 5px;font-size: 16px;line-height: 1;border: 0;border-radius: 0;height: 200px;"></asp:ListBox>
+            <br />
             <asp:FileUpload ID="fleImagenServicio" runat="server"/>
             <br />
         

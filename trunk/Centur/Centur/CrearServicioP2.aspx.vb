@@ -18,6 +18,12 @@ Public Class CrearServicioP2
             oServicio = DirectCast(Session("oServicio"), Servicio)
         End If
 
+        If Not oServicio Is Nothing AndAlso oServicio.idZona > 0 AndAlso lstZonas.SelectedValue = "" Then
+            cargarZona(oServicio.idZona)
+        Else
+            cargaroZonasHijo(lstZonas.SelectedValue)
+        End If
+
         If Not Page.IsPostBack Then
             cargarDatosServicio()
         End If
@@ -131,7 +137,7 @@ Public Class CrearServicioP2
                 .direccion = txtDireccion.Text
                 .descripcion = txtDescripcion.Value
                 .foto = strNombreArchivo
-                .idZona = 1
+                .idZona = lstZonas.SelectedValue
             End With
 
             Session("oServicio") = oServicio
@@ -143,4 +149,58 @@ Public Class CrearServicioP2
     Public Function ThumbnailCallback() As Boolean
         Return False
     End Function
+
+    Protected Sub lstZonas_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles lstZonas.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub cargarZona(ByVal idZona As Integer)
+        Dim Categorias = (From c In dc.Zonas
+                         Join sch In dc.SubZonas On c.idZona Equals sch.idZonaHijo
+                         Where sch.idZonaPadre = dc.SubCategorias.Single(Function(x) x.idCategoriaHijo = idZona).idCategoriaPadre
+                         Select c).ToList()
+
+        If Categorias.Count > 0 Then
+            'If strCategoria <> "" Then
+            '    lnkCategoriaPadre.Text = lstCategoria.Items(lstCategoria.SelectedIndex).Text
+            '    lnkCategoriaPadre.ToolTip = lstCategoria.Items(lstCategoria.SelectedIndex).Value
+            'End If
+            lnkCategoriaPadre.Text = dc.ZonaObtenerPadre(idZona)
+
+            btnSiguiente.Enabled = True
+
+            lstZonas.DataSource = Categorias
+            lstZonas.DataTextField = "descripcion"
+            lstZonas.DataValueField = "idZona"
+            lstZonas.DataBind()
+
+            lstZonas.SelectedValue = idZona
+        End If
+    End Sub
+
+    Private Sub cargaroZonasHijo(ByVal strZona As String)
+        Dim idZona As Integer?
+
+        If strZona <> "" Then idZona = strZona
+
+        Dim Zonas = dc.ZonaBuscar(CType(IIf(idZona Is Nothing, "R", "H"), Char), idZona).ToList()
+
+        If Zonas.Count > 0 Then
+            'If strCategoria <> "" Then
+            '    lnkCategoriaPadre.Text = lstCategoria.Items(lstCategoria.SelectedIndex).Text
+            '    lnkCategoriaPadre.ToolTip = lstCategoria.Items(lstCategoria.SelectedIndex).Value
+            'End If
+            lnkCategoriaPadre.Text = dc.ZonaObtenerPadre(idZona)
+
+            btnSiguiente.Enabled = False
+
+            lstZonas.DataSource = Zonas
+            lstZonas.DataTextField = "descripcion"
+            lstZonas.DataValueField = "idZona"
+            lstZonas.DataBind()
+        Else
+            btnSiguiente.Enabled = True
+        End If
+
+    End Sub
 End Class

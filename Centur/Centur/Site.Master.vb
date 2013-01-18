@@ -34,6 +34,7 @@
             If TipoUsuario = "P" Then
                 'Solo Proveedor
                 NavigationMenu.Items.Add(New MenuItem("Estadisticas", "Estadisticas", "", "VerEstadisticas.aspx"))
+                NavigationMenu.Items.Add(New MenuItem("Mis Servicios", "Mis Servicios", "", "MisServicios.aspx"))
             End If
         End If
     End Sub

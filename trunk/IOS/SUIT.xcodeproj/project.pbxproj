@@ -111,6 +111,8 @@
 		8FE06FF51698C47100A1EA1D /* TurnosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE06FF31698C46F00A1EA1D /* TurnosViewController.xib */; };
 		8FF7BEA316A62353007C9DAC /* GruposDeServicioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF7BEA116A62351007C9DAC /* GruposDeServicioViewController.m */; };
 		8FF7BEA416A62353007C9DAC /* GruposDeServicioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF7BEA216A62352007C9DAC /* GruposDeServicioViewController.xib */; };
+		8FFB28DA16A8C83000BC1BA5 /* LoginEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFB28D816A8C82F00BC1BA5 /* LoginEditViewController.m */; };
+		8FFB28DB16A8C83000BC1BA5 /* LoginEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFB28D916A8C82F00BC1BA5 /* LoginEditViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -298,6 +300,9 @@
 		8FF7BEA016A6234F007C9DAC /* GruposDeServicioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GruposDeServicioViewController.h; sourceTree = "<group>"; };
 		8FF7BEA116A62351007C9DAC /* GruposDeServicioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GruposDeServicioViewController.m; sourceTree = "<group>"; };
 		8FF7BEA216A62352007C9DAC /* GruposDeServicioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GruposDeServicioViewController.xib; sourceTree = "<group>"; };
+		8FFB28D716A8C82F00BC1BA5 /* LoginEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginEditViewController.h; sourceTree = "<group>"; };
+		8FFB28D816A8C82F00BC1BA5 /* LoginEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginEditViewController.m; sourceTree = "<group>"; };
+		8FFB28D916A8C82F00BC1BA5 /* LoginEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginEditViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -590,6 +595,9 @@
 				8FE06FD316988FA800A1EA1D /* SignUpViewController.h */,
 				8FE06FD416988FAB00A1EA1D /* SignUpViewController.m */,
 				8FE06FD516988FAD00A1EA1D /* SignUpViewController.xib */,
+				8FFB28D716A8C82F00BC1BA5 /* LoginEditViewController.h */,
+				8FFB28D816A8C82F00BC1BA5 /* LoginEditViewController.m */,
+				8FFB28D916A8C82F00BC1BA5 /* LoginEditViewController.xib */,
 			);
 			name = Control;
 			path = Controller;
@@ -818,6 +826,7 @@
 				8F01A013169F7C7E00141895 /* MisTurnosViewController.xib in Resources */,
 				8F01A019169F80E700141895 /* MisGruposViewController.xib in Resources */,
 				8FF7BEA416A62353007C9DAC /* GruposDeServicioViewController.xib in Resources */,
+				8FFB28DB16A8C83000BC1BA5 /* LoginEditViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,6 +924,7 @@
 				8F01A01C169F874600141895 /* Grupo.m in Sources */,
 				8F01A01F169F8C8700141895 /* ProvedoresDeGrupoViewController.m in Sources */,
 				8FF7BEA316A62353007C9DAC /* GruposDeServicioViewController.m in Sources */,
+				8FFB28DA16A8C83000BC1BA5 /* LoginEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1013,14 +1023,14 @@
 		8FA7DB4E157ABE340038AC95 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Manuel Roberto Kenar (BLCVNHFQD4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Manuel Roberto Kenar (BLCVNHFQD4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SUIT/SUIT-Prefix.pch";
 				INFOPLIST_FILE = "SUIT/SUIT-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FBD52F44-3455-4CF4-B306-AC18F49777AA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FBD52F44-3455-4CF4-B306-AC18F49777AA";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1028,14 +1038,14 @@
 		8FA7DB4F157ABE340038AC95 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Manuel Roberto Kenar (BLCVNHFQD4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Manuel Roberto Kenar (BLCVNHFQD4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SUIT/SUIT-Prefix.pch";
 				INFOPLIST_FILE = "SUIT/SUIT-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FBD52F44-3455-4CF4-B306-AC18F49777AA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FBD52F44-3455-4CF4-B306-AC18F49777AA";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

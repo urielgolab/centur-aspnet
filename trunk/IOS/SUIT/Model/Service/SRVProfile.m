@@ -59,10 +59,11 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVProfile);
     [params setObject:nombreUsuario forKey:@"nombreUsuario"];
     [params setObject:password forKey:@"password"];
     [params setObject:telefono forKey:@"telefono"];
-    [params setObject:@"u" forKey:@"rolUsuario"];
+    [params setObject:@"C" forKey:@"rolUsuario"];
     [params setObject:nombre forKey:@"nombre"];
     [params setObject:apellido forKey:@"apellido"];
     [params setObject:email forKey:@"email"];
+    [params setObject:@"A" forKey:@"accion"];
     
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
     NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"RegistrarUsuario" parameters:params];
@@ -86,15 +87,40 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVProfile);
     [operation start];
 }
 
--(SRVProfile*)init{
+-(void)saveUsuario{
+    NSString* url = [NSString stringWithFormat:@"%@", SERVICE_BASE_URL ];
     
-    self = [super init];
     
-    if (self) {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
+    
+    [params setObject:self.currentUser.usuarioID forKey:@"idUsuario"];
+    [params setObject:self.currentUser.nombreUsuario forKey:@"NombreUsuario"];
+    [params setObject:self.currentUser.telefono forKey:@"Telefono"];
+    [params setObject:self.currentUser.nombre forKey:@"Nombre"];
+    [params setObject:self.currentUser.apellido forKey:@"Apellido"];
+    [params setObject:self.currentUser.mail forKey:@"Email"];
+    [params setObject:@"A" forKey:@"accion"];
+
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"RegistrarUsuario" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        if ([[JSON objectForKey:@"Estado"]boolValue]) {
+            [[NSNotificationCenter defaultCenter]postNotificationName:SERVice_EDITPROFILE_FAILED object:nil userInfo:nil];
+            return;
+        }
         
+        [[NSNotificationCenter defaultCenter]postNotificationName:SERVice_EDITPROFILE_OK object:nil userInfo:nil];
+        NSLog(@"%@",JSON);
     }
+                                                                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                                                            NSLog(@"%@",error);
+                                                                                            [[NSNotificationCenter defaultCenter]postNotificationName:SERVice_EDITPROFILE_FAILED object:nil userInfo:nil];
+                                                                                            
+                                                                                        }];
     
-    return self;
+    [operation start];
+
 }
 
 @end

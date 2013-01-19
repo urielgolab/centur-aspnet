@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 #import "LoginViewController.h"
+#import "SRVProfile.h"
+#import "LoginEditViewController.h"
 
 @interface BaseViewController ()
 
@@ -58,8 +60,12 @@
 }
 
 -(void)showLogin{
-    
-    LoginViewController *lg = [[LoginViewController alloc ]initWithNibName:@"LoginViewController" bundle:nil]; 
+    UIViewController* lg;
+    if (![SRVProfile GetInstance].currentUser ) {
+        lg = [[LoginViewController alloc ]initWithNibName:@"LoginViewController" bundle:nil];
+    }else{
+        lg = [[LoginEditViewController alloc] initWithNibName:@"LoginEditViewController" bundle:nil];
+    }
     UINavigationController* nc = [[UINavigationController alloc]initWithRootViewController:lg];
     [self.navigationController presentModalViewController:nc animated:YES];
 }

@@ -58,12 +58,13 @@
 }
 
 -(void)reservarOK:(NSNotification*) notification{
-    
+     [[[UIAlertView alloc]initWithTitle:@"Fallo la Reserva de Turno" message:nil delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
 }
 
 
 -(void)reservarFailed:(NSNotification*) notification{
-    
+    [[[UIAlertView alloc]initWithTitle:@"Turno Reserva" message:nil delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Table view data source

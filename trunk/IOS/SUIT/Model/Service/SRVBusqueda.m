@@ -116,7 +116,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVBusqueda);
 //    ReservarTurno(ByVal servicioID As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal usuarioID As Integer)
     
     [params setObject:servicio.ID forKey:@"servicioID"];
-    [params setObject: turno.Fecha forKey:@"TurnoFecha"];
+    [params setObject: turno.FechaMMDD forKey:@"TurnoFecha"];
     [params setObject: turno.horaInicio forKey:@"TurnoHoraInicio"];
     [params setObject: turno.horaFin forKey:@"TurnoHoraFin"];
     [params setObject: usuario.usuarioID forKey:@"usuarioID"];
@@ -308,6 +308,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVBusqueda);
     //    ReservarTurno(ByVal servicioID As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal usuarioID As Integer)
     
     [params setObject: grupo.ID forKey:@"grupoID"];
+    [params setObject:[SRVProfile GetInstance].currentUser.usuarioID forKey:@"usuarioID"];
     
     
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
@@ -343,7 +344,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVBusqueda);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSLog(@"%@",JSON);
-        NSArray* grupos = [NSArray arrayWhitGruposForm: [[JSON objectForKey:@"Body"]objectForKey:@"ServicioList"]];
+        NSArray* grupos = [NSArray arrayWhitGruposForm: [JSON objectForKey:@"Body"]];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_GRUPOSDeServicio_OK object: grupos];
     }
@@ -355,6 +356,61 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVBusqueda);
     
     [operation start];
 
+}
+
+-(void)agregarGrupo:(Grupo*)grupo usuario: (Usuario*)usuario{
+    NSString* url = [NSString stringWithFormat:@"%@", SERVICE_BASE_URL ];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
+    
+    //    ReservarTurno(ByVal servicioID As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal usuarioID As Integer)
+    
+    [params setObject: grupo.ID forKey:@"grupoID"];
+    [params setObject:[SRVProfile GetInstance].currentUser.usuarioID forKey:@"usuarioID"];
+    
+    
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"AltaAGrupoPendienteAprobacion" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"%@",JSON);
+        grupo.usuarioEstaEnGrupo = YES;
+        [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_AgregarAGrupo_OK object: nil];
+    }
+                                                                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                                                            NSLog(@"%@",error);
+                                                                                            [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_AgregarAGrupo_FAILED object:nil];
+                                                                                            
+                                                                                        }];
+    
+    [operation start];
+}
+
+-(void)quitarGrupo:(Grupo*)grupo usuario: (Usuario*)usuario{
+    NSString* url = [NSString stringWithFormat:@"%@", SERVICE_BASE_URL ];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary ];
+    
+    //    ReservarTurno(ByVal servicioID As Integer, ByVal TurnoFecha As Date, ByVal TurnoHoraInicio As String, ByVal TurnoHoraFin As String, ByVal usuarioID As Integer)
+    
+    [params setObject: grupo.ID forKey:@"grupoID"];
+    [params setObject:[SRVProfile GetInstance].currentUser.usuarioID forKey:@"usuarioID"];
+    
+    
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"EliminarUsuarioDeGrupo" parameters:params];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        grupo.usuarioEstaEnGrupo = NO;
+        [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_EliminarAGrupo_OK object: grupo];
+    }
+                                                                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                                                            NSLog(@"%@",error);
+                                                                                            [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_EliminarAGrupo_FAILED object:nil];
+                                                                                            
+                                                                                        }];
+    
+    [operation start];
 }
 
 @end

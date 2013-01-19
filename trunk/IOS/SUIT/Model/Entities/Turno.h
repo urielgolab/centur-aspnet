@@ -12,12 +12,14 @@
 
 @property(nonatomic) BOOL Disponible;
 @property(nonatomic,retain) NSString* Fecha;
+@property(nonatomic,retain) NSString* FechaMMDD;
 @property(nonatomic,retain) NSString* ClienteNombre;
 @property(nonatomic,retain) NSString* ServicioNombre;
 @property(nonatomic,retain) NSNumber* ServicioID;
 @property(nonatomic,retain) NSString* horaFin;
 @property(nonatomic,retain) NSString* horaInicio;
 @property(nonatomic,retain) NSNumber* idTurno;
+
 
 -(Turno*)initWhitDictionary:(NSDictionary*)dict;
 

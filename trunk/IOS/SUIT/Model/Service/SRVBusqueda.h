@@ -47,4 +47,9 @@ CWL_DECLARE_SINGLETON_FOR_CLASS(SRVBusqueda);
 -(void)startsearchGruposDeServicio:(Servicio*)servicio;
 
 
+-(void)agregarGrupo:(Grupo*)grupo usuario: (Usuario*)usuario;
+
+-(void)quitarGrupo:(Grupo*)grupo usuario: (Usuario*)usuario;
+
+
 @end

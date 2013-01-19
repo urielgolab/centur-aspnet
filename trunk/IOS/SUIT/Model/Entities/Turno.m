@@ -23,6 +23,7 @@
         self.idTurno = NIL_IF_NSNULL([dict objectForKey:@"idTurno"]);
         self.ClienteNombre = NIL_IF_NSNULL([dict objectForKey:@"ClienteNombre"]);
         self.ServicioNombre = NIL_IF_NSNULL([dict objectForKey:@"ServicioNombre"]);
+        self.FechaMMDD = NIL_IF_NSNULL([dict objectForKey:@"FechaMMDD"]);
 
     }
     return self;

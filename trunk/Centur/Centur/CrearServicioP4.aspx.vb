@@ -17,10 +17,6 @@ Public Class CrearServicioP4
 
         If Not Session("Usuario") Is Nothing Then
             oUsuario = DirectCast(Session("Usuario"), Entities.Usuario)
-        Else
-            'redirect!
-            oUsuario = New Entities.Usuario()
-            oUsuario.idUsuario = 1
         End If
 
         cntPlaceHolder = DirectCast(Master.FindControl("MainContent"), ContentPlaceHolder)
@@ -45,6 +41,9 @@ Public Class CrearServicioP4
 
 
         If Not oServicio Is Nothing Then
+            txtDiasAntes.Text = oServicio.diasAntes
+            txtDiasDespues.Text = oServicio.diasAntes
+            txtPrecio.Text = oServicio.precio
 
             cargarOpcionesGrupos()
             If oServicio.privacidad Then
@@ -140,6 +139,7 @@ Public Class CrearServicioP4
         oServicio.idProveedor = oUsuario.idUsuario
         oServicio.diasAntes = txtDiasAntes.Text
         oServicio.diasAntes = txtDiasDespues.Text
+        oServicio.precio = txtPrecio.Text
 
         If oServicio.idServicio = 0 Then
             dc.Servicios.InsertOnSubmit(oServicio)
@@ -167,9 +167,9 @@ Public Class CrearServicioP4
             blnCambioReglas = True
         End If
 
-        If chkMercadoPago.Checked <> oServicio.mercadoPago Then
+        If chkMercadoPago.Checked <> oServicio.mercadoPago OrElse (chkMercadoPago.Checked AndAlso oServicio.precioReserva.ToString() <> txtPrecioReserva.Text) Then
             oServicio.mercadoPago = chkMercadoPago.Checked
-            If oServicio.mercadoPago AndAlso txtPrecioReserva.Text > 0 Then
+            If oServicio.mercadoPago AndAlso (oServicio.precioReserva.ToString() <> txtPrecioReserva.Text) Then
                 oServicio.precioReserva = CDbl(txtPrecioReserva.Text)
             End If
             blnCambioReglas = True

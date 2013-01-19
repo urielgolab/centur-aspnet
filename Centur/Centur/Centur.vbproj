@@ -121,6 +121,7 @@
     <Content Include="MisGrupos.aspx" />
     <Content Include="MisTurnos.aspx" />
     <Content Include="CrearServicioP1.aspx" />
+    <Content Include="ActualizarSVN.aspx" />
     <None Include="Service References\CenturServiceREST\CenturServiceREST.wsdl" />
     <None Include="Service References\CenturServiceREST\CenturServiceREST.xsd">
       <SubType>Designer</SubType>
@@ -395,6 +396,13 @@
     </Compile>
     <Compile Include="CrearServicioP1.aspx.vb">
       <DependentUpon>CrearServicioP1.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarSVN.aspx.designer.vb">
+      <DependentUpon>ActualizarSVN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarSVN.aspx.vb">
+      <DependentUpon>ActualizarSVN.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

@@ -62,13 +62,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td title="Indica la anticipaci&oacute;n m&aacute;xima y m&iacute;nima requerida para reservar turnos">Configuraci&oacute;n general</td>
+                        <td>Configuraci&oacute;n general</td>
                         <td>
-                            D&iacute;as antes:<asp:TextBox ID="txtDiasAntes" runat="server" MaxLength="2" Text="0" Width="30"></asp:TextBox>
+                            D&iacute;as antes:<asp:TextBox ID="txtDiasAntes" runat="server" MaxLength="2" Text="0" Width="30" title="Indica la anticipaci&oacute;n m&iacute;nima requerida para reservar el turnos"></asp:TextBox>
                             &nbsp;&nbsp;
-                            D&iacute;as desp&uacute;es:<asp:TextBox ID="txtDiasDespues" runat="server" MaxLength="2" Text="30" Width="30"></asp:TextBox>
-                            <br />
-                            Precio:<asp:TextBox ID="txtPrecio" runat="server" MaxLength="4" Text="0" Width="40"></asp:TextBox>
+                            D&iacute;as desp&uacute;es:<asp:TextBox ID="txtDiasDespues" runat="server" MaxLength="2" Text="30" Width="30" title="Indica la anticipaci&oacute;n m&aacute;xima requerida para reservar turnos"></asp:TextBox>
+                            &nbsp;&nbsp;
+                            Precio:<asp:TextBox ID="txtPrecio" runat="server" MaxLength="4" Text="0" Width="40" title="Si tiene precio, indica el valor del servicio brindado"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -113,7 +113,7 @@
                             &nbsp; </td></tr><tr>
                         <td title="Elige esta opci&oacute;n si admites solicitudes de sobreturnos"><asp:CheckBox ID="chkSobreturno" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Sobreturnos</td><td>
                             &nbsp; </td></tr><tr>
-                        <td title="Elige esta opci&oacute;n si deseas cobrar por adelantado la reserva del turno.<br /> Requiere cuenta de MercadoPago"><asp:CheckBox ID="chkMercadoPago" runat="server" AutoPostBack="True" Width="50" />&nbsp;&nbsp;Cobrar turno</td><td>
+                        <td title="Elige esta opci&oacute;n si deseas cobrar por adelantado la reserva del turno.<br /> Requiere cuenta de MercadoPago"><asp:CheckBox ID="chkMercadoPago" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Cobrar turno</td><td>
                             <asp:TextBox ID="txtPrecioReserva" runat="server" Visible="False" Width="40"></asp:TextBox> </td></tr></tbody></table><br />
         <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" />
     </div>

@@ -73,10 +73,10 @@
                 </colgroup>
                 <thead>
                     <tr>
-                      <th style="text-align:left !important;">D&iacute;as</th>
-                      <th>
+                      <th>D&iacute;as</th>
+                      <th style="text-align:left !important;" title="Utiliza esta opci&oacute;n si deseas compartir la agenda con otro serivicio">
                           <asp:DropDownList ID="dpGrillaAsociada" runat="server" AppendDataBoundItems="true" Visible="false" >
-                            <asp:ListItem Text="Seleccione servicio asociado" Value="0"></asp:ListItem>
+                            <asp:ListItem Text="Servicio asociado" Value="0"></asp:ListItem>
                           </asp:DropDownList>
                           <asp:LinkButton ID="lnkGrillaAsociada" runat="server">Utilizar grilla asociada</asp:LinkButton>
                         </th>

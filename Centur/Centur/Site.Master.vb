@@ -25,16 +25,16 @@
         Else
             'Proveedor y Cliente
             NavigationMenu.Items.Add(New MenuItem("Inicio", "Inicio", "", "Home.aspx"))
-            NavigationMenu.Items.Add(New MenuItem("Buscar Servicio", "Buscar Servicio", "", "BuscarServicio.aspx"))
             NavigationMenu.Items.Add(New MenuItem("Mis Grupos", "Mis Grupos", "", "MisGrupos.aspx"))
             NavigationMenu.Items.Add(New MenuItem("Mis Turnos", "Mis Turnos", "", "MisTurnos.aspx"))
+            NavigationMenu.Items.Add(New MenuItem("Buscar Servicio", "Buscar Servicio", "", "BuscarServicio.aspx"))
             NavigationMenu.Items.Add(New MenuItem("Favoritos", "Favoritos", "", "Favoritos.aspx"))
 
 
             If TipoUsuario = "P" Then
                 'Solo Proveedor
                 NavigationMenu.Items.Add(New MenuItem("Estadisticas", "Estadisticas", "", "VerEstadisticas.aspx"))
-                NavigationMenu.Items.Add(New MenuItem("Mis Servicios", "Mis Servicios", "", "MisServicios.aspx"))
+                NavigationMenu.Items.AddAt(1, New MenuItem("Mis Servicios", "Mis Servicios", "", "MisServicios.aspx"))
             End If
         End If
     End Sub

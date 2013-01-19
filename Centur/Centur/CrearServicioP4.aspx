@@ -8,6 +8,9 @@
             padding:0;    
         }    
     </style>
+    <script src="Scripts/external/globalize.js"></script>
+    <script src="Scripts/external/jquery.mousewheel.js"></script>
+
     <script language="javascript">
         $(function () {
             $("#tabs").tabs();
@@ -15,7 +18,7 @@
             $("#tabs").tabs("select", 3)
 
             $('[id^="MainContent_txtDias"]').spinner({ max: 99, min: 0 });
-            $('[id^="MainContent_txtPrecio"]').spinner({ max: 9999, min: 0 });
+            $('[id^="MainContent_txtPrecio"]').spinner({ max: 9999, min: 0 }); //, numberFormat: "C"
             $ID("btnFinalizar").button();
 
 
@@ -114,7 +117,7 @@
                         <td title="Elige esta opci&oacute;n si admites solicitudes de sobreturnos"><asp:CheckBox ID="chkSobreturno" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Sobreturnos</td><td>
                             &nbsp; </td></tr><tr>
                         <td title="Elige esta opci&oacute;n si deseas cobrar por adelantado la reserva del turno.<br /> Requiere cuenta de MercadoPago"><asp:CheckBox ID="chkMercadoPago" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Cobrar turno</td><td>
-                            <asp:TextBox ID="txtPrecioReserva" runat="server" Visible="False" Width="40" Text="0"></asp:TextBox> </td></tr></tbody></table><br />
+                            <asp:TextBox ID="txtPrecioReserva" runat="server" Visible="False" Width="40" Text="0" title="Ingrese la se&ntilde;a"></asp:TextBox> </td></tr></tbody></table><br />
         <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" />
     </div>
 </div>

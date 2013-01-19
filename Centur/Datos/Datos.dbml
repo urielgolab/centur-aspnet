@@ -175,18 +175,17 @@
       <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="idZona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="idProveedor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="observaciones" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="privacidad" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="necesitaConfirmacion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="envioRecordatorio" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="sobreturno" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="diasFuturo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="privacidad" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="necesitaConfirmacion" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="envioRecordatorio" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="sobreturno" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="diasFuturo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="diasAntes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="foto" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="precio" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="direccion" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="mercadoPago" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="precioReserva" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="mercadoPago" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="precioReserva" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Association Name="Servicio_ServicioFavorito" Member="ServicioFavoritos" ThisKey="idServicio" OtherKey="idServicio" Type="ServicioFavorito" />
       <Association Name="Servicio_ServicioGrilla" Member="ServicioGrillas" ThisKey="idServicio" OtherKey="idServicio" Type="ServicioGrilla" />
       <Association Name="Servicio_ServicioGrupo" Member="ServicioGrupos" ThisKey="idServicio" OtherKey="idServicio" Type="ServicioGrupo" />

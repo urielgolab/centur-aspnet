@@ -4436,29 +4436,27 @@ namespace Datos
 		
 		private int _idProveedor;
 		
-		private string _observaciones;
+		private bool _privacidad;
 		
-		private System.Nullable<bool> _privacidad;
+		private bool _necesitaConfirmacion;
 		
-		private System.Nullable<bool> _necesitaConfirmacion;
+		private bool _envioRecordatorio;
 		
-		private System.Nullable<bool> _envioRecordatorio;
+		private bool _sobreturno;
 		
-		private System.Nullable<bool> _sobreturno;
-		
-		private System.Nullable<int> _diasFuturo;
+		private int _diasFuturo;
 		
 		private int _diasAntes;
 		
 		private string _foto;
 		
-		private System.Nullable<double> _precio;
+		private double _precio;
 		
 		private string _direccion;
 		
-		private System.Nullable<bool> _mercadoPago;
+		private bool _mercadoPago;
 		
-		private System.Nullable<double> _precioReserva;
+		private double _precioReserva;
 		
 		private EntitySet<ServicioFavorito> _ServicioFavoritos;
 		
@@ -4490,29 +4488,27 @@ namespace Datos
     partial void OnidZonaChanged();
     partial void OnidProveedorChanging(int value);
     partial void OnidProveedorChanged();
-    partial void OnobservacionesChanging(string value);
-    partial void OnobservacionesChanged();
-    partial void OnprivacidadChanging(System.Nullable<bool> value);
+    partial void OnprivacidadChanging(bool value);
     partial void OnprivacidadChanged();
-    partial void OnnecesitaConfirmacionChanging(System.Nullable<bool> value);
+    partial void OnnecesitaConfirmacionChanging(bool value);
     partial void OnnecesitaConfirmacionChanged();
-    partial void OnenvioRecordatorioChanging(System.Nullable<bool> value);
+    partial void OnenvioRecordatorioChanging(bool value);
     partial void OnenvioRecordatorioChanged();
-    partial void OnsobreturnoChanging(System.Nullable<bool> value);
+    partial void OnsobreturnoChanging(bool value);
     partial void OnsobreturnoChanged();
-    partial void OndiasFuturoChanging(System.Nullable<int> value);
+    partial void OndiasFuturoChanging(int value);
     partial void OndiasFuturoChanged();
     partial void OndiasAntesChanging(int value);
     partial void OndiasAntesChanged();
     partial void OnfotoChanging(string value);
     partial void OnfotoChanged();
-    partial void OnprecioChanging(System.Nullable<double> value);
+    partial void OnprecioChanging(double value);
     partial void OnprecioChanged();
     partial void OndireccionChanging(string value);
     partial void OndireccionChanged();
-    partial void OnmercadoPagoChanging(System.Nullable<bool> value);
+    partial void OnmercadoPagoChanging(bool value);
     partial void OnmercadoPagoChanged();
-    partial void OnprecioReservaChanging(System.Nullable<double> value);
+    partial void OnprecioReservaChanging(double value);
     partial void OnprecioReservaChanged();
     #endregion
 		
@@ -4659,30 +4655,9 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_observaciones", DbType="VarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_privacidad", DbType="Bit NOT NULL")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-		public string observaciones
-		{
-			get
-			{
-				return this._observaciones;
-			}
-			set
-			{
-				if ((this._observaciones != value))
-				{
-					this.OnobservacionesChanging(value);
-					this.SendPropertyChanging();
-					this._observaciones = value;
-					this.SendPropertyChanged("observaciones");
-					this.OnobservacionesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_privacidad", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-		public System.Nullable<bool> privacidad
+		public bool privacidad
 		{
 			get
 			{
@@ -4701,9 +4676,9 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_necesitaConfirmacion", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-		public System.Nullable<bool> necesitaConfirmacion
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_necesitaConfirmacion", DbType="Bit NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+		public bool necesitaConfirmacion
 		{
 			get
 			{
@@ -4722,9 +4697,9 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_envioRecordatorio", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
-		public System.Nullable<bool> envioRecordatorio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_envioRecordatorio", DbType="Bit NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+		public bool envioRecordatorio
 		{
 			get
 			{
@@ -4743,9 +4718,9 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sobreturno", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
-		public System.Nullable<bool> sobreturno
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sobreturno", DbType="Bit NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+		public bool sobreturno
 		{
 			get
 			{
@@ -4764,9 +4739,9 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diasFuturo", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
-		public System.Nullable<int> diasFuturo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diasFuturo", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+		public int diasFuturo
 		{
 			get
 			{
@@ -4786,7 +4761,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diasAntes", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=12)]
 		public int diasAntes
 		{
 			get
@@ -4807,7 +4782,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_foto", DbType="VarChar(MAX)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=13)]
 		public string foto
 		{
 			get
@@ -4827,9 +4802,9 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio", DbType="Float")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
-		public System.Nullable<double> precio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio", DbType="Float NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+		public double precio
 		{
 			get
 			{
@@ -4849,7 +4824,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_direccion", DbType="VarChar(255)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
 		public string direccion
 		{
 			get
@@ -4869,9 +4844,9 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mercadoPago", DbType="Bit")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=17)]
-		public System.Nullable<bool> mercadoPago
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mercadoPago", DbType="Bit NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+		public bool mercadoPago
 		{
 			get
 			{
@@ -4890,9 +4865,9 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precioReserva", DbType="Float")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18)]
-		public System.Nullable<double> precioReserva
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precioReserva", DbType="Float NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=17)]
+		public double precioReserva
 		{
 			get
 			{
@@ -4912,7 +4887,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioFavorito", Storage="_ServicioFavoritos", ThisKey="idServicio", OtherKey="idServicio")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=19, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18, EmitDefaultValue=false)]
 		public EntitySet<ServicioFavorito> ServicioFavoritos
 		{
 			get
@@ -4931,7 +4906,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioGrilla", Storage="_ServicioGrillas", ThisKey="idServicio", OtherKey="idServicio")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=20, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=19, EmitDefaultValue=false)]
 		public EntitySet<ServicioGrilla> ServicioGrillas
 		{
 			get
@@ -4950,7 +4925,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioGrupo", Storage="_ServicioGrupos", ThisKey="idServicio", OtherKey="idServicio")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=21, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=20, EmitDefaultValue=false)]
 		public EntitySet<ServicioGrupo> ServicioGrupos
 		{
 			get

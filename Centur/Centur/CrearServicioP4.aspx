@@ -15,6 +15,7 @@
             $("#tabs").tabs("select", 3)
 
             $('[id^="MainContent_txtDias"]').spinner({ max: 99, min: 0 });
+            $ID("txtPrecio").spinner({ max: 9999, min: 0 });
             $ID("btnFinalizar").button();
 
 
@@ -66,6 +67,8 @@
                             D&iacute;as antes:<asp:TextBox ID="txtDiasAntes" runat="server" MaxLength="2" Text="0" Width="30"></asp:TextBox>
                             &nbsp;&nbsp;
                             D&iacute;as desp&uacute;es:<asp:TextBox ID="txtDiasDespues" runat="server" MaxLength="2" Text="30" Width="30"></asp:TextBox>
+                            <br />
+                            Precio:<asp:TextBox ID="txtPrecio" runat="server" MaxLength="4" Text="0" Width="40"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>

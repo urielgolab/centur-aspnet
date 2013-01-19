@@ -165,7 +165,6 @@ Public Class CrearServicioP4
             blnCambioReglas = True
         End If
 
-
         If chkMercadoPago.Checked <> oServicio.mercadoPago Then
             oServicio.mercadoPago = chkMercadoPago.Checked
             blnCambioReglas = True

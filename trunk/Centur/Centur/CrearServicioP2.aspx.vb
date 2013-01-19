@@ -155,12 +155,12 @@ Public Class CrearServicioP2
     End Sub
 
     Private Sub cargarZona(ByVal idZona As Integer)
-        Dim Categorias = (From c In dc.Zonas
+        Dim Zonas = (From c In dc.Zonas
                          Join sch In dc.SubZonas On c.idZona Equals sch.idZonaHijo
-                         Where sch.idZonaPadre = dc.SubCategorias.Single(Function(x) x.idCategoriaHijo = idZona).idCategoriaPadre
+                         Where sch.idZonaPadre = dc.SubZonas.Single(Function(x) x.idZonaHijo = idZona).idZonaPadre
                          Select c).ToList()
 
-        If Categorias.Count > 0 Then
+        If Zonas.Count > 0 Then
             'If strCategoria <> "" Then
             '    lnkCategoriaPadre.Text = lstCategoria.Items(lstCategoria.SelectedIndex).Text
             '    lnkCategoriaPadre.ToolTip = lstCategoria.Items(lstCategoria.SelectedIndex).Value
@@ -169,7 +169,7 @@ Public Class CrearServicioP2
 
             btnSiguiente.Enabled = True
 
-            lstZonas.DataSource = Categorias
+            lstZonas.DataSource = Zonas
             lstZonas.DataTextField = "descripcion"
             lstZonas.DataValueField = "idZona"
             lstZonas.DataBind()

@@ -37,6 +37,8 @@
             }
         });
 
+
+
         $(function () {
             $("#tabs").tabs();
             $("#tabs").tabs('option', 'disabled', [0, 1, 3]);
@@ -49,6 +51,23 @@
             $('[id^="MainContent_txtDuracion"]').spinner({ max: 999, min: 10 });
             Globalize.culture("de-DE");
             $('[id^="MainContent_txtHora"]').timespinner();
+
+            $(function () {
+                $(document).tooltip({
+                    position: {
+                        my: "center bottom-20",
+                        at: "center top",
+                        using: function (position, feedback) {
+                            $(this).css(position);
+                            $("<div>")
+            .addClass("arrow")
+            .addClass(feedback.vertical)
+            .addClass(feedback.horizontal)
+            .appendTo(this);
+                        }
+                    }
+                });
+            });
         });
     </script>
 </asp:Content>
@@ -74,7 +93,7 @@
                 <thead>
                     <tr>
                       <th>D&iacute;as</th>
-                      <th style="text-align:left !important;" title="Utiliza esta opci&oacute;n si deseas compartir la agenda con otro serivicio">
+                      <th style="text-align:left !important;" title="Selecciona esta opci&oacute;n si deseas compartir la agenda con otro serivicio">
                           <asp:DropDownList ID="dpGrillaAsociada" runat="server" 
                               AppendDataBoundItems="true" Visible="false" DataTextField="Nombre" 
                               DataValueField="idGrilla" AutoPostBack="True">

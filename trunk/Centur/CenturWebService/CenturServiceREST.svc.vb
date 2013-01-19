@@ -52,7 +52,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Public Function VerTurnosServicioxDia(ByVal servicioID As Integer, ByVal TurnoFecha As Date) As Stream Implements ICenturServiceREST.VerTurnosServicioxDia

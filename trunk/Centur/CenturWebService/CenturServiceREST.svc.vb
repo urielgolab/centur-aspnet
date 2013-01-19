@@ -32,7 +32,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Public Function DetalleServicio(ByVal servicioID As Integer, Optional ByVal usuarioID As Integer = 0) As Stream Implements ICenturServiceREST.DetalleServicio
@@ -74,7 +74,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
 
@@ -94,7 +94,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Public Function BuscarCategorias(ByVal accion As String, Optional ByVal idCategoria As Integer = 0) As Stream Implements ICenturServiceREST.BuscarCategorias
@@ -110,7 +110,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Public Function BuscarZonas(ByVal accion As String, Optional ByVal idZona As Integer = 0) As Stream Implements ICenturServiceREST.BuscarZonas
@@ -126,7 +126,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
 #End Region
@@ -145,7 +145,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Public Function RegistrarUsuario(ByVal NombreUsuario As String, ByVal telefono As String, ByVal nombre As String, ByVal apellido As String, ByVal email As String, ByVal accion As Char, Optional ByVal password As String = "", Optional ByVal rolUsuario As String = "") As Stream Implements ICenturServiceREST.RegistrarUsuario
@@ -168,7 +168,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
 #End Region
@@ -188,7 +188,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
 
@@ -205,7 +205,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
 
@@ -222,7 +222,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Public Function EsFavorito(ByVal servicioID As Integer, ByVal usuarioID As Integer) As Stream Implements ICenturServiceREST.EsFavorito
@@ -238,7 +238,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
 #End Region
@@ -258,7 +258,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
 
@@ -275,7 +275,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Function ModificarGrupo(ByVal grupoID As Integer, ByVal nombre As String, ByVal descripcion As String) As Stream Implements ICenturServiceREST.ModificarGrupo
@@ -296,7 +296,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Function EliminarGrupo(ByVal grupoID As Integer) As Stream Implements ICenturServiceREST.EliminarGrupo
@@ -312,7 +312,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Function CrearGrupo(ByVal nombre As String, ByVal descripcion As String, ByVal proveedorID As Integer) As Stream Implements ICenturServiceREST.CrearGrupo
@@ -328,7 +328,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Function VerSolicitudesPendientesAGrupo(ByVal proveedorID As Integer) As Stream Implements ICenturServiceREST.VerSolicitudesPendientesAGrupo
@@ -344,7 +344,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Function AgregarUsuarioAGrupo(ByVal grupoID As Integer, ByVal usuarioID As Integer) As Stream Implements ICenturServiceREST.AgregarUsuarioAGrupo
@@ -360,7 +360,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Function EliminarUsuarioDeGrupo(ByVal grupoID As Integer, ByVal usuarioID As Integer) As Stream Implements ICenturServiceREST.EliminarUsuarioDeGrupo
@@ -376,7 +376,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
 
@@ -393,7 +393,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Function BajaServicioAGrupo(ByVal grupoID As Integer, ByVal servicioID As Integer) As Stream Implements ICenturServiceREST.BajaServicioAGrupo
@@ -409,7 +409,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
 
     End Function
 
@@ -427,7 +427,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
 
@@ -448,7 +448,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Function CancelarTurno(ByVal idTurno As Integer) As Stream Implements ICenturServiceREST.CancelarTurno
@@ -464,7 +464,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Function AceptarTurno(ByVal idTurno As Integer) As Stream Implements ICenturServiceREST.AceptarTurno
@@ -480,7 +480,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
 #End Region
@@ -500,7 +500,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(turnos)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
     Public Function Test2(Optional ByVal doble As Double = 0) As Stream Implements ICenturServiceREST.Test2
@@ -514,7 +514,7 @@ Public Class CenturServiceREST
 
         Dim js As New JavaScriptSerializer()
         Dim strJSON As String = js.Serialize(result)
-        Return New MemoryStream(UTF8Encoding.Default.GetBytes(strJSON))
+        Return New MemoryStream(UTF8Encoding.UTF8.GetBytes(strJSON))
     End Function
 
 

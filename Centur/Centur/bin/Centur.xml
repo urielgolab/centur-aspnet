@@ -878,22 +878,6 @@ editGrupo control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.Login.RegisterHyperLink">
-	<summary>
-RegisterHyperLink control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Login.LoginUser">
-	<summary>
-LoginUser control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
 </member><member name="F:Centur.Home.mensaje">
 	<summary>
 mensaje control.
@@ -969,22 +953,6 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Centur.MisTurnos.labelNoReservados">
 	<summary>
 labelNoReservados control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Register.RegisterUser">
-	<summary>
-RegisterUser control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Register.RegisterUserWizardStep">
-	<summary>
-RegisterUserWizardStep control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -1473,14 +1441,6 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Centur.CrearServicioP1.btnSiguiente">
 	<summary>
 btnSiguiente control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.ChangePassword.ChangeUserPassword">
-	<summary>
-ChangeUserPassword control.
 </summary>
 	<remarks>
 Auto-generated field.

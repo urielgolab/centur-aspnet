@@ -263,9 +263,15 @@ Public Class CrearServicioP3
         dpGrillaAsociada.Visible = True
         lnkGrillaAsociada.Visible = False
 
+        Dim oUsuario As Entities.Usuario = DirectCast(Session("Usuario"), Entities.Usuario)
+        Dim idServicio As Integer = 0
+        If Not Session("oServicio") Is Nothing Then
+            idServicio = DirectCast(Session("oServicio"), Servicio).idServicio
+        End If
+
         Dim ServicioGrilla = (From srv In dc.Servicios
                               Join srvGrd In dc.ServicioGrillas On srv.idServicio Equals srvGrd.idServicio
-                              Where srv.idProveedor = 1
+                              Where srv.idProveedor = oUsuario.idUsuario And (idServicio = 0 OrElse srv.idServicio <> idServicio)
                               Order By srv.nombre
                               Select New With { _
                                 .idGrilla = srvGrd.idGrilla, _

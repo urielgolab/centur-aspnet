@@ -114,7 +114,7 @@
                         <td title="Elige esta opci&oacute;n si admites solicitudes de sobreturnos"><asp:CheckBox ID="chkSobreturno" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Sobreturnos</td><td>
                             &nbsp; </td></tr><tr>
                         <td title="Elige esta opci&oacute;n si deseas cobrar por adelantado la reserva del turno.<br /> Requiere cuenta de MercadoPago"><asp:CheckBox ID="chkMercadoPago" runat="server" AutoPostBack="True" Width="50" />&nbsp;&nbsp;Cobrar turno</td><td>
-                            <asp:TextBox ID="txtPrecioReserva" runat="server" Visible="False"></asp:TextBox> </td></tr></tbody></table><br />
+                            <asp:TextBox ID="txtPrecioReserva" runat="server" Visible="False" Width="40"></asp:TextBox> </td></tr></tbody></table><br />
         <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" />
     </div>
 </div>

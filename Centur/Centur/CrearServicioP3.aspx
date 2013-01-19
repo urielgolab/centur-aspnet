@@ -75,7 +75,7 @@
                     <tr>
                       <th>D&iacute;as</th>
                       <th style="text-align:left !important;" title="Utiliza esta opci&oacute;n si deseas compartir la agenda con otro serivicio">
-                          <asp:DropDownList ID="dpGrillaAsociada" runat="server" AppendDataBoundItems="true" Visible="false" >
+                          <asp:DropDownList ID="dpGrillaAsociada" runat="server" AppendDataBoundItems="true" Visible="false" DataTextField="Nombre" DataValueField="idGrilla">
                             <asp:ListItem Text="Servicio asociado" Value="0"></asp:ListItem>
                           </asp:DropDownList>
                           <asp:LinkButton ID="lnkGrillaAsociada" runat="server">Utilizar grilla asociada</asp:LinkButton>

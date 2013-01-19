@@ -203,4 +203,8 @@ Public Class CrearServicioP2
         End If
 
     End Sub
+
+    Protected Sub lnkCategoriaPadre_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkCategoriaPadre.Click
+        cargaroZonasHijo("")
+    End Sub
 End Class

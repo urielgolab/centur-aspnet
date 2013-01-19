@@ -73,8 +73,13 @@
                 </colgroup>
                 <thead>
                     <tr>
-                      <th>D&iacute;as</th>
-                        <%--<asp:LinkButton ID="lnkNuevoHorario1" Text="Nuevo Horario" runat="server" Visible="False"></asp:LinkButton>--%>
+                      <th style="text-align:left !important;">D&iacute;as</th>
+                      <th>
+                          <asp:DropDownList ID="dpGrillaAsociada" runat="server" AppendDataBoundItems="true" Visible="false" >
+                            <asp:ListItem Text="Seleccione servicio asociado" Value="0"></asp:ListItem>
+                          </asp:DropDownList>
+                          <asp:LinkButton ID="lnkGrillaAsociada" runat="server">Utilizar grilla asociada</asp:LinkButton>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>

@@ -258,4 +258,21 @@ Public Class CrearServicioP3
     Protected Sub chkDia7_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkDia7.CheckedChanged
         screenCambiarCheckDia(7)
     End Sub
+
+    Protected Sub lnkGrillaAsociada_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkGrillaAsociada.Click
+        dpGrillaAsociada.Visible = True
+        lnkGrillaAsociada.Visible = False
+
+        Dim ServicioGrilla = (From srv In dc.Servicios
+                              Join srvGrd In dc.ServicioGrillas On srv.idServicio Equals srvGrd.idServicio
+                              Where srv.idProveedor = 1
+                              Order By srv.nombre
+                              Select New With { _
+                                .idGrilla = srvGrd.idGrilla, _
+                                .Nombre = srv.nombre}).Distinct().ToList()
+
+        dpGrillaAsociada.DataSource = ServicioGrilla
+        dpGrillaAsociada.DataBind()
+
+    End Sub
 End Class

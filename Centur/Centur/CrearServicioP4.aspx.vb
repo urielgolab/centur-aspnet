@@ -61,6 +61,8 @@ Public Class CrearServicioP4
 
             If oServicio.mercadoPago Then
                 chkMercadoPago.Checked = True
+                txtPrecioReserva.Text = oServicio.precioReserva
+                txtPrecioReserva.Visible = True
             End If
 
             If oServicio.necesitaConfirmacion Then
@@ -167,6 +169,9 @@ Public Class CrearServicioP4
 
         If chkMercadoPago.Checked <> oServicio.mercadoPago Then
             oServicio.mercadoPago = chkMercadoPago.Checked
+            If oServicio.mercadoPago AndAlso txtPrecioReserva.Text > 0 Then
+                oServicio.precioReserva = CDbl(txtPrecioReserva.Text)
+            End If
             blnCambioReglas = True
         End If
 
@@ -221,5 +226,9 @@ Public Class CrearServicioP4
         Session("ServicioGrupos") = lstServicioGrupos
         cargarGrillaGrupos()
         cargarComboGruposDisponibles()
+    End Sub
+
+    Protected Sub chkMercadoPago_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkMercadoPago.CheckedChanged
+        txtPrecioReserva.Visible = chkMercadoPago.Checked
     End Sub
 End Class

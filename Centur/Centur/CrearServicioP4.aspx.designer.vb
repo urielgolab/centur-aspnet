@@ -131,6 +131,15 @@ Partial Public Class CrearServicioP4
     Protected WithEvents chkMercadoPago As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
+    '''txtPrecioReserva control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPrecioReserva As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''btnFinalizar control.
     '''</summary>
     '''<remarks>

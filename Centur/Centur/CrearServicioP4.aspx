@@ -15,7 +15,7 @@
             $("#tabs").tabs("select", 3)
 
             $('[id^="MainContent_txtDias"]').spinner({ max: 99, min: 0 });
-            $ID("txtPrecio").spinner({ max: 9999, min: 0 });
+            $('[id^="MainContent_txtPrecio"]').spinner({ max: 9999, min: 0 });
             $ID("btnFinalizar").button();
 
 
@@ -105,30 +105,16 @@
 		                                        </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
                                     <td align="right" colspan="2">
                                         
-                                        <asp:LinkButton ID="lnkAgregarOtroGrupo" runat="server" Visible="False">(+) Agregar otro</asp:LinkButton></td></tr></table><%--<asp:Table ID="tb1" runat="server" Visible="False" Width="650px">
-                                <asp:TableRow>
-                                    <asp:TableCell>
-                                        Desde:
-                                        <asp:TextBox ID="txtHoraDesde1" runat="server" Width="50" MaxLength="5" Text="09:00" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Hasta:
-                                        <asp:TextBox ID="txtHoraHasta1" runat="server" Width="50" MaxLength="5" Text="20:00"/>
-                                    </asp:TableCell><asp:TableCell>
-                                        Capacidad:
-                                        <asp:TextBox ID="txtCapacidad1" runat="server" Width="15" MaxLength="2" Text="1" />
-                                    </asp:TableCell><asp:TableCell>
-                                        Duraci&oacute;n (min):
-                                        <asp:TextBox ID="txtDuracion1" runat="server"  Width="35" MaxLength="3"  Text="30"/>
-                                    </asp:TableCell></asp:TableRow>
-                            </asp:Table>--%></td></tr><tr>
+                                        <asp:LinkButton ID="lnkAgregarOtroGrupo" runat="server" Visible="False">(+) Agregar otro</asp:LinkButton></td></tr></table>
+                                    </td></tr><tr>
                         <td title="Elige esta opci&oacute;n si deseas aprobar los turnos para confirmarlos"><asp:CheckBox ID="chkConfirmarTurno" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Confirmar turno</td><td>
                             &nbsp; </td></tr><tr>
                         <td title="Elige esta opci&oacute;n si deseas que recordemos el turno al usuario"><asp:CheckBox ID="chkEnviarRecordatorio" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Enviar recordatorio</td><td>
                             &nbsp; </td></tr><tr>
                         <td title="Elige esta opci&oacute;n si admites solicitudes de sobreturnos"><asp:CheckBox ID="chkSobreturno" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Sobreturnos</td><td>
                             &nbsp; </td></tr><tr>
-                        <td title="Elige esta opci&oacute;n si deseas cobrar por adelantado la reserva del turno.<br /> Requiere cuenta de MercadoPago"><asp:CheckBox ID="chkMercadoPago" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Cobrar turno</td><td>
-                            &nbsp; </td></tr></tbody></table><br />
+                        <td title="Elige esta opci&oacute;n si deseas cobrar por adelantado la reserva del turno.<br /> Requiere cuenta de MercadoPago"><asp:CheckBox ID="chkMercadoPago" runat="server" AutoPostBack="True" Width="50" />&nbsp;&nbsp;Cobrar turno</td><td>
+                            <asp:TextBox ID="txtPrecioReserva" runat="server" Visible="False"></asp:TextBox> </td></tr></tbody></table><br />
         <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" />
     </div>
 </div>

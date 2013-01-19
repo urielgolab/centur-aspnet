@@ -182,7 +182,7 @@
 		        <!-- Tiny_MCE -->
 	        </p>
 
-            <asp:Button ID="btnSiguiente" runat="server" Text="Continuar"  />
+            <asp:Button ID="btnSiguiente" runat="server" Text="Continuar" Enabled="false"  />
         </div>
 	    <div id="define-los-tiempos"></div>
         <div id="configuralo"></div>

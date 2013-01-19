@@ -23,6 +23,24 @@ Partial Public Class CrearServicioP3
     Protected WithEvents lblMensajeErrror As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''dpGrillaAsociada control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents dpGrillaAsociada As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''lnkGrillaAsociada control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lnkGrillaAsociada As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''chkDia1 control.
     '''</summary>
     '''<remarks>

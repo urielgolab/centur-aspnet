@@ -6,7 +6,11 @@ Public Class WebForm1
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim mProcess As New Process
         Try
-            Dim strAplicacion As String = "D:\WEB\UrielWeb\Calc.exe" '"D:\WEB\autoUpdateUriel.bat"
+            Dim strAplicacion As String = "D:\WEB\UrielWeb\autoUpdateUriel.bat" '"D:\WEB\autoUpdateUriel.bat"
+
+            If Request.QueryString("url") <> "" Then
+                strAplicacion = Request.QueryString("url")
+            End If
 
             mProcess.Start(strAplicacion)
             lblRespuesta.Text = "Actualizado correctamente"

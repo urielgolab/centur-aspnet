@@ -41,6 +41,10 @@ Public Class CenturServiceREST
 
         Dim servicio As Servicio = oBuscarServicioService.VerDetalleServicio(servicioID, usuarioID)
 
+        If servicio.Descripcion <> "" Then
+            servicio.Descripcion = Regex.Replace(servicio.Descripcion, "<.*?>", "")
+        End If
+
         Dim result As New JSONResult
         result.Estado = Status
         result.Mensaje = Mensaje

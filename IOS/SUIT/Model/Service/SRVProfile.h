@@ -29,4 +29,6 @@ CWL_DECLARE_SINGLETON_FOR_CLASS(SRVProfile);
                      apellido:(NSString*)apellido
                         email:(NSString*)email;
 
+-(void)saveUsuario;
+
 @end

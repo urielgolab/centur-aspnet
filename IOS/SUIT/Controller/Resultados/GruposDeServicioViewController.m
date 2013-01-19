@@ -39,6 +39,29 @@
                                              selector:@selector(gruposFailed:)
                                                  name:SERVICE_GRUPOSDeServicio_FAILED
                                                object:nil];
+
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(agregarGrupoOk:)
+                                                 name:SERVICE_AgregarAGrupo_OK
+                                               object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(agregarGrupoFailed:)
+                                                 name:SERVICE_AgregarAGrupo_FAILED
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(eliminarGrupoOk:)
+                                                 name:SERVICE_EliminarAGrupo_OK
+                                               object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter ]addObserver:self
+                                             selector:@selector(eliminarGrupoFailed:)
+                                                 name:SERVICE_EliminarAGrupo_FAILED
+                                               object:nil];
+
 }
 
 - (void)viewDidLoad
@@ -70,6 +93,19 @@
 -(void)gruposFailed:(NSNotification*)notification{
     [[[UIAlertView alloc]initWithTitle:nil message:@"Error al intentar cargar grupos" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)agregarGrupoOk:(NSNotification*)notification{
+    [[[UIAlertView alloc]initWithTitle:nil message:@"Grupo agregado Correctamente" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
+}
+-(void)agregarGrupoFailed:(NSNotification*)notification{
+   [[[UIAlertView alloc]initWithTitle:nil message:@"Error al Agregar Grupo" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
+}
+-(void)eliminarGrupoOk:(NSNotification*)notification{
+    [[[UIAlertView alloc]initWithTitle:nil message:@"Grupo eliminado Correctamente" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
+}
+-(void)eliminarGrupoFailed:(NSNotification*)notification{
+   [[[UIAlertView alloc]initWithTitle:nil message:@"Error al intentar eliminar grupo" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
 }
 
 
@@ -147,7 +183,14 @@
 
 
 -(NSIndexPath*)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    Grupo *grupo = [self.grupos objectAtIndex:indexPath.row];
+    
+    if(!grupo.usuarioEstaEnGrupo){
+        [[SRVBusqueda GetInstance] agregarGrupo:grupo usuario:[SRVProfile GetInstance].currentUser];
+    }else{
+        [[SRVBusqueda GetInstance] quitarGrupo:grupo usuario:[SRVProfile GetInstance].currentUser];
+    }
+    
     return nil;
 }
 

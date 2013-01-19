@@ -10,15 +10,19 @@
 
 @implementation Usuario
 
-@synthesize usuarioID,nombre,mail,direccion;
-
 -(Usuario*)initWhitDictionary:(NSDictionary*)dict{
     self = [super init];
     
     if (self) {
-        usuarioID = [dict objectForKey:@"idUsuario"];
-        nombre = [dict objectForKey:@"NombreUsuario"];
-        mail = [dict objectForKey:@"mail"];
+        
+        NSLog(@"%@",dict);
+        
+        _usuarioID = NIL_IF_NSNULL([dict objectForKey:@"idUsuario"]);
+        _nombreUsuario = NIL_IF_NSNULL([dict objectForKey:@"NombreUsuario"]);
+        _nombre = NIL_IF_NSNULL([dict objectForKey:@"Nombre"]);
+        _mail = NIL_IF_NSNULL([dict objectForKey:@"Email"]);
+        _telefono = NIL_IF_NSNULL([dict objectForKey:@"Telefono"]);
+        _apellido = NIL_IF_NSNULL([dict objectForKey:@"Apellido"]);
     }
     return self;
 }

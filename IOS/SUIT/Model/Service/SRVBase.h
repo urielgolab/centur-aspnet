@@ -68,6 +68,15 @@
 #define SERVICE_GRUPOSDeServicio_OK @"SERVICE_GRUPOSDeServicio_OK"
 #define SERVICE_GRUPOSDeServicio_FAILED @"SERVICE_GRUPOSDeServicio_FAILED"
 
+#define SERVICE_AgregarAGrupo_OK @"SERVICE_AgregarAGrupo_OK"
+#define SERVICE_AgregarAGrupo_FAILED @"SERVICE_AgregarAGrupo_FAILED"
+
+#define SERVICE_EliminarAGrupo_OK @"SERVICE_EliminarAGrupo_OK"
+#define SERVICE_EliminarAGrupo_FAILED @"SERVICE_EliminarAGrupo_FAILED"
+
+#define SERVice_EDITPROFILE_OK @"SERVice_EDITPROFILE_OK"
+#define SERVice_EDITPROFILE_FAILED @"SERVice_EDITPROFILE_FAILED"
+
 @interface SRVBase : NSObject
 
 

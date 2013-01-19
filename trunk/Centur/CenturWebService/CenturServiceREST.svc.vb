@@ -132,7 +132,7 @@ Public Class CenturServiceREST
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
-        Dim usuario As Usuario = oLoginService.GetUserInfo(nombreUsuario)
+        Dim usuario As Usuario = oLoginService.GetUserInfo(nombreUsuario, Mensaje, Status)
 
         Dim result As New JSONResult
         result.Estado = Status

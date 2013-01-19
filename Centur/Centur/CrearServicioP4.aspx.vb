@@ -42,7 +42,7 @@ Public Class CrearServicioP4
 
         If Not oServicio Is Nothing Then
             txtDiasAntes.Text = oServicio.diasAntes
-            txtDiasDespues.Text = oServicio.diasAntes
+            txtDiasDespues.Text = oServicio.diasFuturo
             txtPrecio.Text = oServicio.precio
 
             cargarOpcionesGrupos()
@@ -138,7 +138,7 @@ Public Class CrearServicioP4
         'Genero el idServicio
         oServicio.idProveedor = oUsuario.idUsuario
         oServicio.diasAntes = txtDiasAntes.Text
-        oServicio.diasAntes = txtDiasDespues.Text
+        oServicio.diasFuturo = txtDiasDespues.Text
         oServicio.precio = txtPrecio.Text
 
         If oServicio.idServicio = 0 Then

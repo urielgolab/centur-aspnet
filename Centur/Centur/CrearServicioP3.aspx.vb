@@ -281,4 +281,15 @@ Public Class CrearServicioP3
         dpGrillaAsociada.DataBind()
 
     End Sub
+
+    Protected Sub dpGrillaAsociada_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles dpGrillaAsociada.SelectedIndexChanged
+        If dpGrillaAsociada.SelectedValue <> "" Then
+            Dim idGrilla As Integer = dpGrillaAsociada.SelectedValue
+            Session("idGrilla") = idGrilla
+            CargarConfiguracionHoraria(cntPlaceHolder, idGrilla)
+        Else
+            lnkGrillaAsociada.Visible = True
+            Session("idGrilla") = Nothing
+        End If
+    End Sub
 End Class

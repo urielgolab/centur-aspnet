@@ -136,6 +136,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
+    <Content Include="mobilePayment.aspx" />
     <Content Include="ModificarServicio.aspx" />
     <Content Include="Registrer.aspx" />
     <Content Include="ReservarTurno.aspx" />
@@ -310,6 +311,13 @@
     <Compile Include="MisTurnos.aspx.vb">
       <DependentUpon>MisTurnos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="mobilePayment.aspx.designer.vb">
+      <DependentUpon>mobilePayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mobilePayment.aspx.vb">
+      <DependentUpon>mobilePayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ModificarServicio.aspx.designer.vb">
       <DependentUpon>ModificarServicio.aspx</DependentUpon>

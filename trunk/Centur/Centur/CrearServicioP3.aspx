@@ -3,6 +3,7 @@
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="Scripts/external/globalize.js"></script>
     <script src="Scripts/external/globalize.culture.de-DE.js"></script>
+    <script src="Scripts/external/jquery.mousewheel.js"></script>
     <script src="Scripts/addressPicker.js"></script>
     <style>
         *

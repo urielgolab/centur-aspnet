@@ -42,9 +42,9 @@ Public Class BuscarServicioService
             If Not IsDBNull(dr("direccion")) Then
                 oServicio.Direccion = CStr(dr("direccion"))
             End If
-            If Not IsDBNull(dr("Observaciones")) Then
-                oServicio.Observaciones = CStr(dr("Observaciones"))
-            End If
+            'If Not IsDBNull(dr("Observaciones")) Then
+            '    oServicio.Observaciones = CStr(dr("Observaciones"))
+            'End If
             If Not IsDBNull(dr("IDProveedor")) Then
                 oServicio.IDProveedor = CInt(dr("IDProveedor"))
             End If

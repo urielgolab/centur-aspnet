@@ -4,15 +4,12 @@ Public Class LoginService
 
     Dim oLoginDA As New DataAccessLayer.LoginDA()
 
-    Public Function GetUserInfo(ByVal nombreUsuario As String) As Usuario
-
-        Dim Mensaje As String = ""
-        Dim Status As Boolean
+    Public Function GetUserInfo(ByVal nombreUsuario As String, Optional ByRef Mensaje As String = "", Optional ByRef Status As Boolean = False) As Usuario
 
         Dim oUsuario As New Usuario
         Dim ds As DataSet = oLoginDA.GetUserInfo(nombreUsuario, Mensaje, Status)
 
-        If ds.Tables(0).Rows.Count > 0 Then
+        If ds.Tables.Count > 0 Then
             Dim dr As DataRow = ds.Tables(0).Rows(0)
             oUsuario.idUsuario = dr("idUsuario")
             oUsuario.TipoUsuario = dr("tipoUsuario")

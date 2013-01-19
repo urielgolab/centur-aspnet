@@ -41,6 +41,8 @@
             resultados.Visible = False
             ArmarArbolCategorias()
             ArmarArbolZonas()
+            ArbolZonas.CollapseAll()
+            ArbolCategorias.CollapseAll()
         End If
 
     End Sub

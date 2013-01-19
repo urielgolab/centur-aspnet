@@ -130,6 +130,8 @@ Public Class CrearServicioP2
     End Function
 
     Protected Sub btnContinuar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSiguiente.Click
+
+
         Dim strNombreArchivo As String = Nothing
         If cargarImagen(strNombreArchivo) Then
             With oServicio

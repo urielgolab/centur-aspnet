@@ -75,8 +75,8 @@ Public Class CrearServicioP2
             While System.IO.File.Exists(Server.MapPath(sSavePath & sFilename))
                 file_append += 1
                 sFilename = System.IO.Path.GetFileNameWithoutExtension(myFile.FileName) & file_append.ToString() & ".jpg"
-                strNombreArchivo = sFilename
             End While
+            strNombreArchivo = sFilename
 
             ' Save the stream to disk
             Dim newFile As New System.IO.FileStream(Server.MapPath(sSavePath & sFilename), System.IO.FileMode.Create)

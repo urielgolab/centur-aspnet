@@ -798,6 +798,54 @@ txtDuracion7 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:Centur.CrearServicioP3.grdExepciones">
+	<summary>
+grdExepciones control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP3.lnkAgregarOtraExcepcion">
+	<summary>
+lnkAgregarOtraExcepcion control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP3.tbExcepcion">
+	<summary>
+tbExcepcion control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP3.txtFechaExcep">
+	<summary>
+txtFechaExcep control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP3.txtHoraDesdeExcep">
+	<summary>
+txtHoraDesdeExcep control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP3.txtHoraHastaExcep">
+	<summary>
+txtHoraHastaExcep control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:Centur.CrearServicioP3.btnSiguiente">
 	<summary>
 btnSiguiente control.

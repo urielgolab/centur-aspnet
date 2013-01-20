@@ -545,6 +545,60 @@ Partial Public Class CrearServicioP3
     Protected WithEvents txtDuracion7 As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''grdExepciones control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents grdExepciones As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''lnkAgregarOtraExcepcion control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lnkAgregarOtraExcepcion As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''tbExcepcion control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbExcepcion As Global.System.Web.UI.WebControls.Table
+
+    '''<summary>
+    '''txtFechaExcep control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFechaExcep As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtHoraDesdeExcep control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraDesdeExcep As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtHoraHastaExcep control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHoraHastaExcep As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''btnSiguiente control.
     '''</summary>
     '''<remarks>

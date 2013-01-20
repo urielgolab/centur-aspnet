@@ -23,6 +23,7 @@
         _mail = NIL_IF_NSNULL([dict objectForKey:@"Email"]);
         _telefono = NIL_IF_NSNULL([dict objectForKey:@"Telefono"]);
         _apellido = NIL_IF_NSNULL([dict objectForKey:@"Apellido"]);
+        _password = NIL_IF_NSNULL([dict objectForKey:@"Password"]);
     }
     return self;
 }

@@ -9,6 +9,8 @@
 #import "TurnosViewController.h"
 #import "SRVBusqueda.h"
 #import "SRVProfile.h"
+#import "MercadoPagoViewController.h"
+#define MERCADOPAGO 1
 
 @interface TurnosViewController ()
 
@@ -16,9 +18,9 @@
 
 @implementation TurnosViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [self createNotification];
         // Custom initialization
@@ -57,14 +59,24 @@
   
 }
 
--(void)reservarOK:(NSNotification*) notification{
+-(void)reservarFailed:(NSNotification*) notification{
      [[[UIAlertView alloc]initWithTitle:@"Fallo la Reserva de Turno" message:nil delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
 }
 
 
--(void)reservarFailed:(NSNotification*) notification{
-    [[[UIAlertView alloc]initWithTitle:@"Turno Reserva" message:nil delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
+-(void)reservarOK:(NSNotification*) notification{
+
+    NSString* text = nil;
+    Turno *turno = notification.object;
+    if (self.servicio.NecesitaConfirmacion) {
+        text = @"Recuerde que el turno esta pendiente de confirmacion por parte del proveedor del servicio";
+    }
+    
+    [[[UIAlertView alloc]initWithTitle:@"Turno Reservado" message:text delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
+    
+    
     [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 #pragma mark - Table view data source
@@ -106,8 +118,17 @@
     Usuario* usuario = [SRVProfile GetInstance].currentUser;
     
     if (!usuario) {
+        [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Debe estar logeado para poder reservar un turno" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
         //TODO
         //Levantar la vista de logiarse
+        return nil;
+    }
+    
+    if (self.servicio.MercadoPago) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Mercado Pago" message:@"El servicio solicita una reserva previa" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles: @"Aceptar", nil];
+        alert.tag = MERCADOPAGO;
+        selectedTurno = turno;
+        [alert show];
         return nil;
     }
     
@@ -115,5 +136,19 @@
     
     return nil;
 }
+
+#pragma mark Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (alertView.tag == MERCADOPAGO && alertView.cancelButtonIndex != buttonIndex) {
+        //Se acepto mercado pago
+        MercadoPagoViewController* mp = [[MercadoPagoViewController alloc] initWithNibName:@"MercadoPagoViewController" bundle:nil andServicio:self.servicio andTurno:selectedTurno];
+       UINavigationController*nv= [[UINavigationController alloc]initWithRootViewController:mp];
+        [self.navigationController presentModalViewController:nv animated:YES];
+    }
+}
+
+
 
 @end

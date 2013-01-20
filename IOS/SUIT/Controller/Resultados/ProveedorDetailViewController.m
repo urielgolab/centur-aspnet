@@ -28,7 +28,6 @@
         self.title = proveedor.Nombre;
        
         [self createNotification];
-        [[SRVBusqueda GetInstance] startSearchForProvedorDetail:proveedor];
     }
     return self;
 }
@@ -147,8 +146,11 @@
     descripcionTextView.text = proveedor.Descripcion;
     mapaButton.hidden =  !proveedor.isCoordinated;
     verGruposButton.hidden = YES;
+    pedirTurno.hidden = YES;
     if ([SRVProfile GetInstance].currentUser) {
         verGruposButton.hidden = NO;
+        pedirTurno.hidden = !proveedor.PuedePedirTurno;
+
         if (proveedor.EsFavorito ) {
             //esfavorito
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(quitarFavoritoTouched)];
@@ -159,8 +161,10 @@
     }
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [[SRVBusqueda GetInstance] startSearchForProvedorDetail:proveedor];
+
 }
 
 

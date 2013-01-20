@@ -60,6 +60,19 @@
 
 -(void)servicioFavoritosOK:(NSNotification*)notification{
     self.favoritos = notification.object;
+    
+    if ([self.favoritos count] == 0) {
+        
+        UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
+        label.text = @"Usted no tiene favoritos";
+        label.textAlignment = UITextAlignmentCenter;
+        
+        [label sizeThatFits:CGSizeMake(320, 0)];
+        
+        self.tableView.tableHeaderView = label;
+    }else{
+        self.tableView.tableHeaderView = nil;
+    }
     [self.tableView reloadData];
 }
 

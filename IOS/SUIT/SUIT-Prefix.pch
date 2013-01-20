@@ -16,4 +16,6 @@
 
 #import "SRVBase.h"
 
+#define BASE_MERCADO_PAGO @"http://centur.ugserver.com.ar/UrielWeb/mobilePayment.aspx?idServicio=%@&idUsuario=%@"
+
 #define NIL_IF_NSNULL(dictionary) ((dictionary != [NSNull null]) ? dictionary : nil)

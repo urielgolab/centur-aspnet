@@ -18,6 +18,7 @@
 @property(nonatomic,retain) NSString* apellido;
 @property(nonatomic,retain) NSString* telefono;
 @property(nonatomic,retain) NSString* nombreUsuario;
+@property(nonatomic,retain) NSString* password;
 
 -(Usuario*)initWhitDictionary:(NSDictionary*)dict;
 

@@ -10,6 +10,7 @@
 
 @interface MisTurnosViewController : UITableViewController
 
-@property(atomic,retain) NSArray* misTurnos;
+@property(atomic,retain) NSMutableArray* misTurnosConfirmados;
+@property(atomic,retain) NSMutableArray* misTurnosNoConfirmados;
 
 @end

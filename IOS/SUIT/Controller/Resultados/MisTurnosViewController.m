@@ -20,6 +20,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"Mis Turnos";
+        self.misTurnosConfirmados = [NSMutableArray array];
+        self.misTurnosNoConfirmados = [NSMutableArray array];
         [self createNotification];
         // Custom initialization
     }
@@ -29,7 +31,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     [self loadServicios];
+
 }
 
 -(void)loadServicios{
@@ -52,28 +59,50 @@
 }
 
 -(void)misTurnosOK:(NSNotification*)notification{
-    self.misTurnos = notification.object;
+    [self.misTurnosConfirmados removeAllObjects];
+    [self.misTurnosNoConfirmados removeAllObjects];
+    
+    for(Turno *turno in notification.object) {
+        if (turno.Confirmado) {
+            [self.misTurnosConfirmados addObject:turno];
+        }else{
+            [self.misTurnosNoConfirmados addObject:turno];
+        }
+    }
     [self.tableView reloadData];
 }
 
 
 -(void)misTurnosFailed:(NSNotification*)notification{
-    
+    [[[UIAlertView alloc]initWithTitle:@"Error" message:@"No se pudo acceder a ssu Favoritos" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles: nil]show];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
 #pragma mark - Table view data source
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return @"Turnos confirmados";
+    }else{
+        return @"Turnos pendientes de confirmacion";
+    }
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.misTurnos count];
+    if (section == 0) {
+        return [self.misTurnosConfirmados count];
+    }else{
+        return [self.misTurnosNoConfirmados count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,7 +112,12 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    Turno* turno = [self.misTurnos objectAtIndex:indexPath.row];
+    Turno* turno;
+    if (indexPath.section == 0) {
+        turno= [self.misTurnosConfirmados objectAtIndex:indexPath.row];
+    }else{
+        turno= [self.misTurnosNoConfirmados objectAtIndex:indexPath.row];
+    }
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", turno.Fecha,turno.ServicioNombre ] ;
     cell.textLabel.textAlignment = UITextAlignmentLeft;
     cell.detailTextLabel.textAlignment = UITextAlignmentLeft;
@@ -101,11 +135,21 @@
  {
      if (editingStyle == UITableViewCellEditingStyleDelete) {
          // Delete the row from the data source
-         Turno* turno = [self.misTurnos objectAtIndex:indexPath.row];
+         Turno* turno;
+         if (indexPath.section == 0) {
+             turno= [self.misTurnosConfirmados objectAtIndex:indexPath.row];
+         }else{
+             turno= [self.misTurnosNoConfirmados objectAtIndex:indexPath.row];
+         }
          [[SRVBusqueda GetInstance]cancelarTurno:turno];
-         NSMutableArray *array = [self.misTurnos mutableCopy];
-         [array removeObject:turno];
-         self.misTurnos = [NSArray arrayWithArray: array];
+         
+         if (indexPath.section == 0) {
+            [self.misTurnosConfirmados removeObject:turno];
+         }
+         else{
+             [self.misTurnosNoConfirmados removeObject:turno];
+         }
+         
          [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
      }
  }
@@ -113,7 +157,12 @@
 #pragma mark - Table view delegate
 
 -(NSIndexPath*)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    Turno* turno = [self.misTurnos objectAtIndex:indexPath.row];
+    Turno* turno;
+    if (indexPath.section == 0) {
+        turno= [self.misTurnosConfirmados objectAtIndex:indexPath.row];
+    }else{
+        turno= [self.misTurnosNoConfirmados objectAtIndex:indexPath.row];
+    }
     Servicio* servicio = [[Servicio alloc]init];
     servicio.ID = turno.ServicioID;
     

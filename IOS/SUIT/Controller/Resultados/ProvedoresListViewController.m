@@ -31,6 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     [self loadServicios];
 }
 
@@ -50,6 +54,18 @@
 -(void)searchDidFinishedOK:(NSObject<SearchResult>*)aresult forSearch:(NSObject<Searchable>*)search{
     result = (ServiciosResult*)aresult;
     [self.tableView reloadData];
+
+    if ([result.servicios count] == 0) {
+        
+        UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
+        label.text = @"No Hay Servicios para la búsqueda ingresada";
+        label.textAlignment = UITextAlignmentCenter;
+        label.numberOfLines = 0;
+        [label sizeThatFits:CGSizeMake(320, 0)];        
+        self.tableView.tableHeaderView = label;
+    }else{
+        self.tableView.tableHeaderView=nil;
+    }
 }
 
 -(void)searchDidFinishedFailedForSearch:(NSObject<Searchable>*)search whitError:(NSError*)error{

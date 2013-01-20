@@ -29,8 +29,17 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVProfile);
     NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"DetalleUsuario" parameters:params];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        self.currentUser = [[Usuario alloc]initWhitDictionary:[JSON objectForKey:@"Body"]];
-         [[NSNotificationCenter defaultCenter]postNotificationName:SERVICE_LOGIN_OK object:nil userInfo:nil];
+        
+        
+        Usuario* usuario = [[Usuario alloc]initWhitDictionary:[JSON objectForKey:@"Body"]];
+        if ([[JSON objectForKey:@"Estado"]boolValue] || ![usuario.password isEqualToString:password]) {
+            [[NSNotificationCenter defaultCenter]postNotificationName:SERVICE_LOGIN_FAILED object:nil userInfo:nil];
+            return;
+        }
+        
+        self.currentUser = usuario;
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:SERVICE_LOGIN_OK object:nil userInfo:nil];
         NSLog(@"%@",JSON);
     }
     failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
@@ -69,12 +78,14 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVProfile);
     NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"RegistrarUsuario" parameters:params];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:req success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        if ([[JSON objectForKey:@"Estado"]boolValue]) {
+        
+        Usuario* usuario = [[Usuario alloc]initWhitDictionary:[JSON objectForKey:@"Body"]];
+        if ([[JSON objectForKey:@"Estado"]boolValue] || ![usuario.password isEqualToString:password]) {
             [[NSNotificationCenter defaultCenter]postNotificationName:SERVICE_SIGN_FAILED object:nil userInfo:nil];
             return;
         }
         
-        self.currentUser = [[Usuario alloc]initWhitDictionary:[JSON objectForKey:@"Body"]];
+        self.currentUser = usuario;
         [[NSNotificationCenter defaultCenter]postNotificationName:SERVICE_SIGN_OK object:nil userInfo:nil];
         NSLog(@"%@",JSON);
     }
@@ -99,7 +110,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVProfile);
     [params setObject:self.currentUser.nombre forKey:@"Nombre"];
     [params setObject:self.currentUser.apellido forKey:@"Apellido"];
     [params setObject:self.currentUser.mail forKey:@"Email"];
-    [params setObject:@"A" forKey:@"accion"];
+    [params setObject:@"M" forKey:@"accion"];
 
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:url]];
     NSMutableURLRequest *req =  [client requestWithMethod:@"GET" path:@"RegistrarUsuario" parameters:params];

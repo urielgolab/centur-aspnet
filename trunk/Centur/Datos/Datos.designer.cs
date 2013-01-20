@@ -4458,6 +4458,10 @@ namespace Datos
 		
 		private double _precioReserva;
 		
+		private string _MercadoPago_ClientID;
+		
+		private string _MercadoPago_ClientSecret;
+		
 		private EntitySet<ServicioFavorito> _ServicioFavoritos;
 		
 		private EntitySet<ServicioGrilla> _ServicioGrillas;
@@ -4510,6 +4514,10 @@ namespace Datos
     partial void OnmercadoPagoChanged();
     partial void OnprecioReservaChanging(double value);
     partial void OnprecioReservaChanged();
+    partial void OnMercadoPago_ClientIDChanging(string value);
+    partial void OnMercadoPago_ClientIDChanged();
+    partial void OnMercadoPago_ClientSecretChanging(string value);
+    partial void OnMercadoPago_ClientSecretChanged();
     #endregion
 		
 		public Servicio()
@@ -4886,8 +4894,50 @@ namespace Datos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MercadoPago_ClientID", DbType="VarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18)]
+		public string MercadoPago_ClientID
+		{
+			get
+			{
+				return this._MercadoPago_ClientID;
+			}
+			set
+			{
+				if ((this._MercadoPago_ClientID != value))
+				{
+					this.OnMercadoPago_ClientIDChanging(value);
+					this.SendPropertyChanging();
+					this._MercadoPago_ClientID = value;
+					this.SendPropertyChanged("MercadoPago_ClientID");
+					this.OnMercadoPago_ClientIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MercadoPago_ClientSecret", DbType="VarChar(50)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=19)]
+		public string MercadoPago_ClientSecret
+		{
+			get
+			{
+				return this._MercadoPago_ClientSecret;
+			}
+			set
+			{
+				if ((this._MercadoPago_ClientSecret != value))
+				{
+					this.OnMercadoPago_ClientSecretChanging(value);
+					this.SendPropertyChanging();
+					this._MercadoPago_ClientSecret = value;
+					this.SendPropertyChanged("MercadoPago_ClientSecret");
+					this.OnMercadoPago_ClientSecretChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioFavorito", Storage="_ServicioFavoritos", ThisKey="idServicio", OtherKey="idServicio")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=20, EmitDefaultValue=false)]
 		public EntitySet<ServicioFavorito> ServicioFavoritos
 		{
 			get
@@ -4906,7 +4956,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioGrilla", Storage="_ServicioGrillas", ThisKey="idServicio", OtherKey="idServicio")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=19, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=21, EmitDefaultValue=false)]
 		public EntitySet<ServicioGrilla> ServicioGrillas
 		{
 			get
@@ -4925,7 +4975,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Servicio_ServicioGrupo", Storage="_ServicioGrupos", ThisKey="idServicio", OtherKey="idServicio")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=20, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=22, EmitDefaultValue=false)]
 		public EntitySet<ServicioGrupo> ServicioGrupos
 		{
 			get

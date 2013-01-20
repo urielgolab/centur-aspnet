@@ -131,6 +131,15 @@ Partial Public Class CrearServicioP4
     Protected WithEvents chkMercadoPago As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
+    '''tbServicioMercadoPago control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tbServicioMercadoPago As Global.System.Web.UI.WebControls.Table
+
+    '''<summary>
     '''txtPrecioReserva control.
     '''</summary>
     '''<remarks>
@@ -138,6 +147,33 @@ Partial Public Class CrearServicioP4
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPrecioReserva As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lnkMPCrearCredenciales control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lnkMPCrearCredenciales As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''txtMPClienteID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMPClienteID As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtMPClienteSecret control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMPClienteSecret As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''btnFinalizar control.

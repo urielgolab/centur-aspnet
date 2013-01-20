@@ -59,23 +59,6 @@
             $('[id^="MainContent_txtDuracion"]').spinner({ max: 999, min: 10 });
             Globalize.culture("de-DE");
             $('[id^="MainContent_txtHora"]').timespinner();
-
-            $(function () {
-                $(document).tooltip({
-                    position: {
-                        my: "center bottom-20",
-                        at: "center top",
-                        using: function (position, feedback) {
-                            $(this).css(position);
-                            $("<div>")
-            .addClass("arrow")
-            .addClass(feedback.vertical)
-            .addClass(feedback.horizontal)
-            .appendTo(this);
-                        }
-                    }
-                });
-            });
         });
     </script>
 </asp:Content>

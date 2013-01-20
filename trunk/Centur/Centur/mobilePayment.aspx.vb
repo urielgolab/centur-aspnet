@@ -25,14 +25,14 @@ Public Class mobilePayment
                 Dim oServicio = dc.Servicios.Single(Function(x) x.idServicio = idServicio)
                 Dim oUsuario = dc.Usuarios.Single(Function(x) x.idUsuario = idUsuario)
 
-                Dim strClientID As String = "858246848027532"
-                Dim strClientSecret As String = "jOJr8QeUAcj3PHuXiuc9V16GvY8TT3h3"
+                'Dim strClientID As String = "858246848027532"
+                'Dim strClientSecret As String = "jOJr8QeUAcj3PHuXiuc9V16GvY8TT3h3"
 
                 Dim strBoton As String
                 strBoton = "" &
                 "<!-- Autenticación y hash MD5 -->" &
-                "<input type='hidden' name='client_id' value='" + strClientID + "'/>" &
-                "<input type='hidden' name='md5' value='" + obtenerMD5(strClientID & strClientSecret & "1" & "ARS" & oServicio.precioReserva.ToString() & "" & "") + "'/>" &
+                "<input type='hidden' name='client_id' value='" + oServicio.MercadoPago_ClientID + "'/>" &
+                "<input type='hidden' name='md5' value='" + obtenerMD5(oServicio.MercadoPago_ClientID & oServicio.MercadoPago_ClientSecret & "1" & "ARS" & oServicio.precioReserva.ToString() & "" & "") + "'/>" &
                 "<!-- Datos obligatorios del item -->" &
                 "<input type='hidden' name='item_title' value='" + oServicio.nombre + "'/>" &
                 "<input type='hidden' name='item_quantity' value='1'/>" &
@@ -58,7 +58,6 @@ Public Class mobilePayment
             End If
         End If
     End Sub
-
 
     Private Function obtenerMD5(ByVal md5String As String) As String
 

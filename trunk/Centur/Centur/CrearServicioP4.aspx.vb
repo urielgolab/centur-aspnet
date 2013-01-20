@@ -61,7 +61,9 @@ Public Class CrearServicioP4
             If oServicio.mercadoPago Then
                 chkMercadoPago.Checked = True
                 txtPrecioReserva.Text = oServicio.precioReserva
-                txtPrecioReserva.Visible = True
+                txtMPClienteID.Text = oServicio.MercadoPago_ClientID
+                txtMPClienteSecret.Text = oServicio.MercadoPago_ClientSecret
+                tbServicioMercadoPago.Visible = True
             End If
 
             If oServicio.necesitaConfirmacion Then
@@ -167,10 +169,18 @@ Public Class CrearServicioP4
             blnCambioReglas = True
         End If
 
-        If chkMercadoPago.Checked <> oServicio.mercadoPago OrElse (chkMercadoPago.Checked AndAlso oServicio.precioReserva.ToString() <> txtPrecioReserva.Text) Then
+        If chkMercadoPago.Checked <> oServicio.mercadoPago OrElse (chkMercadoPago.Checked AndAlso (oServicio.precioReserva.ToString() <> txtPrecioReserva.Text OrElse oServicio.MercadoPago_ClientID.ToString() <> txtMPClienteID.Text OrElse oServicio.MercadoPago_ClientSecret.ToString() <> txtMPClienteSecret.Text)) Then
             oServicio.mercadoPago = chkMercadoPago.Checked
-            If oServicio.mercadoPago AndAlso (oServicio.precioReserva.ToString() <> txtPrecioReserva.Text) Then
-                oServicio.precioReserva = CDbl(txtPrecioReserva.Text)
+            If oServicio.mercadoPago Then
+                If (oServicio.precioReserva.ToString() <> txtPrecioReserva.Text) Then
+                    oServicio.precioReserva = CDbl(txtPrecioReserva.Text)
+                End If
+                If (oServicio.MercadoPago_ClientID.ToString() <> txtMPClienteID.Text) Then
+                    oServicio.MercadoPago_ClientID = txtPrecioReserva.Text
+                End If
+                If (oServicio.MercadoPago_ClientSecret.ToString() <> txtMPClienteSecret.Text) Then
+                    oServicio.MercadoPago_ClientSecret = txtMPClienteSecret.Text
+                End If
             End If
             blnCambioReglas = True
         End If
@@ -229,6 +239,6 @@ Public Class CrearServicioP4
     End Sub
 
     Protected Sub chkMercadoPago_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkMercadoPago.CheckedChanged
-        txtPrecioReserva.Visible = chkMercadoPago.Checked
+        tbServicioMercadoPago.Visible = chkMercadoPago.Checked
     End Sub
 End Class

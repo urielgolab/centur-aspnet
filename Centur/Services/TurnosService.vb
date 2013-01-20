@@ -4,8 +4,8 @@ Public Class TurnosService
 
     Dim oTurnosDA As New DataAccessLayer.TurnosDA
 
-    Function VerTurnosCliente(ByVal idUsuario As Integer) As List(Of Turno)
-        Dim ds As DataSet = oTurnosDA.verTurnosCliente(idUsuario)
+    Function VerTurnosCliente(ByVal usuarioID As Integer) As List(Of Turno)
+        Dim ds As DataSet = oTurnosDA.verTurnosCliente(usuarioID)
         Dim oTurnoList As New List(Of Turno)
 
         For Each dr As DataRow In ds.Tables(0).Rows

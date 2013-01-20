@@ -437,11 +437,11 @@ Public Class CenturServiceREST
 
 #Region "Turnos"
 
-    Function VerTurnosCliente(ByVal idUsuario As Integer) As Stream Implements ICenturServiceREST.VerTurnosCliente
+    Function VerTurnosCliente(ByVal usuarioID As Integer) As Stream Implements ICenturServiceREST.VerTurnosCliente
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
-        Dim oTurnoList As List(Of Turno) = oTurnosService.VerTurnosCliente(idUsuario)
+        Dim oTurnoList As List(Of Turno) = oTurnosService.VerTurnosCliente(usuarioID)
 
         Dim result As New JSONResult
         result.Estado = Status

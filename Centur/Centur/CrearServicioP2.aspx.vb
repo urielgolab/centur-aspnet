@@ -91,10 +91,10 @@ Public Class CrearServicioP2
 
                 ' If jpg file is a jpeg, create a thumbnail filename that is unique.
                 file_append = 0
-                Dim sThumbFile As String = sThumbExtension & System.IO.Path.GetFileNameWithoutExtension(myFile.FileName) & ".jpg"
+                Dim sThumbFile As String = sThumbExtension & strNombreArchivo
                 While System.IO.File.Exists(Server.MapPath(sSavePath & sThumbFile))
                     file_append += 1
-                    sThumbFile = sThumbExtension & System.IO.Path.GetFileNameWithoutExtension(myFile.FileName) & file_append.ToString() & ".jpg"
+                    sThumbFile = sThumbExtension & strNombreArchivo
                 End While
 
                 ' Save thumbnail and output it onto the webpage

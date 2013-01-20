@@ -47,6 +47,10 @@
 <asp:LinkButton ID="BorrarEstadisticas" runat="server">Borrar</asp:LinkButton>
 </div>
 
+  <div class="failureNotification">
+            <asp:Label ID="ErrorMessage" runat="server"></asp:Label>
+  </div>
+
 <div class="EstadisticasResultado">
 <asp:Label runat="server" ID="lblResultado"></asp:Label>
 </div>

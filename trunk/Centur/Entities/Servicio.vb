@@ -25,6 +25,7 @@ Public Class Servicio
     Private _email As String
     Private _nombreUsuarioProveedor As String
     Private _esFavorito As Boolean
+    Private _puedePedirTurno As Boolean
 #End Region
 
 #Region "Properties"
@@ -211,6 +212,15 @@ Public Class Servicio
         End Get
         Set(ByVal value As Boolean)
             _esFavorito = value
+        End Set
+    End Property
+
+    Public Property PuedePedirTurno() As Boolean
+        Get
+            Return _puedePedirTurno
+        End Get
+        Set(ByVal value As Boolean)
+            _puedePedirTurno = value
         End Set
     End Property
 

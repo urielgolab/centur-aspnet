@@ -124,14 +124,17 @@ Public Class BuscarServicioService
         Dim ds As DataSet = oBuscarServicioDA.ReservarTurno(idServicio, TurnoFecha, TurnoHoraInicioFix, TurnoHoraFinFix, idUsuario, esProveedor, Mensaje, Status)
         Dim oTurno As New Turno
 
-        If ds.Tables(0).Rows.Count > 0 Then
-            Dim dr As DataRow = ds.Tables(0).Rows(0)
-            oTurno.idTurno = dr("idTurno")
-            oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
-            oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
+        If Status = False Then
+            If ds.Tables.Count > 0 Then
+                Dim dr As DataRow = ds.Tables(0).Rows(0)
+                oTurno.idTurno = dr("idTurno")
+                oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
+                oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
+            End If
+
+            Return oTurno
         End If
 
-        Return oTurno
     End Function
 
 
@@ -229,6 +232,19 @@ Public Class BuscarServicioService
         Dim ds As DataSet = oBuscarServicioDA.EsDueño(idServicio, idProveedor)
 
         Return ds.Tables(0).Rows.Count > 0
+
+    End Function
+
+
+    Public Function ClientePuedePedirTurno(ByVal idServicio As Integer, ByVal idUsuario As Integer) As Boolean
+
+        Dim ds As DataSet = oBuscarServicioDA.ClientePuedePedirTurno(idServicio, idUsuario)
+        Dim oServicio As New Servicio
+
+        If ds.Tables.Count > 0 Then
+            Dim dr As DataRow = ds.Tables(0).Rows(0)
+            Return CBool(dr("estaEnServicio"))
+        End If
 
     End Function
 

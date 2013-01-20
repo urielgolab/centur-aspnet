@@ -109,5 +109,11 @@ Public Class BuscarServicioDA
     End Function
 
 
+    Public Function ClientePuedePedirTurno(ByVal idServicio As Integer, ByVal idUsuario As Integer) As DataSet
+        Dim params() As SqlParameter
+        params = New SqlParameter() {New SqlParameter("@idServicio", idServicio), New SqlParameter("@idUsuario", idUsuario)}
+        Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "UsuarioEstaEnServicio", params)
+    End Function
+
 
 End Class

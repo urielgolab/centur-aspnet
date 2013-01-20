@@ -523,6 +523,17 @@ div.linksDetalleServicio
     font-family:Book Antiqua;
 }
 
+div.linksDetalleServicio2
+{
+    float:left;
+    width:500px;  
+    margin-right:400px;
+    margin-top:25px;
+    margin-bottom:20px;
+    font-size:large;
+    font-family:Book Antiqua;
+}
+
 .GrillaTurnosDisponibles
 {
     margin-top:25px;

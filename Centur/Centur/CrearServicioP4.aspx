@@ -20,6 +20,7 @@
             $('[id^="MainContent_txtDias"]').spinner({ max: 99, min: 0 });
             $('[id^="MainContent_txtPrecio"]').spinner({ max: 9999, min: 0 }); //, numberFormat: "C"
             $ID("btnFinalizar").button();
+        });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">

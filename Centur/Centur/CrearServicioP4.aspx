@@ -20,26 +20,6 @@
             $('[id^="MainContent_txtDias"]').spinner({ max: 99, min: 0 });
             $('[id^="MainContent_txtPrecio"]').spinner({ max: 9999, min: 0 }); //, numberFormat: "C"
             $ID("btnFinalizar").button();
-
-
-
-            $(function () {
-                $(document).tooltip({
-                    position: {
-                        my: "center bottom-20",
-                        at: "center top",
-                        using: function (position, feedback) {
-                            $(this).css(position);
-                            $("<div>")
-            .addClass("arrow")
-            .addClass(feedback.vertical)
-            .addClass(feedback.horizontal)
-            .appendTo(this);
-                        }
-                    }
-                });
-            });
-        });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -107,7 +87,6 @@
                                                     &nbsp;<asp:Button ID="btAgregarGrupo" runat="server" Text="Agregar" />
 		                                        </asp:TableCell></asp:TableRow></asp:Table></td></tr><tr>
                                     <td align="right" colspan="2">
-                                        
                                         <asp:LinkButton ID="lnkAgregarOtroGrupo" runat="server" Visible="False">(+) Agregar otro</asp:LinkButton></td></tr></table>
                                     </td></tr><tr>
                         <td title="Elige esta opci&oacute;n si deseas aprobar los turnos para confirmarlos"><asp:CheckBox ID="chkConfirmarTurno" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Confirmar turno</td><td>
@@ -117,7 +96,23 @@
                         <td title="Elige esta opci&oacute;n si admites solicitudes de sobreturnos"><asp:CheckBox ID="chkSobreturno" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Sobreturnos</td><td>
                             &nbsp; </td></tr><tr>
                         <td title="Elige esta opci&oacute;n si deseas cobrar por adelantado la reserva del turno.<br /> Requiere cuenta de MercadoPago"><asp:CheckBox ID="chkMercadoPago" runat="server" AutoPostBack="True" />&nbsp;&nbsp;Cobrar turno</td><td>
-                            <asp:TextBox ID="txtPrecioReserva" runat="server" Visible="False" Width="40" Text="0" title="Ingrese la se&ntilde;a"></asp:TextBox> </td></tr></tbody></table><br />
+                            <asp:Table ID="tbServicioMercadoPago" runat="server" Visible="False" Width="650px">
+	                            <asp:TableRow>
+		                            <asp:TableCell>
+			                            Precio de reserva:&nbsp;<asp:TextBox ID="txtPrecioReserva" runat="server" Width="40" Text="0" title="Ingrese la se&ntilde;a"></asp:TextBox>
+		                            </asp:TableCell>
+		                            <asp:TableCell>
+                                        <asp:LinkButton ID="lnkMPCrearCredenciales" runat="server" PostBackUrl="https://www.mercadopago.com/mla/herramientas/aplicaciones">Obtener Credenciales</asp:LinkButton>
+		                            </asp:TableCell>		
+		                            <asp:TableCell title="Proporcionado por MercadoPago">
+			                            Client_Id:&nbsp;<asp:TextBox ID="txtMPClienteID" runat="server" Text="" Width="90" style="border:1px solid gray !important;"></asp:TextBox>
+		                            </asp:TableCell>
+		                            <asp:TableCell title="Proporcionado por MercadoPago">
+			                            Client_Secret:&nbsp;<asp:TextBox ID="txtMPClienteSecret" runat="server" Text="" Width="90" style="border:1px solid gray !important;"></asp:TextBox>
+		                            </asp:TableCell>
+	                            </asp:TableRow>
+                            </asp:Table>
+                        </td></tr></tbody></table><br />
         <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" />
     </div>
 </div>

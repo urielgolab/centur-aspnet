@@ -186,6 +186,8 @@
       <Column Name="direccion" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="mercadoPago" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="precioReserva" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="MercadoPago_ClientID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MercadoPago_ClientSecret" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Servicio_ServicioFavorito" Member="ServicioFavoritos" ThisKey="idServicio" OtherKey="idServicio" Type="ServicioFavorito" />
       <Association Name="Servicio_ServicioGrilla" Member="ServicioGrillas" ThisKey="idServicio" OtherKey="idServicio" Type="ServicioGrilla" />
       <Association Name="Servicio_ServicioGrupo" Member="ServicioGrupos" ThisKey="idServicio" OtherKey="idServicio" Type="ServicioGrupo" />

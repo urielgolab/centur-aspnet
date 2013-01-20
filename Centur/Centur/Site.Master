@@ -11,6 +11,25 @@
     <link href="~/Styles/centur-theme/jquery-ui-1.9.1.custom.css" rel="stylesheet" type="text/css" />
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <link href="Styles/jquery.timepicker.css" rel="stylesheet" type="text/css" />
+
+    <script language="javascript">
+        $(function () {
+            $(document).tooltip({
+                position: {
+                    my: "center bottom-20",
+                    at: "center top",
+                    using: function (position, feedback) {
+                        $(this).css(position);
+                        $("<div>")
+        .addClass("arrow")
+        .addClass(feedback.vertical)
+        .addClass(feedback.horizontal)
+        .appendTo(this);
+                    }
+                }
+            });
+        });
+    </script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>

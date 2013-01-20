@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <p align="left" class="tituloPrincipal" > Mis Turnos</p>
-<div id="propios" Runat="Server">
+<div id="propios" class="turnosDados" Runat="Server">
 <p class="busqueda">Servicios prestados</p>
 <br />
         <asp:Label ID="Label1" runat="server" Text="Seleccionar servicio: "></asp:Label>
@@ -19,9 +19,9 @@
 
 <div id="tomados" runat="server">
 
-<div id="divConfirmados" runat="server">
-<asp:Label ID="Labelconfirmados" runat="server" CssClass="TurnosTituloGrilla" 
-        Text="turnos confirmados" Font-Bold="False" Font-Names="Consolas"></asp:Label>
+<div id="divConfirmados" class="divTurnosConfirmados" runat="server">
+<asp:Label ID="Labelconfirmados" CssClass="TurnosTituloGrilla" 
+        Text="Turnos confirmados" runat="server" Font-Names="Consolas"></asp:Label>
 <br />
 <asp:GridView ID="GridConfirmados" runat="server" AutoGenerateColumns="False" 
                 DataKeyNames="idTurno" CellPadding="4" ForeColor="#333333" 
@@ -57,7 +57,7 @@
        <br />     
 <div id="divPendientes" runat="server">
 <asp:Label ID="Label2" runat="server" CssClass="TurnosTituloGrilla" 
-        Text="turnos pendientes de aprobación" Font-Bold="False" Font-Names="Consolas"></asp:Label>
+        Text="Turnos pendientes de aprobación" Font-Bold="False" Font-Names="Consolas"></asp:Label>
 
 <br />
 <asp:GridView ID="GridPendientes" runat="server" AutoGenerateColumns="False" 

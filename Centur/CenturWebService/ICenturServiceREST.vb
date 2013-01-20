@@ -117,8 +117,8 @@ Public Interface ICenturServiceREST
 #Region "Turnos"
 
     <OperationContract()>
-<WebGet(UriTemplate:="/VerTurnosCliente?idUsuario={idUsuario}&confirmado={confirmado}", ResponseFormat:=WebMessageFormat.Json)> _
-    Function VerTurnosCliente(ByVal idUsuario As Integer, ByVal confirmado As Integer) As Stream
+<WebGet(UriTemplate:="/VerTurnosCliente?idUsuario={idUsuario}", ResponseFormat:=WebMessageFormat.Json)> _
+    Function VerTurnosCliente(ByVal idUsuario As Integer) As Stream
 
     <OperationContract()>
 <WebGet(UriTemplate:="/CancelarTurno?idTurno={idTurno}", ResponseFormat:=WebMessageFormat.Json)> _

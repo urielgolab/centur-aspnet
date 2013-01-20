@@ -33,6 +33,8 @@
 		8F49793A1623411F00014068 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F49792D1623411F00014068 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8F49794C162346C400014068 /* BTHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F49794A162342DC00014068 /* BTHttpClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8F49794E16235AE400014068 /* Servicio.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F49794D16235AE400014068 /* Servicio.m */; };
+		8F53815516AC6EE70085C5B9 /* MercadoPagoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F53815316AC6EE50085C5B9 /* MercadoPagoViewController.m */; };
+		8F53815616AC6EE70085C5B9 /* MercadoPagoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F53815416AC6EE60085C5B9 /* MercadoPagoViewController.xib */; };
 		8F54275815DFE56800AA85C9 /* BusquedaCategoriaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54275615DFE56800AA85C9 /* BusquedaCategoriaViewController.m */; };
 		8F54275915DFE56800AA85C9 /* BusquedaCategoriaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F54275715DFE56800AA85C9 /* BusquedaCategoriaViewController.xib */; };
 		8F54276115DFEAD800AA85C9 /* CategoriaPikerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F54275F15DFEAD800AA85C9 /* CategoriaPikerViewController.m */; };
@@ -173,6 +175,9 @@
 		8F497949162342DC00014068 /* BTHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTHttpClient.h; sourceTree = "<group>"; };
 		8F49794A162342DC00014068 /* BTHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTHttpClient.m; sourceTree = "<group>"; };
 		8F49794D16235AE400014068 /* Servicio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Servicio.m; sourceTree = "<group>"; };
+		8F53815216AC6EE40085C5B9 /* MercadoPagoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MercadoPagoViewController.h; sourceTree = "<group>"; };
+		8F53815316AC6EE50085C5B9 /* MercadoPagoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MercadoPagoViewController.m; sourceTree = "<group>"; };
+		8F53815416AC6EE60085C5B9 /* MercadoPagoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MercadoPagoViewController.xib; sourceTree = "<group>"; };
 		8F54275515DFE56800AA85C9 /* BusquedaCategoriaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusquedaCategoriaViewController.h; sourceTree = "<group>"; };
 		8F54275615DFE56800AA85C9 /* BusquedaCategoriaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusquedaCategoriaViewController.m; sourceTree = "<group>"; };
 		8F54275715DFE56800AA85C9 /* BusquedaCategoriaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusquedaCategoriaViewController.xib; sourceTree = "<group>"; };
@@ -711,6 +716,9 @@
 				8FF7BEA016A6234F007C9DAC /* GruposDeServicioViewController.h */,
 				8FF7BEA116A62351007C9DAC /* GruposDeServicioViewController.m */,
 				8FF7BEA216A62352007C9DAC /* GruposDeServicioViewController.xib */,
+				8F53815216AC6EE40085C5B9 /* MercadoPagoViewController.h */,
+				8F53815316AC6EE50085C5B9 /* MercadoPagoViewController.m */,
+				8F53815416AC6EE60085C5B9 /* MercadoPagoViewController.xib */,
 			);
 			path = Resultados;
 			sourceTree = "<group>";
@@ -827,6 +835,7 @@
 				8F01A019169F80E700141895 /* MisGruposViewController.xib in Resources */,
 				8FF7BEA416A62353007C9DAC /* GruposDeServicioViewController.xib in Resources */,
 				8FFB28DB16A8C83000BC1BA5 /* LoginEditViewController.xib in Resources */,
+				8F53815616AC6EE70085C5B9 /* MercadoPagoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -925,6 +934,7 @@
 				8F01A01F169F8C8700141895 /* ProvedoresDeGrupoViewController.m in Sources */,
 				8FF7BEA316A62353007C9DAC /* GruposDeServicioViewController.m in Sources */,
 				8FFB28DA16A8C83000BC1BA5 /* LoginEditViewController.m in Sources */,
+				8F53815516AC6EE70085C5B9 /* MercadoPagoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

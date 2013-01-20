@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface TurnosViewController : UITableViewController
+@interface TurnosViewController : BaseViewController<UIAlertViewDelegate>{
+    Turno* selectedTurno;
+}
 
 @property(nonatomic,retain) NSArray* turnos;
 @property(nonatomic,retain) Servicio* servicio;

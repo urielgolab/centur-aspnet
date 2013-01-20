@@ -34,5 +34,13 @@
     return [NSString stringWithFormat:@"%@ %@",self.nombre, [super description]];
 }
 
+-(BOOL)isEqual:(id)object{
+    BOOL baseEqual = [super isEqual:object];
+    BOOL classEqual = NO;
+    if ([object isKindOfClass:[self class]]) {
+        classEqual = [self.categoriaID isEqual: ((Categoria*)object).categoriaID];
+    }
+    return baseEqual || classEqual;
+}
 
 @end

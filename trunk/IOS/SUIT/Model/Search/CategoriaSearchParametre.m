@@ -22,7 +22,8 @@
 }
 
 -(BOOL)canPerformSearch{
-    return [categorias count] > 0;
+    return YES;
+    //return [categorias count] > 0;
 }
 
 -(void)categoriasValueChange{

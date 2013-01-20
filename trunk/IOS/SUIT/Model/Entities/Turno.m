@@ -16,6 +16,7 @@
     
     if (self) {
         self.Disponible = [NIL_IF_NSNULL([dict objectForKey:@"Disponible"])boolValue];
+        self.Confirmado = [NIL_IF_NSNULL([dict objectForKey:@"Confirmado"])boolValue];
         self.Fecha = NIL_IF_NSNULL([dict objectForKey:@"Fecha"]);
         self.ServicioID = NIL_IF_NSNULL([dict objectForKey:@"ServicioID"]);
         self.horaFin = NIL_IF_NSNULL([dict objectForKey:@"horaFin"]);

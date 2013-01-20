@@ -11,6 +11,7 @@
 @interface Turno : NSObject
 
 @property(nonatomic) BOOL Disponible;
+@property(nonatomic) BOOL Confirmado;
 @property(nonatomic,retain) NSString* Fecha;
 @property(nonatomic,retain) NSString* FechaMMDD;
 @property(nonatomic,retain) NSString* ClienteNombre;

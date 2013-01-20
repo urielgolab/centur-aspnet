@@ -155,9 +155,9 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(SRVBusqueda);
         
         [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_CANCELARTURNO_OK object:turno];
     }
-                                                                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                                                                            NSLog(@"%@",error);
-                                                                                            [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_CANCELARTURNO_FAILED object:nil];
+        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                        NSLog(@"%@",error);
+    [[NSNotificationCenter defaultCenter] postNotificationName:SERVICE_CANCELARTURNO_FAILED object:turno];
                                                                                             
                                                                                         }];
     [operation start];

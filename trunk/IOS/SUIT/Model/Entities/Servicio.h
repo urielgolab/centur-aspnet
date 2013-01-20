@@ -37,6 +37,7 @@
 @property(nonatomic,retain) NSString* Telefono;
 @property(nonatomic,retain) NSString* Zona;
 @property(nonatomic) BOOL EsFavorito;
+@property(nonatomic) BOOL PuedePedirTurno;
 
 
 @property(nonatomic) CLLocationCoordinate2D coordinate;

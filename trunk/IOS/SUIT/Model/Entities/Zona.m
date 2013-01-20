@@ -35,5 +35,13 @@
     return [NSString stringWithFormat:@"%@ %@",nombre, [super description]];
 }
 
+-(BOOL)isEqual:(id)object{
+    BOOL baseEqual = [super isEqual:object];
+    BOOL classEqual = NO;
+    if ([object isKindOfClass:[self class]]) {
+        classEqual = [self.zonaID isEqual: ((Zona*)object).zonaID];
+    }
+    return baseEqual || classEqual;
+}
 
 @end

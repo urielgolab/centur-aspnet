@@ -50,9 +50,21 @@ Public Class DetalleServicio
 
   
     Private Sub VerHorarios_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles VerHorarios.Click
-        Dim selectedDate As Date = CDate(txtDatePicker.Text)
-        HorariosxDia.DataSource = oBuscarServicioService.VerTurnosServicioxDia(servicio.ID, selectedDate, False)
-        HorariosxDia.DataBind()
+        If Not txtDatePicker.Text = "" Then
+            Dim selectedDate As Date = CDate(txtDatePicker.Text)
+            Dim turnos As Entities.TurnoList = oBuscarServicioService.VerTurnosServicioxDia(servicio.ID, selectedDate, False)
+            If turnos.Count > 0 Then
+                HorariosxDia.DataSource = turnos
+                HorariosxDia.DataBind()
+                ErrorMessage.Visible = False
+            Else
+                ErrorMessage.Text = "No hay turnos disponibles dicho día"
+                ErrorMessage.Visible = True
+            End If
+        Else
+            ErrorMessage.Text = "Seleccione una fecha válida"
+            ErrorMessage.Visible = True
+        End If
     End Sub
 
     Private Sub Favoritos_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Favoritos.Click
@@ -68,6 +80,21 @@ Public Class DetalleServicio
                 Me.Favoritos.Text = "Agregar a Favoritos"
             End If
         End If
+
+    End Sub
+
+    Private Sub PedirTurno_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles PedirTurno.Click
+        '' METODO QUE ME DIGA SI UN CLIENTE PUEDE PEDIR UN TURNO O NO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        If oBuscarServicioService.ClientePuedePedirTurno(servicio.ID, CType(Session("Usuario"), Entities.Usuario).idUsuario) Then
+            'DIVPedirTurno.Visible = True
+            'ErrorMessageExterno.Visible = False
+        Else
+            'ErrorMessageExterno.Text = "Debe estar inscripto en al menos un grupo para pedir un turno a este servicio"
+            'ErrorMessageExterno.Visible = True
+            'DIVPedirTurno.Visible = False
+        End If
+
+
 
     End Sub
 End Class

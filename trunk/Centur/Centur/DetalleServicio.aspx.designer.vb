@@ -203,6 +203,15 @@ Partial Public Class DetalleServicio
     Protected WithEvents Mensaje As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''Favoritos control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Favoritos As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''GruposAsociados control.
     '''</summary>
     '''<remarks>
@@ -221,15 +230,6 @@ Partial Public Class DetalleServicio
     Protected WithEvents ImagenServicio As Global.System.Web.UI.WebControls.Image
 
     '''<summary>
-    '''Favoritos control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Favoritos As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
     '''VolveraBusqueda control.
     '''</summary>
     '''<remarks>
@@ -237,6 +237,15 @@ Partial Public Class DetalleServicio
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents VolveraBusqueda As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''PedirTurno control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents PedirTurno As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''txtDatePicker control.
@@ -255,6 +264,15 @@ Partial Public Class DetalleServicio
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents VerHorarios As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''ErrorMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ErrorMessage As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''HorariosxDia control.

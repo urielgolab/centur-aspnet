@@ -32,6 +32,15 @@ Partial Public Class AsignarTurno
     Protected WithEvents VerHorarios As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''ErrorMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ErrorMessage As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''HorariosxDia control.
     '''</summary>
     '''<remarks>

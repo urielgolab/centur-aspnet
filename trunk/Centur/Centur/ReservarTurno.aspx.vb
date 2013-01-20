@@ -21,9 +21,11 @@
 
         Dim oTurno As Entities.Turno = oBuscarServicioService.ReservarTurno(ServicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, CType(Session("Usuario"), Entities.Usuario).idUsuario, esProveedor, Mensaje, Status)
 
-
-        TurnoStatus.InnerText = "Reservado!! De " + oTurno.horaInicio + " a " + oTurno.horaFin
-
+        If Status = False Then
+            TurnoStatus.InnerText = "Reservado!! De " + oTurno.horaInicio + " a " + oTurno.horaFin
+        Else
+            TurnoStatus.InnerText = Mensaje
+        End If
 
     End Sub
 

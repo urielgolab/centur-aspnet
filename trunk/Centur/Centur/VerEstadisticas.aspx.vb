@@ -5,8 +5,7 @@
     Dim oBuscarServicioService As New Services.BuscarServicioService()
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        DDLServicios.DataSource = oBuscarServicioService.VerServiciosDeProveedor(1)
-        'DDLServicios.DataSource = oBuscarServicioService.VerServiciosDeProveedor(CType(Session("Usuario"), Entities.Usuario).idUsuario)
+        DDLServicios.DataSource = oBuscarServicioService.VerServiciosDeProveedor(CType(Session("Usuario"), Entities.Usuario).idUsuario)
         'DDLServicios.Items.Insert(0, "Seleccione un servicio")
         DDLServicios.DataBind()
     End Sub

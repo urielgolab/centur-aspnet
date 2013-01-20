@@ -11,6 +11,11 @@
     <div id="DIVPedirTurno">
         <asp:TextBox CssClass="txtDatePicker" runat="server" ID="txtDatePicker"></asp:TextBox>
         <asp:LinkButton CssClass="MarginLeft30" ID="VerHorarios" runat="server"> Ver Horarios </asp:LinkButton>
+        
+        <p class="failureNotification">
+            <asp:Label ID="ErrorMessage" runat="server"></asp:Label>
+        </p>
+        
         <asp:GridView CssClass="GrillaTurnosDisponibles" ID="HorariosxDia" runat="server" AutoGenerateColumns="False" 
                     CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />

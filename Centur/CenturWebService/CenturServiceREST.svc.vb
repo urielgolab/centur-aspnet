@@ -441,7 +441,7 @@ Public Class CenturServiceREST
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
-        Dim oTurnoList As TurnoList = oTurnosService.VerTurnosCliente(idUsuario)
+        Dim oTurnoList As List(Of Turno) = oTurnosService.VerTurnosCliente(idUsuario)
 
         Dim result As New JSONResult
         result.Estado = Status

@@ -17,7 +17,7 @@ Public Class TurnosService
             oTurno.Confirmado = dr("confirmado")
             oTurno.ServicioID = CInt(dr("idServicio"))
             oTurno.ServicioNombre = CStr(dr("nombre"))
-
+            oTurno.FechaMMDD = Format(dr("fecha"), "MM/dd/yyyy")
 
             oTurnoList.Add(oTurno)
         Next

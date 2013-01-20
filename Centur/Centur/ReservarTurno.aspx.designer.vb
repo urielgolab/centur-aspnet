@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class ReservarTurno
 
     '''<summary>
+    '''ltlMercadoPago control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ltlMercadoPago As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
     '''TurnoStatus control.
     '''</summary>
     '''<remarks>

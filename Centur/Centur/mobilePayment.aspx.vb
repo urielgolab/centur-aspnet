@@ -6,9 +6,11 @@ Public Class mobilePayment
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then
             Dim idServicio As Integer = 13
+            Dim idUsuario As Integer = 1024
 
-            If Request.QueryString("idServicio") <> "" Then
+            If Request.QueryString("idServicio") <> "" AndAlso Request.QueryString("idUsuario") <> "" Then
                 idServicio = CInt(Request.QueryString("idServicio"))
+                idUsuario = CInt(Request.QueryString("idUsuario"))
             End If
 
             If idServicio > 0 Then
@@ -21,6 +23,7 @@ Public Class mobilePayment
                 Dim dc As New DC()
 
                 Dim oServicio = dc.Servicios.Single(Function(x) x.idServicio = idServicio)
+                Dim oUsuario = dc.Usuarios.Single(Function(x) x.idUsuario = idUsuario)
 
                 Dim strClientID As String = "858246848027532"
                 Dim strClientSecret As String = "jOJr8QeUAcj3PHuXiuc9V16GvY8TT3h3"
@@ -36,9 +39,9 @@ Public Class mobilePayment
                 "<input type='hidden' name='item_currency_id' value='ARS'/>" &
                 "<input type='hidden' name='item_unit_price' value='" + oServicio.precioReserva.ToString() + "'/>" &
                 "" &
-                "<input type='hidden' name='payer_name' value='" + oServicio.Usuario.nombre + " " + oServicio.Usuario.apellido + "'/>" &
-                "<input type='hidden' name='payer_surname' value='" + oServicio.Usuario.nombreUsuario + "'/>" &
-                "<input type='hidden' name='payer_email' value='" + oServicio.Usuario.email + "'/>" &
+                "<input type='hidden' name='payer_name' value='" + oUsuario.nombre + " " + oUsuario.apellido + "'/>" &
+                "<input type='hidden' name='payer_surname' value='" + oUsuario.nombreUsuario + "'/>" &
+                "<input type='hidden' name='payer_email' value='" + oUsuario.email + "'/>" &
                 "<input type='hidden' name='item_picture_url' value='http://centur.ugserver.com.ar/UrielWeb/Images/publicaciones/" + oServicio.foto + ".jpg'/>" &
                 "<input type='hidden' name='back_url_success' value='http://centur.ugserver.com.ar/UrielOK'/>" &
                 "<input type='hidden' name='back_url_pending' value='http://centur.ugserver.com.ar/UrielFAIL'/>" &

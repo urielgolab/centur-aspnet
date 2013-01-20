@@ -14,6 +14,7 @@ Public Class TurnosService
             oTurno.Fecha = CStr(dr("fecha"))
             oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
             oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
+            oTurno.Confirmado = CChar(dr("confirmado"))
             oTurno.ServicioID = CInt(dr("idServicio"))
             oTurno.ServicioNombre = CStr(dr("nombre"))
 

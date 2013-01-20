@@ -128,7 +128,7 @@ Partial Public Class MisTurnos
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Cancelar As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents Cancelar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''labelNoReservados control.

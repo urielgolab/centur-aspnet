@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="MisTurnos.aspx.vb" Inherits="Centur.MisTurnos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $ID("Cancelar").button();
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <p align="left" class="tituloPrincipal" > Mis Turnos</p>
@@ -94,7 +99,8 @@
        </div>
             <asp:Label ID="Label5" runat="server" Text="Seleccione turnos a cancelar"></asp:Label>
        <br />
-       <asp:LinkButton ID="Cancelar" CssClass="TurnosModificarLinks" runat="server">Cancelar turnos</asp:LinkButton>
+
+     <asp:Button ID="Cancelar" CssClass="TurnosModificarLinks" runat="server" Text="Cancelar turnos"></asp:Button>
      </div>
      <asp:Label ID="labelNoReservados" runat="server" 
         Text="Usted no posee turnos reservados" Visible="False" Font-Size="Medium"></asp:Label>

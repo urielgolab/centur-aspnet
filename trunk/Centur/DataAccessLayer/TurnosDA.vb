@@ -6,10 +6,10 @@ Imports System.Text
 Public Class TurnosDA
 
     Private _dbConnectionString As String = CType(Configuration.ConfigurationSettings.AppSettings("CenturConnStr"), String)
-    Function verTurnosCliente(ByVal idUsuario As Integer, ByVal confirmado As Integer) As DataSet
+    Function verTurnosCliente(ByVal idUsuario As Integer) As DataSet
 
         Dim params() As SqlParameter
-        params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario), New SqlParameter("@confirmado", confirmado)}
+        params = New SqlParameter() {New SqlParameter("@idUsuario", idUsuario)}
         Return SqlHelper.ExecuteDataset(_dbConnectionString, CommandType.StoredProcedure, "TurnoObtener", params)
 
 

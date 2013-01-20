@@ -41,7 +41,7 @@ Public Class MisTurnos
         Dim oTurnoList As New TurnoList
 
         If Not IsPostBack Then
-            oTurnoList = oTurnosService.VerTurnosCliente(CType(Session("Usuario"), Entities.Usuario).idUsuario, 1)
+            oTurnoList = oTurnosService.VerTurnosCliente(CType(Session("Usuario"), Entities.Usuario).idUsuario)
 
             If oTurnoList.Count > 0 Then
                 GridTomados.DataSource = oTurnoList

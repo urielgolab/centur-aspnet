@@ -86,6 +86,15 @@ Partial Public Class VerEstadisticas
     Protected WithEvents BorrarEstadisticas As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''ErrorMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ErrorMessage As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''lblResultado control.
     '''</summary>
     '''<remarks>

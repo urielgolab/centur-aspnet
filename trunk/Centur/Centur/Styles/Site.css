@@ -279,6 +279,7 @@ div.accountInfo
 
 .failureNotification
 {
+    float:left;
     font-size: 1.2em;
     color: Red;
 }
@@ -620,7 +621,7 @@ div.Servicio
 .EstadisticasLinks
 {
     float:left;
-    width:500px;    
+    width:900px;    
     font-size:large;
     font-family:Book Antiqua;
     margin: 15px;    

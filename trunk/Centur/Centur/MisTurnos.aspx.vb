@@ -38,32 +38,55 @@ Public Class MisTurnos
     End Sub
 
     Private Sub GetTurnosTomados()
-        Dim oTurnoList As New TurnoList
+        Dim oTurnoList As New List(Of Turno)
+        Dim confirmados As New List(Of Turno)
+        Dim pendientes As New List(Of Turno)
 
         If Not IsPostBack Then
             oTurnoList = oTurnosService.VerTurnosCliente(CType(Session("Usuario"), Entities.Usuario).idUsuario)
 
-            If oTurnoList.Count > 0 Then
-                GridTomados.DataSource = oTurnoList
-                GridTomados.DataBind()
-            Else
+            If oTurnoList.Count = 0 Then
                 tomados.Visible = False
                 labelNoReservados.Visible = True
+                Return
             End If
+
+            confirmados = oTurnoList.FindAll(AddressOf FindConfirmados)
+            If confirmados.Count > 0 Then
+                GridConfirmados.DataSource = confirmados
+                GridConfirmados.DataBind()
+            Else
+                divConfirmados.Visible = False
+            End If
+
+            pendientes = oTurnoList.FindAll(AddressOf FindPendientes)
+            If pendientes.Count > 0 Then
+                GridPendientes.DataSource = pendientes
+                GridPendientes.DataBind()
+            Else
+                divPendientes.Visible = False
+            End If
+
         End If
 
     End Sub
 
     Protected Sub Cancelar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Cancelar.Click
 
-        For Each row As GridViewRow In GridTomados.Rows
+        For Each row As GridViewRow In GridConfirmados.Rows
 
             If CType(row.FindControl("CheckBox1"), CheckBox).Checked = True Then
-
-                Dim idTurno As Integer = Convert.ToInt32(GridTomados.DataKeys(row.RowIndex).Values("idTurno"))
-
+                Dim idTurno As Integer = Convert.ToInt32(GridConfirmados.DataKeys(row.RowIndex).Values("idTurno"))
                 oTurnosService.CancelarTurno(idTurno)
+            End If
 
+        Next row
+
+        For Each row As GridViewRow In GridPendientes.Rows
+
+            If CType(row.FindControl("CheckBox1"), CheckBox).Checked = True Then
+                Dim idTurno As Integer = Convert.ToInt32(GridPendientes.DataKeys(row.RowIndex).Values("idTurno"))
+                oTurnosService.CancelarTurno(idTurno)
             End If
 
         Next row
@@ -74,4 +97,13 @@ Public Class MisTurnos
     Protected Sub LinkButton4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton4.Click
         Response.Redirect("~/AdministrarTurnos.aspx?servicioId=" & DropDownListServiciosPropios.Text)
     End Sub
+
+    Private Function FindConfirmados(ByVal turno As Turno) As Boolean
+        Return turno.Confirmado
+    End Function
+
+    Private Function FindPendientes(ByVal turno As Turno) As Boolean
+        Return Not turno.Confirmado
+    End Function
+
 End Class

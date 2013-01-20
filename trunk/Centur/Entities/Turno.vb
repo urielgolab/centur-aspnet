@@ -6,7 +6,7 @@ Public Class Turno
     Private _idTurno As Integer
     Private _horaInicio As String
     Private _horaFin As String
-    Private _confirmado As Char
+    Private _confirmado As Boolean
     Private _disponible As Boolean
     Private _fecha As String
     Private _fechaMMDD As String
@@ -46,11 +46,11 @@ Public Class Turno
         End Set
     End Property
 
-    Public Property Confirmado() As Char
+    Public Property Confirmado() As boolean
         Get
             Return _confirmado
         End Get
-        Set(ByVal value As Char)
+        Set(ByVal value As Boolean)
             _confirmado = value
         End Set
     End Property

@@ -59,13 +59,58 @@ Partial Public Class MisTurnos
     Protected WithEvents tomados As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''GridTomados control.
+    '''divConfirmados control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents GridTomados As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents divConfirmados As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Labelconfirmados control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Labelconfirmados As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''GridConfirmados control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridConfirmados As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''divPendientes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents divPendientes As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''Label2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''GridPendientes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridPendientes As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''Label5 control.

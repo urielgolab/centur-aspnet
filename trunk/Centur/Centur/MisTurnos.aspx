@@ -14,10 +14,53 @@
         <asp:LinkButton ID="LinkButton4" CssClass="TurnosVerLinks" runat="server">Ver Turnos...</asp:LinkButton>
         
 </div>
-<p class="busqueda">Turnos inscriptos</p>
+<p class="busqueda">Turnos inscriptos
+    </p>
+
 <div id="tomados" runat="server">
+
+<div id="divConfirmados" runat="server">
+<asp:Label ID="Labelconfirmados" runat="server" CssClass="TurnosTituloGrilla" 
+        Text="turnos confirmados" Font-Bold="False" Font-Names="Consolas"></asp:Label>
 <br />
-<asp:GridView ID="GridTomados" runat="server" AutoGenerateColumns="False" 
+<asp:GridView ID="GridConfirmados" runat="server" AutoGenerateColumns="False" 
+                DataKeyNames="idTurno" CellPadding="4" ForeColor="#333333" 
+        GridLines="None">
+       <AlternatingRowStyle BackColor="White" />
+       <Columns>
+       
+       <asp:TemplateField HeaderText="Selecccione">
+            <ItemTemplate>
+                <asp:CheckBox runat="server" ID="CheckBox1"/>
+            </ItemTemplate>
+       </asp:TemplateField>
+       
+       <asp:HyperLinkField DataTextField="ServicioNombre" HeaderText="Nombre servicio" DataNavigateUrlFormatString="~/DetalleServicio.aspx?servicioID={0}"
+                    DataNavigateUrlFields="ServicioID" />
+       <asp:BoundField DataField="Fecha" HeaderText="Fecha turno" SortExpression="Fecha"/>
+       <asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" SortExpression="horaInicio"/>
+       <asp:BoundField DataField="horaFin" HeaderText="Hora fin" SortExpression="horaFin"/>
+
+       </Columns>
+       <EditRowStyle BackColor="#2461BF" />
+       <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+       <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+       <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+       <RowStyle BackColor="#EFF3FB" />
+       <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+       <SortedAscendingCellStyle BackColor="#F5F7FB" />
+       <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+       <SortedDescendingCellStyle BackColor="#E9EBEF" />
+       <SortedDescendingHeaderStyle BackColor="#4870BE" />
+       </asp:GridView>
+       </div>
+       <br />     
+<div id="divPendientes" runat="server">
+<asp:Label ID="Label2" runat="server" CssClass="TurnosTituloGrilla" 
+        Text="turnos pendientes de aprobación" Font-Bold="False" Font-Names="Consolas"></asp:Label>
+
+<br />
+<asp:GridView ID="GridPendientes" runat="server" AutoGenerateColumns="False" 
                 DataKeyNames="idTurno" CellPadding="4" ForeColor="#333333" 
         GridLines="None">
        <AlternatingRowStyle BackColor="White" />
@@ -48,9 +91,8 @@
        <SortedDescendingHeaderStyle BackColor="#4870BE" />
        </asp:GridView>
        <br />     
-       
+       </div>
             <asp:Label ID="Label5" runat="server" Text="Seleccione turnos a cancelar"></asp:Label>
-       
        <br />
        <asp:LinkButton ID="Cancelar" CssClass="TurnosModificarLinks" runat="server">Cancelar turnos</asp:LinkButton>
      </div>

@@ -26,7 +26,7 @@ Public Class mobilePayment
                 Dim strClientSecret As String = "jOJr8QeUAcj3PHuXiuc9V16GvY8TT3h3"
 
                 Dim strBoton As String
-                strBoton = "<form action='https://www.mercadopago.com/checkout/init' method='post' enctype='application/x-www-form-urlencoded' target=''>	" &
+                strBoton = "" &
                 "<!-- Autenticación y hash MD5 -->" &
                 "<input type='hidden' name='client_id' value='" + strClientID + "'/>" &
                 "<input type='hidden' name='md5' value='" + obtenerMD5(strClientID & strClientSecret & "1" & "ARS" & oServicio.precioReserva.ToString() & "" & "") + "'/>" &
@@ -44,8 +44,7 @@ Public Class mobilePayment
                 "<input type='hidden' name='back_url_pending' value='http://centur.ugserver.com.ar/UrielFAIL'/>" &
                 "" &
                 "<!-- Boton de pago -->" &
-                "<button type='submit' class='lightblue-rn-m-tr' name='MP-Checkout'>Pagar</button>" &
-                "</form>"
+                "<button type='submit' class='lightblue-rn-m-tr' name='MP-Checkout'>Pagar</button>"
                 ltlMercadoPago.Text = strBoton
 
                 '            "<!-- Datos opcionales -->" &

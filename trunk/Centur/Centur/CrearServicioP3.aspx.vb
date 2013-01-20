@@ -71,7 +71,24 @@ Public Class CrearServicioP3
                 End If
             End If
         Next
-        'Dim mControl As ControlType = DirectCast(contentPlaceHolder.FindControl("ControlName"), ControlType)
+
+        If tbExcepcion.Visible Then 'está cargando una excepción
+            Dim oGrillaExcepcion As New GrillaExepcion
+
+            With oGrillaExcepcion
+                .idGrilla = idGrilla
+                .fecha = Date.Now 'txtFechaExcep.Text
+                .horaInicio = txtHoraDesdeExcep.Text
+                .horaFin = txtHoraHastaExcep.Text
+            End With
+
+            dc.GrillaExepcions.InsertOnSubmit(oGrillaExcepcion)
+            dc.SubmitChanges()
+
+            actualizarGrillaExcepciones()
+            tbExcepcion.Visible = False
+            lnkAgregarOtraExcepcion.Visible = True
+        End If
 
         If blnEverithingOk And Not blnGuardoDatos Then
 
@@ -80,7 +97,10 @@ Public Class CrearServicioP3
             Response.Redirect("CrearServicioP4.aspx")
         End If
     End Sub
-
+    Private Sub actualizarGrillaExcepciones()
+        grdExepciones.DataSource = dc.GrillaExepcions.Where(Function(x) x.idGrilla = idGrilla And x.fecha > Date.Today)
+        grdExepciones.DataBind()
+    End Sub
     Private Sub guardarHorarioDia(ByVal idGrilla As Integer, ByVal tbHorarioDia As Table)
         Dim numeroDia As String = tbHorarioDia.ID.Substring(tbHorarioDia.ID.Length - 1)
         'Dim strCapacidad As String, strDuracion As String, strHoraDesde As String, strHoraHasta As String
@@ -133,6 +153,12 @@ Public Class CrearServicioP3
             Catch
             End Try
         Next
+
+        'Carga de excepciones
+        actualizarGrillaExcepciones()
+
+
+
     End Sub
 
     Protected Sub grdHorarios1_RowDeleting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeleteEventArgs) Handles grdHorarios1.RowDeleting
@@ -291,5 +317,10 @@ Public Class CrearServicioP3
             lnkGrillaAsociada.Visible = True
             Session("idGrilla") = Nothing
         End If
+    End Sub
+
+    Protected Sub lnkAgregarOtraExcepcion_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkAgregarOtraExcepcion.Click
+        tbExcepcion.Visible = True
+        lnkAgregarOtraExcepcion.Visible = False
     End Sub
 End Class

@@ -45,10 +45,17 @@
             $("#tabs").tabs('option', 'disabled', [0, 1, 3]);
             $("#tabs").tabs("select", 2)
             $ID("btnSiguiente").button();
+            $ID("txtFechaExcep").datepicker(
+                { minDate: new Date()
+                , dateFormat: 'dd-mm-yy'
+                , dayNamesShort: ["Dom", "Lun", "Mar", "Mier", "Jue", "Vie", "Sab"]
+                , dayNames: ["Domingo", "Lunes", "Martes", "Mi&eacute;rcoles", "Jueves", "Viernes", "S&aacute;bado"]
+                , monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+                });
 
             //$ID("txtFechaDesde").datepicker();
             //$ID("txtFechaHasta").datepicker();
-            $('[id^="MainContent_txtCapacidad"]').spinner({ max: 30,min:1 });
+            $('[id^="MainContent_txtCapacidad"]').spinner({ max: 30, min: 1 });
             $('[id^="MainContent_txtDuracion"]').spinner({ max: 999, min: 10 });
             Globalize.culture("de-DE");
             $('[id^="MainContent_txtHora"]').timespinner();
@@ -398,6 +405,38 @@
 			                        Duraci&oacute;n (min):
 			                        <asp:TextBox ID="txtDuracion7" runat="server"  Width="35" MaxLength="3"  Text="30"/>
 		                        </asp:TableCell></asp:TableRow></asp:Table></td></tr></tbody></table></div><br />
+
+<h2>Configuraci&oacute;n de excepciones</h2><table border="0">
+	<tr>
+		<td>
+			<asp:GridView ID="grdExepciones" runat="server" Visible="True" 
+				AutoGenerateColumns="False" DataKeyNames="idExepcion" CssClass="tbHorariosDia" BorderWidth="0">
+				<Columns>
+					<asp:BoundField DataField="idExepcion" 
+						HeaderText="idExepcion" InsertVisible="False" ReadOnly="True" 
+						SortExpression="idExepcion" Visible="False" />
+					<asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
+						SortExpression="horaInicio" DataFormatString="{0:t}" />
+					<asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
+						SortExpression="horaFin" DataFormatString="{0:t}" />
+					<asp:TemplateField HeaderText="Acciones">
+						<ItemTemplate>
+							<asp:LinkButton ID="lnkExcepcionEliminar1" runat="server" CausesValidation="False" 
+								CommandName="Delete" Text="Eliminar"></asp:LinkButton></ItemTemplate></asp:TemplateField></Columns></asp:GridView></td></tr><tr>
+		<td align="right" colspan="2">
+			<asp:LinkButton ID="lnkAgregarOtraExcepcion" runat="server" Visible="True">(+) Agregar otra</asp:LinkButton></td></tr></table>
+            <asp:Table ID="tbExcepcion" runat="server" Visible="False" Width="650px">
+	<asp:TableRow>
+		<asp:TableCell>
+			Fecha:
+			<asp:TextBox ID="txtFechaExcep" runat="server" Width="80" MaxLength="10" Text="" style="border:1px solid gray !important;" />
+		</asp:TableCell><asp:TableCell>
+			Desde:
+			<asp:TextBox ID="txtHoraDesdeExcep" runat="server" Width="50" MaxLength="5" Text="09:00" />
+		</asp:TableCell><asp:TableCell>
+			Hasta:
+			<asp:TextBox ID="txtHoraHastaExcep" runat="server" Width="50" MaxLength="5" Text="20:00"/>
+		</asp:TableCell></asp:TableRow></asp:Table><br />
         <asp:Button ID="btnSiguiente" runat="server" Text="Continuar"  />
     </div>
     <div id="configuralo"></div>

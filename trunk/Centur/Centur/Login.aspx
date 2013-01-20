@@ -2,6 +2,28 @@
     CodeBehind="Login.aspx.vb" Inherits="Centur.Login1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <script language="javascript">
+        $(function () {
+            $ID("Entrar").button();
+
+            $(function () {
+                $(document).tooltip({
+                    position: {
+                        my: "center bottom-20",
+                        at: "center top",
+                        using: function (position, feedback) {
+                            $(this).css(position);
+                            $("<div>")
+            .addClass("arrow")
+            .addClass(feedback.vertical)
+            .addClass(feedback.horizontal)
+            .appendTo(this);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1>
@@ -32,7 +54,7 @@
             </p>--%>
         </fieldset>
         <p class="submitButton">
-            <asp:LinkButton ID="Entrar" runat="server" Text="Entrar"  ValidationGroup="LoginUserValidationGroup" ></asp:LinkButton>
+            <asp:Button  ID="Entrar" runat="server" Text="Entrar" ValidationGroup="LoginUserValidationGroup" ></asp:Button>
         </p>
         <p class="failureNotification">
             <asp:Label ID="ErrorMessage" runat="server"></asp:Label>

@@ -6,39 +6,7 @@ Centur
 </name>
 </assembly>
 <members>
-<member name="F:Centur.mobilePayment.form1">
-	<summary>
-form1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.mobilePayment.ltlMercadoPago">
-	<summary>
-ltlMercadoPago control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.WebForm1.form1">
-	<summary>
-form1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.WebForm1.lblRespuesta">
-	<summary>
-lblRespuesta control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.GrupoPendientes.pendientes">
+<member name="F:Centur.GrupoPendientes.pendientes">
 	<summary>
 pendientes control.
 </summary>
@@ -1262,6 +1230,22 @@ ErrorMessage control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:Centur.mobilePayment.form1">
+	<summary>
+form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.mobilePayment.ltlMercadoPago">
+	<summary>
+ltlMercadoPago control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:Centur.Favoritos.GridResultadosFavoritos">
 	<summary>
 GridResultadosFavoritos control.
@@ -1938,6 +1922,22 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Centur.ReservarTurno.TurnoStatus">
 	<summary>
 TurnoStatus control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.WebForm1.form1">
+	<summary>
+form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.WebForm1.lblRespuesta">
+	<summary>
+lblRespuesta control.
 </summary>
 	<remarks>
 Auto-generated field.

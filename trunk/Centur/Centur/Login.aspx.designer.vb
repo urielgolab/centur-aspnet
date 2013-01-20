@@ -56,7 +56,7 @@ Partial Public Class Login1
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Entrar As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents Entrar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''ErrorMessage control.

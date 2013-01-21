@@ -221,6 +221,15 @@ Partial Public Class DetalleServicio
     Protected WithEvents GruposAsociados As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
+    '''ErrorMessageGruposAsoc control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ErrorMessageGruposAsoc As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''ImagenServicio control.
     '''</summary>
     '''<remarks>
@@ -246,6 +255,24 @@ Partial Public Class DetalleServicio
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents PedirTurno As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''ErrorMessageExterno control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ErrorMessageExterno As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''DIVPedirTurno control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DIVPedirTurno As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''txtDatePicker control.

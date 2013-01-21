@@ -34,9 +34,15 @@ Public Class DetalleServicio
             Me.ImagenServicio.Visible = False
         End If
 
-        GruposAsociados.DataSource = oBuscarServicioService.VerGruposAsociadosAServicio(CInt(Request.QueryString("ServicioID")))
-        GruposAsociados.DataBind()
+        Dim gruposAsoc As Entities.GrupoList = oBuscarServicioService.VerGruposAsociadosAServicio(CInt(Request.QueryString("ServicioID")))
 
+        If gruposAsoc.Count > 0 Then
+            GruposAsociados.DataSource = gruposAsoc
+            GruposAsociados.DataBind()
+        Else
+            ErrorMessageGruposAsoc.Text = "No hay grupos asociados a este servicio"
+            ErrorMessageGruposAsoc.Visible = True
+        End If
 
         If oFavoritosService.esFavorito(CType(Session("Usuario"), Entities.Usuario).idUsuario, servicio.ID) Then
             Me.Favoritos.Text = "Quitar de Favoritos"
@@ -44,7 +50,7 @@ Public Class DetalleServicio
             Me.Favoritos.Text = "Agregar a Favoritos"
         End If
 
-        'End If
+        DIVPedirTurno.Visible = False
 
     End Sub
 
@@ -65,6 +71,7 @@ Public Class DetalleServicio
             ErrorMessage.Text = "Seleccione una fecha válida"
             ErrorMessage.Visible = True
         End If
+        DIVPedirTurno.Visible = True
     End Sub
 
     Private Sub Favoritos_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Favoritos.Click
@@ -84,14 +91,13 @@ Public Class DetalleServicio
     End Sub
 
     Private Sub PedirTurno_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles PedirTurno.Click
-        '' METODO QUE ME DIGA SI UN CLIENTE PUEDE PEDIR UN TURNO O NO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         If oBuscarServicioService.ClientePuedePedirTurno(servicio.ID, CType(Session("Usuario"), Entities.Usuario).idUsuario) Then
-            'DIVPedirTurno.Visible = True
-            'ErrorMessageExterno.Visible = False
+            DIVPedirTurno.Visible = True
+            ErrorMessageExterno.Visible = False
         Else
-            'ErrorMessageExterno.Text = "Debe estar inscripto en al menos un grupo para pedir un turno a este servicio"
-            'ErrorMessageExterno.Visible = True
-            'DIVPedirTurno.Visible = False
+            ErrorMessageExterno.Text = "Debe estar inscripto en al menos un grupo para pedir un turno a este servicio"
+            ErrorMessageExterno.Visible = True
+            DIVPedirTurno.Visible = False
         End If
 
 

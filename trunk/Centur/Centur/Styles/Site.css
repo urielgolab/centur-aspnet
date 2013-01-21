@@ -284,6 +284,13 @@ div.accountInfo
     color: Red;
 }
 
+.failureNotificationNegrita
+{
+    float:left;
+    font-size: 1.2em;
+    color: Black;
+}
+
 .bold
 {
     font-weight: bold;
@@ -505,7 +512,7 @@ div.imagenServicio
     height:300px;
 }
 
-#DIVPedirTurno
+#MainContent_DIVPedirTurno
 {
     float:left;
     margin-bottom:50px;

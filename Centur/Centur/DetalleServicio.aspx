@@ -11,7 +11,7 @@
             $("#MainContent_txtDatePicker").datepicker({ dateFormat: 'dd/mm/yy', minDate: <%=servicio.MinOffset%>, maxDate: <%=servicio.MaxOffset%> });
         });
     </script>
-    <script type="text/javascript"> 
+    <%--<script type="text/javascript"> 
         $(document).ready(function () {
             //$('#DIVPedirTurno').hide();
             $('#DIVVerHorarios').hide();
@@ -30,7 +30,7 @@
                 $("#DIVVerHorarios").show();
             });
         });
-    </script>
+    </script>--%>
 
 <p align="left" class="tituloPrincipal" > Detalle del Servicio</p>
 
@@ -112,7 +112,9 @@
                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-            
+            <p class="failureNotificationNegrita">
+            <asp:Label ID="ErrorMessageGruposAsoc" runat="server"></asp:Label>
+        </p>
         </div>
     </div>
 
@@ -122,14 +124,17 @@
     <asp:Image runat="server" ID="ImagenServicio" />
     </div>
 
-   <div class="linksDetalleServicio">   
+   <div class="linksDetalleServicio2">   
    
    <asp:LinkButton ID="VolveraBusqueda" PostBackUrl="~/BuscarServicio.aspx" runat="server"> Volver </asp:LinkButton>
          <asp:LinkButton CssClass="MarginLeft30" ID="PedirTurno" runat="server"> Pedir Turno </asp:LinkButton>
         <%--<a href="#" class="MarginLeft30" id="PedirTurno">Pedir Turno</a>--%>
     </div>
+          <p class="failureNotification">
+            <asp:Label ID="ErrorMessageExterno" runat="server"></asp:Label>
+        </p>
 
-            <div id="DIVPedirTurno">
+            <div id="DIVPedirTurno" runat="server">
         <asp:TextBox CssClass="txtDatePicker" runat="server" ID="txtDatePicker"></asp:TextBox>
         <asp:LinkButton CssClass="MarginLeft30" ID="VerHorarios" runat="server"> Ver Horarios </asp:LinkButton>
         <p class="failureNotification">

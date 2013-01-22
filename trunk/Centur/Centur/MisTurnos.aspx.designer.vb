@@ -41,13 +41,13 @@ Partial Public Class MisTurnos
     Protected WithEvents DropDownListServiciosPropios As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''LinkButton4 control.
+    '''ButtonAdmTurnos control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LinkButton4 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonAdmTurnos As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''tomados control.

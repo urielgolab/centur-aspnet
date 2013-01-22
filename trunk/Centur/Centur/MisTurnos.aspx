@@ -3,6 +3,7 @@
     <script type="text/javascript" language="javascript">
         $(function () {
             $ID("Cancelar").button();
+            $ID("ButtonAdmTurnos").button();
         });
     </script>
 </asp:Content>
@@ -16,7 +17,7 @@
 <asp:DropDownList ID="DropDownListServiciosPropios" runat="server" DataTextField="Nombre" DataValueField="ID">
             <asp:ListItem Value="none">No posee servicios</asp:ListItem>
         </asp:DropDownList>
-        <asp:LinkButton ID="LinkButton4" CssClass="TurnosVerLinks" runat="server">Ver Turnos...</asp:LinkButton>
+        <asp:Button ID="ButtonAdmTurnos" CssClass="TurnosButtons" runat="server" text="Ver Turnos..."></asp:Button>
         
 </div>
 <p class="busqueda">Turnos inscriptos
@@ -100,7 +101,7 @@
             <asp:Label ID="Label5" runat="server" Text="Seleccione turnos a cancelar"></asp:Label>
        <br />
 
-     <asp:Button ID="Cancelar" CssClass="TurnosModificarLinks" runat="server" Text="Cancelar turnos"></asp:Button>
+     <asp:Button ID="Cancelar" CssClass="TurnosButtons" runat="server" Text="Cancelar turnos"></asp:Button>
      </div>
      <asp:Label ID="labelNoReservados" runat="server" 
         Text="Usted no posee turnos reservados" Visible="False" Font-Size="Medium"></asp:Label>

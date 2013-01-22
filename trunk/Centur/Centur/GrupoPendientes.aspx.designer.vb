@@ -32,22 +32,22 @@ Partial Public Class GrupoPendientes
     Protected WithEvents GridPendientes As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''AceptarSel control.
+    '''ButtonAceptarSel control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents AceptarSel As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonAceptarSel As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''RechazarSel control.
+    '''ButtonRechazarSel control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RechazarSel As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonRechazarSel As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''noPendientes control.

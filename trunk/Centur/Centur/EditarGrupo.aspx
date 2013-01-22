@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="EditarGrupo.aspx.vb" Inherits="Centur.EditarGrupo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<script type="text/javascript" language="javascript">
+    $(function () {
+        $ID("ButtonEditGrupo").button();
+    });
+    </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
 <p align="left" class="tituloPrincipal" > Editar Grupo</p>
@@ -11,7 +17,6 @@
          <asp:Label ID="Label2" runat="server" Text="Descripcion"></asp:Label>
         <asp:TextBox ID="DescripGrupo" runat="server"></asp:TextBox>
         <br />
-       <br />
         
         <div class="GrupoDetalleListas"> 
         <div class="GrupoDetalleServicios">
@@ -96,7 +101,7 @@
    </div>
        
     <div class="GrupoEditarLinks">
-    <asp:LinkButton ID="editGrupo" runat="server">Modificar</asp:LinkButton>
+    <asp:Button ID="ButtonEditGrupo" runat="server" Text="Modificar"></asp:Button>
     </div>
     
  </asp:Content>

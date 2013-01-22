@@ -50,22 +50,22 @@ Partial Public Class DetalleGrupo
     Protected WithEvents DescripGrupo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Adherir control.
+    '''ButtonAdherir control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Adherir As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonAdherir As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Desuscribirse control.
+    '''ButtonDesuscribirse control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Desuscribirse As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonDesuscribirse As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''servicios control.
@@ -93,6 +93,15 @@ Partial Public Class DetalleGrupo
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LabelNoServicios As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''DivMiembros control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DivMiembros As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''miembros control.
@@ -131,20 +140,20 @@ Partial Public Class DetalleGrupo
     Protected WithEvents comandosGrupo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''editGrupo control.
+    '''ButtonEditGrupo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents editGrupo As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonEditGrupo As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''suprGrupo control.
+    '''ButtonSuprGrupo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents suprGrupo As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonSuprGrupo As Global.System.Web.UI.WebControls.Button
 End Class

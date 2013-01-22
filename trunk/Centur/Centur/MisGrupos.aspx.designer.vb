@@ -41,31 +41,31 @@ Partial Public Class MisGrupos
     Protected WithEvents DropDownListGruposPropios As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''LinkButton4 control.
+    '''ButtonVerDetalle control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LinkButton4 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonVerDetalle As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''CrearGrupo control.
+    '''ButtonCrearGrupo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CrearGrupo As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonCrearGrupo As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''LinkButton6 control.
+    '''ButtonSolPendientes control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LinkButton6 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonSolPendientes As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''Label2 control.
@@ -86,11 +86,11 @@ Partial Public Class MisGrupos
     Protected WithEvents DropDownListGruposAdheridos As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''LinkButton5 control.
+    '''ButtonVerDetalleAd control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LinkButton5 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonVerDetalleAd As Global.System.Web.UI.WebControls.Button
 End Class

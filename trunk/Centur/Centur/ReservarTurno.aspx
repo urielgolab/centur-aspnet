@@ -4,9 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Reserva de Turnos</h1>
 
-<asp:Literal ID="ltlMercadoPago" runat="server"></asp:Literal>
-<label id="TurnoStatus" runat="server">Desde</label> 
-
-
-
+    <asp:Literal ID="ltlMercadoPago" runat="server"></asp:Literal>
+    
+    <label id="TurnoStatus" runat="server"></label> 
 </asp:Content>

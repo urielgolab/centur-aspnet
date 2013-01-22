@@ -169,7 +169,7 @@ Public Class CrearServicioP4
             blnCambioReglas = True
         End If
 
-        If chkMercadoPago.Checked <> oServicio.mercadoPago OrElse (chkMercadoPago.Checked AndAlso (oServicio.precioReserva.ToString() <> txtPrecioReserva.Text OrElse oServicio.MercadoPago_ClientID.ToString() <> txtMPClienteID.Text OrElse oServicio.MercadoPago_ClientSecret.ToString() <> txtMPClienteSecret.Text)) Then
+        If chkMercadoPago.Checked <> oServicio.mercadoPago OrElse (chkMercadoPago.Checked AndAlso (NothingToString(oServicio.precioReserva).ToString() <> txtPrecioReserva.Text OrElse NothingToString(oServicio.MercadoPago_ClientID).ToString() <> txtMPClienteID.Text OrElse NothingToString(oServicio.MercadoPago_ClientSecret).ToString() <> txtMPClienteSecret.Text)) Then
             oServicio.mercadoPago = chkMercadoPago.Checked
             If oServicio.mercadoPago Then
                 If (oServicio.precioReserva.ToString() <> txtPrecioReserva.Text) Then
@@ -201,7 +201,13 @@ Public Class CrearServicioP4
 
         Return blnCambioReglas
     End Function
-
+    Private Function NothingToString(ByVal obj As Object) As String
+        If obj Is Nothing Then
+            Return ""
+        Else
+            Return obj.ToString()
+        End If
+    End Function
     Protected Sub chkPrivado_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkPrivado.CheckedChanged
         btnFinalizar.Text = "Grabar"
         If grdPrivacidadGrupos.Rows.Count > 0 Then

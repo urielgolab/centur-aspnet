@@ -4,15 +4,18 @@ Public Class ReservarTurno
     Inherits System.Web.UI.Page
 
     Dim oBuscarServicioService As New Services.BuscarServicioService()
+    Dim oServicio As Servicio
+    Dim dc As New DC()
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Dim Mensaje As String = ""
-        Dim Status As Boolean
+        Dim Status As Boolean = False
 
         Dim TurnoHoraInicio As String = CStr(Request.QueryString("horaInicio"))
         Dim TurnoHoraFin As String = CStr(Request.QueryString("horaFin"))
         Dim TurnoFecha As Date = CDate(CStr(Request.QueryString("fecha")))
         Dim ServicioID As Integer = CInt(Request.QueryString("servicioID"))
+        Dim oTurno As Entities.Turno
 
         Dim esProveedor As Boolean
         If CType(Session("Usuario"), Entities.Usuario).TipoUsuario = "P" Then
@@ -21,15 +24,42 @@ Public Class ReservarTurno
             esProveedor = False
         End If
 
-        Dim oTurno As Entities.Turno = oBuscarServicioService.ReservarTurno(ServicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, CType(Session("Usuario"), Entities.Usuario).idUsuario, esProveedor, Mensaje, Status)
+        oServicio = dc.Servicios.Single(Function(x) x.idServicio = ServicioID)
 
-        If Status = False Then
-            TurnoStatus.InnerText = "Reservado!! De " + oTurno.horaInicio + " a " + oTurno.horaFin
+        If oServicio.mercadoPago OrElse Not Request.QueryString("MPStatus") Is Nothing Then
+            If Not Request.QueryString("MPStatus") Is Nothing Then
+                Select Case Request.QueryString("MPStatus")
+                    Case 1 'status ok
+                        Status = False
+                        oTurno = oBuscarServicioService.ReservarTurno(ServicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, CType(Session("Usuario"), Entities.Usuario).idUsuario, esProveedor, Mensaje, Status)
+                    Case Else 'fail or pending
+                        Status = True
+                        TurnoStatus.InnerText = "El pago del turno ha quedado pendiente. Comuníquese con el proveedor."
+                End Select
+            Else
+                buildPayment()
+            End If
+
         Else
-            TurnoStatus.InnerText = Mensaje
+            oTurno = oBuscarServicioService.ReservarTurno(ServicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, CType(Session("Usuario"), Entities.Usuario).idUsuario, esProveedor, Mensaje, Status)
+        End If
+
+        If Not oTurno Is Nothing Then
+            If Not Status Then
+                TurnoStatus.InnerText = "Reservado!! De " + oTurno.horaInicio + " a " + oTurno.horaFin
+            Else
+                TurnoStatus.InnerText = Mensaje
+            End If
         End If
 
     End Sub
+    Private Function rebuildQueryString() As String
+        Dim strReturn As String = ""
+        For Each key As String In Request.QueryString.AllKeys
+            strReturn += key + "=" + Request.QueryString(key) + "&"
+        Next
+        Return strReturn.Substring(0, strReturn.Length - 1)
+    End Function
 
     Private Sub buildPayment()
         Dim idServicio As Integer = 13
@@ -41,22 +71,23 @@ Public Class ReservarTurno
         End If
 
         If idServicio > 0 Then
-            'form1.Method = "POST"
-            'form1.Action = "https://www.mercadopago.com/checkout/init"
-            'form1.Enctype = "application/x-www-form-urlencoded"
-            'form1.Target = ""
+            'Dim cntPlaceHolder As ContentPlaceHolder = DirectCast(Master.FindControl("Form1"), Form)
 
 
-            Dim dc As New DC()
 
-            Dim oServicio = dc.Servicios.Single(Function(x) x.idServicio = idServicio)
+            Page.Form.Method = "POST"
+            Page.Form.Action = "https://www.mercadopago.com/checkout/init"
+            Page.Form.Enctype = "application/x-www-form-urlencoded"
+            Page.Form.Target = ""
+
             Dim oUsuario = dc.Usuarios.Single(Function(x) x.idUsuario = idUsuario)
 
-            Dim strClientID As String = "858246848027532"
-            Dim strClientSecret As String = "jOJr8QeUAcj3PHuXiuc9V16GvY8TT3h3"
+            Dim strClientID As String = "8419012852371072"
+            Dim strClientSecret As String = "wEqlohjSpu62st97OLubmOdPEdLQVu71"
 
             Dim strBoton As String
             strBoton = "" &
+            "<p><h2>Turno con reserva pendiente de pago</h2></p>" &
             "<!-- Autenticación y hash MD5 -->" &
             "<input type='hidden' name='client_id' value='" + strClientID + "'/>" &
             "<input type='hidden' name='md5' value='" + obtenerMD5(strClientID & strClientSecret & "1" & "ARS" & oServicio.precioReserva.ToString() & "" & "") + "'/>" &
@@ -68,13 +99,28 @@ Public Class ReservarTurno
             "" &
             "<input type='hidden' name='payer_name' value='" + oUsuario.nombre + " " + oUsuario.apellido + "'/>" &
             "<input type='hidden' name='payer_surname' value='" + oUsuario.nombreUsuario + "'/>" &
-            "<input type='hidden' name='payer_email' value='" + oUsuario.email + "'/>" &
-            "<input type='hidden' name='item_picture_url' value='http://centur.ugserver.com.ar/UrielWeb/Images/publicaciones/" + oServicio.foto + ".jpg'/>" &
-            "<input type='hidden' name='back_url_success' value='http://centur.ugserver.com.ar/UrielOK'/>" &
-            "<input type='hidden' name='back_url_pending' value='http://centur.ugserver.com.ar/UrielFAIL'/>" &
+            "<input type='hidden' name='payer_email' value='" + oUsuario.email + "'/>"
+            Dim strQueryString As String = rebuildQueryString()
+            Dim baseURL As String = "http://localhost:50931/" 'http://centur.ugserver.com.ar/UrielWeb/
+            strBoton += "<input type='hidden' name='item_picture_url' value='" + baseURL + "Images/publicaciones/" + oServicio.foto + ".jpg'/>" &
+            "<input type='hidden' name='back_url_success' value='" + baseURL + "ReservarTurno.aspx?MPStatus=1" + strQueryString + "'/>" &
+            "<input type='hidden' name='back_url_pending' value='" + baseURL + "ReservarTurno.aspx?MPStatus=0" + strQueryString + "'/>" &
             "" &
             "<!-- Boton de pago -->" &
-            "<button type='submit' class='lightblue-rn-m-tr' name='MP-Checkout'>Pagar</button>"
+            "<button type='submit' class='lightblue-rn-m-tr' name='MP-Checkout'>Pagar y confirmar turno</button>" &
+            "<!-- Pega este código antes de cerrar la etiqueta </body> -->" &
+            "<script type='text/javascript'>" &
+            "	(function () {" &
+            "		function $MPBR_load() {" &
+            "			window.$MPBR_loaded !== true && (function () {" &
+            "				var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;" &
+            "				s.src = ('https:' == document.location.protocol ? 'https://www.mercadopago.com/org-img/jsapi/mptools/buttons/' : 'http://mp-tools.mlstatic.com/buttons/') + 'render.js';" &
+            "				var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); window.$MPBR_loaded = true;" &
+            "			})();" &
+            "		}" &
+            "		window.$MPBR_loaded !== true ? (window.attachEvent ? window.attachEvent('onload', $MPBR_load) : window.addEventListener('load', $MPBR_load, false)) : null;" &
+            "	})();" &
+            "</script>"
             ltlMercadoPago.Text = strBoton
 
             '            "<!-- Datos opcionales -->" &

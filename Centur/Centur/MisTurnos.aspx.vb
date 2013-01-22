@@ -32,7 +32,7 @@ Public Class MisTurnos
                 DropDownListServiciosPropios.DataBind()
             End If
         Else
-            LinkButton4.Visible = False
+            ButtonAdmTurnos.Visible = False
         End If
 
     End Sub
@@ -94,7 +94,7 @@ Public Class MisTurnos
         Response.Redirect("~/MisTurnos.aspx")
     End Sub
 
-    Protected Sub LinkButton4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton4.Click
+    Protected Sub ButtonAdmTurnos_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonAdmTurnos.Click
         Response.Redirect("~/AdministrarTurnos.aspx?servicioId=" & DropDownListServiciosPropios.Text)
     End Sub
 

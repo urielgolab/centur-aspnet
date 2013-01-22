@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="GrupoPendientes.aspx.vb" Inherits="Centur.GrupoPendientes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $ID("ButtonAceptarSel").button();
+            $ID("ButtonRechazarSel").button();
+        });
+        </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <p align="left" class="tituloPrincipal" > Usuarios pendientes de aprobación</p>
@@ -33,8 +39,8 @@
         </asp:GridView>
    
         <div class="GruposPendientesLinks">
-            <asp:LinkButton ID="AceptarSel" runat="server">Aceptar seleccionados</asp:LinkButton>
-            <asp:LinkButton ID="RechazarSel" cssclass="LinkDerecho" runat="server">Rechazar Seleccionados</asp:LinkButton>
+            <asp:Button ID="ButtonAceptarSel" runat="server" Text="Aceptar seleccionados"></asp:Button>
+            <asp:Button ID="ButtonRechazarSel" cssclass="ButtonDerecho" runat="server" Text="Rechazar Seleccionados"></asp:Button>
         </div>
      </div>
     <asp:Label ID="noPendientes" runat="server" Font-Size="Large" 

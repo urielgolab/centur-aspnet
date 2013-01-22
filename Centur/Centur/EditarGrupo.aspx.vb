@@ -34,7 +34,7 @@ Public Class EditarGrupo
 
     End Sub
 
-    Protected Sub editGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles editGrupo.Click
+    Protected Sub ButtonEditGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonEditGrupo.Click
 
         Dim idGrupo As Integer = CInt(Request.QueryString("id"))
 

@@ -1,7 +1,16 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false" CodeBehind="DetalleGrupo.aspx.vb" Inherits="Centur.DetalleGrupo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $ID("ButtonAdherir").button();
+            $ID("ButtonDesuscribirse").button();
+            $ID("ButtonEditGrupo").button();
+            $ID("ButtonSuprGrupo").button();
+        });
+        </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <p align="left" class="tituloPrincipal" > Detalle Grupo</p>
          
@@ -15,8 +24,8 @@
         </div>
         
         <div class="GrupoDetalleLinksSuscripcion"> 
-        <asp:LinkButton ID="Adherir" runat="server" Visible="False">Unite!</asp:LinkButton>
-        <asp:LinkButton ID="Desuscribirse" runat="server" Visible="False">Cancelar suscripción</asp:LinkButton>
+        <asp:Button ID="ButtonAdherir" runat="server" Visible="False" Text="Unite!"></asp:Button>
+        <asp:Button ID="ButtonDesuscribirse" runat="server" Visible="False" Text="Cancelar suscripción"></asp:Button>
         </div>
        
        
@@ -35,7 +44,7 @@
         Text="Usted no tiene servicios asociados a este grupo" Visible="False" 
                 ForeColor="#FF3300"></asp:Label>
        </div>
-        <div class="GrupoDetalleMiembros">
+        <div id="DivMiembros" runat="server" class="GrupoDetalleMiembros">
         <p class="busqueda">Miembros</p>
         <div id="miembros" Runat="Server" Visible="False">
         <asp:ListBox ID="ListBoxMiembros" CssClass="GrupoDetalleListBox" runat="server" 
@@ -51,8 +60,8 @@
         </div>
        </div>    
     <div id="comandosGrupo" class="GrupoDetalleLinks" Runat="Server" Visible="False">
-    <asp:LinkButton ID="editGrupo" runat="server">Modificar Grupo</asp:LinkButton>
-    <asp:LinkButton ID="suprGrupo" CssClass="LinkDerecho" runat="server">Eliminar Grupo</asp:LinkButton>
+    <asp:Button ID="ButtonEditGrupo" runat="server" Text="Modificar Grupo"></asp:Button>
+    <asp:Button ID="ButtonSuprGrupo" CssClass="ButtonDerecho" runat="server" Text="Eliminar Grupo"></asp:Button>
     </div>
 
     

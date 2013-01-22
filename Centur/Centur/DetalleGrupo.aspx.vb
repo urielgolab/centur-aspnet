@@ -31,7 +31,7 @@ Public Class DetalleGrupo
         End If
 
         If (oGruposService.PuedeAdherir(CType(Session("Usuario"), Entities.Usuario).idUsuario, idGrupo)) Then
-            Adherir.Visible = True
+            ButtonAdherir.Visible = True
 
         Else
 
@@ -49,13 +49,14 @@ Public Class DetalleGrupo
 
                 End If
             Else
-                Desuscribirse.Visible = True
+                ButtonDesuscribirse.Visible = True
+                DivMiembros.visible = False
             End If
         End If
     End Sub
 
-   
-    Protected Sub LinkButton3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Adherir.Click
+
+    Protected Sub LinkButton3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonAdherir.Click
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
@@ -64,7 +65,7 @@ Public Class DetalleGrupo
 
     End Sub
 
-    Protected Sub suprGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles suprGrupo.Click
+    Protected Sub suprGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonSuprGrupo.Click
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
@@ -72,11 +73,11 @@ Public Class DetalleGrupo
         Response.Redirect("~/MisGrupos.aspx")
     End Sub
 
-    Protected Sub editGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles editGrupo.Click
+    Protected Sub editGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonEditGrupo.Click
         Response.Redirect("~/EditarGrupo.aspx?id=" & CInt(Request.QueryString("id")))
     End Sub
 
-    Protected Sub Desuscribirse_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Desuscribirse.Click
+    Protected Sub Desuscribirse_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonDesuscribirse.Click
         Dim mensaje As String = ""
         Dim status As Boolean
 

@@ -5,7 +5,7 @@ Partial Class CrearGrupo
 
     Dim oGruposService As New Services.GruposService()
 
-    Protected Sub LinkButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton1.Click
+    Protected Sub LinkButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonCrear.Click
 
         Dim mensaje As String = ""
         Dim status As Boolean

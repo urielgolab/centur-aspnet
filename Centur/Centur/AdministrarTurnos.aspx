@@ -1,6 +1,15 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="AdministrarTurnos.aspx.vb" Inherits="Centur.AdministrarTurnos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<script type="text/javascript" language="javascript">
+    $(function () {
+        $ID("ButtonCancelar").button();
+        $ID("ButtonVerTurno").button();
+        $ID("ButtonAcepAp").button();
+        $ID("ButtonCancelAp").button();
+    });
+    </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <p align="left" class="tituloPrincipal" > Administrar turnos: 
     <asp:Label runat="server" ID="LabelServicio"></asp:Label>
@@ -43,7 +52,7 @@
             <asp:Label ID="Label5" runat="server" Text="Seleccione turnos a cancelar"></asp:Label>
        
        <br />
-       <asp:LinkButton ID="Cancelar" CssClass="TurnosModificarLinks" runat="server">Cancelar turnos</asp:LinkButton>
+       <asp:Button ID="ButtonCancelar" runat="server" Text="Cancelar turnos"></asp:Button>
      </div>
 
     <asp:Label ID="LabelNoTurnosOtorgados" runat="server" 
@@ -54,7 +63,8 @@
    <div class="DivTurnoProveedorReservar" style="border: thin solid #FF0000">
     <asp:Label ID="Label6" cssclass="TurnosLabelIzq" runat="server" Text="Reservar turno a usuario: "></asp:Label>
     <asp:TextBox ID="TextBoxUser" runat="server"></asp:TextBox>
-    <asp:LinkButton ID="linkVerTurno" CssClass="TurnosVerLinks" runat="server">Ver disponibilidad</asp:LinkButton>
+    <asp:Button ID="ButtonVerTurno" CssClass="TurnosButtons" runat="server" 
+           Text="Ver disponibilidad"></asp:Button>
     <br />
     <asp:Label ID="LabelUsuarioNoExiste" runat="server" Text="Usuario no existente. Intente nuevamente" cssclass="TurnosLabelIzq" ForeColor="Red" 
         Visible="False" Font-Size="Medium"></asp:Label>
@@ -95,8 +105,8 @@
        </asp:GridView>
              
        <div class="TurnosPendientesLinks">
-       <asp:LinkButton ID="LinkButtonAcepAp" runat="server">Aceptar turnos</asp:LinkButton>
-       <asp:LinkButton ID="LinkButtonCancelAp" CssClass="LinkDerecho" runat="server">Cancelar turnos</asp:LinkButton>
+       <asp:Button ID="ButtonAcepAp" runat="server" Text="Aceptar turnos"></asp:Button>
+       <asp:Button ID="ButtonCancelAp" CssClass="ButtonDerecho" runat="server" Text="Cancelar turnos"></asp:Button>
        </div>
      </div>
 

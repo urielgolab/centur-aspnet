@@ -21,7 +21,7 @@ Public Class MisGrupos
         Me.GetGruposAdheridos()
     End Sub
 
-    Protected Sub LinkButton4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton4.Click
+    Protected Sub LinkButton4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonVerDetalle.Click
         Response.Redirect("~/DetalleGrupo.aspx?id=" & DropDownListGruposPropios.Text)
     End Sub
 
@@ -41,7 +41,7 @@ Public Class MisGrupos
                 oMaqueteado.AttachColor(DropDownListGruposPropios, "lightblue", "white")
             End If
         Else
-            LinkButton4.Visible = False
+            ButtonVerDetalle.Visible = False
         End If
 
     End Sub
@@ -62,20 +62,20 @@ Public Class MisGrupos
                 oMaqueteado.AttachColor(DropDownListGruposAdheridos, "lightblue", "white")
             End If
         Else
-            LinkButton5.Visible = False
+            ButtonVerDetalleAd.Visible = False
         End If
 
     End Sub
 
-    Protected Sub CrearGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CrearGrupo.Click
+    Protected Sub CrearGrupo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonCrearGrupo.Click
         Response.Redirect("~/CrearGrupo.aspx")
     End Sub
 
-    Protected Sub LinkButton5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton5.Click
+    Protected Sub LinkButton5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonVerDetalleAd.Click
         Response.Redirect("~/DetalleGrupo.aspx?id=" & DropDownListGruposAdheridos.Text)
     End Sub
 
-    Protected Sub LinkButton6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButton6.Click
+    Protected Sub LinkButton6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonSolPendientes.Click
         Response.Redirect("~/GrupoPendientes.aspx")
     End Sub
 End Class

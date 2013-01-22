@@ -1,7 +1,16 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false" CodeBehind="MisGrupos.aspx.vb" Inherits="Centur.MisGrupos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $ID("ButtonVerDetalle").button();
+            $ID("ButtonCrearGrupo").button();
+            $ID("ButtonSolPendientes").button();
+            $ID("ButtonVerDetalleAd").button();
+        });
+    </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <p align="left" class="tituloPrincipal" > Mis grupos</p>
 <div id="propios" Runat="Server">
@@ -10,13 +19,13 @@
         <asp:DropDownList ID="DropDownListGruposPropios" cssclass="GruposCombo" runat="server" DataTextField="Nombre" DataValueField="ID">
             <asp:ListItem Value="none">No posee grupos</asp:ListItem>
         </asp:DropDownList>
-        <asp:LinkButton ID="LinkButton4" cssclass="MisGruposLinks" runat="server">Ver Detalle...</asp:LinkButton>
+        <asp:Button ID="ButtonVerDetalle" cssclass="ButtonDerecho" runat="server" Text="Ver Detalle..."></asp:Button>
         <br />
     </div>
     
         <div class="DivGruposLinks">
-        <asp:LinkButton ID="CrearGrupo" runat="server" PostBackUrl="~/CrearGrupo.aspx">Crear grupo</asp:LinkButton>
-        <asp:LinkButton ID="LinkButton6" CssClass="LinkDerecho" runat="server">Solicitudes pendientes</asp:LinkButton>
+        <asp:Button ID="ButtonCrearGrupo" runat="server" PostBackUrl="~/CrearGrupo.aspx" Text="Crear grupo"></asp:Button>
+        <asp:Button ID="ButtonSolPendientes" CssClass="ButtonDerecho" runat="server" Text="Solicitudes pendientes"></asp:Button>
         </div>
     </div>
 
@@ -27,7 +36,7 @@
         <asp:DropDownList ID="DropDownListGruposAdheridos" cssclass="GruposCombo" runat="server">
             <asp:ListItem Value="none">No tiene grupos adheridos</asp:ListItem>
         </asp:DropDownList>
-        <asp:LinkButton ID="LinkButton5" CssClass="MisGruposLinks" runat="server">Ver Detalle...</asp:LinkButton>
+        <asp:Button ID="ButtonVerDetalleAd" CssClass="ButtonDerecho" runat="server" Text="Ver Detalle..."></asp:Button>
     </div>
 
 </div>

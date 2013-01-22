@@ -122,11 +122,11 @@ Partial Public Class EditarGrupo
     Protected WithEvents LabelNoMiembros As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''editGrupo control.
+    '''ButtonEditGrupo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents editGrupo As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonEditGrupo As Global.System.Web.UI.WebControls.Button
 End Class

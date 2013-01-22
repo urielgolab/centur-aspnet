@@ -30,7 +30,7 @@ Public Class AdministrarTurnos
 
     End Sub
 
-    Protected Sub Cancelar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Cancelar.Click
+    Protected Sub ButtonCancelar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonCancelar.Click
 
         Dim idServicio As Integer = CInt(Request.QueryString("servicioId"))
 
@@ -85,7 +85,7 @@ Public Class AdministrarTurnos
 
 
 
-    Protected Sub LinkButtonCancelAp_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButtonCancelAp.Click
+    Protected Sub ButtonCancelAp_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonCancelAp.Click
 
         Dim idServicio As Integer = CInt(Request.QueryString("servicioId"))
         For Each row As GridViewRow In GridPendientes.Rows
@@ -103,7 +103,7 @@ Public Class AdministrarTurnos
         Response.Redirect("~/AdministrarTurnos.aspx?servicioId=" & idServicio)
     End Sub
 
-    Protected Sub LinkButtonAcepAp_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LinkButtonAcepAp.Click
+    Protected Sub ButtonAcepAp_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonAcepAp.Click
 
         Dim idServicio As Integer = CInt(Request.QueryString("servicioId"))
         For Each row As GridViewRow In GridPendientes.Rows
@@ -122,7 +122,7 @@ Public Class AdministrarTurnos
 
     End Sub
 
-    Protected Sub linkVerTurno_Click(ByVal sender As Object, ByVal e As EventArgs) Handles linkVerTurno.Click
+    Protected Sub ButtonVerTurno_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonVerTurno.Click
 
         Dim oUsuario As New Usuario
         Dim idServicio As Integer = CInt(Request.QueryString("servicioId"))

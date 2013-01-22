@@ -638,8 +638,6 @@ div.Servicio
 {
     float:left;
     width:500px;    
-    font-size:large;
-    font-family:Book Antiqua;
     margin: 15px;    
 }
 
@@ -652,8 +650,6 @@ div.Servicio
 .GrupoDetalleLinksSuscripcion
 {
     float:left;
-    font-size:large;
-    font-family:Book Antiqua;
     margin-left: 15px;
     margin-top:20px;    
     }
@@ -684,36 +680,17 @@ div.Servicio
 .GrupoDetalleLinks
 {
     float:left;
-    font-size:large;
-    font-family:Book Antiqua;
     margin: 15px;    
 }
 
-.LinkDerecho
+.ButtonDerecho
 {
  margin-left:15px;
 }
 
-.GruposLinks
-{
-    font-size:large;
-    font-family:Book Antiqua;
-    margin-left: 10px;
-}
-
-.MisGruposLinks
-{
-    font-size: medium;
-    font-family:Book Antiqua;
-    margin-left: 10px;
-}
-
-
 .DivGruposLinks
 {
     float:left;
-    font-size: medium;
-    font-family:Book Antiqua;
     margin: 15px;  
     margin-bottom: 30px;  
 }
@@ -731,32 +708,20 @@ div.Servicio
 
 .GrupoCrearLinks
 {
-    font-size:large;
-    font-family:Book Antiqua;
-    
+    margin-left: 10px;
 }
 
 .GruposPendientesLinks
 {
-    font-size:large;
-    font-family:Book Antiqua;
     margin-left: 10px;
     margin-top: 20px;
-    }
+}
     
-.TurnosModificarLinks
+.TurnosButtons
 {
-    font-size:large;
-    font-family:Book Antiqua;
-    margin-left: 10px;
+     margin-left: 10px;
 }
 
-.TurnosVerLinks
-{
-    font-size: medium;
-    font-family:Book Antiqua;
-    margin-left: 10px;
-}
 
 .DivTurnosTomados
 {
@@ -766,8 +731,6 @@ div.Servicio
 
 .TurnosPendientesLinks
 {
-      font-size:large;
-    font-family:Book Antiqua;
     margin-left: 10px;
     margin-top: 30px;
 }
@@ -776,7 +739,7 @@ div.Servicio
 {
     margin-top: 20px;
     margin-bottom: 30px;
-    width: 485px;
+    width: 500px;
 }
 
 .TurnosLabelIzq

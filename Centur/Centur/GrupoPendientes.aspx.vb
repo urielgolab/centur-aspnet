@@ -19,7 +19,7 @@ Public Class GrupoPendientes
         End If
     End Sub
 
-    Protected Sub AceptarSel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AceptarSel.Click
+    Protected Sub AceptarSel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonAceptarSel.Click
 
         For Each row As GridViewRow In GridPendientes.Rows
 
@@ -41,7 +41,7 @@ Public Class GrupoPendientes
 
     End Sub
 
-    Protected Sub RechazarSel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles RechazarSel.Click
+    Protected Sub RechazarSel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ButtonRechazarSel.Click
 
         For Each row As GridViewRow In GridPendientes.Rows
 

@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Site.master" AutoEventWireup="false" CodeBehind="CrearGrupo.aspx.vb" Inherits="Centur.CrearGrupo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $ID("ButtonCrear").button();
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <p align="left" class="tituloPrincipal" > Crear Grupo</p>
@@ -12,7 +17,7 @@
        <br />
                
     <br />
-    <asp:LinkButton ID="LinkButton1" cssclass="GrupoCrearLinks" runat="server">Crear</asp:LinkButton>
+    <asp:Button ID="ButtonCrear" cssclass="GrupoCrearLinks" runat="server" Text="Crear"></asp:Button>
     <br />
     <br />
     <asp:Label ID="Success" runat="server" Text="Grupo creado exitosamente" 

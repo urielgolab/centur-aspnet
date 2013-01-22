@@ -50,13 +50,13 @@ Partial Public Class AdministrarTurnos
     Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Cancelar control.
+    '''ButtonCancelar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Cancelar As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonCancelar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''LabelNoTurnosOtorgados control.
@@ -86,13 +86,13 @@ Partial Public Class AdministrarTurnos
     Protected WithEvents TextBoxUser As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''linkVerTurno control.
+    '''ButtonVerTurno control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents linkVerTurno As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonVerTurno As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''LabelUsuarioNoExiste control.
@@ -122,22 +122,22 @@ Partial Public Class AdministrarTurnos
     Protected WithEvents GridPendientes As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''LinkButtonAcepAp control.
+    '''ButtonAcepAp control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LinkButtonAcepAp As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonAcepAp As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''LinkButtonCancelAp control.
+    '''ButtonCancelAp control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LinkButtonCancelAp As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ButtonCancelAp As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''LabelNoPendientes control.

@@ -82,15 +82,15 @@ Public Class ReservarTurno
 
             Dim oUsuario = dc.Usuarios.Single(Function(x) x.idUsuario = idUsuario)
 
-            Dim strClientID As String = "8419012852371072"
-            Dim strClientSecret As String = "wEqlohjSpu62st97OLubmOdPEdLQVu71"
+            'Dim strClientID As String = "8419012852371072"
+            'Dim strClientSecret As String = "wEqlohjSpu62st97OLubmOdPEdLQVu71"
 
             Dim strBoton As String
             strBoton = "" &
             "<p><h2>Turno con reserva pendiente de pago</h2></p>" &
             "<!-- Autenticación y hash MD5 -->" &
-            "<input type='hidden' name='client_id' value='" + strClientID + "'/>" &
-            "<input type='hidden' name='md5' value='" + obtenerMD5(strClientID & strClientSecret & "1" & "ARS" & oServicio.precioReserva.ToString() & "" & "") + "'/>" &
+            "<input type='hidden' name='client_id' value='" + oServicio.MercadoPago_ClientID + "'/>" &
+            "<input type='hidden' name='md5' value='" + obtenerMD5(oServicio.MercadoPago_ClientID & oServicio.MercadoPago_ClientSecret & "1" & "ARS" & oServicio.precioReserva.ToString() & "" & "") + "'/>" &
             "<!-- Datos obligatorios del item -->" &
             "<input type='hidden' name='item_title' value='" + oServicio.nombre + "'/>" &
             "<input type='hidden' name='item_quantity' value='1'/>" &
@@ -101,7 +101,7 @@ Public Class ReservarTurno
             "<input type='hidden' name='payer_surname' value='" + oUsuario.nombreUsuario + "'/>" &
             "<input type='hidden' name='payer_email' value='" + oUsuario.email + "'/>"
             Dim strQueryString As String = rebuildQueryString()
-            Dim baseURL As String = "http://localhost:50931/" 'http://centur.ugserver.com.ar/UrielWeb/
+            Dim baseURL As String = "http://centur.ugserver.com.ar/UrielWeb/" 'http://localhost:50931/
             strBoton += "<input type='hidden' name='item_picture_url' value='" + baseURL + "Images/publicaciones/" + oServicio.foto + ".jpg'/>" &
             "<input type='hidden' name='back_url_success' value='" + baseURL + "ReservarTurno.aspx?MPStatus=1" + strQueryString + "'/>" &
             "<input type='hidden' name='back_url_pending' value='" + baseURL + "ReservarTurno.aspx?MPStatus=0" + strQueryString + "'/>" &

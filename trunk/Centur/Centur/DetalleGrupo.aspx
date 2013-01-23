@@ -14,13 +14,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <p align="left" class="tituloPrincipal" > Detalle Grupo</p>
          
-        <div class="GrupoDetalleTextbox"> 
-        <asp:Label ID="Label1" runat="server" Text="Nombre"></asp:Label>
-        <asp:TextBox ID="NombreGrupo" runat="server" ReadOnly="True"></asp:TextBox> 
-          
+        <div class="GrupoDetalleLabel"> 
+        <asp:Label ID="Label1" runat="server" Text="Nombre: " Font-Size="Large"></asp:Label>
+        <asp:Label ID="LabelNombreGrupo" runat="server" Font-Size="Large"></asp:Label>
+                 
         <br />
-         <asp:Label ID="Label2" runat="server" Text="Descripcion"></asp:Label>
-        <asp:TextBox ID="DescripGrupo" runat="server" ReadOnly="True"></asp:TextBox>
+        <asp:Label ID="Label2" runat="server" Text="Descripcion: " Font-Size="Large"></asp:Label>
+        <asp:Label ID="LabelDescripGrupo" runat="server" Font-Size="Large"></asp:Label>
         </div>
         
         <div class="GrupoDetalleLinksSuscripcion"> 

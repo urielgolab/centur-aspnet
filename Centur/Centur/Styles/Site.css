@@ -641,17 +641,20 @@ div.Servicio
     margin: 15px;    
 }
 
-.GrupoDetalleTextbox
+.GrupoDetalleLabel
 {
     float:left;
     margin-top:20px;
+    font-family:MS Sans Serif;
+    font-size:large;
+    width: auto;
 }
 
 .GrupoDetalleLinksSuscripcion
 {
     float:left;
     margin-left: 15px;
-    margin-top:20px;    
+    margin-top:20px;
     }
 
 .GrupoDetalleListas
@@ -686,6 +689,12 @@ div.Servicio
 .ButtonDerecho
 {
  margin-left:15px;
+}
+
+ButtonDerechoVerDetalle
+{
+    font-size: small;
+    margin-left: 15px;
 }
 
 .DivGruposLinks

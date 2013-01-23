@@ -23,13 +23,13 @@ Partial Public Class DetalleGrupo
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''NombreGrupo control.
+    '''LabelNombreGrupo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents NombreGrupo As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents LabelNombreGrupo As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Label2 control.
@@ -41,13 +41,13 @@ Partial Public Class DetalleGrupo
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''DescripGrupo control.
+    '''LabelDescripGrupo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DescripGrupo As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents LabelDescripGrupo As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''ButtonAdherir control.

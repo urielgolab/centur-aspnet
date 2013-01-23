@@ -11,12 +11,14 @@
 
 <p align="left" class="tituloPrincipal" > Editar Grupo</p>
    
+   
         <asp:Label ID="Label1" runat="server" Text="Nombre"></asp:Label>
         <asp:TextBox ID="NombreGrupo" runat="server"></asp:TextBox> 
         <br />
          <asp:Label ID="Label2" runat="server" Text="Descripcion"></asp:Label>
         <asp:TextBox ID="DescripGrupo" runat="server"></asp:TextBox>
         <br />
+   
         
         <div class="GrupoDetalleListas"> 
         <div class="GrupoDetalleServicios">

@@ -16,8 +16,8 @@ Public Class DetalleGrupo
         End If
 
         oGrupo = oGruposService.GetDetalleGrupo(idGrupo)
-        NombreGrupo.Text = oGrupo.Nombre
-        DescripGrupo.Text = oGrupo.Descripcion
+        LabelNombreGrupo.Text = oGrupo.Nombre
+        LabelDescripGrupo.Text = oGrupo.Descripcion
 
         If oGrupo.ServicioList.Count = 0 Then
             LabelNoServicios.Visible = True

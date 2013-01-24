@@ -167,7 +167,7 @@ Public Class CrearServicioP2
             '    lnkCategoriaPadre.Text = lstCategoria.Items(lstCategoria.SelectedIndex).Text
             '    lnkCategoriaPadre.ToolTip = lstCategoria.Items(lstCategoria.SelectedIndex).Value
             'End If
-            lnkCategoriaPadre.Text = dc.ZonaObtenerPadre(idZona)
+            lnkZonaPadre.Text = dc.ZonaObtenerPadre(idZona)
 
             btnSiguiente.Enabled = True
 
@@ -192,7 +192,7 @@ Public Class CrearServicioP2
             '    lnkCategoriaPadre.Text = lstCategoria.Items(lstCategoria.SelectedIndex).Text
             '    lnkCategoriaPadre.ToolTip = lstCategoria.Items(lstCategoria.SelectedIndex).Value
             'End If
-            lnkCategoriaPadre.Text = dc.ZonaObtenerPadre(idZona)
+            lnkZonaPadre.Text = dc.ZonaObtenerPadre(idZona)
 
             btnSiguiente.Enabled = False
 
@@ -206,7 +206,7 @@ Public Class CrearServicioP2
 
     End Sub
 
-    Protected Sub lnkCategoriaPadre_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkCategoriaPadre.Click
+    Protected Sub lnkCategoriaPadre_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkZonaPadre.Click
         cargaroZonasHijo("")
     End Sub
 End Class

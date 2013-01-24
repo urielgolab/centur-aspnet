@@ -2,6 +2,23 @@
     CodeBehind="BuscarServicio.aspx.vb" Inherits="Centur.BuscarServicio" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
+    <style type="text/css">
+        *
+        {
+            border:0;
+            margin:0;
+            padding:0;    
+        }    
+    </style>
+    <script src="Scripts/external/globalize.js"></script>
+    <script src="Scripts/external/jquery.mousewheel.js"></script>
+
+    <script>
+        $(function () {
+            $ID("buscar").button();
+            $('[id^="MainContent_precio"]').spinner({ max: 9999, min: 0 }); //, numberFormat: "C"
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
 
@@ -45,31 +62,34 @@
         </p>
     </div>
     
-    <div class="filtrosBusqueda links">
-        <asp:LinkButton ID="buscar" Text="Buscar" runat="server" />
+    <div class="filtrosBusqueda">
+        <asp:Button ID="buscar" Text="Buscar" runat="server" />
         <asp:LinkButton ID="reset" Text="Nueva Búsqueda" runat="server" />
 </div>
 
     <div class="filtrosBusqueda" id="resultados" runat="server">
         <p class="busqueda">Resultados</p>
-        <asp:GridView CssClass="grillaResultados" runat="server" CellPadding="4" ForeColor="#333333" 
-            GridLines="None" ID="gridResultados" AutoGenerateColumns="False" >
-            <AlternatingRowStyle BackColor="White" />
-            <EditRowStyle BackColor="#2461BF" />
-            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White"   />
-            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Left" />
-            <RowStyle BackColor="#EFF3FB" />
-            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#F5F7FB" />
-            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-            <SortedDescendingCellStyle BackColor="#E9EBEF" />
-            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+        <asp:GridView runat="server" ID="gridResultados" 
+            AutoGenerateColumns="False" CssClass="tbHorariosDia" style="border:0;">
             <Columns>
                 <asp:HyperLinkField DataTextField="Nombre" HeaderText="Nombre" DataNavigateUrlFormatString="DetalleServicio.aspx?servicioID={0}"
-                    DataNavigateUrlFields="ID" HeaderStyle-HorizontalAlign="Left" />
-                <asp:BoundField DataField="Categoria" HeaderText="Categoria" HeaderStyle-HorizontalAlign="Left" />
-                <asp:BoundField DataField="Zona" HeaderText="Zona"  HeaderStyle-HorizontalAlign="Left"  />
+                    DataNavigateUrlFields="ID" HeaderStyle-HorizontalAlign="Left" >
+<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                </asp:HyperLinkField>
+                <asp:BoundField DataField="Categoria" HeaderText="Categoria" 
+                    HeaderStyle-HorizontalAlign="Left" >
+<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                </asp:BoundField>
+                <asp:BoundField DataField="Zona" HeaderText="Zona"  
+                    HeaderStyle-HorizontalAlign="Left"  >
+<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                </asp:BoundField>
+                <asp:TemplateField ShowHeader="false">
+                    <ItemTemplate>
+                        <asp:Image ID="Image1" runat="server" ImageUrl =<%# String.Format("~/Images/publicaciones/thumb_{0}",Eval("Imagen"))%>  Visible='<%# (Not Eval("Imagen")="") %>' style="max-width:100px" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
             </Columns>
         </asp:GridView>
     </div>

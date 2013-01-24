@@ -32,6 +32,15 @@ Partial Public Class CrearServicioP2
     Protected WithEvents txtTitulo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''fleImagenServicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fleImagenServicio As Global.System.Web.UI.WebControls.FileUpload
+
+    '''<summary>
     '''imgFotoServicio control.
     '''</summary>
     '''<remarks>
@@ -41,13 +50,13 @@ Partial Public Class CrearServicioP2
     Protected WithEvents imgFotoServicio As Global.System.Web.UI.WebControls.Image
 
     '''<summary>
-    '''lnkCategoriaPadre control.
+    '''lnkZonaPadre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lnkCategoriaPadre As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents lnkZonaPadre As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''lstZonas control.
@@ -57,15 +66,6 @@ Partial Public Class CrearServicioP2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lstZonas As Global.System.Web.UI.WebControls.ListBox
-
-    '''<summary>
-    '''fleImagenServicio control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents fleImagenServicio As Global.System.Web.UI.WebControls.FileUpload
 
     '''<summary>
     '''txtDireccion control.

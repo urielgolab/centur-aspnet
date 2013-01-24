@@ -42,7 +42,6 @@
                 <asp:TemplateField ShowHeader="false">
                     <ItemTemplate>
                         <asp:Image runat="server" ImageUrl =<%# String.Format("~/Images/publicaciones/thumb_{0}",Eval("foto"))%>  Visible='<%# (Not Eval("foto")="") %>' style="max-width:100px" />
-                        <%--<img src="Images/publicaciones/<%# Eval("foto") %>" alt="imagenServicio" />--%>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField ShowHeader="true" HeaderText="Acciones">

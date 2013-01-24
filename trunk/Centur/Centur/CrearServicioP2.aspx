@@ -151,22 +151,29 @@
 		        <label for="title">T&iacute;tulo: <em>*</em></label> 
                 <asp:TextBox ID="txtTitulo" runat="server" Width="500" placeholder="Ej.: Wimbledon Tenis Club con Estacionamiento, Buffet y 6 canchas." title="Usa palabras clave para que encuentren f&aacute;cilmente tu servicio."></asp:TextBox>
 		    </div>
-
-            <br />
-            <asp:Image ID="imgFotoServicio" runat="server" ImageUrl="~/Images/photo_camera_up.png"  />
-            <br />
-            <asp:LinkButton ID="lnkCategoriaPadre" runat="server"></asp:LinkButton>
-            <br />
-            <asp:ListBox ID="lstZonas" runat="server" AutoPostBack="True" style="background: white;width: 268px;padding: 5px;font-size: 16px;line-height: 1;border: 0;border-radius: 0;height: 200px;"></asp:ListBox>
-            <br />
-            <asp:FileUpload ID="fleImagenServicio" runat="server"/>
-            <br />
-        
+            <div id="photoUploader">
+                <div style="float:left">Imagen:<asp:FileUpload ID="fleImagenServicio" runat="server"/></div>
+                <div>
+                    <asp:Image ID="imgFotoServicio" runat="server" ImageUrl="~/Images/photo_camera_up.png" style="float:right" />
+                </div>
+            </div>
+            <div id="Zonas">
+                <p style="clear:both;">Seleccione la zona:*</p>
+                <div style="clear:both;">
+                    <asp:LinkButton ID="lnkZonaPadre" runat="server" title="Volver a la zona raiz"></asp:LinkButton>
+                </div>
+                <div>
+                    <asp:ListBox ID="lstZonas" runat="server" AutoPostBack="True" style="background: white;width: 268px;padding: 5px;font-size: 16px;line-height: 1;border: 0;border-radius: 0;height: 200px;"></asp:ListBox>
+                </div>
+            </div>
+            
+            
+        <div>
             <label>Dirección : </label> 
+            </div>
             <asp:TextBox ID="txtDireccion" runat="server" placeholder="Ej.: Av. Corrientes 571, Buenos Aires" size="50px"></asp:TextBox>&nbsp;
             <div id="mapa">
     	        <div class='input'>
-	            
                         <label>Ciudad: </label> <input id="locality" disabled="disabled" /> <br/>
 			            <label>Pa&iacute;s:  </label> <input id="country" disabled="disabled" /> <br/>
 			            <label>Lat:      </label> <input id="lat" disabled="disabled" /> <br/>
@@ -174,7 +181,6 @@
                 </div>
                 <div id="map"></div>
             </div>
-            <br />
             <br />
 	        <p class="ch-form-row description ">
 		        <label for="description" id="lbl_description">Descripci&oacute;n: <span class="ch-form-hint optional">(opcional)</span></label>

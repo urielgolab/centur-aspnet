@@ -91,6 +91,10 @@
             gmarker.setVisible(true);
             addresspickerMap.addresspicker("updatePosition");
         });
+
+        function toogleMap(id) {
+            $(idMap).style.display = "none";
+        }
     </script>
 
     <!-- TinyMCE -->
@@ -157,6 +161,27 @@
                     <asp:Image ID="imgFotoServicio" runat="server" ImageUrl="~/Images/photo_camera_up.png" style="float:right" />
                 </div>
             </div>
+            
+            
+            
+        <div id="divDireccion" style="clear:both;">
+            <div>
+                <label>Dirección : </label> 
+                <asp:TextBox ID="txtDireccion" runat="server" placeholder="Ej.: Av. Corrientes 571, Buenos Aires" size="50px"></asp:TextBox>
+                <div style="display:inline-block;border: 1px solid black;padding: 2px 1px;margin-left: 5px;background: black url(Images/locationArrow.jpg) center center no-repeat;">Button</div>
+                
+                <div id="mapa">
+    	            <div class='input'>
+                            <label>Ciudad: </label> <input id="locality" disabled="disabled" /> <br/>
+			                <label>Pa&iacute;s:  </label> <input id="country" disabled="disabled" /> <br/>
+			                <label>Lat:      </label> <input id="lat" disabled="disabled" /> <br/>
+			                <label>Lng:      </label> <input id="lng" disabled="disabled" /> <br/>
+                    </div>
+                    <div id="map"></div>
+                </div>
+            </div>
+
+            </div>
             <div id="Zonas">
                 <p style="clear:both;">Seleccione la zona:*</p>
                 <div style="clear:both;">
@@ -165,21 +190,6 @@
                 <div>
                     <asp:ListBox ID="lstZonas" runat="server" AutoPostBack="True" style="background: white;width: 268px;padding: 5px;font-size: 16px;line-height: 1;border: 0;border-radius: 0;height: 200px;"></asp:ListBox>
                 </div>
-            </div>
-            
-            
-        <div>
-            <label>Dirección : </label> 
-            </div>
-            <asp:TextBox ID="txtDireccion" runat="server" placeholder="Ej.: Av. Corrientes 571, Buenos Aires" size="50px"></asp:TextBox>&nbsp;
-            <div id="mapa">
-    	        <div class='input'>
-                        <label>Ciudad: </label> <input id="locality" disabled="disabled" /> <br/>
-			            <label>Pa&iacute;s:  </label> <input id="country" disabled="disabled" /> <br/>
-			            <label>Lat:      </label> <input id="lat" disabled="disabled" /> <br/>
-			            <label>Lng:      </label> <input id="lng" disabled="disabled" /> <br/>
-                </div>
-                <div id="map"></div>
             </div>
             <br />
 	        <p class="ch-form-row description ">

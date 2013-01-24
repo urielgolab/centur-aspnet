@@ -64,6 +64,11 @@
 	        width: 50%;
 	        padding-bottom: 0px;
         }
+        
+        table td
+        {
+        	vertical-align:top;
+        }
     </style>
     
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -92,8 +97,11 @@
             addresspickerMap.addresspicker("updatePosition");
         });
 
-        function toogleMap(id) {
-            $(idMap).style.display = "none";
+        function toogleMap(idMap) {
+            if($(idMap).css('display')!="none")
+                $(idMap).css('display','none');
+            else
+                $(idMap).css('display', 'block');
         }
     </script>
 
@@ -151,52 +159,68 @@
             <asp:Label ID="lblMensajeError" runat="server"></asp:Label>
 
             <p class="ch-form-hint">* Datos obligatorios</p>
-	        <div class="ch-form-row ch-form-required sell-title">
-		        <label for="title">T&iacute;tulo: <em>*</em></label> 
-                <asp:TextBox ID="txtTitulo" runat="server" Width="500" placeholder="Ej.: Wimbledon Tenis Club con Estacionamiento, Buffet y 6 canchas." title="Usa palabras clave para que encuentren f&aacute;cilmente tu servicio."></asp:TextBox>
-		    </div>
-            <div id="photoUploader">
-                <div style="float:left">Imagen:<asp:FileUpload ID="fleImagenServicio" runat="server"/></div>
-                <div>
-                    <asp:Image ID="imgFotoServicio" runat="server" ImageUrl="~/Images/photo_camera_up.png" style="float:right" />
-                </div>
-            </div>
-            
-            
-            
-        <div id="divDireccion" style="clear:both;">
-            <div>
-                <label>Dirección : </label> 
-                <asp:TextBox ID="txtDireccion" runat="server" placeholder="Ej.: Av. Corrientes 571, Buenos Aires" size="50px"></asp:TextBox>
-                <div style="display:inline-block;border: 1px solid black;padding: 2px 1px;margin-left: 5px;background: black url(Images/locationArrow.jpg) center center no-repeat;">Button</div>
-                
-                <div id="mapa">
-    	            <div class='input'>
-                            <label>Ciudad: </label> <input id="locality" disabled="disabled" /> <br/>
-			                <label>Pa&iacute;s:  </label> <input id="country" disabled="disabled" /> <br/>
-			                <label>Lat:      </label> <input id="lat" disabled="disabled" /> <br/>
-			                <label>Lng:      </label> <input id="lng" disabled="disabled" /> <br/>
-                    </div>
-                    <div id="map"></div>
-                </div>
-            </div>
 
-            </div>
-            <div id="Zonas">
-                <p style="clear:both;">Seleccione la zona:*</p>
-                <div style="clear:both;">
-                    <asp:LinkButton ID="lnkZonaPadre" runat="server" title="Volver a la zona raiz"></asp:LinkButton>
-                </div>
-                <div>
-                    <asp:ListBox ID="lstZonas" runat="server" AutoPostBack="True" style="background: white;width: 268px;padding: 5px;font-size: 16px;line-height: 1;border: 0;border-radius: 0;height: 200px;"></asp:ListBox>
-                </div>
-            </div>
-            <br />
-	        <p class="ch-form-row description ">
-		        <label for="description" id="lbl_description">Descripci&oacute;n: <span class="ch-form-hint optional">(opcional)</span></label>
-    	        <textarea id="txtDescripcion" runat="server" name="txtDescripcion" rows="15" cols="80" style="height: 200px;width: 95%" />
-		        <!-- Tiny_MCE -->
-	        </p>
+            <table>
+            <tr>
+                <td>T&iacute;tulo: </td>
+                <td><asp:TextBox ID="txtTitulo" runat="server" Width="500" placeholder="Ej.: Wimbledon Tenis Club con Estacionamiento, Buffet y 6 canchas." title="Usa palabras clave para que encuentren f&aacute;cilmente tu servicio."></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td>Imagen: </td>
+                <td>
+                    <div id="photoUploader" style="border:1px solid black;">
+                        <div style="float:left"><asp:FileUpload ID="fleImagenServicio" runat="server"/></div>
+                        <div>
+                            <asp:Image ID="imgFotoServicio" runat="server" ImageUrl="~/Images/photo_camera_up.png" style="float:right" />
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Direcci&oacute;n: </td>
+                <td>
+                    <asp:TextBox ID="txtDireccion" runat="server" placeholder="Ej.: Av. Corrientes 571, Buenos Aires" size="50px"></asp:TextBox>
+                    <div title="Mostrar mapa" onclick="toogleMap(mapa);" style="display:inline-block;border: 1px solid black;margin-left: 5px;background: black url(Images/locationArrow.jpg) center center no-repeat;height: 21px;width: 38px;vertical-align: bottom;margin-top: 0px;margin-bottom: 2px;"></div>
+
+                    <div id="mapa" style="display:none;">
+    	                <div class='input'>
+                                <label>Ciudad: </label> <input id="locality" disabled="disabled" /> <br/>
+			                    <label>Pa&iacute;s:  </label> <input id="country" disabled="disabled" /> <br/>
+			                    <label>Lat:      </label> <input id="lat" disabled="disabled" /> <br/>
+			                    <label>Lng:      </label> <input id="lng" disabled="disabled" /> <br/>
+                        </div>
+                        <div id="map"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Seleccione la zona:*</td>
+                <td>
+                    <div id="Zonas">
+                        <div style="clear:both;margin-bottom: 9px;">
+                            <asp:LinkButton ID="lnkZonaPadre" runat="server" title="Volver a la zona raiz"></asp:LinkButton>
+                        </div>
+                        <div>
+                            <asp:ListBox ID="lstZonas" runat="server" AutoPostBack="True" style="background: white;width: 268px;padding: 5px;font-size: 16px;line-height: 1;border: 0;border-radius: 0;height: 200px;"></asp:ListBox>
+                        </div>
+                    </div>                
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><label for="description" id="lbl_description">Descripci&oacute;n: <span class="ch-form-hint optional">(opcional)</span></label></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+	                <p class="ch-form-row description ">
+    	                <textarea id="txtDescripcion" runat="server" name="txtDescripcion" rows="15" cols="80" style="height: 200px;width: 95%" />
+		                <!-- Tiny_MCE -->
+	                </p>                
+                </td>
+            </tr>
+            </table>
+
+
 
             <asp:Button ID="btnSiguiente" runat="server" Text="Continuar" Enabled="false"  />
         </div>

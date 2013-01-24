@@ -50,6 +50,15 @@ Partial Public Class CrearServicioP2
     Protected WithEvents imgFotoServicio As Global.System.Web.UI.WebControls.Image
 
     '''<summary>
+    '''txtDireccion control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDireccion As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''lnkZonaPadre control.
     '''</summary>
     '''<remarks>
@@ -66,15 +75,6 @@ Partial Public Class CrearServicioP2
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lstZonas As Global.System.Web.UI.WebControls.ListBox
-
-    '''<summary>
-    '''txtDireccion control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtDireccion As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''txtDescripcion control.

@@ -1070,30 +1070,6 @@ txtTitulo control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.CrearServicioP2.imgFotoServicio">
-	<summary>
-imgFotoServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP2.lnkCategoriaPadre">
-	<summary>
-lnkCategoriaPadre control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP2.lstZonas">
-	<summary>
-lstZonas control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
 </member><member name="F:Centur.CrearServicioP2.fleImagenServicio">
 	<summary>
 fleImagenServicio control.
@@ -1102,9 +1078,33 @@ fleImagenServicio control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:Centur.CrearServicioP2.imgFotoServicio">
+	<summary>
+imgFotoServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:Centur.CrearServicioP2.txtDireccion">
 	<summary>
 txtDireccion control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP2.lnkZonaPadre">
+	<summary>
+lnkZonaPadre control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP2.lstZonas">
+	<summary>
+lstZonas control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -1702,9 +1702,9 @@ Label1 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.DetalleGrupo.NombreGrupo">
+</member><member name="F:Centur.DetalleGrupo.LabelNombreGrupo">
 	<summary>
-NombreGrupo control.
+LabelNombreGrupo control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -1718,9 +1718,9 @@ Label2 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.DetalleGrupo.DescripGrupo">
+</member><member name="F:Centur.DetalleGrupo.LabelDescripGrupo">
 	<summary>
-DescripGrupo control.
+LabelDescripGrupo control.
 </summary>
 	<remarks>
 Auto-generated field.

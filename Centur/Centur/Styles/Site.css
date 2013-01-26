@@ -313,9 +313,10 @@ div.accountInfo
 .arbol
 {
     border-style:solid;
-    border-color:Red; 
+    border-color:lightgray; 
     border-width:1px;
     padding:10px;
+    float:left;
 }
 
 div.arboles
@@ -361,8 +362,10 @@ label.filtrosBusqueda
     text-transform: none;
     font-weight: 200;
     margin-bottom: 0px;
-    width:100px;
+    width:65px;
     margin-right:0px;
+    float:left;
+    padding: 10px;
 }
 /*
 TextBoxFiltrosBusqueda
@@ -912,4 +915,18 @@ body.mceContentBody {
     border-style:solid;
     border-color:Red; 
     border-width:1px;
+}
+
+.ch-close:hover, .ch-close:focus {
+    color: #fff;
+    background-color: #fa5900;
+    background-image: -webkit-linear-gradient(#fa5900,#ca0c02);
+    background-image: -moz-linear-gradient(#fa5900,#ca0c02);
+    background-image: -o-linear-gradient(#fa5900,#ca0c02);
+    background-image: linear-gradient(#fa5900,#ca0c02);
+    text-decoration: none;
+}
+.ch-close:hover, .ch-close:focus, .ch-close:active {
+    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    border: 0;
 }

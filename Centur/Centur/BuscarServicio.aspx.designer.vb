@@ -14,24 +14,6 @@ Option Explicit On
 Partial Public Class BuscarServicio
 
     '''<summary>
-    '''ArbolCategorias control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ArbolCategorias As Global.System.Web.UI.WebControls.TreeView
-
-    '''<summary>
-    '''ArbolZonas control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ArbolZonas As Global.System.Web.UI.WebControls.TreeView
-
-    '''<summary>
     '''nombre control.
     '''</summary>
     '''<remarks>
@@ -39,24 +21,6 @@ Partial Public Class BuscarServicio
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents nombre As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''precioDesde control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents precioDesde As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''precioHasta control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents precioHasta As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''buscar control.
@@ -75,6 +39,42 @@ Partial Public Class BuscarServicio
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents reset As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''ArbolCategorias control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ArbolCategorias As Global.System.Web.UI.WebControls.TreeView
+
+    '''<summary>
+    '''ArbolZonas control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ArbolZonas As Global.System.Web.UI.WebControls.TreeView
+
+    '''<summary>
+    '''precioDesde control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents precioDesde As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''precioHasta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents precioHasta As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''resultados control.

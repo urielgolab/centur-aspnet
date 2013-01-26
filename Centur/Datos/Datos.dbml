@@ -19,14 +19,6 @@
       <Association Name="Zona_Servicio" Member="Servicios" ThisKey="idZona" OtherKey="idZona" Type="Servicio" />
     </Type>
   </Table>
-  <Table Name="dbo.Constantes" Member="Constantes">
-    <Type Name="Constante">
-      <Column Name="IdConstante" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idNombreConstante" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="valor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="NombreConstante_Constante" Member="NombreConstante" ThisKey="idNombreConstante" OtherKey="idNombreVariable" Type="NombreConstante" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Grilla" Member="Grillas">
     <Type Name="Grilla">
       <Column Name="idGrilla" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -76,13 +68,6 @@
       <Column Name="descripcion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Association Name="Grupo_ServicioGrupo" Member="ServicioGrupos" ThisKey="IdGrupo" OtherKey="idGrupo" Type="ServicioGrupo" />
       <Association Name="Grupo_UsuarioGrupo" Member="UsuarioGrupos" ThisKey="IdGrupo" OtherKey="idGrupo" Type="UsuarioGrupo" />
-    </Type>
-  </Table>
-  <Table Name="dbo.NombreConstantes" Member="NombreConstantes">
-    <Type Name="NombreConstante">
-      <Column Name="idNombreVariable" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="NombreConstante_Constante" Member="Constantes" ThisKey="idNombreVariable" OtherKey="idNombreConstante" Type="Constante" />
     </Type>
   </Table>
   <Table Name="dbo.ServicioFavoritos" Member="ServicioFavoritos">

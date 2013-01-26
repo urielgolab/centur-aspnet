@@ -37,9 +37,6 @@ namespace Datos
     partial void InsertZona(Zona instance);
     partial void UpdateZona(Zona instance);
     partial void DeleteZona(Zona instance);
-    partial void InsertConstante(Constante instance);
-    partial void UpdateConstante(Constante instance);
-    partial void DeleteConstante(Constante instance);
     partial void InsertGrilla(Grilla instance);
     partial void UpdateGrilla(Grilla instance);
     partial void DeleteGrilla(Grilla instance);
@@ -55,9 +52,6 @@ namespace Datos
     partial void InsertGrupo(Grupo instance);
     partial void UpdateGrupo(Grupo instance);
     partial void DeleteGrupo(Grupo instance);
-    partial void InsertNombreConstante(NombreConstante instance);
-    partial void UpdateNombreConstante(NombreConstante instance);
-    partial void DeleteNombreConstante(NombreConstante instance);
     partial void InsertServicioFavorito(ServicioFavorito instance);
     partial void UpdateServicioFavorito(ServicioFavorito instance);
     partial void DeleteServicioFavorito(ServicioFavorito instance);
@@ -127,14 +121,6 @@ namespace Datos
 			}
 		}
 		
-		public System.Data.Linq.Table<Constante> Constantes
-		{
-			get
-			{
-				return this.GetTable<Constante>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Grilla> Grillas
 		{
 			get
@@ -172,14 +158,6 @@ namespace Datos
 			get
 			{
 				return this.GetTable<Grupo>();
-			}
-		}
-		
-		public System.Data.Linq.Table<NombreConstante> NombreConstantes
-		{
-			get
-			{
-				return this.GetTable<NombreConstante>();
 			}
 		}
 		
@@ -973,173 +951,6 @@ namespace Datos
 		public void OnSerialized(StreamingContext context)
 		{
 			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Constantes")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Constante : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdConstante;
-		
-		private int _idNombreConstante;
-		
-		private string _valor;
-		
-		private EntityRef<NombreConstante> _NombreConstante;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdConstanteChanging(int value);
-    partial void OnIdConstanteChanged();
-    partial void OnidNombreConstanteChanging(int value);
-    partial void OnidNombreConstanteChanged();
-    partial void OnvalorChanging(string value);
-    partial void OnvalorChanged();
-    #endregion
-		
-		public Constante()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdConstante", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int IdConstante
-		{
-			get
-			{
-				return this._IdConstante;
-			}
-			set
-			{
-				if ((this._IdConstante != value))
-				{
-					this.OnIdConstanteChanging(value);
-					this.SendPropertyChanging();
-					this._IdConstante = value;
-					this.SendPropertyChanged("IdConstante");
-					this.OnIdConstanteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idNombreConstante", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public int idNombreConstante
-		{
-			get
-			{
-				return this._idNombreConstante;
-			}
-			set
-			{
-				if ((this._idNombreConstante != value))
-				{
-					if (this._NombreConstante.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidNombreConstanteChanging(value);
-					this.SendPropertyChanging();
-					this._idNombreConstante = value;
-					this.SendPropertyChanged("idNombreConstante");
-					this.OnidNombreConstanteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_valor", DbType="VarChar(50)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public string valor
-		{
-			get
-			{
-				return this._valor;
-			}
-			set
-			{
-				if ((this._valor != value))
-				{
-					this.OnvalorChanging(value);
-					this.SendPropertyChanging();
-					this._valor = value;
-					this.SendPropertyChanged("valor");
-					this.OnvalorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NombreConstante_Constante", Storage="_NombreConstante", ThisKey="idNombreConstante", OtherKey="idNombreVariable", IsForeignKey=true)]
-		public NombreConstante NombreConstante
-		{
-			get
-			{
-				return this._NombreConstante.Entity;
-			}
-			set
-			{
-				NombreConstante previousValue = this._NombreConstante.Entity;
-				if (((previousValue != value) 
-							|| (this._NombreConstante.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NombreConstante.Entity = null;
-						previousValue.Constantes.Remove(this);
-					}
-					this._NombreConstante.Entity = value;
-					if ((value != null))
-					{
-						value.Constantes.Add(this);
-						this._idNombreConstante = value.idNombreVariable;
-					}
-					else
-					{
-						this._idNombreConstante = default(int);
-					}
-					this.SendPropertyChanged("NombreConstante");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._NombreConstante = default(EntityRef<NombreConstante>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
 		}
 	}
 	
@@ -2307,157 +2118,6 @@ namespace Datos
 		{
 			this._ServicioGrupos = new EntitySet<ServicioGrupo>(new Action<ServicioGrupo>(this.attach_ServicioGrupos), new Action<ServicioGrupo>(this.detach_ServicioGrupos));
 			this._UsuarioGrupos = new EntitySet<UsuarioGrupo>(new Action<UsuarioGrupo>(this.attach_UsuarioGrupos), new Action<UsuarioGrupo>(this.detach_UsuarioGrupos));
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerializing(StreamingContext context)
-		{
-			this.serializing = true;
-		}
-		
-		[global::System.Runtime.Serialization.OnSerializedAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnSerialized(StreamingContext context)
-		{
-			this.serializing = false;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NombreConstantes")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class NombreConstante : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idNombreVariable;
-		
-		private string _Nombre;
-		
-		private EntitySet<Constante> _Constantes;
-		
-		private bool serializing;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidNombreVariableChanging(int value);
-    partial void OnidNombreVariableChanged();
-    partial void OnNombreChanging(string value);
-    partial void OnNombreChanged();
-    #endregion
-		
-		public NombreConstante()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idNombreVariable", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int idNombreVariable
-		{
-			get
-			{
-				return this._idNombreVariable;
-			}
-			set
-			{
-				if ((this._idNombreVariable != value))
-				{
-					this.OnidNombreVariableChanging(value);
-					this.SendPropertyChanging();
-					this._idNombreVariable = value;
-					this.SendPropertyChanged("idNombreVariable");
-					this.OnidNombreVariableChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string Nombre
-		{
-			get
-			{
-				return this._Nombre;
-			}
-			set
-			{
-				if ((this._Nombre != value))
-				{
-					this.OnNombreChanging(value);
-					this.SendPropertyChanging();
-					this._Nombre = value;
-					this.SendPropertyChanged("Nombre");
-					this.OnNombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NombreConstante_Constante", Storage="_Constantes", ThisKey="idNombreVariable", OtherKey="idNombreConstante")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3, EmitDefaultValue=false)]
-		public EntitySet<Constante> Constantes
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._Constantes.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._Constantes;
-			}
-			set
-			{
-				this._Constantes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Constantes(Constante entity)
-		{
-			this.SendPropertyChanging();
-			entity.NombreConstante = this;
-		}
-		
-		private void detach_Constantes(Constante entity)
-		{
-			this.SendPropertyChanging();
-			entity.NombreConstante = null;
-		}
-		
-		private void Initialize()
-		{
-			this._Constantes = new EntitySet<Constante>(new Action<Constante>(this.attach_Constantes), new Action<Constante>(this.detach_Constantes));
 			OnCreated();
 		}
 		

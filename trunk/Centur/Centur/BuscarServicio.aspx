@@ -32,12 +32,20 @@
             background-image: url('/Images/iconosVarios.png');
             width: 16px;
             height: 16px;
-            /*border: 1px solid lightgray;*/
             display: inline-block;
             cursor:pointer;
             margin-left:4px;
             background-position:89px 81px;
         }    
+        .resetFilters
+        {
+            background-image: url('/Images/iconosVarios.png');
+            width: 16px;
+            height: 16px;
+            margin-left:4px;
+            background-position:62px -81px;
+            display: inline-block;            
+        }
     </style>
     <script src="Scripts/external/globalize.js"></script>
     <script src="Scripts/external/jquery.mousewheel.js"></script>
@@ -70,7 +78,7 @@
     </div>
     <div style="float:left;margin-left: 10px;margin-top: 3px;">
         <asp:Button ID="buscar" Text="Buscar" runat="server" />
-        <asp:LinkButton ID="reset" Text="X" runat="server" CssClass="ch-close" title="Nueva b&uacute;squeda" />
+        <asp:LinkButton ID="reset" Text="" runat="server" CssClass="resetFilters" title="Borrar filtros" />
     </div>
     <div style="clear: both;"></div>
     <h2 style="float:left;">Filtros adicionales<div id="hideFilters" onclick="toogleFilters()"></div></h2>

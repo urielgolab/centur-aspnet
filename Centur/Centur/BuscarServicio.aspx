@@ -29,7 +29,7 @@
         }    
         #hideFilters
         {
-            background-image: url('/Images/iconosVarios.png');
+            background-image: url('Images/iconosVarios.png');
             width: 16px;
             height: 16px;
             display: inline-block;
@@ -39,7 +39,7 @@
         }    
         .resetFilters
         {
-            background-image: url('/Images/iconosVarios.png');
+            background-image: url('Images/iconosVarios.png');
             width: 16px;
             height: 16px;
             margin-left:4px;

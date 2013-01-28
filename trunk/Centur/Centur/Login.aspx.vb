@@ -29,7 +29,7 @@
             Session("Usuario") = oUsuario
             Session("idUsuario") = oUsuario.idUsuario
 
-            Response.Redirect("Home.aspx")
+            Response.Redirect("default.aspx")
         Else
             'Mostrar mensaje de error.
             ErrorMessage.Text = "El nombre de usuario y/o contraseña son inválidos."

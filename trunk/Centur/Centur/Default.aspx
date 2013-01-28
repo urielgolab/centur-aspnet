@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Home Page" Language="vb" MasterPageFile="~/Site.Master" AutoEventWireup="false"
-    CodeBehind="Home.aspx.vb" Inherits="Centur.Home" %>
+    CodeBehind="default.aspx.vb" Inherits="Centur.Home" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 

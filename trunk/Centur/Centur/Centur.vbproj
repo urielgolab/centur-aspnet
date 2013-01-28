@@ -14,6 +14,7 @@
     <AssemblyName>Centur</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MyType>Custom</MyType>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -94,6 +95,7 @@
     <Content Include="AdministrarTurnos.aspx" />
     <Content Include="AsignarTurno.aspx" />
     <Content Include="BuscarServicio.aspx" />
+    <Content Include="default.aspx" />
     <Content Include="Images\DeleteIcon.png" />
     <Content Include="Images\Edit-icon.png" />
     <Content Include="MisServicios.aspx" />
@@ -152,7 +154,6 @@
     <Content Include="Shared DLLs\Microsoft.ApplicationBlocks.Data.dll" />
     <Content Include="Styles\jquery.timepicker.css" />
     <Content Include="Styles\Site.css" />
-    <Content Include="Home.aspx" />
     <Content Include="Global.asax" />
     <Content Include="DetalleGrupo.aspx" />
     <Content Include="VerDatosPersonales.aspx" />
@@ -194,6 +195,13 @@
     </Compile>
     <Compile Include="BuscarServicio.aspx.vb">
       <DependentUpon>BuscarServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.vb">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.vb">
+      <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MisServicios.aspx.designer.vb">
@@ -265,13 +273,6 @@
     <Compile Include="GrupoPendientes.aspx.vb">
       <DependentUpon>GrupoPendientes.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="Home.aspx.vb">
-      <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home.aspx.designer.vb">
-      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="DetalleServicio.aspx.designer.vb">
       <DependentUpon>DetalleServicio.aspx</DependentUpon>

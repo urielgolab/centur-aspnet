@@ -58,7 +58,7 @@
         <asp:Label CssClass="labelDetalleInfo" ID="ZonaServicio" runat="server"></asp:Label>
         </p>
         <div id="precioServicio" style="color: #900;font-size: 16px;font-weight: bold;"><asp:Label ID="PrecioServicio" runat="server" /></div>
-        <div class="article reputation">	<h3>Reputación del vendedor</h3> <dl class="meter">	<dt> Reputación:</dt>	<dd class="repLay ch-points-ltlb" aria-describedby="ch-layer-1" style="cursor: pointer;">	<p class="meter rep5"><span class="valueRep">3</span>/5</p>	<span class="repDescrip">	<span title="MercadoLíder Platinum" class="ch-ico ch-mercadolider-platinum" id="mlP">MercadoLíder Platinum</span>	</span>	</dd> </dl> </div>
+        <div class="article reputation"><h3>Reputación del vendedor</h3><dl class="meter">	<dt>Reputación:</dt>	<dd class="repLay ch-points-ltlb" aria-describedby="ch-layer-1" style="cursor: pointer;">	<p class="meter rep5"><span class="valueRep">3</span>/5</p>	<span class="repDescrip">	<span title="MercadoLíder Platinum" class="ch-ico ch-mercadolider-platinum" id="mlP">MercadoLíder Platinum</span>	</span>	</dd> </dl> </div>
         <p>
         <asp:Label CssClass="labelDetalle" ID="Label6" runat="server" Text="Proveedor:"></asp:Label>
         <asp:Label CssClass="labelDetalleInfo" ID="ProveedorServicio" runat="server"></asp:Label>

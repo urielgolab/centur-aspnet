@@ -14,13 +14,22 @@ Option Explicit On
 Partial Public Class DetalleServicio
 
     '''<summary>
-    '''Label4 control.
+    '''CategoriaServicio control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents CategoriaServicio As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ImagenServicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ImagenServicio As Global.System.Web.UI.WebControls.Image
 
     '''<summary>
     '''NombreServicio control.
@@ -30,42 +39,6 @@ Partial Public Class DetalleServicio
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents NombreServicio As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Label1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''DescripcionServicio control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents DescripcionServicio As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Label2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''CategoriaServicio control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents CategoriaServicio As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Label3 control.
@@ -84,15 +57,6 @@ Partial Public Class DetalleServicio
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ZonaServicio As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Label5 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''PrecioServicio control.
@@ -230,13 +194,13 @@ Partial Public Class DetalleServicio
     Protected WithEvents ErrorMessageGruposAsoc As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ImagenServicio control.
+    '''DescripcionServicio control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ImagenServicio As Global.System.Web.UI.WebControls.Image
+    Protected WithEvents DescripcionServicio As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''VolveraBusqueda control.

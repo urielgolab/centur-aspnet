@@ -5,13 +5,15 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Session("Usuario") Is Nothing Then
-            Me.ArmarMenu(CType(Session("Usuario"), Entities.Usuario).TipoUsuario)
+            Dim user As Entities.Usuario = Session("Usuario")
+
+            Me.ArmarMenu(user.TipoUsuario)
             logout.Visible = True
             miCuenta.Visible = True
+
+            logout.Text = "Desloguearse [" + user.NombreUsuario.ToLower() + "]"
         Else
-            Me.ArmarMenu("")
-            logout.Visible = False
-            miCuenta.Visible = False
+            'Response.Redirect("Login.aspx")
         End If
 
     End Sub
@@ -43,6 +45,6 @@
 
     Private Sub logout_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles logout.Click
         Session("Usuario") = Nothing
-        Response.Redirect("Home.aspx")
+        Response.Redirect("default.aspx")
     End Sub
 End Class

@@ -1,4 +1,4 @@
-﻿
+﻿Imports Datos
 Public Class DetalleServicio
     Inherits System.Web.UI.Page
 
@@ -7,6 +7,7 @@ Public Class DetalleServicio
 
     'Public idServicio As Integer
     Public servicio As Entities.Servicio
+    Dim dc As New DC()
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'If Session("Usuario") Is Nothing Then
@@ -45,9 +46,11 @@ Public Class DetalleServicio
         End If
 
         If oFavoritosService.esFavorito(CType(Session("Usuario"), Entities.Usuario).idUsuario, servicio.ID) Then
-            Me.Favoritos.Text = "Quitar de Favoritos"
+            Me.Favoritos.Attributes.Add("title", "Quitar de Favoritos")
+            Favoritos.CssClass = "iconoFavorito favOn"
         Else
-            Me.Favoritos.Text = "Agregar a Favoritos"
+            Me.Favoritos.Attributes.Add("title", "Agregar a Favoritos")
+            Favoritos.CssClass = "iconoFavorito favOff"
         End If
 
         DIVPedirTurno.Visible = False
@@ -76,18 +79,19 @@ Public Class DetalleServicio
 
     Private Sub Favoritos_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Favoritos.Click
         'llamar al service de Guido y mostrar un popup
-        If Me.Favoritos.Text = "Agregar a Favoritos" Then
+        If Me.Favoritos.Attributes("title") = "Agregar a Favoritos" Then
             If oFavoritosService.AltaFavoritos(CType(Session("Usuario"), Entities.Usuario).idUsuario, servicio.ID) Then
                 Me.Mensaje.Text = "Agregado!!"
-                Me.Favoritos.Text = "Quitar de Favoritos"
+                Me.Favoritos.Attributes.Add("title", "Quitar de Favoritos")
+                Favoritos.CssClass = "iconoFavorito favOn"
             End If
         Else
             If oFavoritosService.BajaFavoritos(CType(Session("Usuario"), Entities.Usuario).idUsuario, servicio.ID) Then
                 Me.Mensaje.Text = "Eliminado!!"
-                Me.Favoritos.Text = "Agregar a Favoritos"
+                Me.Favoritos.Attributes.Add("title", "Agregar a Favoritos")
+                Favoritos.CssClass = "iconoFavorito favOff"
             End If
         End If
-
     End Sub
 
     Private Sub PedirTurno_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles PedirTurno.Click

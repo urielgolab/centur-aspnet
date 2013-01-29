@@ -1,5 +1,5 @@
 ﻿
-Public Class Home
+Public Class [Default]
     Inherits System.Web.UI.Page
 
     Dim oLoginService As New Services.LoginService()

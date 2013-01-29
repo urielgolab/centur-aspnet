@@ -181,7 +181,7 @@
                 <td>Direcci&oacute;n: *</td>
                 <td>
                     <asp:TextBox ID="txtDireccion" runat="server" placeholder="Ej.: Av. Corrientes 571, Buenos Aires" size="50px"></asp:TextBox>
-                    <div title="Mostrar mapa" onclick="toogleMap(mapa);" style="display:inline-block;border: 1px solid black;margin-left: 5px;background: black url(Images/locationArrow.jpg) center center no-repeat;height: 21px;width: 38px;vertical-align: bottom;margin-top: 0px;margin-bottom: 2px;"></div>
+                    <div title="Mostrar mapa" onclick="$(mapa).toggle('slow');" style="display:inline-block;border: 1px solid black;margin-left: 5px;background: black url(Images/locationArrow.jpg) center center no-repeat;height: 21px;width: 38px;vertical-align: bottom;margin-top: 0px;margin-bottom: 2px;"></div>
 
                     <div id="mapa" style="display:none;">
     	                <div class='input'>

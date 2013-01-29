@@ -57,14 +57,11 @@
         });
 
         function toogleFilters() {
-            if ($(filtrosAdicionales).css('display') != "none") {
+            if ($(filtrosAdicionales).css('display') != "none")
                 $(hideFilters).css('background-position', '89px 81px');
-                $(filtrosAdicionales).css('display', 'none');
-            }
-            else {
+            else
                 $(hideFilters).css('background-position', '224px 402px');
-                $(filtrosAdicionales).css('display', 'block');
-            }
+            $(filtrosAdicionales).toggle('slow');
         }
     </script>
 </asp:Content>
@@ -107,11 +104,11 @@
         </asp:TreeView>
         <div style="float:left;">
             <label class="filtrosBusqueda"> Precio desde </label>
-            <div style="float:left;">
+            <div style="float:left;padding: 10px;">
                 <asp:TextBox runat="server" ID="precioDesde" />
             </div>
             <label class="filtrosBusqueda"> hasta </label> 
-            <div style="float:left;">
+            <div style="float:left;padding: 10px;">
                 <asp:TextBox runat="server" ID="precioHasta" />
             </div>
         </div>

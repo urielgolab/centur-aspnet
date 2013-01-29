@@ -4,14 +4,45 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
     <script src="Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
     <script src="Scripts/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
-    <style>
+    <style type="text/css">
         .article {
             border-top: 1px dotted #CCC;
             margin-bottom: 15px;
             overflow: hidden;
             clear: both;
-        }    
+        }
+        .iconoFavorito
+        {
+            background-image: url('Images/favorito.png');
+            background-repeat: no-repeat;
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            text-indent: 99px;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            top: 0!important;
+            vertical-align: middle;
+            margin-left:10px;
+            margin-top:2px;
+        }
+        .favOff{
+            background-position: 0px -32px;
+        }        
+        .favOn{
+            background-position: 0px 0px;
+        }
     </style>
+
+    <script type="text/javascript">
+        function toogleFilters() {
+            if ($(filtrosAdicionales).css('display') != "none")
+                $(hideFilters).css('background-position', '89px 81px');
+            else
+                $(hideFilters).css('background-position', '224px 402px');
+            $(filtrosAdicionales).toggle('slow');
+        }    
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
     <script type="text/javascript"> 
@@ -47,11 +78,9 @@
     </div>
 
     <div class="detalleServicio" style="float: left;padding: 10px;">
-        <div id="nombreServicio" style="font-size: 28px;font-weight: bold;line-height: 33px;margin-top: 0;letter-spacing: -0.5px;color: #555;"><asp:Label ID="NombreServicio" runat="server" /></div>
+        <div id="nombreServicio" style="font-size: 28px;font-weight: bold;line-height: 33px;margin-top: 0;letter-spacing: -0.5px;color: #555;float:left;"><asp:Label ID="NombreServicio" runat="server" /></div>
         <div id="favorito">
-            <a class="bookmark bookmark-add ch-points-ltlb" href="#" title="Agregar a favoritos" aria-describedby="ch-tooltip-1"><span class="ico fav-off"></span>
-                <span class="bookmark-txt">Agregar a favoritos</span>	
-            </a>
+            <asp:LinkButton ID="Favoritos" runat="server" CssClass="iconoFavorito favOff" title="Agregar a favoritos"/>
         </div>
         <p>
         <asp:Label CssClass="labelDetalle" ID="Label3" runat="server" Text="Zona:"></asp:Label>
@@ -82,10 +111,6 @@
         </p>
         
         <asp:Label ID="Mensaje" runat="server"></asp:Label>
-        
-        <div class="linksDetalleServicio">  
-        <asp:LinkButton ID="Favoritos" runat="server"> </asp:LinkButton>
-        </div>
 
          <p class="busqueda">Grupos asociados</p>
 

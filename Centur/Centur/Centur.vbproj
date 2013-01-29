@@ -14,7 +14,6 @@
     <AssemblyName>Centur</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MyType>Custom</MyType>
-    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -95,7 +94,7 @@
     <Content Include="AdministrarTurnos.aspx" />
     <Content Include="AsignarTurno.aspx" />
     <Content Include="BuscarServicio.aspx" />
-    <Content Include="default.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="Images\DeleteIcon.png" />
     <Content Include="Images\Edit-icon.png" />
     <Content Include="MisServicios.aspx" />
@@ -197,11 +196,11 @@
       <DependentUpon>BuscarServicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="default.aspx.designer.vb">
-      <DependentUpon>default.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="default.aspx.vb">
-      <DependentUpon>default.aspx</DependentUpon>
+    <Compile Include="Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MisServicios.aspx.designer.vb">

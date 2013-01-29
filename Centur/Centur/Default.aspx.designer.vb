@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Home
+Partial Public Class [Default]
 
     '''<summary>
     '''mensaje control.

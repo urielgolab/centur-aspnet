@@ -485,13 +485,12 @@ p.tituloPrincipal
     font-size:small;
     font-weight:bolder;
     color: #666666;
-    font-variant: small-caps;
     text-transform: none;
     font-weight: 200;
     margin-bottom: 0px;
     width:100px;
     margin-right:0px;
-    color:Red;
+    color:#3a4f63;
 }
 
 div.detalleServicio
@@ -916,17 +915,13 @@ body.mceContentBody {
     border-color:Red; 
     border-width:1px;
 }
-
-.ch-close:hover, .ch-close:focus {
-    color: #fff;
-    background-color: #fa5900;
-    background-image: -webkit-linear-gradient(#fa5900,#ca0c02);
-    background-image: -moz-linear-gradient(#fa5900,#ca0c02);
-    background-image: -o-linear-gradient(#fa5900,#ca0c02);
-    background-image: linear-gradient(#fa5900,#ca0c02);
-    text-decoration: none;
+.linksBusqueda a
+{
+    font-size: 16px;
+    line-height: 22px;
+    text-decoration:none;
 }
-.ch-close:hover, .ch-close:focus, .ch-close:active {
-    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-    border: 0;
+.linksBusqueda a:hover
+{
+    text-decoration:underline;
 }

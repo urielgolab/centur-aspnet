@@ -120,7 +120,7 @@
             AutoGenerateColumns="False" CssClass="tbHorariosDia" style="border:0;width:650px;margin-left: auto;margin-right: auto;">
             <Columns>
                 <asp:HyperLinkField DataTextField="Nombre" HeaderText="Nombre" DataNavigateUrlFormatString="DetalleServicio.aspx?servicioID={0}"
-                    DataNavigateUrlFields="ID" HeaderStyle-HorizontalAlign="Left" >
+                    DataNavigateUrlFields="ID" HeaderStyle-HorizontalAlign="Left" ItemStyle-CssClass="linksBusqueda" >
 <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
                 </asp:HyperLinkField>
                 <asp:BoundField DataField="Categoria" HeaderText="Categoria" 

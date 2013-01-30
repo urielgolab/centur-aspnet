@@ -19,15 +19,19 @@ Public Class DetalleServicio
         servicio = oBuscarServicioService.VerDetalleServicio(CInt(Request.QueryString("ServicioID")), CType(Session("Usuario"), Entities.Usuario).idUsuario)
 
         Me.NombreServicio.Text = servicio.Nombre
-        Me.CategoriaServicio.Text = servicio.Categoria
+        Me.CategoriaServicio.Text = dc.CategoriaObtenerPadre(dc.Servicios.Single(Function(x) x.idServicio = servicio.ID).idCategoria)
         Me.DescripcionServicio.Text = servicio.Descripcion
         Me.ZonaServicio.Text = servicio.Zona
         Me.DescripcionServicio.Text = servicio.Descripcion
-        Me.PrecioServicio.Text = servicio.Precio
+
+        PrecioServicio.Visible = servicio.Precio > 0
+        Me.PrecioServicio.Text = "$ " + servicio.Precio.ToString()
+
         Me.DireccionServicio.Text = servicio.Direccion
         Me.ProveedorServicio.Text = servicio.NombreUsuarioProveedor
         Me.EmailServicio.Text = servicio.Email
         Me.ObservacionesServicio.Text = servicio.Observaciones
+        lblObservacionesServicio.Visible = servicio.Observaciones <> ""
         Me.TelefonoServicio.Text = servicio.Telefono
         Me.ImagenServicio.ImageUrl = "Images/publicaciones/" + servicio.Imagen
 
@@ -40,9 +44,6 @@ Public Class DetalleServicio
         If gruposAsoc.Count > 0 Then
             GruposAsociados.DataSource = gruposAsoc
             GruposAsociados.DataBind()
-        Else
-            ErrorMessageGruposAsoc.Text = "No hay grupos asociados a este servicio"
-            ErrorMessageGruposAsoc.Visible = True
         End If
 
         If oFavoritosService.esFavorito(CType(Session("Usuario"), Entities.Usuario).idUsuario, servicio.ID) Then

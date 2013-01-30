@@ -50,6 +50,51 @@ Partial Public Class DetalleServicio
     Protected WithEvents Favoritos As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''lblObservacionesServicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblObservacionesServicio As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ObservacionesServicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ObservacionesServicio As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''PrecioServicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents PrecioServicio As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ProveedorServicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ProveedorServicio As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''DireccionServicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DireccionServicio As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Label3 control.
     '''</summary>
     '''<remarks>
@@ -68,60 +113,6 @@ Partial Public Class DetalleServicio
     Protected WithEvents ZonaServicio As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''PrecioServicio control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents PrecioServicio As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Label6 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''ProveedorServicio control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ProveedorServicio As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Label7 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label7 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''DireccionServicio control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents DireccionServicio As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Label8 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label8 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''TelefonoServicio control.
     '''</summary>
     '''<remarks>
@@ -129,15 +120,6 @@ Partial Public Class DetalleServicio
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TelefonoServicio As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Label10 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label10 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''EmailServicio control.
@@ -149,94 +131,13 @@ Partial Public Class DetalleServicio
     Protected WithEvents EmailServicio As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Label12 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label12 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''ObservacionesServicio control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ObservacionesServicio As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Mensaje control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Mensaje As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''GruposAsociados control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents GruposAsociados As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''ErrorMessageGruposAsoc control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ErrorMessageGruposAsoc As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''DescripcionServicio control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents DescripcionServicio As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''VolveraBusqueda control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents VolveraBusqueda As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
     '''PedirTurno control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents PedirTurno As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''ErrorMessageExterno control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ErrorMessageExterno As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''DIVPedirTurno control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents DIVPedirTurno As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents PedirTurno As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''txtDatePicker control.
@@ -264,6 +165,51 @@ Partial Public Class DetalleServicio
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ErrorMessage As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Mensaje control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Mensaje As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''DescripcionServicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DescripcionServicio As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
+    '''GruposAsociados control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GruposAsociados As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''ErrorMessageExterno control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ErrorMessageExterno As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''DIVPedirTurno control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DIVPedirTurno As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''HorariosxDia control.

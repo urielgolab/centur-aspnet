@@ -9,7 +9,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div id="tabs">
+<div id="tabs">
 	<ul>
 		<li><a href="#elige-la-categoria">Elige la categoría</a></li>
 		<li><a href="#describe-el-servicio">Describe el servicio</a></li>

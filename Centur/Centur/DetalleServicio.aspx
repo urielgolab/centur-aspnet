@@ -32,6 +32,30 @@
         .favOn{
             background-position: 0px 0px;
         }
+        .article h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        #lblTelefono {
+            background-image: url('Images/phone.png');
+        }
+        #lblEmail {
+            background-image: url('Images/email.png');
+        }
+        #lblDireccion {
+            background-image: url('Images/google-places.png');
+        }        
+        .lblIcon{
+            display: inline-block;
+            float: left;
+            margin: 2px 5px 0 0;
+            width: 16px;
+            height: 16px;
+        }                
+        .labelDetalle {
+            
+        }
     </style>
 
     <script type="text/javascript">
@@ -41,37 +65,18 @@
             else
                 $(hideFilters).css('background-position', '224px 402px');
             $(filtrosAdicionales).toggle('slow');
-        }    
+        }
+        
+        $(function () {
+            $("#tabs").tabs();
+            $ID("PedirTurno").button();
+            $ID("txtDatePicker").datepicker({ dateFormat: 'dd/mm/yy', minDate: <%=servicio.MinOffset%>, maxDate: <%=servicio.MaxOffset%> });
+        });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-    <script type="text/javascript"> 
-        $(function () {
-            $("#MainContent_txtDatePicker").datepicker({ dateFormat: 'dd/mm/yy', minDate: <%=servicio.MinOffset%>, maxDate: <%=servicio.MaxOffset%> });
-        });
-    </script>
-    <%--<script type="text/javascript"> 
-        $(document).ready(function () {
-            //$('#DIVPedirTurno').hide();
-            $('#DIVVerHorarios').hide();
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#PedirTurno").click(function () {
-                $("#DIVPedirTurno").show();
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#VerHorarios").click(function () {
-                $("#DIVVerHorarios").show();
-            });
-        });
-    </script>--%>
 	<div id="Categoria" style="border-bottom: 1px solid #ccc;margin-top: 17px;overflow: hidden;padding: 5px 0;position: relative;width: 100%;">	
-		<a href="links.aspx"><asp:Label ID="CategoriaServicio" runat="server"></asp:Label></a>
+		<a href="BuscarServicio.aspx"><asp:Label ID="CategoriaServicio" runat="server" CssClass="linksBusqueda"></asp:Label></a>
 	</div>
 	<div class="imagenServicio" style="float: left;padding: 10px;" >
 		<asp:Image runat="server" ID="ImagenServicio" />
@@ -83,88 +88,71 @@
             <asp:LinkButton ID="Favoritos" runat="server" CssClass="iconoFavorito favOff" title="Agregar a favoritos"/>
         </div>
         <p>
-        <asp:Label CssClass="labelDetalle" ID="Label3" runat="server" Text="Zona:"></asp:Label>
-        <asp:Label CssClass="labelDetalleInfo" ID="ZonaServicio" runat="server"></asp:Label>
-        </p>
-        <div id="precioServicio" style="color: #900;font-size: 16px;font-weight: bold;"><asp:Label ID="PrecioServicio" runat="server" /></div>
-        <div class="article reputation"><h3>Reputación del vendedor</h3><dl class="meter">	<dt>Reputación:</dt>	<dd class="repLay ch-points-ltlb" aria-describedby="ch-layer-1" style="cursor: pointer;">	<p class="meter rep5"><span class="valueRep">3</span>/5</p>	<span class="repDescrip">	<span title="MercadoLíder Platinum" class="ch-ico ch-mercadolider-platinum" id="mlP">MercadoLíder Platinum</span>	</span>	</dd> </dl> </div>
-        <p>
-        <asp:Label CssClass="labelDetalle" ID="Label6" runat="server" Text="Proveedor:"></asp:Label>
-        <asp:Label CssClass="labelDetalleInfo" ID="ProveedorServicio" runat="server"></asp:Label>
-        </p>
-        <p>
-        <asp:Label CssClass="labelDetalle" ID="Label7" runat="server" Text="Direccion:"></asp:Label>
-        <asp:Label CssClass="labelDetalleInfo" ID="DireccionServicio" runat="server"></asp:Label>
-        </p>
-
-        <p>
-        <asp:Label CssClass="labelDetalle" ID="Label8" runat="server" Text="Telefono:"></asp:Label>
-        <asp:Label CssClass="labelDetalleInfo" ID="TelefonoServicio" runat="server"></asp:Label>
-        </p>
-        <p>
-        <asp:Label CssClass="labelDetalle" ID="Label10" runat="server" Text="Email:"></asp:Label>
-        <asp:Label CssClass="labelDetalleInfo" ID="EmailServicio" runat="server"></asp:Label>
-        </p>
-        <p>
-        <asp:Label CssClass="labelDetalle" ID="Label12" runat="server" Text="Observaciones:"></asp:Label>
+        <asp:Label CssClass="labelDetalle" ID="lblObservacionesServicio" runat="server" Text="Observaciones:"></asp:Label>
         <asp:Label CssClass="labelDetalleInfo" ID="ObservacionesServicio" runat="server"></asp:Label>
         </p>
-        
-        <asp:Label ID="Mensaje" runat="server"></asp:Label>
-
-         <p class="busqueda">Grupos asociados</p>
-
-
-        <div id="GruposAsociadosServ">
-            <asp:GridView ID="GruposAsociados" runat="server" AutoGenerateColumns="False" 
-                CellPadding="4" ForeColor="#333333" GridLines="None">
-                        <AlternatingRowStyle BackColor="White" />
-                        <Columns>
-                <asp:HyperLinkField DataTextField="Nombre" HeaderText="Nombre" DataNavigateUrlFormatString="DetalleGrupo.aspx?id={0}"
-                    DataNavigateUrlFields="ID" HeaderStyle-HorizontalAlign="Left" >
-<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-                            </asp:HyperLinkField>
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" 
-                                HeaderStyle-HorizontalAlign="Left" >
-<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-                            </asp:BoundField>
-            </Columns>
-                        <EditRowStyle BackColor="#2461BF" />
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#EFF3FB" />
-                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
-            </asp:GridView>
-            <p class="failureNotificationNegrita">
-            <asp:Label ID="ErrorMessageGruposAsoc" runat="server"></asp:Label>
+        <div id="precioServicio" style="color: #900;font-size: 16px;font-weight: bold;"><asp:Label ID="PrecioServicio" runat="server" /></div>
+        <div id="detalleProveedor" class="article reputation">
+            <h3 style="font-variant:normal;">Proveedor del servicio</h3>
+            <asp:Label CssClass="labelDetalleInfo" ID="ProveedorServicio" runat="server" style="text-transform: uppercase;"></asp:Label>
+            <div>
+                <div id="lblDireccion" class="lblIcon"></div>
+                <asp:Label CssClass="labelDetalleInfo" ID="DireccionServicio" runat="server"></asp:Label>
+            </div>
+            <div>
+                <asp:Label CssClass="labelDetalle" ID="Label3" runat="server" Text="Zona:"></asp:Label>
+                <asp:Label CssClass="labelDetalleInfo" ID="ZonaServicio" runat="server"></asp:Label>
+            </div>
+            <div>
+                <div id="lblTelefono" class="lblIcon"></div>
+                <asp:Label CssClass="labelDetalleInfo" ID="TelefonoServicio" runat="server"></asp:Label>
+            </div>        
+            <div style="clear: both;">
+                <div id="lblEmail" class="lblIcon"></div>
+                <asp:Label CssClass="labelDetalleInfo" ID="EmailServicio" runat="server"></asp:Label>
+            </div>
+        </div>
+        <div>
+            <asp:Button ID="PedirTurno" runat="server" Text="Pedir turno" />
+            <asp:TextBox CssClass="txtDatePicker" runat="server" ID="txtDatePicker"></asp:TextBox>
+            <asp:LinkButton CssClass="MarginLeft30" ID="VerHorarios" runat="server">Ver horarios</asp:LinkButton>
+            <p class="failureNotification">
+                <asp:Label ID="ErrorMessage" runat="server"></asp:Label>
             </p>
         </div>
     </div>
-    <div style="clear:both;">
-        <asp:Label CssClass="labelDetalleInfo" ID="DescripcionServicio" runat="server"></asp:Label>
-    </div> 
-
-   <div class="linksDetalleServicio2">   
-   
-   <asp:LinkButton ID="VolveraBusqueda" PostBackUrl="~/BuscarServicio.aspx" runat="server"> Volver </asp:LinkButton>
-         <asp:LinkButton CssClass="MarginLeft30" ID="PedirTurno" runat="server"> Pedir Turno </asp:LinkButton>
-        <%--<a href="#" class="MarginLeft30" id="PedirTurno">Pedir Turno</a>--%>
+    <div style="clear:both;"></div>
+    <div><asp:Label ID="Mensaje" runat="server"></asp:Label></div>
+    <div id="tabs" style="margin:10px;">
+	    <ul>
+		    <li><a href="#descripcion">Descripci&oacute;n</a></li>
+            <li><a href="#grupos-asociados">Grupos asociados</a></li>
+	    </ul>
+	    <div id="descripcion">
+            <asp:Literal ID="DescripcionServicio" runat="server"></asp:Literal>
+        </div>
+        <div id="grupos-asociados">
+            <div id="GruposAsociadosServ">
+                <asp:GridView ID="GruposAsociados" runat="server" AutoGenerateColumns="False" 
+                    CssClass="tbHorariosDia">
+                    <Columns>
+                        <asp:HyperLinkField DataTextField="Nombre" HeaderText="Nombre" DataNavigateUrlFormatString="DetalleGrupo.aspx?id={0}" DataNavigateUrlFields="ID" HeaderStyle-HorizontalAlign="Left" >
+                            <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                        </asp:HyperLinkField>
+                        <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" HeaderStyle-HorizontalAlign="Left" >
+                            <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                        </asp:BoundField>
+                    </Columns>
+                </asp:GridView>
+            </div>        
+        </div>
     </div>
-          <p class="failureNotification">
-            <asp:Label ID="ErrorMessageExterno" runat="server"></asp:Label>
-        </p>
 
-            <div id="DIVPedirTurno" runat="server">
-        <asp:TextBox CssClass="txtDatePicker" runat="server" ID="txtDatePicker"></asp:TextBox>
-        <asp:LinkButton CssClass="MarginLeft30" ID="VerHorarios" runat="server"> Ver Horarios </asp:LinkButton>
-        <p class="failureNotification">
-            <asp:Label ID="ErrorMessage" runat="server"></asp:Label>
-        </p>
+    <p class="failureNotification">
+        <asp:Label ID="ErrorMessageExterno" runat="server"></asp:Label>
+    </p>
+
+    <div id="DIVPedirTurno" runat="server">
         <asp:GridView CssClass="GrillaTurnosDisponibles" ID="HorariosxDia" runat="server" AutoGenerateColumns="False" 
                     CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
@@ -190,5 +178,12 @@
             </asp:ListView>
         </div>
     </div>
-
+    <script type="text/javascript">
+        $(function () {
+            if ($ID('GruposAsociados').size() == 0) {
+                $("#tabs").tabs('option', 'disabled', [1]);
+                $("#tabs ul :last-child").attr('title', 'No hay grupos asociados a este servicio')
+            }
+        });    
+    </script>
 </asp:Content>

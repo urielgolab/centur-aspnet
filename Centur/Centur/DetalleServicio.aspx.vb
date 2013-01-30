@@ -10,18 +10,13 @@ Public Class DetalleServicio
     Dim dc As New DC()
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'If Session("Usuario") Is Nothing Then
-        'Response.Redirect("ErrorPage.aspx")
-        'Else
-
-        'DivPedirTurno.Visible = False
-
         servicio = oBuscarServicioService.VerDetalleServicio(CInt(Request.QueryString("ServicioID")), CType(Session("Usuario"), Entities.Usuario).idUsuario)
+        Dim oServicio As Servicio = dc.Servicios.Single(Function(x) x.idServicio = servicio.ID)
 
         Me.NombreServicio.Text = servicio.Nombre
-        Me.CategoriaServicio.Text = dc.CategoriaObtenerPadre(dc.Servicios.Single(Function(x) x.idServicio = servicio.ID).idCategoria)
+        Me.CategoriaServicio.Text = dc.CategoriaObtenerPadre(oServicio.idCategoria)
         Me.DescripcionServicio.Text = servicio.Descripcion
-        Me.ZonaServicio.Text = servicio.Zona
+        Me.ZonaServicio.Text = dc.ZonaObtenerPadre(oServicio.idZona)
         Me.DescripcionServicio.Text = servicio.Descripcion
 
         PrecioServicio.Visible = servicio.Precio > 0

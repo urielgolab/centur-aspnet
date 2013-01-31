@@ -2,6 +2,11 @@
     CodeBehind="Registrer.aspx.vb" Inherits="Centur.Registrer" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <script type="text/javascript">
+        $(function () {
+            $ID("Registrarse").button();
+        });    
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Registración</h1>
@@ -74,7 +79,7 @@
         </fieldset>
         
         <p class="submitButton">
-            <asp:LinkButton ID="Registrarse" runat="server" Text="Registrarse" ValidationGroup="RegistrerUserValidationGroup"></asp:LinkButton>
+            <asp:Button ID="Registrarse" runat="server" Text="Registrarse" ValidationGroup="RegistrerUserValidationGroup" />
         </p>
         <p class="failureNotification">
             <asp:Label ID="ErrorMessage" runat="server"></asp:Label>

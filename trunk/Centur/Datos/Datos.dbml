@@ -25,9 +25,9 @@
       <Column Name="vigenciaDesde" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="vigenciaHasta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="Grilla_GrillaConfiguracionDia" Member="GrillaConfiguracionDias" ThisKey="idGrilla" OtherKey="idGrilla" Type="GrillaConfiguracionDia" />
-      <Association Name="Grilla_GrillaExepcion" Member="GrillaExepcions" ThisKey="idGrilla" OtherKey="idGrilla" Type="GrillaExepcion" />
       <Association Name="Grilla_ServicioGrilla" Member="ServicioGrillas" ThisKey="idGrilla" OtherKey="idGrilla" Type="ServicioGrilla" />
       <Association Name="Grilla_Turno" Member="Turnos" ThisKey="idGrilla" OtherKey="idGrilla" Type="Turno" />
+      <Association Name="Grilla_GrillaExepcion" Member="GrillaExepcions" ThisKey="idGrilla" OtherKey="idGrilla" Type="GrillaExepcion" />
     </Type>
   </Table>
   <Table Name="dbo.GrillaConfiguracionDia" Member="GrillaConfiguracionDias">
@@ -48,16 +48,6 @@
       <Column Name="capacidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="duracion" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="GrillaConfiguracionDia_GrillaConfiguracionHoraria" Member="GrillaConfiguracionDia" ThisKey="idConfiguracionDia" OtherKey="idConfiguracionDia" Type="GrillaConfiguracionDia" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.GrillaExepcion" Member="GrillaExepcions">
-    <Type Name="GrillaExepcion">
-      <Column Name="idExepcion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="idGrilla" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="fecha" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="horaInicio" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="horaFin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Grilla_GrillaExepcion" Member="Grilla" ThisKey="idGrilla" OtherKey="idGrilla" Type="Grilla" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Grupo" Member="Grupos">
@@ -179,6 +169,16 @@
       <Association Name="Categoria_Servicio" Member="Categoria" ThisKey="idCategoria" OtherKey="idCategoria" Type="Categoria" IsForeignKey="true" />
       <Association Name="Usuario_Servicio" Member="Usuario" ThisKey="idProveedor" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
       <Association Name="Zona_Servicio" Member="Zona" ThisKey="idZona" OtherKey="idZona" Type="Zona" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GrillaExepcion" Member="GrillaExepcions">
+    <Type Name="GrillaExepcion">
+      <Column Name="idExepcion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idGrilla" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="horaInicio" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="horaFin" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Association Name="Grilla_GrillaExepcion" Member="Grilla" ThisKey="idGrilla" OtherKey="idGrilla" Type="Grilla" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.CategoriaBuscar" Method="CategoriaBuscar">

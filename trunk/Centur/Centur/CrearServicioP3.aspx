@@ -398,6 +398,7 @@
 					<asp:BoundField DataField="idExepcion" 
 						HeaderText="idExepcion" InsertVisible="False" ReadOnly="True" 
 						SortExpression="idExepcion" Visible="False" />
+                    <asp:BoundField DataField="fecha" HeaderText="Fecha" DataFormatString="{0:dd/MM/yyyy}" />
 					<asp:BoundField DataField="horaInicio" HeaderText="Hora inicio" 
 						SortExpression="horaInicio" DataFormatString="{0:t}" />
 					<asp:BoundField DataField="horaFin" HeaderText="Hora fin" 
@@ -407,8 +408,7 @@
 							<asp:LinkButton ID="lnkExcepcionEliminar1" runat="server" CausesValidation="False" 
 								CommandName="Delete" Text="Eliminar"></asp:LinkButton></ItemTemplate></asp:TemplateField></Columns></asp:GridView></td></tr><tr>
 		<td align="right" colspan="2">
-			<asp:LinkButton ID="lnkAgregarOtraExcepcion" runat="server" Visible="True">(+) Agregar otra</asp:LinkButton></td></tr></table>
-            <asp:Table ID="tbExcepcion" runat="server" Visible="False" Width="650px">
+			<asp:LinkButton ID="lnkAgregarOtraExcepcion" runat="server" Visible="True">(+) Agregar otra</asp:LinkButton></td></tr></table><asp:Table ID="tbExcepcion" runat="server" Visible="False" Width="650px">
 	<asp:TableRow>
 		<asp:TableCell>
 			Fecha:

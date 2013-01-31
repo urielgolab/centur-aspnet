@@ -46,9 +46,6 @@ namespace Datos
     partial void InsertGrillaConfiguracionHoraria(GrillaConfiguracionHoraria instance);
     partial void UpdateGrillaConfiguracionHoraria(GrillaConfiguracionHoraria instance);
     partial void DeleteGrillaConfiguracionHoraria(GrillaConfiguracionHoraria instance);
-    partial void InsertGrillaExepcion(GrillaExepcion instance);
-    partial void UpdateGrillaExepcion(GrillaExepcion instance);
-    partial void DeleteGrillaExepcion(GrillaExepcion instance);
     partial void InsertGrupo(Grupo instance);
     partial void UpdateGrupo(Grupo instance);
     partial void DeleteGrupo(Grupo instance);
@@ -79,6 +76,9 @@ namespace Datos
     partial void InsertServicio(Servicio instance);
     partial void UpdateServicio(Servicio instance);
     partial void DeleteServicio(Servicio instance);
+    partial void InsertGrillaExepcion(GrillaExepcion instance);
+    partial void UpdateGrillaExepcion(GrillaExepcion instance);
+    partial void DeleteGrillaExepcion(GrillaExepcion instance);
     #endregion
 		
 		public DC(string connection) : 
@@ -142,14 +142,6 @@ namespace Datos
 			get
 			{
 				return this.GetTable<GrillaConfiguracionHoraria>();
-			}
-		}
-		
-		public System.Data.Linq.Table<GrillaExepcion> GrillaExepcions
-		{
-			get
-			{
-				return this.GetTable<GrillaExepcion>();
 			}
 		}
 		
@@ -230,6 +222,14 @@ namespace Datos
 			get
 			{
 				return this.GetTable<Servicio>();
+			}
+		}
+		
+		public System.Data.Linq.Table<GrillaExepcion> GrillaExepcions
+		{
+			get
+			{
+				return this.GetTable<GrillaExepcion>();
 			}
 		}
 		
@@ -969,11 +969,11 @@ namespace Datos
 		
 		private EntitySet<GrillaConfiguracionDia> _GrillaConfiguracionDias;
 		
-		private EntitySet<GrillaExepcion> _GrillaExepcions;
-		
 		private EntitySet<ServicioGrilla> _ServicioGrillas;
 		
 		private EntitySet<Turno> _Turnos;
+		
+		private EntitySet<GrillaExepcion> _GrillaExepcions;
 		
 		private bool serializing;
 		
@@ -1076,27 +1076,8 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grilla_GrillaExepcion", Storage="_GrillaExepcions", ThisKey="idGrilla", OtherKey="idGrilla")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
-		public EntitySet<GrillaExepcion> GrillaExepcions
-		{
-			get
-			{
-				if ((this.serializing 
-							&& (this._GrillaExepcions.HasLoadedOrAssignedValues == false)))
-				{
-					return null;
-				}
-				return this._GrillaExepcions;
-			}
-			set
-			{
-				this._GrillaExepcions.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grilla_ServicioGrilla", Storage="_ServicioGrillas", ThisKey="idGrilla", OtherKey="idGrilla")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5, EmitDefaultValue=false)]
 		public EntitySet<ServicioGrilla> ServicioGrillas
 		{
 			get
@@ -1115,7 +1096,7 @@ namespace Datos
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grilla_Turno", Storage="_Turnos", ThisKey="idGrilla", OtherKey="idGrilla")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7, EmitDefaultValue=false)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6, EmitDefaultValue=false)]
 		public EntitySet<Turno> Turnos
 		{
 			get
@@ -1130,6 +1111,25 @@ namespace Datos
 			set
 			{
 				this._Turnos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grilla_GrillaExepcion", Storage="_GrillaExepcions", ThisKey="idGrilla", OtherKey="idGrilla")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7, EmitDefaultValue=false)]
+		public EntitySet<GrillaExepcion> GrillaExepcions
+		{
+			get
+			{
+				if ((this.serializing 
+							&& (this._GrillaExepcions.HasLoadedOrAssignedValues == false)))
+				{
+					return null;
+				}
+				return this._GrillaExepcions;
+			}
+			set
+			{
+				this._GrillaExepcions.Assign(value);
 			}
 		}
 		
@@ -1165,18 +1165,6 @@ namespace Datos
 			entity.Grilla = null;
 		}
 		
-		private void attach_GrillaExepcions(GrillaExepcion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Grilla = this;
-		}
-		
-		private void detach_GrillaExepcions(GrillaExepcion entity)
-		{
-			this.SendPropertyChanging();
-			entity.Grilla = null;
-		}
-		
 		private void attach_ServicioGrillas(ServicioGrilla entity)
 		{
 			this.SendPropertyChanging();
@@ -1201,12 +1189,24 @@ namespace Datos
 			entity.Grilla = null;
 		}
 		
+		private void attach_GrillaExepcions(GrillaExepcion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Grilla = this;
+		}
+		
+		private void detach_GrillaExepcions(GrillaExepcion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Grilla = null;
+		}
+		
 		private void Initialize()
 		{
 			this._GrillaConfiguracionDias = new EntitySet<GrillaConfiguracionDia>(new Action<GrillaConfiguracionDia>(this.attach_GrillaConfiguracionDias), new Action<GrillaConfiguracionDia>(this.detach_GrillaConfiguracionDias));
-			this._GrillaExepcions = new EntitySet<GrillaExepcion>(new Action<GrillaExepcion>(this.attach_GrillaExepcions), new Action<GrillaExepcion>(this.detach_GrillaExepcions));
 			this._ServicioGrillas = new EntitySet<ServicioGrilla>(new Action<ServicioGrilla>(this.attach_ServicioGrillas), new Action<ServicioGrilla>(this.detach_ServicioGrillas));
 			this._Turnos = new EntitySet<Turno>(new Action<Turno>(this.attach_Turnos), new Action<Turno>(this.detach_Turnos));
+			this._GrillaExepcions = new EntitySet<GrillaExepcion>(new Action<GrillaExepcion>(this.attach_GrillaExepcions), new Action<GrillaExepcion>(this.detach_GrillaExepcions));
 			OnCreated();
 		}
 		
@@ -1680,223 +1680,6 @@ namespace Datos
 		private void Initialize()
 		{
 			this._GrillaConfiguracionDia = default(EntityRef<GrillaConfiguracionDia>);
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GrillaExepcion")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class GrillaExepcion : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idExepcion;
-		
-		private int _idGrilla;
-		
-		private System.DateTime _fecha;
-		
-		private System.Nullable<System.DateTime> _horaInicio;
-		
-		private System.Nullable<System.DateTime> _horaFin;
-		
-		private EntityRef<Grilla> _Grilla;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidExepcionChanging(int value);
-    partial void OnidExepcionChanged();
-    partial void OnidGrillaChanging(int value);
-    partial void OnidGrillaChanged();
-    partial void OnfechaChanging(System.DateTime value);
-    partial void OnfechaChanged();
-    partial void OnhoraInicioChanging(System.Nullable<System.DateTime> value);
-    partial void OnhoraInicioChanged();
-    partial void OnhoraFinChanging(System.Nullable<System.DateTime> value);
-    partial void OnhoraFinChanged();
-    #endregion
-		
-		public GrillaExepcion()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idExepcion", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public int idExepcion
-		{
-			get
-			{
-				return this._idExepcion;
-			}
-			set
-			{
-				if ((this._idExepcion != value))
-				{
-					this.OnidExepcionChanging(value);
-					this.SendPropertyChanging();
-					this._idExepcion = value;
-					this.SendPropertyChanged("idExepcion");
-					this.OnidExepcionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrilla", DbType="Int NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public int idGrilla
-		{
-			get
-			{
-				return this._idGrilla;
-			}
-			set
-			{
-				if ((this._idGrilla != value))
-				{
-					if (this._Grilla.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidGrillaChanging(value);
-					this.SendPropertyChanging();
-					this._idGrilla = value;
-					this.SendPropertyChanged("idGrilla");
-					this.OnidGrillaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha", DbType="Date NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.DateTime fecha
-		{
-			get
-			{
-				return this._fecha;
-			}
-			set
-			{
-				if ((this._fecha != value))
-				{
-					this.OnfechaChanging(value);
-					this.SendPropertyChanging();
-					this._fecha = value;
-					this.SendPropertyChanged("fecha");
-					this.OnfechaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaInicio", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<System.DateTime> horaInicio
-		{
-			get
-			{
-				return this._horaInicio;
-			}
-			set
-			{
-				if ((this._horaInicio != value))
-				{
-					this.OnhoraInicioChanging(value);
-					this.SendPropertyChanging();
-					this._horaInicio = value;
-					this.SendPropertyChanged("horaInicio");
-					this.OnhoraInicioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaFin", DbType="DateTime")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-		public System.Nullable<System.DateTime> horaFin
-		{
-			get
-			{
-				return this._horaFin;
-			}
-			set
-			{
-				if ((this._horaFin != value))
-				{
-					this.OnhoraFinChanging(value);
-					this.SendPropertyChanging();
-					this._horaFin = value;
-					this.SendPropertyChanged("horaFin");
-					this.OnhoraFinChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grilla_GrillaExepcion", Storage="_Grilla", ThisKey="idGrilla", OtherKey="idGrilla", IsForeignKey=true)]
-		public Grilla Grilla
-		{
-			get
-			{
-				return this._Grilla.Entity;
-			}
-			set
-			{
-				Grilla previousValue = this._Grilla.Entity;
-				if (((previousValue != value) 
-							|| (this._Grilla.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Grilla.Entity = null;
-						previousValue.GrillaExepcions.Remove(this);
-					}
-					this._Grilla.Entity = value;
-					if ((value != null))
-					{
-						value.GrillaExepcions.Add(this);
-						this._idGrilla = value.idGrilla;
-					}
-					else
-					{
-						this._idGrilla = default(int);
-					}
-					this.SendPropertyChanged("Grilla");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			this._Grilla = default(EntityRef<Grilla>);
 			OnCreated();
 		}
 		
@@ -4841,6 +4624,223 @@ namespace Datos
 		public void OnSerialized(StreamingContext context)
 		{
 			this.serializing = false;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GrillaExepcion")]
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class GrillaExepcion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idExepcion;
+		
+		private int _idGrilla;
+		
+		private System.DateTime _fecha;
+		
+		private System.TimeSpan _horaInicio;
+		
+		private System.TimeSpan _horaFin;
+		
+		private EntityRef<Grilla> _Grilla;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidExepcionChanging(int value);
+    partial void OnidExepcionChanged();
+    partial void OnidGrillaChanging(int value);
+    partial void OnidGrillaChanged();
+    partial void OnfechaChanging(System.DateTime value);
+    partial void OnfechaChanged();
+    partial void OnhoraInicioChanging(System.TimeSpan value);
+    partial void OnhoraInicioChanged();
+    partial void OnhoraFinChanging(System.TimeSpan value);
+    partial void OnhoraFinChanged();
+    #endregion
+		
+		public GrillaExepcion()
+		{
+			this.Initialize();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idExepcion", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int idExepcion
+		{
+			get
+			{
+				return this._idExepcion;
+			}
+			set
+			{
+				if ((this._idExepcion != value))
+				{
+					this.OnidExepcionChanging(value);
+					this.SendPropertyChanging();
+					this._idExepcion = value;
+					this.SendPropertyChanged("idExepcion");
+					this.OnidExepcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrilla", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public int idGrilla
+		{
+			get
+			{
+				return this._idGrilla;
+			}
+			set
+			{
+				if ((this._idGrilla != value))
+				{
+					if (this._Grilla.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidGrillaChanging(value);
+					this.SendPropertyChanging();
+					this._idGrilla = value;
+					this.SendPropertyChanged("idGrilla");
+					this.OnidGrillaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha", DbType="DateTime NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.DateTime fecha
+		{
+			get
+			{
+				return this._fecha;
+			}
+			set
+			{
+				if ((this._fecha != value))
+				{
+					this.OnfechaChanging(value);
+					this.SendPropertyChanging();
+					this._fecha = value;
+					this.SendPropertyChanged("fecha");
+					this.OnfechaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaInicio", DbType="Time NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public System.TimeSpan horaInicio
+		{
+			get
+			{
+				return this._horaInicio;
+			}
+			set
+			{
+				if ((this._horaInicio != value))
+				{
+					this.OnhoraInicioChanging(value);
+					this.SendPropertyChanging();
+					this._horaInicio = value;
+					this.SendPropertyChanged("horaInicio");
+					this.OnhoraInicioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaFin", DbType="Time NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+		public System.TimeSpan horaFin
+		{
+			get
+			{
+				return this._horaFin;
+			}
+			set
+			{
+				if ((this._horaFin != value))
+				{
+					this.OnhoraFinChanging(value);
+					this.SendPropertyChanging();
+					this._horaFin = value;
+					this.SendPropertyChanged("horaFin");
+					this.OnhoraFinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grilla_GrillaExepcion", Storage="_Grilla", ThisKey="idGrilla", OtherKey="idGrilla", IsForeignKey=true)]
+		public Grilla Grilla
+		{
+			get
+			{
+				return this._Grilla.Entity;
+			}
+			set
+			{
+				Grilla previousValue = this._Grilla.Entity;
+				if (((previousValue != value) 
+							|| (this._Grilla.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Grilla.Entity = null;
+						previousValue.GrillaExepcions.Remove(this);
+					}
+					this._Grilla.Entity = value;
+					if ((value != null))
+					{
+						value.GrillaExepcions.Add(this);
+						this._idGrilla = value.idGrilla;
+					}
+					else
+					{
+						this._idGrilla = default(int);
+					}
+					this.SendPropertyChanged("Grilla");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void Initialize()
+		{
+			this._Grilla = default(EntityRef<Grilla>);
+			OnCreated();
+		}
+		
+		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnDeserializing(StreamingContext context)
+		{
+			this.Initialize();
 		}
 	}
 	

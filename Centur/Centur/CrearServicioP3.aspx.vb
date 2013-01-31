@@ -77,9 +77,9 @@ Public Class CrearServicioP3
 
             With oGrillaExcepcion
                 .idGrilla = idGrilla
-                .fecha = Date.Now 'txtFechaExcep.Text
-                .horaInicio = txtHoraDesdeExcep.Text
-                .horaFin = txtHoraHastaExcep.Text
+                .fecha = Date.Parse(txtFechaExcep.Text)
+                .horaInicio = TimeSpan.Parse(txtHoraDesdeExcep.Text)
+                .horaFin = TimeSpan.Parse(txtHoraHastaExcep.Text)
             End With
 
             dc.GrillaExepcions.InsertOnSubmit(oGrillaExcepcion)
@@ -88,6 +88,7 @@ Public Class CrearServicioP3
             actualizarGrillaExcepciones()
             tbExcepcion.Visible = False
             lnkAgregarOtraExcepcion.Visible = True
+            blnGuardoDatos = True
         End If
 
         If blnEverithingOk And Not blnGuardoDatos Then
@@ -97,9 +98,11 @@ Public Class CrearServicioP3
             Response.Redirect("CrearServicioP4.aspx")
         End If
     End Sub
+
     Private Sub actualizarGrillaExcepciones()
-        grdExepciones.DataSource = dc.GrillaExepcions.Where(Function(x) x.idGrilla = idGrilla And x.fecha > Date.Today)
+        grdExepciones.DataSource = dc.GrillaExepcions.Where(Function(x) x.idGrilla = idGrilla And x.fecha >= Date.Today).OrderBy(Function(x) x.fecha)
         grdExepciones.DataBind()
+        grdExepciones.Visible = True
     End Sub
     Private Sub guardarHorarioDia(ByVal idGrilla As Integer, ByVal tbHorarioDia As Table)
         Dim numeroDia As String = tbHorarioDia.ID.Substring(tbHorarioDia.ID.Length - 1)
@@ -156,9 +159,6 @@ Public Class CrearServicioP3
 
         'Carga de excepciones
         actualizarGrillaExcepciones()
-
-
-
     End Sub
 
     Protected Sub grdHorarios1_RowDeleting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeleteEventArgs) Handles grdHorarios1.RowDeleting
@@ -320,7 +320,17 @@ Public Class CrearServicioP3
     End Sub
 
     Protected Sub lnkAgregarOtraExcepcion_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lnkAgregarOtraExcepcion.Click
+        btnSiguiente.Text = "Grabar"
         tbExcepcion.Visible = True
         lnkAgregarOtraExcepcion.Visible = False
+    End Sub
+
+    Protected Sub grdExepciones_RowDeleting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeleteEventArgs) Handles grdExepciones.RowDeleting
+        Dim idExcepcion As Integer = e.Keys(0)
+
+        dc.GrillaExepcions.DeleteOnSubmit(dc.GrillaExepcions.Single(Function(x) x.idExepcion = idExcepcion))
+        dc.SubmitChanges()
+
+        actualizarGrillaExcepciones()
     End Sub
 End Class

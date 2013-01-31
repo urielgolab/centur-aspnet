@@ -132,32 +132,6 @@
     <div id="divMessage" runat="server">
         <asp:Literal ID="ErrorMessage" runat="server" Visible="false"></asp:Literal>
     </div>    
-
-    <div id="tabs" style="margin:10px;">
-	    <ul>
-		    <li><a href="#descripcion">Descripci&oacute;n</a></li>
-            <li><a href="#grupos-asociados">Grupos asociados</a></li>
-	    </ul>
-	    <div id="descripcion">
-            <asp:Literal ID="DescripcionServicio" runat="server"></asp:Literal>
-        </div>
-        <div id="grupos-asociados">
-            <div id="GruposAsociadosServ">
-                <asp:GridView ID="GruposAsociados" runat="server" AutoGenerateColumns="False" 
-                    CssClass="tbHorariosDia">
-                    <Columns>
-                        <asp:HyperLinkField DataTextField="Nombre" HeaderText="Nombre" DataNavigateUrlFormatString="DetalleGrupo.aspx?id={0}" DataNavigateUrlFields="ID" HeaderStyle-HorizontalAlign="Left" >
-                            <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-                        </asp:HyperLinkField>
-                        <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" HeaderStyle-HorizontalAlign="Left" >
-                            <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-                        </asp:BoundField>
-                    </Columns>
-                </asp:GridView>
-            </div>        
-        </div>
-    </div>
-
     <div id="DIVPedirTurno" runat="server">
         <asp:GridView CssClass="GrillaTurnosDisponibles" ID="HorariosxDia" runat="server" AutoGenerateColumns="False" 
                     CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -179,9 +153,30 @@
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-        <div id="DIVVerHorarios">
-            <asp:ListView ID="HorariosxDia2" runat="server">
-            </asp:ListView>
+    </div>
+
+    <div id="tabs" style="margin:10px;clear: both;">
+	    <ul>
+		    <li><a href="#descripcion">Descripci&oacute;n</a></li>
+            <li><a href="#grupos-asociados">Grupos asociados</a></li>
+	    </ul>
+	    <div id="descripcion">
+            <asp:Literal ID="DescripcionServicio" runat="server"></asp:Literal>
+        </div>
+        <div id="grupos-asociados">
+            <div id="GruposAsociadosServ">
+                <asp:GridView ID="GruposAsociados" runat="server" AutoGenerateColumns="False" 
+                    CssClass="tbHorariosDia">
+                    <Columns>
+                        <asp:HyperLinkField DataTextField="Nombre" HeaderText="Nombre" DataNavigateUrlFormatString="DetalleGrupo.aspx?id={0}" DataNavigateUrlFields="ID" HeaderStyle-HorizontalAlign="Left" >
+                            <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                        </asp:HyperLinkField>
+                        <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" HeaderStyle-HorizontalAlign="Left" >
+                            <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                        </asp:BoundField>
+                    </Columns>
+                </asp:GridView>
+            </div>        
         </div>
     </div>
     <script type="text/javascript">

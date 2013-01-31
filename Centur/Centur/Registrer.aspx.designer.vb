@@ -164,7 +164,7 @@ Partial Public Class Registrer
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Registrarse As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents Registrarse As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''ErrorMessage control.

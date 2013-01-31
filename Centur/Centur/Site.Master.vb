@@ -13,9 +13,10 @@
 
             logout.Text = "Desloguearse [" + user.NombreUsuario.ToLower() + "]"
         Else
-            'Response.Redirect("Login.aspx")
+            If Page.Title <> "Login" Then
+                Response.Redirect("Login.aspx")
+            End If
         End If
-
     End Sub
 
     Public Sub ArmarMenu(ByVal TipoUsuario As String)

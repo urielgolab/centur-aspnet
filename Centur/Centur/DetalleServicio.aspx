@@ -58,9 +58,9 @@
         }
         .lblDatePicker
         {
-            background: #fff url(http://static.ak.fbcdn.net/rsrc.php/v2/yT/x/saFg5U_7LMd.png) 108px 50% no-repeat;
+            background: #fff url('Images/calendar-icon.png') 108px 50% no-repeat;
             border: 1px solid #bdc7d8;
-            color: #3b5998;
+            color: #4b6c9e;
             width: 130px;
             font-size: 1.5em;
         }
@@ -188,7 +188,7 @@
         $(function () {
             if ($ID('GruposAsociados').size() == 0) {
                 $("#tabs").tabs('option', 'disabled', [1]);
-                $("#tabs ul :last-child").attr('title', 'No hay grupos asociados a este servicio')
+                //$("#tabs ul :last-child").attr('title', 'No hay grupos asociados a este servicio')
             }
         });    
     </script>

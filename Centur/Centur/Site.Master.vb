@@ -13,7 +13,7 @@
 
             logout.Text = "Desloguearse [" + user.NombreUsuario.ToLower() + "]"
         Else
-            If Request.ServerVariables("URL") <> "/Login.aspx" AndAlso Request.ServerVariables("URL") <> "/Registrer.aspx" Then
+            If Page.Title <> "Login" Then ' AndAlso Request.ServerVariables("URL") <> "/Registrer.aspx" Then
                 Response.Redirect("Login.aspx")
             Else
                 Me.ArmarMenu("")

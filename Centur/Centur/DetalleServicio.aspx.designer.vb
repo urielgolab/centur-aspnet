@@ -176,24 +176,6 @@ Partial Public Class DetalleServicio
     Protected WithEvents ErrorMessage As Global.System.Web.UI.WebControls.Literal
 
     '''<summary>
-    '''DescripcionServicio control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents DescripcionServicio As Global.System.Web.UI.WebControls.Literal
-
-    '''<summary>
-    '''GruposAsociados control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents GruposAsociados As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
     '''DIVPedirTurno control.
     '''</summary>
     '''<remarks>
@@ -212,11 +194,20 @@ Partial Public Class DetalleServicio
     Protected WithEvents HorariosxDia As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''HorariosxDia2 control.
+    '''DescripcionServicio control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents HorariosxDia2 As Global.System.Web.UI.WebControls.ListView
+    Protected WithEvents DescripcionServicio As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
+    '''GruposAsociados control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GruposAsociados As Global.System.Web.UI.WebControls.GridView
 End Class

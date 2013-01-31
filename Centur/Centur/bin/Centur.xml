@@ -2311,22 +2311,6 @@ ErrorMessage control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.DetalleServicio.DescripcionServicio">
-	<summary>
-DescripcionServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.GruposAsociados">
-	<summary>
-GruposAsociados control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
 </member><member name="F:Centur.DetalleServicio.DIVPedirTurno">
 	<summary>
 DIVPedirTurno control.
@@ -2343,9 +2327,17 @@ HorariosxDia control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.DetalleServicio.HorariosxDia2">
+</member><member name="F:Centur.DetalleServicio.DescripcionServicio">
 	<summary>
-HorariosxDia2 control.
+DescripcionServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.GruposAsociados">
+	<summary>
+GruposAsociados control.
 </summary>
 	<remarks>
 Auto-generated field.

@@ -5,6 +5,12 @@
     <script src="Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
     <script src="Scripts/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
     <style type="text/css">
+        *
+        {
+            border:0;
+            margin:0;
+            padding:0;    
+        }   
         .article {
             border-top: 1px dotted #CCC;
             margin-bottom: 15px;
@@ -80,6 +86,25 @@
             $ID("PedirTurno").button();
             $ID("txtDatePicker").datepicker({ dateFormat: 'dd/mm/yy', minDate: <%=servicio.MinOffset%>, maxDate: <%=servicio.MaxOffset%> });
             $ID("VerHorarios").button();
+
+		    $ID("DIVPedirTurno").dialog({
+			    autoOpen: true,
+			    width: 400,
+			    buttons: [
+				    {
+					    text: "Aceptar",
+					    click: function() {
+						    $( this ).dialog( "close" );
+					    }
+				    },
+				    {
+					    text: "Cancelar",
+					    click: function() {
+						    $( this ).dialog( "close" );
+					    }
+				    }
+			    ]
+		    });
         });
     </script>
 </asp:Content>
@@ -132,26 +157,26 @@
     <div id="divMessage" runat="server">
         <asp:Literal ID="ErrorMessage" runat="server" Visible="false"></asp:Literal>
     </div>    
-    <div id="DIVPedirTurno" runat="server">
-        <asp:GridView CssClass="GrillaTurnosDisponibles" ID="HorariosxDia" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="4" ForeColor="#333333" GridLines="None">
-            <AlternatingRowStyle BackColor="White" />
+    <div id="DIVPedirTurno" runat="server" title="Horarios disponibles">
+        <asp:GridView CssClass="tbHorariosDia" ID="HorariosxDia" runat="server" 
+            AutoGenerateColumns="False">
             <Columns>
                 <%--<asp:CheckBoxField DataField="Disponible" HeaderText="Disponible" />--%>
-                <asp:BoundField DataField="horaInicio" HeaderText="Hora Inicio" HeaderStyle-HorizontalAlign="Left" />
-                <asp:BoundField DataField="horaFin" HeaderText="Hora Fin" HeaderStyle-HorizontalAlign="Left" />
-                <asp:HyperLinkField Text="Reservar Turno" HeaderText="Accion" HeaderStyle-HorizontalAlign="Left" DataNavigateUrlFormatString="ReservarTurno.aspx?horaInicio={0}&horaFin={1}&fecha={2}&servicioID={3}"  DataNavigateUrlFields="horaInicio, horaFin, fecha, servicioID" />
+                <asp:BoundField DataField="horaInicio" HeaderText="Hora Inicio" 
+                    HeaderStyle-HorizontalAlign="Left" >
+<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                </asp:BoundField>
+                <asp:BoundField DataField="horaFin" HeaderText="Hora Fin" 
+                    HeaderStyle-HorizontalAlign="Left" >
+<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                </asp:BoundField>
+                <asp:HyperLinkField Text="Reservar Turno" HeaderText="Accion" 
+                    HeaderStyle-HorizontalAlign="Left" 
+                    DataNavigateUrlFormatString="ReservarTurno.aspx?horaInicio={0}&horaFin={1}&fecha={2}&servicioID={3}"  
+                    DataNavigateUrlFields="horaInicio, horaFin, fecha, servicioID" >
+<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                </asp:HyperLinkField>
             </Columns>
-            <EditRowStyle BackColor="#2461BF" />
-            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#EFF3FB" />
-            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#F5F7FB" />
-            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-            <SortedDescendingCellStyle BackColor="#E9EBEF" />
-            <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
     </div>
 
@@ -187,4 +212,5 @@
             }
         });    
     </script>
+    <%--<asp:Literal ID="ltlAbrirGrillaHorarios" runat="server" Visible="false"></asp:Literal>--%>
 </asp:Content>

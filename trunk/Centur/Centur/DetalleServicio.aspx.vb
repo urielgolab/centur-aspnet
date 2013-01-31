@@ -77,6 +77,8 @@ Public Class DetalleServicio
                 HorariosxDia.DataSource = turnos
                 HorariosxDia.DataBind()
                 ErrorMessage.Visible = False
+                'ltlAbrirGrillaHorarios.Text = "<script  type='text/javascript'>$(function () { $ID('DIVPedirTurno').dialog('open');});</script>"
+                'ltlAbrirGrillaHorarios.Visible = True
             Else
                 ErrorMessage.Text = "No hay turnos disponibles dicho día"
                 ErrorMessage.Visible = True

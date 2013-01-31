@@ -131,13 +131,13 @@ Partial Public Class DetalleServicio
     Protected WithEvents EmailServicio As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''PedirTurno control.
+    '''reservarTurno control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents PedirTurno As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents reservarTurno As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''txtDatePicker control.
@@ -155,7 +155,16 @@ Partial Public Class DetalleServicio
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents VerHorarios As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents VerHorarios As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''divMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents divMessage As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''ErrorMessage control.
@@ -164,16 +173,7 @@ Partial Public Class DetalleServicio
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ErrorMessage As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Mensaje control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Mensaje As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents ErrorMessage As Global.System.Web.UI.WebControls.Literal
 
     '''<summary>
     '''DescripcionServicio control.
@@ -192,15 +192,6 @@ Partial Public Class DetalleServicio
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents GruposAsociados As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''ErrorMessageExterno control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ErrorMessageExterno As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''DIVPedirTurno control.

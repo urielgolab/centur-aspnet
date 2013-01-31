@@ -49,6 +49,21 @@ Public Class DetalleServicio
             Favoritos.CssClass = "iconoFavorito favOff"
         End If
 
+        If oBuscarServicioService.ClientePuedePedirTurno(servicio.ID, CType(Session("Usuario"), Entities.Usuario).idUsuario) Then
+            DIVPedirTurno.Visible = True
+            ErrorMessage.Visible = False
+        Else
+            ErrorMessage.Text = "<div class='ui-widget' style='margin: 10px;'>" &
+                 "<div class='ui-state-highlight ui-corner-all' style='margin-top: 20px; padding: 0 .7em;'>" &
+                     "<p><span class='ui-icon ui-icon-info' style='float: left; margin-right: .3em;'></span>" &
+                         "<strong>Servicio privado: </strong>Debe pertenecer a un grupo de autorizados para pedir un turno</p>" &
+                 "</div>" &
+                "</div>"
+            ErrorMessage.Visible = True
+            DIVPedirTurno.Visible = False
+            reservarTurno.Visible = False
+        End If
+
         DIVPedirTurno.Visible = False
 
     End Sub
@@ -77,30 +92,25 @@ Public Class DetalleServicio
         'llamar al service de Guido y mostrar un popup
         If Me.Favoritos.Attributes("title") = "Agregar a Favoritos" Then
             If oFavoritosService.AltaFavoritos(CType(Session("Usuario"), Entities.Usuario).idUsuario, servicio.ID) Then
-                Me.Mensaje.Text = "Agregado!!"
                 Me.Favoritos.Attributes.Add("title", "Quitar de Favoritos")
                 Favoritos.CssClass = "iconoFavorito favOn"
             End If
         Else
             If oFavoritosService.BajaFavoritos(CType(Session("Usuario"), Entities.Usuario).idUsuario, servicio.ID) Then
-                Me.Mensaje.Text = "Eliminado!!"
                 Me.Favoritos.Attributes.Add("title", "Agregar a Favoritos")
                 Favoritos.CssClass = "iconoFavorito favOff"
             End If
         End If
     End Sub
 
-    Private Sub PedirTurno_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles PedirTurno.Click
-        If oBuscarServicioService.ClientePuedePedirTurno(servicio.ID, CType(Session("Usuario"), Entities.Usuario).idUsuario) Then
-            DIVPedirTurno.Visible = True
-            ErrorMessageExterno.Visible = False
-        Else
-            ErrorMessageExterno.Text = "Debe estar inscripto en al menos un grupo para pedir un turno a este servicio"
-            ErrorMessageExterno.Visible = True
-            DIVPedirTurno.Visible = False
-        End If
-
-
-
-    End Sub
+    'Private Sub PedirTurno_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles PedirTurno.Click
+    '    If oBuscarServicioService.ClientePuedePedirTurno(servicio.ID, CType(Session("Usuario"), Entities.Usuario).idUsuario) Then
+    '        DIVPedirTurno.Visible = True
+    '        ErrorMessageExterno.Visible = False
+    '    Else
+    '        ErrorMessageExterno.Text = "Debe estar inscripto en al menos un grupo para pedir un turno a este servicio"
+    '        ErrorMessageExterno.Visible = True
+    '        DIVPedirTurno.Visible = False
+    '    End If
+    'End Sub
 End Class

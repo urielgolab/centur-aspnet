@@ -56,6 +56,14 @@
         .labelDetalle {
             
         }
+        .lblDatePicker
+        {
+            background: #fff url(http://static.ak.fbcdn.net/rsrc.php/v2/yT/x/saFg5U_7LMd.png) 108px 50% no-repeat;
+            border: 1px solid #bdc7d8;
+            color: #3b5998;
+            width: 130px;
+            font-size: 1.5em;
+        }
     </style>
 
     <script type="text/javascript">
@@ -71,6 +79,7 @@
             $("#tabs").tabs();
             $ID("PedirTurno").button();
             $ID("txtDatePicker").datepicker({ dateFormat: 'dd/mm/yy', minDate: <%=servicio.MinOffset%>, maxDate: <%=servicio.MaxOffset%> });
+            $ID("VerHorarios").button();
         });
     </script>
 </asp:Content>
@@ -112,17 +121,18 @@
                 <asp:Label CssClass="labelDetalleInfo" ID="EmailServicio" runat="server"></asp:Label>
             </div>
         </div>
-        <div>
-            <asp:Button ID="PedirTurno" runat="server" Text="Pedir turno" />
-            <asp:TextBox CssClass="txtDatePicker" runat="server" ID="txtDatePicker"></asp:TextBox>
-            <asp:LinkButton CssClass="MarginLeft30" ID="VerHorarios" runat="server">Ver horarios</asp:LinkButton>
-            <p class="failureNotification">
-                <asp:Label ID="ErrorMessage" runat="server"></asp:Label>
-            </p>
+        <div id="reservarTurno" runat="server" class="article reputation">
+            <h3 style="font-variant:normal;">Pedir turno</h3>
+            Cuándo? <asp:TextBox CssClass="lblDatePicker" runat="server" ID="txtDatePicker"></asp:TextBox>
+            <asp:Button ID="VerHorarios" runat="server" Text="Ver horarios" />
         </div>
     </div>
     <div style="clear:both;"></div>
-    <div><asp:Label ID="Mensaje" runat="server"></asp:Label></div>
+
+    <div id="divMessage" runat="server">
+        <asp:Literal ID="ErrorMessage" runat="server" Visible="false"></asp:Literal>
+    </div>    
+
     <div id="tabs" style="margin:10px;">
 	    <ul>
 		    <li><a href="#descripcion">Descripci&oacute;n</a></li>
@@ -147,10 +157,6 @@
             </div>        
         </div>
     </div>
-
-    <p class="failureNotification">
-        <asp:Label ID="ErrorMessageExterno" runat="server"></asp:Label>
-    </p>
 
     <div id="DIVPedirTurno" runat="server">
         <asp:GridView CssClass="GrillaTurnosDisponibles" ID="HorariosxDia" runat="server" AutoGenerateColumns="False" 

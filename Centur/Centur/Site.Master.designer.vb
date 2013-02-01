@@ -59,6 +59,15 @@ Partial Public Class Site1
     Protected WithEvents miCuenta As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''loginPage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents loginPage As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''NavigationMenu control.
     '''</summary>
     '''<remarks>

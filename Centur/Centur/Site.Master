@@ -60,6 +60,7 @@
                 </asp:LoginView>
             </div>--%>
             <div class="clear hideSkiplink">
+                <asp:Label runat="server" ID="loginPage"></asp:Label>
                 <asp:Menu ID="NavigationMenu" runat="server"  CssClass="menu"
                     EnableViewState="false" IncludeStyleBlock="False" Orientation="Horizontal">
                 </asp:Menu>

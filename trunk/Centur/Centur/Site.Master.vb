@@ -31,7 +31,7 @@
             'NavigationMenu.Items.Add(New MenuItem("Buscar Servicio", "Buscar Servicio", "", "BuscarServicio.aspx"))
         Else
             'Proveedor y Cliente
-            NavigationMenu.Items.Add(New MenuItem("Inicio", "Inicio", "", "Home.aspx"))
+            NavigationMenu.Items.Add(New MenuItem("Inicio", "Inicio", "", "Default.aspx"))
             NavigationMenu.Items.Add(New MenuItem("Mis Grupos", "Mis Grupos", "", "MisGrupos.aspx"))
             NavigationMenu.Items.Add(New MenuItem("Mis Turnos", "Mis Turnos", "", "MisTurnos.aspx"))
             NavigationMenu.Items.Add(New MenuItem("Buscar Servicio", "Buscar Servicio", "", "BuscarServicio.aspx"))

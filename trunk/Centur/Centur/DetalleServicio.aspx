@@ -109,7 +109,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
-	<div id="Categoria" style="border-bottom: 1px solid #ccc;margin-top: 17px;overflow: hidden;padding: 5px 0;position: relative;width: 100%;">	
+    <div id="Categoria" style="border-bottom: 1px solid #ccc;margin-top: 17px;overflow: hidden;padding: 5px 0;position: relative;width: 100%;">	
 		<a href="BuscarServicio.aspx"><asp:Label ID="CategoriaServicio" runat="server" CssClass="linksBusqueda"></asp:Label></a>
 	</div>
 	<div class="imagenServicio" style="float: left;padding: 10px;" >

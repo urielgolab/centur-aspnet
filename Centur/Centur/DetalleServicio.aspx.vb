@@ -50,13 +50,13 @@ Public Class DetalleServicio
         End If
 
         If oBuscarServicioService.ClientePuedePedirTurno(servicio.ID, CType(Session("Usuario"), Entities.Usuario).idUsuario) Then
-            DIVPedirTurno.Visible = True
+            'DIVPedirTurno.Visible = True
             ErrorMessage.Visible = False
         Else
             ErrorMessage.Text = "<div class='ui-widget' style='margin: 10px;'>" &
                  "<div class='ui-state-highlight ui-corner-all' style='margin-top: 20px; padding: 0 .7em;'>" &
-                     "<p><span class='ui-icon ui-icon-info' style='float: left; margin-right: .3em;'></span>" &
-                         "<strong>Servicio privado: </strong>Debe pertenecer a un grupo de autorizados para pedir un turno</p>" &
+                     "<div class='userMessage'><span class='ui-icon ui-icon-info' style='float: left; margin-right: .3em;'></span>" &
+                         "<strong>Servicio privado: </strong>Debe pertenecer a un grupo de autorizados para pedir un turno</div>" &
                  "</div>" &
                 "</div>"
             ErrorMessage.Visible = True
@@ -65,7 +65,6 @@ Public Class DetalleServicio
         End If
 
         DIVPedirTurno.Visible = False
-
     End Sub
 
   
@@ -79,15 +78,28 @@ Public Class DetalleServicio
                 ErrorMessage.Visible = False
                 'ltlAbrirGrillaHorarios.Text = "<script  type='text/javascript'>$(function () { $ID('DIVPedirTurno').dialog('open');});</script>"
                 'ltlAbrirGrillaHorarios.Visible = True
+                DIVPedirTurno.Visible = True
             Else
-                ErrorMessage.Text = "No hay turnos disponibles dicho día"
+                ErrorMessage.Text = "<div class='ui-widget' style='margin: 10px;'>" &
+                     "<div class='ui-state-error ui-corner-all' style='margin-top: 20px; padding: 0 .7em;'>" &
+                         "<div class='userMessage'><span class='ui-icon ui-icon-alert' style='float: left; margin-right: .3em;'></span>" &
+                             "No hay turnos disponibles dicho día</div>" &
+                     "</div>" &
+                    "</div>"
+                'ErrorMessage.Text = "No hay turnos disponibles dicho día"
                 ErrorMessage.Visible = True
             End If
+
         Else
-            ErrorMessage.Text = "Seleccione una fecha válida"
+            ErrorMessage.Text = "<div class='ui-widget' style='margin: 10px;'>" &
+                    "<div class='ui-state-error ui-corner-all' style='margin-top: 20px; padding: 0 .7em;'>" &
+                        "<div class='userMessage'><span class='ui-icon ui-icon-alert' style='float: left; margin-right: .3em;'></span>" &
+                            "Seleccione una fecha válida</div>" &
+                    "</div>" &
+                "</div>"
             ErrorMessage.Visible = True
         End If
-        DIVPedirTurno.Visible = True
+
     End Sub
 
     Private Sub Favoritos_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Favoritos.Click

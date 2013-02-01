@@ -70,6 +70,10 @@
             width: 130px;
             font-size: 1.5em;
         }
+        .userMessage
+        {
+            padding:10px;
+        }
     </style>
 
     <script type="text/javascript">

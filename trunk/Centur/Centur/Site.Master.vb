@@ -13,8 +13,9 @@
 
             logout.Text = "Desloguearse [" + user.NombreUsuario.ToLower() + "]"
         Else
+            loginPage.Text = Request.Url.AbsolutePath
             If Request.Url.AbsolutePath <> "/Login.aspx" Then 'AndAlso Request.Url.AbsolutePath <> "/Registrer.aspx" Then
-                Response.Redirect("Login.aspx")
+                'Response.Redirect("Login.aspx")
             Else
                 Me.ArmarMenu("")
             End If

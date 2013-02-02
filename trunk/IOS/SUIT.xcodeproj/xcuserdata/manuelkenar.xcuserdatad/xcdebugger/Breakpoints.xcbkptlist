@@ -476,11 +476,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SUIT/Controller/Resultados/ProveedorDetailViewController.m"
-         timestampString = "380394448.045363"
+         timestampString = "380412849.907777"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "144"
-         endingLineNumber = "144"
+         startingLineNumber = "149"
+         endingLineNumber = "149"
          landmarkName = "-loadData"
          landmarkType = "5">
       </FileBreakpoint>
@@ -638,6 +638,19 @@
          startingLineNumber = "115"
          endingLineNumber = "115"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SUIT/Model/Service/SRVBusqueda.m"
+         timestampString = "380413209.676794"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "263"
+         endingLineNumber = "263"
+         landmarkName = "-startsearchMisTurnos:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

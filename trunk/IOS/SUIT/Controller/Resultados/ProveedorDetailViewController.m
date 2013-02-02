@@ -12,6 +12,10 @@
 #import "FechaPikerViewController.h"
 #import "TurnosViewController.h"
 #import "GruposDeServicioViewController.h"
+#import "UIImageView+AFNetworking.h"
+
+
+#define BASE_IMAGE @"http://centur.ugserver.com.ar/UrielWeb/Images/publicaciones/%@"
 
 @interface ProveedorDetailViewController ()
 
@@ -140,9 +144,14 @@
 }
 
 -(void)loadData{
-    thumbsImage.image = [UIImage imageNamed:@"stationimage.png"];
+    //thumbsImage.image = [UIImage imageNamed:@"stationimage.png"];
+    [thumbsImage setImageWithURL: [NSURL URLWithString:[NSString stringWithFormat:BASE_IMAGE,proveedor.Imagen]]placeholderImage:[UIImage imageNamed:@"logoGrande.png"]];
+    
     nombreLabel.text = proveedor.Nombre;
     direccionLabel.text = proveedor.Direccion;
+    direccionLabel.numberOfLines = 0;
+
+    [direccionLabel sizeThatFits:CGSizeMake(direccionLabel.frame.size.width, 0)];
     descripcionTextView.text = proveedor.Descripcion;
     mapaButton.hidden =  !proveedor.isCoordinated;
     verGruposButton.hidden = YES;

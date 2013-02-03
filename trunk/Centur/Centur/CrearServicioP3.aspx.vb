@@ -72,7 +72,7 @@ Public Class CrearServicioP3
             End If
         Next
 
-        If tbExcepcion.Visible Then 'está cargando una excepción
+        If tbExcepcion.Visible And validarExcepcion() Then 'está cargando una excepción
             Dim oGrillaExcepcion As New GrillaExepcion
 
             With oGrillaExcepcion
@@ -98,6 +98,13 @@ Public Class CrearServicioP3
             Response.Redirect("CrearServicioP4.aspx")
         End If
     End Sub
+    Private Function validarExcepcion() As Boolean
+        If txtFechaExcep.Text = "" Then
+            Return False
+        End If
+
+        Return True
+    End Function
 
     Private Sub actualizarGrillaExcepciones()
         grdExepciones.DataSource = dc.GrillaExepcions.Where(Function(x) x.idGrilla = idGrilla And x.fecha >= Date.Today).OrderBy(Function(x) x.fecha)

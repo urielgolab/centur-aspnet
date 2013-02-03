@@ -17,7 +17,8 @@
             $("#tabs").tabs('option', 'disabled', [1, 2, 0]);
             $("#tabs").tabs("select", 3)
 
-            $('[id^="MainContent_txtDias"]').spinner({ max: 99, min: 0 });
+            $ID('txtDiasAntes').spinner({ max: 99, min: 0 });
+            $ID('txtDiasDespues').spinner({ max: 99, min: 1 });
             $('[id^="MainContent_txtPrecio"]').spinner({ max: 9999, min: 0 }); //, numberFormat: "C"
             $ID("btnFinalizar").button();
         });

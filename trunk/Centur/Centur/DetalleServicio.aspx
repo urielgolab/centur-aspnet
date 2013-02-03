@@ -88,19 +88,18 @@
         $(function () {
             $("#tabs").tabs();
             $ID("PedirTurno").button();
-            $ID("txtDatePicker").datepicker({ dateFormat: 'dd/mm/yy', minDate: <%=servicio.MinOffset%>, maxDate: <%=servicio.MaxOffset%> });
+            $ID("txtDatePicker").datepicker({ 
+                dateFormat: 'dd/mm/yy', 
+                minDate: <%=servicio.MinOffset%>, 
+                maxDate: <%=servicio.MaxOffset%>,
+                prevText: "",
+                nextText:"" });
             $ID("VerHorarios").button();
 
 		    $ID("DIVPedirTurno").dialog({
 			    autoOpen: true,
 			    width: 400,
 			    buttons: [
-				    {
-					    text: "Aceptar",
-					    click: function() {
-						    $( this ).dialog( "close" );
-					    }
-				    },
 				    {
 					    text: "Cancelar",
 					    click: function() {

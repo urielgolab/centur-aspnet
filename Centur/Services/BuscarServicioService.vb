@@ -16,7 +16,9 @@ Public Class BuscarServicioService
             oServicio.Nombre = CStr(dr("Nombre"))
             oServicio.Categoria = CStr(dr("Categoria"))
             oServicio.Zona = CStr(dr("Zona"))
-            oServicio.Imagen = CStr(dr("foto"))
+            If Not IsDBNull(dr("foto")) Then
+                oServicio.Imagen = CStr(dr("foto"))
+            End If
             oServicio.Precio = CType(dr("precio"), Double)
             oServicio.EsFavorito = CBool(dr("esFavorito"))
 

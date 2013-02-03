@@ -3,7 +3,7 @@
 
     Dim oLoginService As New Services.LoginService()
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub Page_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
         If Not Session("Usuario") Is Nothing Then
             Dim user As Entities.Usuario = Session("Usuario")
 

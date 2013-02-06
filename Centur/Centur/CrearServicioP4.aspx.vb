@@ -175,10 +175,10 @@ Public Class CrearServicioP4
                 If (oServicio.precioReserva.ToString() <> txtPrecioReserva.Text) Then
                     oServicio.precioReserva = CDbl(txtPrecioReserva.Text)
                 End If
-                If (oServicio.MercadoPago_ClientID.ToString() <> txtMPClienteID.Text) Then
+                If (txtMPClienteID.Text <> "") Then
                     oServicio.MercadoPago_ClientID = txtPrecioReserva.Text
                 End If
-                If (oServicio.MercadoPago_ClientSecret.ToString() <> txtMPClienteSecret.Text) Then
+                If (txtMPClienteSecret.Text <> "") Then
                     oServicio.MercadoPago_ClientSecret = txtMPClienteSecret.Text
                 End If
             End If

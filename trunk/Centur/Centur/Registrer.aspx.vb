@@ -16,7 +16,7 @@ Public Class Registrer
             Session("Usuario") = oUsuario
             'Mostrar mensaje de exito
 
-            Response.Redirect("~/Home.aspx")
+            Response.Redirect("~/Default.aspx")
         Else
             'Mostrar mensaje de error.
             ErrorMessage.Text = Mensaje

@@ -12,10 +12,8 @@ Public Class MisServicios
         If Not Request.QueryString("idServicio") Is Nothing Then
             Dim idServicio As Integer = CInt(Request.QueryString("idServicio"))
             dc.ServicioBorrar(idServicio, Nothing)
-
-            grdServicios.DataBind()
         End If
-
+        grdServicios.DataBind()
     End Sub
 
     Protected Sub btAgregarServicio_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btAgregarServicio.Click

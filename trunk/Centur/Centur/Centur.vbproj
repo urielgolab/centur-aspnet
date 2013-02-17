@@ -144,6 +144,16 @@
     <Content Include="ReservarTurnoProveedor.aspx" />
     <Content Include="Scripts\addressPicker.js" />
     <Content Include="Scripts\commonFunctions.js" />
+    <Content Include="Scripts\external\globalize.culture.de-DE.js" />
+    <Content Include="Scripts\external\globalize.culture.ja-JP.js" />
+    <Content Include="Scripts\external\globalize.js" />
+    <Content Include="Scripts\external\jquery.bgiframe-2.1.2.js" />
+    <Content Include="Scripts\external\jquery.cookie.js" />
+    <Content Include="Scripts\external\jquery.metadata.js" />
+    <Content Include="Scripts\external\jquery.mousewheel.js" />
+    <Content Include="Scripts\external\jshint.js" />
+    <Content Include="Scripts\external\qunit.css" />
+    <Content Include="Scripts\external\qunit.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.9.1.custom.js" />

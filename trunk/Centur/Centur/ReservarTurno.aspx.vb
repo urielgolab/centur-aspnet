@@ -17,12 +17,12 @@ Public Class ReservarTurno
         Dim ServicioID As Integer = CInt(Request.QueryString("servicioID"))
         Dim oTurno As Entities.Turno
 
-        Dim esProveedor As Boolean
-        If CType(Session("Usuario"), Entities.Usuario).TipoUsuario = "P" Then
-            esProveedor = True
-        Else
-            esProveedor = False
-        End If
+        'Dim esProveedor As Boolean
+        'If CType(Session("Usuario"), Entities.Usuario).TipoUsuario = "P" Then
+        '    esProveedor = True
+        'Else
+        '    esProveedor = False
+        'End If
 
         oServicio = dc.Servicios.Single(Function(x) x.idServicio = ServicioID)
 
@@ -31,7 +31,7 @@ Public Class ReservarTurno
                 Select Case Request.QueryString("MPStatus")
                     Case 1 'status ok
                         Status = False
-                        oTurno = oBuscarServicioService.ReservarTurno(ServicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, CType(Session("Usuario"), Entities.Usuario).idUsuario, esProveedor, Mensaje, Status)
+                        oTurno = oBuscarServicioService.ReservarTurno(ServicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, CType(Session("Usuario"), Entities.Usuario).idUsuario, False, Mensaje, Status)
                     Case Else 'fail or pending
                         Status = True
                         TurnoStatus.InnerText = "El pago del turno ha quedado pendiente. Comuníquese con el proveedor."
@@ -41,7 +41,7 @@ Public Class ReservarTurno
             End If
 
         Else
-            oTurno = oBuscarServicioService.ReservarTurno(ServicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, CType(Session("Usuario"), Entities.Usuario).idUsuario, esProveedor, Mensaje, Status)
+            oTurno = oBuscarServicioService.ReservarTurno(ServicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, CType(Session("Usuario"), Entities.Usuario).idUsuario, False, Mensaje, Status)
         End If
 
         If Not oTurno Is Nothing Then

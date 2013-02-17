@@ -84,7 +84,7 @@ Public Class CenturServiceREST
         Dim Mensaje As String = ""
         Dim Status As Boolean
 
-        Dim turno As Turno = oBuscarServicioService.ReservarTurno(servicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, usuarioID, esProveedor, Mensaje, Status)
+        Dim turno As Turno = oBuscarServicioService.ReservarTurno(servicioID, TurnoFecha, TurnoHoraInicio, TurnoHoraFin, usuarioID, False, Mensaje, Status)
 
         turno.horaFin = turno.horaFin.Replace(".", ":")
         turno.horaInicio = turno.horaInicio.Replace(".", ":")

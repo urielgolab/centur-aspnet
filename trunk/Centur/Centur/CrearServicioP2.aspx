@@ -166,18 +166,6 @@
                 <td><asp:TextBox ID="txtTitulo" runat="server" Width="500" placeholder="Ej.: Wimbledon Tenis Club con Estacionamiento, Buffet y 6 canchas." title="Usa palabras clave para que encuentren f&aacute;cilmente tu servicio."></asp:TextBox></td>
             </tr>
             <tr>
-                <td>Imagen: </td>
-                <td>
-                    <div id="photoUploader" style="border:1px solid lightblue;">
-                        <div style="float:left"><asp:FileUpload ID="fleImagenServicio" runat="server"/></div>
-                        <div>
-                            <asp:Image ID="imgFotoServicio" runat="server" ImageUrl="~/Images/photo_camera_up.png" style="float:right" />
-                        </div>
-                        <div style="clear: both;"></div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
                 <td>Direcci&oacute;n: *</td>
                 <td>
                     <asp:TextBox ID="txtDireccion" runat="server" placeholder="Ej.: Av. Corrientes 571, Buenos Aires" size="50px"></asp:TextBox>
@@ -207,6 +195,18 @@
                     </div>                
                 </td>
             </tr>
+            <tr>
+                <td>Imagen: </td>
+                <td>
+                    <div id="photoUploader" style="border:1px solid lightblue;">
+                        <div style="float:left"><asp:FileUpload ID="fleImagenServicio" runat="server"/></div>
+                        <div>
+                            <asp:Image ID="imgFotoServicio" runat="server" ImageUrl="~/Images/photo_camera_up.png" style="float:right" />
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </td>
+            </tr>			
             <tr>
                 <td colspan="2"><label for="description" id="lbl_description">Descripci&oacute;n: <span class="ch-form-hint optional">(opcional)</span></label></td>
             </tr>

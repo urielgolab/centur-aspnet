@@ -133,6 +133,7 @@ Public Class BuscarServicioService
                 oTurno.idTurno = dr("idTurno")
                 oTurno.horaInicio = dr("horaInicio").ToString().Substring(0, 5).Replace(":", ".")
                 oTurno.horaFin = dr("horaFin").ToString().Substring(0, 5).Replace(":", ".")
+                oTurno.Fecha = dr("fecha")
             End If
 
             Return oTurno

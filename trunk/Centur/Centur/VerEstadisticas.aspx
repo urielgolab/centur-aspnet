@@ -85,8 +85,8 @@
 
 <div class="EstadisticasHora">
     <p class="busqueda">Horario</p>
-    <p>Desde: <asp:TextBox CssClass="txtDatePicker" runat="server" ID="HoraDesde" MaxLength="5" Text="09:00"></asp:TextBox></p>
-    <p>Hasta: <asp:TextBox CssClass="txtDatePicker" runat="server" ID="HoraHasta" MaxLength="5" Text="18:00"></asp:TextBox></p>
+    <p>Desde: <asp:TextBox CssClass="txtDatePicker" runat="server" ID="HoraDesde" MaxLength="5"></asp:TextBox></p>
+    <p>Hasta: <asp:TextBox CssClass="txtDatePicker" runat="server" ID="HoraHasta" MaxLength="5"></asp:TextBox></p>
 </div>
 
 <div class="EstadisticasLinks">

@@ -64,10 +64,10 @@
         }
         .lblDatePicker
         {
-            background: #fff url('Images/calendar-icon.png') 108px 50% no-repeat;
+            background: #fff url('Images/calendar-icon.png') 120px 50% no-repeat;
             border: 1px solid #bdc7d8;
             color: #4b6c9e;
-            width: 130px;
+            width: 140px;
             font-size: 1.5em;
         }
         .userMessage

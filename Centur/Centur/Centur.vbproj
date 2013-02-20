@@ -97,6 +97,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Images\DeleteIcon.png" />
     <Content Include="Images\Edit-icon.png" />
+    <Content Include="Images\TildeVerde.jpg" />
     <Content Include="MisServicios.aspx" />
     <Content Include="CrearServicioP4.aspx" />
     <Content Include="CrearServicioP3.aspx" />

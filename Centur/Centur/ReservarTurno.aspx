@@ -2,9 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Reserva de Turnos</h1>
-
+    
     <asp:Literal ID="ltlMercadoPago" runat="server"></asp:Literal>
     
-    <label id="TurnoStatus" runat="server"></label> 
+    <label style="float:left; width:600px;" id="TurnoStatus" runat="server"></label> 
+    <br />
+    <img id="tildeCofirmacion" style="float:left;" src="Images/TildeVerde.jpg" />
+
 </asp:Content>

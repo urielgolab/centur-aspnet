@@ -3,6 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<label id="TurnoStatus" runat="server">Desde</label> 
+<label style="float:left; width:600px;" id="TurnoStatus" runat="server"></label> 
+ <br />
+<img id="tildeCofirmacion" style="float:left;" src="Images/TildeVerde.jpg" />
+
 
 </asp:Content>

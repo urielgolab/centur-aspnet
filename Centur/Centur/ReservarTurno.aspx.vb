@@ -46,7 +46,7 @@ Public Class ReservarTurno
 
         If Not oTurno Is Nothing Then
             If Not Status Then
-                TurnoStatus.InnerText = "Reservado!! De " + oTurno.horaInicio + " a " + oTurno.horaFin
+                TurnoStatus.InnerText = "El turno seleccionado ha sido reservado para el dia " + oTurno.Fecha + " desde " + oTurno.horaInicio + " hasta " + oTurno.horaFin + ". El mismo puede ser consultado luego en la sección 'Mis Turnos'."
             Else
                 TurnoStatus.InnerText = Mensaje
             End If

@@ -6,199 +6,15 @@ Centur
 </name>
 </assembly>
 <members>
-<member name="F:Centur.Default.mensaje">
+<member name="F:Centur.GrupoPendientes.pendientes">
 	<summary>
-mensaje control.
+pendientes control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.CrearServicioP1.lnkCategoriaPadre">
-	<summary>
-lnkCategoriaPadre control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP1.lstCategoria">
-	<summary>
-lstCategoria control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP1.btnSiguiente">
-	<summary>
-btnSiguiente control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.ReservarTurno.ltlMercadoPago">
-	<summary>
-ltlMercadoPago control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.ReservarTurno.TurnoStatus">
-	<summary>
-TurnoStatus control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.WebForm1.form1">
-	<summary>
-form1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.WebForm1.lblRespuesta">
-	<summary>
-lblRespuesta control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Login1.UserNameLabel">
-	<summary>
-UserNameLabel control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Login1.NombreUsuario">
-	<summary>
-NombreUsuario control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Login1.PasswordLabel">
-	<summary>
-PasswordLabel control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Login1.Password">
-	<summary>
-Password control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Login1.Entrar">
-	<summary>
-Entrar control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Login1.ErrorMessage">
-	<summary>
-ErrorMessage control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisTurnos.propios">
-	<summary>
-propios control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisTurnos.Label1">
-	<summary>
-Label1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisTurnos.DropDownListServiciosPropios">
-	<summary>
-DropDownListServiciosPropios control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisTurnos.ButtonAdmTurnos">
-	<summary>
-ButtonAdmTurnos control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisTurnos.tomados">
-	<summary>
-tomados control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisTurnos.divConfirmados">
-	<summary>
-divConfirmados control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisTurnos.Labelconfirmados">
-	<summary>
-Labelconfirmados control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisTurnos.GridConfirmados">
-	<summary>
-GridConfirmados control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisTurnos.divPendientes">
-	<summary>
-divPendientes control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisTurnos.Label2">
-	<summary>
-Label2 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisTurnos.GridPendientes">
+</member><member name="F:Centur.GrupoPendientes.GridPendientes">
 	<summary>
 GridPendientes control.
 </summary>
@@ -206,25 +22,65 @@ GridPendientes control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.MisTurnos.Label5">
+</member><member name="F:Centur.GrupoPendientes.ButtonAceptarSel">
 	<summary>
-Label5 control.
+ButtonAceptarSel control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.MisTurnos.Cancelar">
+</member><member name="F:Centur.GrupoPendientes.ButtonRechazarSel">
 	<summary>
-Cancelar control.
+ButtonRechazarSel control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.MisTurnos.labelNoReservados">
+</member><member name="F:Centur.GrupoPendientes.noPendientes">
 	<summary>
-labelNoReservados control.
+noPendientes control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.AsignarTurno.txtDatePicker">
+	<summary>
+txtDatePicker control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.AsignarTurno.VerHorarios">
+	<summary>
+VerHorarios control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.AsignarTurno.ErrorMessage">
+	<summary>
+ErrorMessage control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.AsignarTurno.HorariosxDia">
+	<summary>
+HorariosxDia control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.AsignarTurno.HorariosxDia2">
+	<summary>
+HorariosxDia2 control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -297,726 +153,6 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Centur.BuscarServicio.gridResultados">
 	<summary>
 gridResultados control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.txtDiasAntes">
-	<summary>
-txtDiasAntes control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.txtDiasDespues">
-	<summary>
-txtDiasDespues control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.txtPrecio">
-	<summary>
-txtPrecio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.chkPrivado">
-	<summary>
-chkPrivado control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.grdPrivacidadGrupos">
-	<summary>
-grdPrivacidadGrupos control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.tbServicioGrupo">
-	<summary>
-tbServicioGrupo control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.dpServicioGrupo">
-	<summary>
-dpServicioGrupo control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.btAgregarGrupo">
-	<summary>
-btAgregarGrupo control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.lnkAgregarOtroGrupo">
-	<summary>
-lnkAgregarOtroGrupo control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.chkConfirmarTurno">
-	<summary>
-chkConfirmarTurno control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.chkEnviarRecordatorio">
-	<summary>
-chkEnviarRecordatorio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.chkSobreturno">
-	<summary>
-chkSobreturno control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.chkMercadoPago">
-	<summary>
-chkMercadoPago control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.tbServicioMercadoPago">
-	<summary>
-tbServicioMercadoPago control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.txtPrecioReserva">
-	<summary>
-txtPrecioReserva control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.lnkMPCrearCredenciales">
-	<summary>
-lnkMPCrearCredenciales control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.txtMPClienteID">
-	<summary>
-txtMPClienteID control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.txtMPClienteSecret">
-	<summary>
-txtMPClienteSecret control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicioP4.btnFinalizar">
-	<summary>
-btnFinalizar control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Favoritos.GridResultadosFavoritos">
-	<summary>
-GridResultadosFavoritos control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Favoritos.Label1">
-	<summary>
-Label1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.UserNameLabel">
-	<summary>
-UserNameLabel control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.NombreUsuario">
-	<summary>
-NombreUsuario control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.Label3">
-	<summary>
-Label3 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.Nombre">
-	<summary>
-Nombre control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.Label4">
-	<summary>
-Label4 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.Apellido">
-	<summary>
-Apellido control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.EmailLabel">
-	<summary>
-EmailLabel control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.Email">
-	<summary>
-Email control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.PasswordLabel">
-	<summary>
-PasswordLabel control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.Password">
-	<summary>
-Password control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.ConfirmPasswordLabel">
-	<summary>
-ConfirmPasswordLabel control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.ConfirmPassword">
-	<summary>
-ConfirmPassword control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.Label1">
-	<summary>
-Label1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.Telefono">
-	<summary>
-Telefono control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.Label2">
-	<summary>
-Label2 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.TipoUsuario">
-	<summary>
-TipoUsuario control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.Registrarse">
-	<summary>
-Registrarse control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.Registrer.ErrorMessage">
-	<summary>
-ErrorMessage control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.ReservarTurnoProveedor.TurnoStatus">
-	<summary>
-TurnoStatus control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.AsignarTurno.txtDatePicker">
-	<summary>
-txtDatePicker control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.AsignarTurno.VerHorarios">
-	<summary>
-VerHorarios control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.AsignarTurno.ErrorMessage">
-	<summary>
-ErrorMessage control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.AsignarTurno.HorariosxDia">
-	<summary>
-HorariosxDia control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.AsignarTurno.HorariosxDia2">
-	<summary>
-HorariosxDia2 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.EditarGrupo.Label1">
-	<summary>
-Label1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.EditarGrupo.NombreGrupo">
-	<summary>
-NombreGrupo control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.EditarGrupo.Label2">
-	<summary>
-Label2 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.EditarGrupo.DescripGrupo">
-	<summary>
-DescripGrupo control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.EditarGrupo.servicios">
-	<summary>
-servicios control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.EditarGrupo.GridServicios">
-	<summary>
-GridServicios control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.EditarGrupo.Label5">
-	<summary>
-Label5 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.EditarGrupo.labelNoServicios">
-	<summary>
-labelNoServicios control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.EditarGrupo.miembros">
-	<summary>
-miembros control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.EditarGrupo.GridMiembros">
-	<summary>
-GridMiembros control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.EditarGrupo.Label3">
-	<summary>
-Label3 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.EditarGrupo.LabelNoMiembros">
-	<summary>
-LabelNoMiembros control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.EditarGrupo.ButtonEditGrupo">
-	<summary>
-ButtonEditGrupo control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.CategoriaServicio">
-	<summary>
-CategoriaServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.ImagenServicio">
-	<summary>
-ImagenServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.NombreServicio">
-	<summary>
-NombreServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.Favoritos">
-	<summary>
-Favoritos control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.lblObservacionesServicio">
-	<summary>
-lblObservacionesServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.ObservacionesServicio">
-	<summary>
-ObservacionesServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.PrecioServicio">
-	<summary>
-PrecioServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.ProveedorServicio">
-	<summary>
-ProveedorServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.DireccionServicio">
-	<summary>
-DireccionServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.Label3">
-	<summary>
-Label3 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.ZonaServicio">
-	<summary>
-ZonaServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.TelefonoServicio">
-	<summary>
-TelefonoServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.EmailServicio">
-	<summary>
-EmailServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.reservarTurno">
-	<summary>
-reservarTurno control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.txtDatePicker">
-	<summary>
-txtDatePicker control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.VerHorarios">
-	<summary>
-VerHorarios control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.divMessage">
-	<summary>
-divMessage control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.ErrorMessage">
-	<summary>
-ErrorMessage control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.DIVPedirTurno">
-	<summary>
-DIVPedirTurno control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.HorariosxDia">
-	<summary>
-HorariosxDia control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.DescripcionServicio">
-	<summary>
-DescripcionServicio control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.DetalleServicio.GruposAsociados">
-	<summary>
-GruposAsociados control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.GrupoPendientes.pendientes">
-	<summary>
-pendientes control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.GrupoPendientes.GridPendientes">
-	<summary>
-GridPendientes control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.GrupoPendientes.ButtonAceptarSel">
-	<summary>
-ButtonAceptarSel control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.GrupoPendientes.ButtonRechazarSel">
-	<summary>
-ButtonRechazarSel control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.GrupoPendientes.noPendientes">
-	<summary>
-noPendientes control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicio.lblCategorias">
-	<summary>
-lblCategorias control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicio.hidCategoriaPadre">
-	<summary>
-hidCategoriaPadre control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicio.lstCategoria">
-	<summary>
-lstCategoria control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearServicio.btnFinalizar">
-	<summary>
-btnFinalizar control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.ErrorPage.ErrorDescr">
-	<summary>
-ErrorDescr control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -1694,31 +830,7 @@ btnSiguiente control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.mobilePayment.form1">
-	<summary>
-form1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.mobilePayment.ltlMercadoPago">
-	<summary>
-ltlMercadoPago control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisGrupos.propios">
-	<summary>
-propios control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisGrupos.Label1">
+</member><member name="F:Centur.EditarGrupo.Label1">
 	<summary>
 Label1 control.
 </summary>
@@ -1726,39 +838,15 @@ Label1 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.MisGrupos.DropDownListGruposPropios">
+</member><member name="F:Centur.EditarGrupo.NombreGrupo">
 	<summary>
-DropDownListGruposPropios control.
+NombreGrupo control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.MisGrupos.ButtonVerDetalle">
-	<summary>
-ButtonVerDetalle control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisGrupos.ButtonCrearGrupo">
-	<summary>
-ButtonCrearGrupo control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisGrupos.ButtonSolPendientes">
-	<summary>
-ButtonSolPendientes control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisGrupos.Label2">
+</member><member name="F:Centur.EditarGrupo.Label2">
 	<summary>
 Label2 control.
 </summary>
@@ -1766,73 +854,193 @@ Label2 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.MisGrupos.DropDownListGruposAdheridos">
+</member><member name="F:Centur.EditarGrupo.DescripGrupo">
 	<summary>
-DropDownListGruposAdheridos control.
+DescripGrupo control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.MisGrupos.ButtonVerDetalleAd">
+</member><member name="F:Centur.EditarGrupo.servicios">
 	<summary>
-ButtonVerDetalleAd control.
+servicios control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.Site1.Head1">
+</member><member name="F:Centur.EditarGrupo.GridServicios">
 	<summary>
-Head1 control.
+GridServicios control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.Site1.HeadContent">
+</member><member name="F:Centur.EditarGrupo.Label5">
 	<summary>
-HeadContent control.
+Label5 control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.Site1.Form1">
+</member><member name="F:Centur.EditarGrupo.labelNoServicios">
 	<summary>
-Form1 control.
+labelNoServicios control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.Site1.logout">
+</member><member name="F:Centur.EditarGrupo.miembros">
 	<summary>
-logout control.
+miembros control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.Site1.miCuenta">
+</member><member name="F:Centur.EditarGrupo.GridMiembros">
 	<summary>
-miCuenta control.
+GridMiembros control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.Site1.NavigationMenu">
+</member><member name="F:Centur.EditarGrupo.Label3">
 	<summary>
-NavigationMenu control.
+Label3 control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.Site1.MainContent">
+</member><member name="F:Centur.EditarGrupo.LabelNoMiembros">
 	<summary>
-MainContent control.
+LabelNoMiembros control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.EditarGrupo.ButtonEditGrupo">
+	<summary>
+ButtonEditGrupo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.propios">
+	<summary>
+propios control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.Label1">
+	<summary>
+Label1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.DropDownListServiciosPropios">
+	<summary>
+DropDownListServiciosPropios control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.ButtonAdmTurnos">
+	<summary>
+ButtonAdmTurnos control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.tomados">
+	<summary>
+tomados control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.divConfirmados">
+	<summary>
+divConfirmados control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.Labelconfirmados">
+	<summary>
+Labelconfirmados control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.GridConfirmados">
+	<summary>
+GridConfirmados control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.divPendientes">
+	<summary>
+divPendientes control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.Label2">
+	<summary>
+Label2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.GridPendientes">
+	<summary>
+GridPendientes control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.Label5">
+	<summary>
+Label5 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.Cancelar">
+	<summary>
+Cancelar control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisTurnos.labelNoReservados">
+	<summary>
+labelNoReservados control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -1910,87 +1118,38 @@ btnSiguiente control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.CrearGrupo.Label1">
+</member><member name="F:Centur.CrearServicio.lblCategorias">
 	<summary>
-Label1 control.
+lblCategorias control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.CrearGrupo.NombreGrupo">
+</member><member name="F:Centur.CrearServicio.hidCategoriaPadre">
 	<summary>
-NombreGrupo control.
+hidCategoriaPadre control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.CrearGrupo.Label2">
+</member><member name="F:Centur.CrearServicio.lstCategoria">
 	<summary>
-Label2 control.
+lstCategoria control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.CrearGrupo.DescripGrupo">
+</member><member name="F:Centur.CrearServicio.btnFinalizar">
 	<summary>
-DescripGrupo control.
+btnFinalizar control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.CrearGrupo.ButtonCrear">
-	<summary>
-ButtonCrear control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.CrearGrupo.Success">
-	<summary>
-Success control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="P:Centur.My.MyWebExtension.Application">
-	<summary>
- Returns information about the current application.
- </summary>
-</member><member name="P:Centur.My.MyWebExtension.Computer">
-	<summary>
- Returns information about the host computer.
- </summary>
-</member><member name="P:Centur.My.MyWebExtension.User">
-	<summary>
- Returns information for the current Web user.
- </summary>
-</member><member name="P:Centur.My.MyWebExtension.Request">
-	<summary>
- Returns Request object.
- </summary>
-</member><member name="P:Centur.My.MyWebExtension.Response">
-	<summary>
- Returns Response object.
- </summary>
-</member><member name="P:Centur.My.MyWebExtension.Log">
-	<summary>
- Returns the Asp log object.
- </summary>
-</member><member name="P:Centur.My.MyWebExtension.WebServices">
-	<summary>
- Provides access to WebServices added to this project.
- </summary>
-</member><member name="T:Centur.My.MyWebExtension">
-	<summary>
- Module used to define the properties that are available in the My Namespace for Web projects.
- </summary>
-	<remarks></remarks>
 </member><member name="F:Centur.VerEstadisticas.Estadistica">
 	<summary>
 Estadistica control.
@@ -2066,6 +1225,334 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Centur.VerEstadisticas.lblResultado">
 	<summary>
 lblResultado control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Login1.UserNameLabel">
+	<summary>
+UserNameLabel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Login1.NombreUsuario">
+	<summary>
+NombreUsuario control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Login1.PasswordLabel">
+	<summary>
+PasswordLabel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Login1.Password">
+	<summary>
+Password control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Login1.Entrar">
+	<summary>
+Entrar control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Login1.ErrorMessage">
+	<summary>
+ErrorMessage control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.mobilePayment.form1">
+	<summary>
+form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.mobilePayment.ltlMercadoPago">
+	<summary>
+ltlMercadoPago control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Favoritos.GridResultadosFavoritos">
+	<summary>
+GridResultadosFavoritos control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Favoritos.Label1">
+	<summary>
+Label1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisServicios.grdServicios">
+	<summary>
+grdServicios control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisServicios.linqServicios">
+	<summary>
+linqServicios control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisServicios.btAgregarServicio">
+	<summary>
+btAgregarServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.UserNameLabel">
+	<summary>
+UserNameLabel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.NombreUsuario">
+	<summary>
+NombreUsuario control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.Label3">
+	<summary>
+Label3 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.Nombre">
+	<summary>
+Nombre control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.Label4">
+	<summary>
+Label4 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.Apellido">
+	<summary>
+Apellido control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.EmailLabel">
+	<summary>
+EmailLabel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.Email">
+	<summary>
+Email control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.PasswordLabel">
+	<summary>
+PasswordLabel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.Password">
+	<summary>
+Password control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.ConfirmPasswordLabel">
+	<summary>
+ConfirmPasswordLabel control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.ConfirmPassword">
+	<summary>
+ConfirmPassword control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.Label1">
+	<summary>
+Label1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.Telefono">
+	<summary>
+Telefono control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.Label2">
+	<summary>
+Label2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.TipoUsuario">
+	<summary>
+TipoUsuario control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.Registrarse">
+	<summary>
+Registrarse control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Registrer.ErrorMessage">
+	<summary>
+ErrorMessage control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Site1.Head1">
+	<summary>
+Head1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Site1.HeadContent">
+	<summary>
+HeadContent control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Site1.Form1">
+	<summary>
+Form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Site1.logout">
+	<summary>
+logout control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Site1.miCuenta">
+	<summary>
+miCuenta control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Site1.NavigationMenu">
+	<summary>
+NavigationMenu control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Site1.MainContent">
+	<summary>
+MainContent control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP1.lnkCategoriaPadre">
+	<summary>
+lnkCategoriaPadre control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP1.lstCategoria">
+	<summary>
+lstCategoria control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP1.btnSiguiente">
+	<summary>
+btnSiguiente control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -2191,25 +1678,9 @@ LabelNoPendientes control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:Centur.MisServicios.grdServicios">
+</member><member name="F:Centur.ReservarTurnoProveedor.TurnoStatus">
 	<summary>
-grdServicios control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisServicios.linqServicios">
-	<summary>
-linqServicios control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Centur.MisServicios.btAgregarServicio">
-	<summary>
-btAgregarServicio control.
+TurnoStatus control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -2338,6 +1809,527 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Centur.DetalleGrupo.ButtonSuprGrupo">
 	<summary>
 ButtonSuprGrupo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearGrupo.Label1">
+	<summary>
+Label1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearGrupo.NombreGrupo">
+	<summary>
+NombreGrupo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearGrupo.Label2">
+	<summary>
+Label2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearGrupo.DescripGrupo">
+	<summary>
+DescripGrupo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearGrupo.ButtonCrear">
+	<summary>
+ButtonCrear control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearGrupo.Success">
+	<summary>
+Success control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.ErrorPage.ErrorDescr">
+	<summary>
+ErrorDescr control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="P:Centur.My.MyWebExtension.Application">
+	<summary>
+ Returns information about the current application.
+ </summary>
+</member><member name="P:Centur.My.MyWebExtension.Computer">
+	<summary>
+ Returns information about the host computer.
+ </summary>
+</member><member name="P:Centur.My.MyWebExtension.User">
+	<summary>
+ Returns information for the current Web user.
+ </summary>
+</member><member name="P:Centur.My.MyWebExtension.Request">
+	<summary>
+ Returns Request object.
+ </summary>
+</member><member name="P:Centur.My.MyWebExtension.Response">
+	<summary>
+ Returns Response object.
+ </summary>
+</member><member name="P:Centur.My.MyWebExtension.Log">
+	<summary>
+ Returns the Asp log object.
+ </summary>
+</member><member name="P:Centur.My.MyWebExtension.WebServices">
+	<summary>
+ Provides access to WebServices added to this project.
+ </summary>
+</member><member name="T:Centur.My.MyWebExtension">
+	<summary>
+ Module used to define the properties that are available in the My Namespace for Web projects.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Centur.MisGrupos.propios">
+	<summary>
+propios control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisGrupos.Label1">
+	<summary>
+Label1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisGrupos.DropDownListGruposPropios">
+	<summary>
+DropDownListGruposPropios control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisGrupos.ButtonVerDetalle">
+	<summary>
+ButtonVerDetalle control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisGrupos.ButtonCrearGrupo">
+	<summary>
+ButtonCrearGrupo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisGrupos.ButtonSolPendientes">
+	<summary>
+ButtonSolPendientes control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisGrupos.Label2">
+	<summary>
+Label2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisGrupos.DropDownListGruposAdheridos">
+	<summary>
+DropDownListGruposAdheridos control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.MisGrupos.ButtonVerDetalleAd">
+	<summary>
+ButtonVerDetalleAd control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.ReservarTurno.ltlMercadoPago">
+	<summary>
+ltlMercadoPago control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.ReservarTurno.TurnoStatus">
+	<summary>
+TurnoStatus control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.WebForm1.form1">
+	<summary>
+form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.WebForm1.lblRespuesta">
+	<summary>
+lblRespuesta control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.Default.mensaje">
+	<summary>
+mensaje control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.txtDiasAntes">
+	<summary>
+txtDiasAntes control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.txtDiasDespues">
+	<summary>
+txtDiasDespues control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.txtPrecio">
+	<summary>
+txtPrecio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.chkPrivado">
+	<summary>
+chkPrivado control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.grdPrivacidadGrupos">
+	<summary>
+grdPrivacidadGrupos control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.tbServicioGrupo">
+	<summary>
+tbServicioGrupo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.dpServicioGrupo">
+	<summary>
+dpServicioGrupo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.btAgregarGrupo">
+	<summary>
+btAgregarGrupo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.lnkAgregarOtroGrupo">
+	<summary>
+lnkAgregarOtroGrupo control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.chkConfirmarTurno">
+	<summary>
+chkConfirmarTurno control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.chkEnviarRecordatorio">
+	<summary>
+chkEnviarRecordatorio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.chkSobreturno">
+	<summary>
+chkSobreturno control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.chkMercadoPago">
+	<summary>
+chkMercadoPago control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.tbServicioMercadoPago">
+	<summary>
+tbServicioMercadoPago control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.txtPrecioReserva">
+	<summary>
+txtPrecioReserva control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.txtMPClienteID">
+	<summary>
+txtMPClienteID control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.txtMPClienteSecret">
+	<summary>
+txtMPClienteSecret control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.CrearServicioP4.btnFinalizar">
+	<summary>
+btnFinalizar control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.CategoriaServicio">
+	<summary>
+CategoriaServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.ImagenServicio">
+	<summary>
+ImagenServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.NombreServicio">
+	<summary>
+NombreServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.Favoritos">
+	<summary>
+Favoritos control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.lblObservacionesServicio">
+	<summary>
+lblObservacionesServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.ObservacionesServicio">
+	<summary>
+ObservacionesServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.PrecioServicio">
+	<summary>
+PrecioServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.ProveedorServicio">
+	<summary>
+ProveedorServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.DireccionServicio">
+	<summary>
+DireccionServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.Label3">
+	<summary>
+Label3 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.ZonaServicio">
+	<summary>
+ZonaServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.TelefonoServicio">
+	<summary>
+TelefonoServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.EmailServicio">
+	<summary>
+EmailServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.reservarTurno">
+	<summary>
+reservarTurno control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.txtDatePicker">
+	<summary>
+txtDatePicker control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.VerHorarios">
+	<summary>
+VerHorarios control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.divMessage">
+	<summary>
+divMessage control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.ErrorMessage">
+	<summary>
+ErrorMessage control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.DIVPedirTurno">
+	<summary>
+DIVPedirTurno control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.HorariosxDia">
+	<summary>
+HorariosxDia control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.DescripcionServicio">
+	<summary>
+DescripcionServicio control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Centur.DetalleServicio.GruposAsociados">
+	<summary>
+GruposAsociados control.
 </summary>
 	<remarks>
 Auto-generated field.

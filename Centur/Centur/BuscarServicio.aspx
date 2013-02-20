@@ -102,7 +102,7 @@
             <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" 
                 HorizontalPadding="0px" VerticalPadding="0px" />
         </asp:TreeView>
-        <div style="float:left;">
+        <div style="float:left;clear: both;">
             <label class="filtrosBusqueda"> Precio desde </label>
             <div style="float:left;padding: 10px;">
                 <asp:TextBox runat="server" ID="precioDesde" />

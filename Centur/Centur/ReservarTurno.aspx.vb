@@ -37,7 +37,7 @@ Public Class ReservarTurno
                         TurnoStatus.InnerText = "El pago del turno ha quedado pendiente. Comuníquese con el proveedor."
                 End Select
             Else
-                buildPayment()
+                buildPayment(oServicio, CType(Session("Usuario"), Entities.Usuario))
             End If
 
         Else
@@ -61,16 +61,9 @@ Public Class ReservarTurno
         Return strReturn.Substring(0, strReturn.Length - 1)
     End Function
 
-    Private Sub buildPayment()
-        Dim idServicio As Integer = 13
-        Dim idUsuario As Integer = 1024
+    Private Sub buildPayment(ByVal oServicio As Datos.Servicio, ByVal oUsuario As Entities.Usuario)
 
-        If Request.QueryString("idServicio") <> "" AndAlso Request.QueryString("idUsuario") <> "" Then
-            idServicio = CInt(Request.QueryString("idServicio"))
-            idUsuario = CInt(Request.QueryString("idUsuario"))
-        End If
-
-        If idServicio > 0 Then
+        If Not oServicio Is Nothing Then
             'Dim cntPlaceHolder As ContentPlaceHolder = DirectCast(Master.FindControl("Form1"), Form)
 
 
@@ -79,8 +72,6 @@ Public Class ReservarTurno
             Page.Form.Action = "https://www.mercadopago.com/checkout/init"
             Page.Form.Enctype = "application/x-www-form-urlencoded"
             Page.Form.Target = ""
-
-            Dim oUsuario = dc.Usuarios.Single(Function(x) x.idUsuario = idUsuario)
 
             'Dim strClientID As String = "8419012852371072"
             'Dim strClientSecret As String = "wEqlohjSpu62st97OLubmOdPEdLQVu71"
@@ -97,9 +88,9 @@ Public Class ReservarTurno
             "<input type='hidden' name='item_currency_id' value='ARS'/>" &
             "<input type='hidden' name='item_unit_price' value='" + oServicio.precioReserva.ToString() + "'/>" &
             "" &
-            "<input type='hidden' name='payer_name' value='" + oUsuario.nombre + " " + oUsuario.apellido + "'/>" &
-            "<input type='hidden' name='payer_surname' value='" + oUsuario.nombreUsuario + "'/>" &
-            "<input type='hidden' name='payer_email' value='" + oUsuario.email + "'/>"
+            "<input type='hidden' name='payer_name' value='" + oUsuario.Nombre + " " + oUsuario.Apellido + "'/>" &
+            "<input type='hidden' name='payer_surname' value='" + oUsuario.NombreUsuario + "'/>" &
+            "<input type='hidden' name='payer_email' value='" + oUsuario.Email + "'/>"
             Dim strQueryString As String = rebuildQueryString()
             Dim baseURL As String = "http://centur.ugserver.com.ar/UrielWeb/" 'http://localhost:50931/
             strBoton += "<input type='hidden' name='item_picture_url' value='" + baseURL + "Images/publicaciones/" + oServicio.foto + ".jpg'/>" &

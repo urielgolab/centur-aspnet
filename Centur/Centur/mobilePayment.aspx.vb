@@ -5,8 +5,8 @@ Public Class mobilePayment
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then
-            Dim idServicio As Integer = 13
-            Dim idUsuario As Integer = 1024
+            Dim idServicio As Integer
+            Dim idUsuario As Integer
 
             If Request.QueryString("idServicio") <> "" AndAlso Request.QueryString("idUsuario") <> "" Then
                 idServicio = CInt(Request.QueryString("idServicio"))

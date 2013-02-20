@@ -42,7 +42,7 @@ Public Class mobilePayment
                 "<input type='hidden' name='payer_name' value='" + oUsuario.nombre + " " + oUsuario.apellido + "'/>" &
                 "<input type='hidden' name='payer_surname' value='" + oUsuario.nombreUsuario + "'/>" &
                 "<input type='hidden' name='payer_email' value='" + oUsuario.email + "'/>" &
-                "<input type='hidden' name='item_picture_url' value='http://centur.ugserver.com.ar/UrielWeb/Images/publicaciones/" + oServicio.foto + ".jpg'/>" &
+                "<input type='hidden' name='item_picture_url' value='http://centur.ugserver.com.ar/UrielWeb/Images/publicaciones/" + oServicio.foto + "'/>" &
                 "<input type='hidden' name='back_url_success' value='http://centur.ugserver.com.ar/UrielOK'/>" &
                 "<input type='hidden' name='back_url_pending' value='http://centur.ugserver.com.ar/UrielFAIL'/>" &
                 "" &

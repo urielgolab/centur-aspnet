@@ -93,7 +93,7 @@ Public Class ReservarTurno
             "<input type='hidden' name='payer_email' value='" + oUsuario.Email + "'/>"
             Dim strQueryString As String = rebuildQueryString()
             Dim baseURL As String = "http://centur.ugserver.com.ar/UrielWeb/" 'http://localhost:50931/
-            strBoton += "<input type='hidden' name='item_picture_url' value='" + baseURL + "Images/publicaciones/" + oServicio.foto + ".jpg'/>" &
+            strBoton += "<input type='hidden' name='item_picture_url' value='" + baseURL + "Images/publicaciones/" + oServicio.foto + "'/>" &
             "<input type='hidden' name='back_url_success' value='" + baseURL + "ReservarTurno.aspx?MPStatus=1" + strQueryString + "'/>" &
             "<input type='hidden' name='back_url_pending' value='" + baseURL + "ReservarTurno.aspx?MPStatus=0" + strQueryString + "'/>" &
             "" &

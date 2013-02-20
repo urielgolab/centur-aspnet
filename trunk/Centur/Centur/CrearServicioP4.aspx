@@ -104,7 +104,7 @@
 			                            Precio de reserva:&nbsp;<asp:TextBox ID="txtPrecioReserva" runat="server" Width="40" Text="0" title="Ingrese la se&ntilde;a"></asp:TextBox>
 		                            </asp:TableCell>
 		                            <asp:TableCell>
-                                        <asp:LinkButton ID="lnkMPCrearCredenciales" runat="server" PostBackUrl="https://www.mercadopago.com/mla/herramientas/aplicaciones">Obtener Credenciales</asp:LinkButton>
+                                        <a id="lnkMPCrearCredenciales" href="https://www.mercadopago.com/mla/herramientas/aplicaciones" target="_blank">Obtener Credenciales</a>
 		                            </asp:TableCell>		
 		                            <asp:TableCell title="Proporcionado por MercadoPago">
 			                            Client_Id:&nbsp;<asp:TextBox ID="txtMPClienteID" runat="server" Text="" Width="90" style="border:1px solid gray !important;"></asp:TextBox>

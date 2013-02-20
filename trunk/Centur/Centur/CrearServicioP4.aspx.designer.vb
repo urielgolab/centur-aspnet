@@ -149,15 +149,6 @@ Partial Public Class CrearServicioP4
     Protected WithEvents txtPrecioReserva As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''lnkMPCrearCredenciales control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lnkMPCrearCredenciales As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
     '''txtMPClienteID control.
     '''</summary>
     '''<remarks>
